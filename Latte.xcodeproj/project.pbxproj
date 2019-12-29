@@ -7,8 +7,140 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5218A5623B3A4D600E520FB /* Function.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5218A5423B3A4D600E520FB /* Function.cpp */; };
+		C5218A5723B3A4D600E520FB /* Function.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5218A5523B3A4D600E520FB /* Function.hpp */; };
+		C5218A5A23B3A56800E520FB /* FunctionType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5218A5823B3A56800E520FB /* FunctionType.cpp */; };
+		C5218A5B23B3A56800E520FB /* FunctionType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5218A5923B3A56800E520FB /* FunctionType.hpp */; };
+		C52F415F23B51AAE009B49CD /* FunctionInitializer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C52F415D23B51AAE009B49CD /* FunctionInitializer.cpp */; };
+		C52F416023B51AAE009B49CD /* FunctionInitializer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C52F415E23B51AAE009B49CD /* FunctionInitializer.hpp */; };
+		C52F416323B51CF7009B49CD /* FunctionRedeclarationError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C52F416123B51CF7009B49CD /* FunctionRedeclarationError.cpp */; };
+		C52F416423B51CF7009B49CD /* FunctionRedeclarationError.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C52F416223B51CF7009B49CD /* FunctionRedeclarationError.hpp */; };
+		C52F416723B520EF009B49CD /* NoSuchFunctionError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C52F416523B520EF009B49CD /* NoSuchFunctionError.cpp */; };
+		C52F416823B520EF009B49CD /* NoSuchFunctionError.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C52F416623B520EF009B49CD /* NoSuchFunctionError.hpp */; };
 		C547FECB23AE570900B21EAE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FECA23AE570900B21EAE /* main.cpp */; };
+		C547FED823AE571F00B21EAE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FED723AE571F00B21EAE /* main.cpp */; };
+		C547FEE323AE573D00B21EAE /* Logic.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C547FEE223AE573D00B21EAE /* Logic.hpp */; };
+		C547FEE523AE573D00B21EAE /* LogicPriv.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C547FEE423AE573D00B21EAE /* LogicPriv.hpp */; };
+		C547FEE723AE573D00B21EAE /* Logic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FEE623AE573D00B21EAE /* Logic.cpp */; };
+		C547FEEC23AE574F00B21EAE /* libLogic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C547FEE023AE573D00B21EAE /* libLogic.a */; };
+		C547FEF123AE576000B21EAE /* libLogic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C547FEE023AE573D00B21EAE /* libLogic.a */; };
+		C547FEF623AE586D00B21EAE /* Type.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FEF423AE586D00B21EAE /* Type.cpp */; };
+		C547FEF723AE586D00B21EAE /* Type.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C547FEF523AE586D00B21EAE /* Type.hpp */; };
+		C547FEFA23AE58C600B21EAE /* Environment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FEF823AE58C600B21EAE /* Environment.cpp */; };
+		C547FEFB23AE58C600B21EAE /* Environment.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C547FEF923AE58C600B21EAE /* Environment.hpp */; };
+		C547FF0A23AE60D500B21EAE /* TestUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FF0823AE60D500B21EAE /* TestUnit.cpp */; };
+		C547FF0D23AE60F400B21EAE /* TestCase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FF0B23AE60F400B21EAE /* TestCase.cpp */; };
+		C547FF1323AE65C900B21EAE /* VariableRedeclarationTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FF1123AE65C900B21EAE /* VariableRedeclarationTests.cpp */; };
+		C547FF1E23AE6DC900B21EAE /* StaticCheckError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FF1923AE6DC900B21EAE /* StaticCheckError.cpp */; };
+		C547FF1F23AE6DC900B21EAE /* VariableRedeclarationError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FF1B23AE6DC900B21EAE /* VariableRedeclarationError.cpp */; };
+		C547FF2023AE6DC900B21EAE /* VariableRedeclarationError.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C547FF1C23AE6DC900B21EAE /* VariableRedeclarationError.hpp */; };
+		C547FF2123AE6DC900B21EAE /* StaticCheckError.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C547FF1D23AE6DC900B21EAE /* StaticCheckError.hpp */; };
+		C547FF2423AE701B00B21EAE /* AllRedeclarationTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FF2223AE701B00B21EAE /* AllRedeclarationTests.cpp */; };
+		C547FF2723AE716400B21EAE /* AllStaticCheck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FF2523AE716400B21EAE /* AllStaticCheck.cpp */; };
+		C547FF2A23AE71B500B21EAE /* AllTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FF2823AE71B500B21EAE /* AllTests.cpp */; };
+		C547FF2E23AE887500B21EAE /* Variable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FF2C23AE887500B21EAE /* Variable.cpp */; };
+		C547FF2F23AE887500B21EAE /* Variable.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C547FF2D23AE887500B21EAE /* Variable.hpp */; };
+		C547FF3323AE916B00B21EAE /* EnvironmentTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FF3123AE916B00B21EAE /* EnvironmentTests.cpp */; };
+		C547FF3723AE92D600B21EAE /* TestMessageContainsInformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FF3523AE92D600B21EAE /* TestMessageContainsInformation.cpp */; };
+		C547FF3B23AEB52C00B21EAE /* LatteInt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FF3923AEB52C00B21EAE /* LatteInt.cpp */; };
+		C547FF3C23AEB52C00B21EAE /* LatteInt.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C547FF3A23AEB52C00B21EAE /* LatteInt.hpp */; };
+		C547FF3F23AEB81D00B21EAE /* LatteBool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FF3D23AEB81D00B21EAE /* LatteBool.cpp */; };
+		C547FF4023AEB81D00B21EAE /* LatteBool.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C547FF3E23AEB81D00B21EAE /* LatteBool.hpp */; };
+		C547FF4323AEB89C00B21EAE /* LatteVoid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FF4123AEB89C00B21EAE /* LatteVoid.cpp */; };
+		C547FF4423AEB89C00B21EAE /* LatteVoid.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C547FF4223AEB89C00B21EAE /* LatteVoid.hpp */; };
+		C547FF4723AEB8D100B21EAE /* LatteString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FF4523AEB8D100B21EAE /* LatteString.cpp */; };
+		C547FF4823AEB8D100B21EAE /* LatteString.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C547FF4623AEB8D100B21EAE /* LatteString.hpp */; };
+		C547FF4C23AEBC5E00B21EAE /* NoSuchTypeError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FF4A23AEBC5E00B21EAE /* NoSuchTypeError.cpp */; };
+		C547FF4D23AEBC5E00B21EAE /* NoSuchTypeError.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C547FF4B23AEBC5E00B21EAE /* NoSuchTypeError.hpp */; };
+		C547FF5023AEC09B00B21EAE /* AllEnvironment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FF4E23AEC09B00B21EAE /* AllEnvironment.cpp */; };
+		C553A38723B0028B00D45EBB /* AsmIntConstant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A38523B0028B00D45EBB /* AsmIntConstant.cpp */; };
+		C553A38823B0028B00D45EBB /* AsmIntConstant.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A38623B0028B00D45EBB /* AsmIntConstant.hpp */; };
+		C553A38F23B003BD00D45EBB /* AsmMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A38D23B003BD00D45EBB /* AsmMemory.cpp */; };
+		C553A39023B003BD00D45EBB /* AsmMemory.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A38E23B003BD00D45EBB /* AsmMemory.hpp */; };
+		C553A39523B0132400D45EBB /* AsmRegisterTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A39323B0132400D45EBB /* AsmRegisterTests.cpp */; };
+		C553A39823B0186200D45EBB /* AllAsmValuesTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A39623B0186200D45EBB /* AllAsmValuesTests.cpp */; };
+		C553A39B23B0188F00D45EBB /* AllAssemblerTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A39923B0188F00D45EBB /* AllAssemblerTests.cpp */; };
+		C553A39E23B01E8600D45EBB /* AsmIntConstantTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A39C23B01E8600D45EBB /* AsmIntConstantTests.cpp */; };
+		C553A3A123B0217000D45EBB /* AsmMemoryTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A39F23B0217000D45EBB /* AsmMemoryTests.cpp */; };
+		C553A3A523B02FF800D45EBB /* Statement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A3A323B02FF800D45EBB /* Statement.cpp */; };
+		C553A3A623B02FF800D45EBB /* Statement.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A3A423B02FF800D45EBB /* Statement.hpp */; };
+		C553A3A923B043C900D45EBB /* ReturnStatement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A3A723B043C900D45EBB /* ReturnStatement.cpp */; };
+		C553A3AA23B043C900D45EBB /* ReturnStatement.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A3A823B043C900D45EBB /* ReturnStatement.hpp */; };
+		C553A3AE23B0DA5900D45EBB /* InvalidType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A3AC23B0DA5900D45EBB /* InvalidType.cpp */; };
+		C553A3AF23B0DA5900D45EBB /* InvalidType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A3AD23B0DA5900D45EBB /* InvalidType.hpp */; };
+		C553A3B223B0DB5300D45EBB /* InvalidReturnType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A3B023B0DB5300D45EBB /* InvalidReturnType.cpp */; };
+		C553A3B323B0DB5300D45EBB /* InvalidReturnType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A3B123B0DB5300D45EBB /* InvalidReturnType.hpp */; };
+		C553A3B823B0DEB300D45EBB /* FunctionEnvironment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A3B623B0DEB300D45EBB /* FunctionEnvironment.cpp */; };
+		C553A3B923B0DEB300D45EBB /* FunctionEnvironment.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A3B723B0DEB300D45EBB /* FunctionEnvironment.hpp */; };
+		C553A3C623B0EA8F00D45EBB /* AsmInstruction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A3C423B0EA8F00D45EBB /* AsmInstruction.cpp */; };
+		C553A3C723B0EA8F00D45EBB /* AsmInstruction.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A3C523B0EA8F00D45EBB /* AsmInstruction.hpp */; };
+		C553A3CA23B0EAB800D45EBB /* AsmMov.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A3C823B0EAB800D45EBB /* AsmMov.cpp */; };
+		C553A3CB23B0EAB800D45EBB /* AsmMov.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A3C923B0EAB800D45EBB /* AsmMov.hpp */; };
+		C553A3CE23B0EB1500D45EBB /* AsmPush.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A3CC23B0EB1500D45EBB /* AsmPush.cpp */; };
+		C553A3CF23B0EB1500D45EBB /* AsmPush.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A3CD23B0EB1500D45EBB /* AsmPush.hpp */; };
+		C553A3D223B0EB4600D45EBB /* AsmSub.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A3D023B0EB4600D45EBB /* AsmSub.cpp */; };
+		C553A3D323B0EB4600D45EBB /* AsmSub.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A3D123B0EB4600D45EBB /* AsmSub.hpp */; };
+		C553A3D623B0EB9E00D45EBB /* AsmAdd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A3D423B0EB9E00D45EBB /* AsmAdd.cpp */; };
+		C553A3D723B0EB9E00D45EBB /* AsmAdd.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A3D523B0EB9E00D45EBB /* AsmAdd.hpp */; };
+		C553A3DA23B0EBF500D45EBB /* AsmPop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A3D823B0EBF500D45EBB /* AsmPop.cpp */; };
+		C553A3DB23B0EBF500D45EBB /* AsmPop.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A3D923B0EBF500D45EBB /* AsmPop.hpp */; };
+		C553A3DE23B0EC2D00D45EBB /* AsmRet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A3DC23B0EC2D00D45EBB /* AsmRet.cpp */; };
+		C553A3DF23B0EC2D00D45EBB /* AsmRet.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A3DD23B0EC2D00D45EBB /* AsmRet.hpp */; };
+		C553A3E723B0F16D00D45EBB /* AsmRegister.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A3E523B0F16D00D45EBB /* AsmRegister.cpp */; };
+		C553A3E823B0F16D00D45EBB /* AsmRegister.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A3E623B0F16D00D45EBB /* AsmRegister.hpp */; };
+		C553A3FB23B15D9200D45EBB /* Asm2Instruction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A3F923B15D9200D45EBB /* Asm2Instruction.cpp */; };
+		C553A3FC23B15D9200D45EBB /* Asm2Instruction.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A3FA23B15D9200D45EBB /* Asm2Instruction.hpp */; };
+		C553A3FF23B1617D00D45EBB /* Asm1Instruction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A3FD23B1617D00D45EBB /* Asm1Instruction.cpp */; };
+		C553A40023B1617D00D45EBB /* Asm1Instruction.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A3FE23B1617D00D45EBB /* Asm1Instruction.hpp */; };
+		C56B508623AF7FA700C56FF2 /* NoSuchVariableError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B508423AF7FA700C56FF2 /* NoSuchVariableError.cpp */; };
+		C56B508723AF7FA700C56FF2 /* NoSuchVariableError.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56B508523AF7FA700C56FF2 /* NoSuchVariableError.hpp */; };
+		C56B508B23AF808C00C56FF2 /* NoSuchTypeErrorTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B508923AF808C00C56FF2 /* NoSuchTypeErrorTests.cpp */; };
+		C56B508E23AF811D00C56FF2 /* AllUndefinedTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B508C23AF811D00C56FF2 /* AllUndefinedTests.cpp */; };
+		C56B509123AF81F700C56FF2 /* NoSuchVariableErrorTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B508F23AF81F700C56FF2 /* NoSuchVariableErrorTests.cpp */; };
+		C56B509623AF8ABF00C56FF2 /* LatteIntTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B509423AF8ABF00C56FF2 /* LatteIntTests.cpp */; };
+		C56B509923AF8C9D00C56FF2 /* AllBuiltinTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B509723AF8C9D00C56FF2 /* AllBuiltinTypes.cpp */; };
+		C56B509C23AF8D0300C56FF2 /* AllTypesTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B509A23AF8D0300C56FF2 /* AllTypesTests.cpp */; };
+		C56B509F23AF8D8C00C56FF2 /* LatteBoolTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B509D23AF8D8C00C56FF2 /* LatteBoolTests.cpp */; };
+		C56B50A223AF8E5200C56FF2 /* LatteStringTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B50A023AF8E5200C56FF2 /* LatteStringTests.cpp */; };
+		C56B50A523AF8F1B00C56FF2 /* LatteVoidTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B50A323AF8F1B00C56FF2 /* LatteVoidTests.cpp */; };
+		C56B50A923AF9AF900C56FF2 /* AstNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B50A723AF9AF900C56FF2 /* AstNode.cpp */; };
+		C56B50AA23AF9AF900C56FF2 /* AstNode.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56B50A823AF9AF900C56FF2 /* AstNode.hpp */; };
+		C56B50AF23AF9CD400C56FF2 /* Expression.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B50AD23AF9CD400C56FF2 /* Expression.cpp */; };
+		C56B50B023AF9CD400C56FF2 /* Expression.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56B50AE23AF9CD400C56FF2 /* Expression.hpp */; };
+		C56B50B423AFA02700C56FF2 /* IntConstant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B50B223AFA02700C56FF2 /* IntConstant.cpp */; };
+		C56B50B523AFA02700C56FF2 /* IntConstant.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56B50B323AFA02700C56FF2 /* IntConstant.hpp */; };
+		C56B50BB23AFA12A00C56FF2 /* IntConstantTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B50B923AFA12A00C56FF2 /* IntConstantTests.cpp */; };
+		C56B50BE23AFA2B500C56FF2 /* AllConstantsTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B50BC23AFA2B500C56FF2 /* AllConstantsTests.cpp */; };
+		C56B50C123AFA30500C56FF2 /* AllExpressionsTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B50BF23AFA30500C56FF2 /* AllExpressionsTests.cpp */; };
+		C56B50C423AFA35000C56FF2 /* AllAstTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B50C223AFA35000C56FF2 /* AllAstTests.cpp */; };
+		C56B50C723AFA41100C56FF2 /* BoolConstant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B50C523AFA41100C56FF2 /* BoolConstant.cpp */; };
+		C56B50C823AFA41100C56FF2 /* BoolConstant.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56B50C623AFA41100C56FF2 /* BoolConstant.hpp */; };
+		C56B50CB23AFA68D00C56FF2 /* BoolConstantTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B50C923AFA68D00C56FF2 /* BoolConstantTests.cpp */; };
+		C56B50CE23AFA76500C56FF2 /* StringConstant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B50CC23AFA76500C56FF2 /* StringConstant.cpp */; };
+		C56B50CF23AFA76500C56FF2 /* StringConstant.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56B50CD23AFA76500C56FF2 /* StringConstant.hpp */; };
+		C56B50D223AFA7CD00C56FF2 /* StringConstantTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B50D023AFA7CD00C56FF2 /* StringConstantTests.cpp */; };
+		C575EAC723AFC926006BCFEF /* AssemblerValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C575EAC523AFC926006BCFEF /* AssemblerValue.cpp */; };
+		C575EAC823AFC926006BCFEF /* AssemblerValue.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C575EAC623AFC926006BCFEF /* AssemblerValue.hpp */; };
+		C5A45CF023B4EE17008EAC8F /* GlobalEnvironment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5A45CEE23B4EE17008EAC8F /* GlobalEnvironment.cpp */; };
+		C5A45CF123B4EE17008EAC8F /* GlobalEnvironment.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5A45CEF23B4EE17008EAC8F /* GlobalEnvironment.hpp */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C547FEED23AE575600B21EAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C547FEBF23AE570900B21EAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C547FEDF23AE573D00B21EAE;
+			remoteInfo = Logic;
+		};
+		C547FEEF23AE575B00B21EAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C547FEBF23AE570900B21EAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C547FEDF23AE573D00B21EAE;
+			remoteInfo = Logic;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C547FEC523AE570900B21EAE /* CopyFiles */ = {
@@ -20,15 +152,185 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		C547FED323AE571F00B21EAE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C5218A5423B3A4D600E520FB /* Function.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Function.cpp; sourceTree = "<group>"; };
+		C5218A5523B3A4D600E520FB /* Function.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Function.hpp; sourceTree = "<group>"; };
+		C5218A5823B3A56800E520FB /* FunctionType.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FunctionType.cpp; sourceTree = "<group>"; };
+		C5218A5923B3A56800E520FB /* FunctionType.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FunctionType.hpp; sourceTree = "<group>"; };
+		C52F415D23B51AAE009B49CD /* FunctionInitializer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FunctionInitializer.cpp; sourceTree = "<group>"; };
+		C52F415E23B51AAE009B49CD /* FunctionInitializer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FunctionInitializer.hpp; sourceTree = "<group>"; };
+		C52F416123B51CF7009B49CD /* FunctionRedeclarationError.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FunctionRedeclarationError.cpp; sourceTree = "<group>"; };
+		C52F416223B51CF7009B49CD /* FunctionRedeclarationError.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FunctionRedeclarationError.hpp; sourceTree = "<group>"; };
+		C52F416523B520EF009B49CD /* NoSuchFunctionError.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NoSuchFunctionError.cpp; sourceTree = "<group>"; };
+		C52F416623B520EF009B49CD /* NoSuchFunctionError.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NoSuchFunctionError.hpp; sourceTree = "<group>"; };
 		C547FEC723AE570900B21EAE /* Latte */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Latte; sourceTree = BUILT_PRODUCTS_DIR; };
 		C547FECA23AE570900B21EAE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C547FED523AE571F00B21EAE /* Tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Tests; sourceTree = BUILT_PRODUCTS_DIR; };
+		C547FED723AE571F00B21EAE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C547FEE023AE573D00B21EAE /* libLogic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLogic.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C547FEE223AE573D00B21EAE /* Logic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Logic.hpp; sourceTree = "<group>"; };
+		C547FEE423AE573D00B21EAE /* LogicPriv.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LogicPriv.hpp; sourceTree = "<group>"; };
+		C547FEE623AE573D00B21EAE /* Logic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Logic.cpp; sourceTree = "<group>"; };
+		C547FEF423AE586D00B21EAE /* Type.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Type.cpp; sourceTree = "<group>"; };
+		C547FEF523AE586D00B21EAE /* Type.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Type.hpp; sourceTree = "<group>"; };
+		C547FEF823AE58C600B21EAE /* Environment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Environment.cpp; sourceTree = "<group>"; };
+		C547FEF923AE58C600B21EAE /* Environment.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Environment.hpp; sourceTree = "<group>"; };
+		C547FF0823AE60D500B21EAE /* TestUnit.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestUnit.cpp; sourceTree = "<group>"; };
+		C547FF0923AE60D500B21EAE /* TestUnit.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestUnit.hpp; sourceTree = "<group>"; };
+		C547FF0B23AE60F400B21EAE /* TestCase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestCase.cpp; sourceTree = "<group>"; };
+		C547FF0C23AE60F400B21EAE /* TestCase.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestCase.hpp; sourceTree = "<group>"; };
+		C547FF1123AE65C900B21EAE /* VariableRedeclarationTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VariableRedeclarationTests.cpp; sourceTree = "<group>"; };
+		C547FF1223AE65C900B21EAE /* VariableRedeclarationTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VariableRedeclarationTests.hpp; sourceTree = "<group>"; };
+		C547FF1923AE6DC900B21EAE /* StaticCheckError.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StaticCheckError.cpp; sourceTree = "<group>"; };
+		C547FF1B23AE6DC900B21EAE /* VariableRedeclarationError.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VariableRedeclarationError.cpp; sourceTree = "<group>"; };
+		C547FF1C23AE6DC900B21EAE /* VariableRedeclarationError.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VariableRedeclarationError.hpp; sourceTree = "<group>"; };
+		C547FF1D23AE6DC900B21EAE /* StaticCheckError.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StaticCheckError.hpp; sourceTree = "<group>"; };
+		C547FF2223AE701B00B21EAE /* AllRedeclarationTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AllRedeclarationTests.cpp; sourceTree = "<group>"; };
+		C547FF2323AE701B00B21EAE /* AllRedeclarationTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AllRedeclarationTests.hpp; sourceTree = "<group>"; };
+		C547FF2523AE716400B21EAE /* AllStaticCheck.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AllStaticCheck.cpp; sourceTree = "<group>"; };
+		C547FF2623AE716400B21EAE /* AllStaticCheck.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AllStaticCheck.hpp; sourceTree = "<group>"; };
+		C547FF2823AE71B500B21EAE /* AllTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AllTests.cpp; sourceTree = "<group>"; };
+		C547FF2923AE71B500B21EAE /* AllTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AllTests.hpp; sourceTree = "<group>"; };
+		C547FF2C23AE887500B21EAE /* Variable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Variable.cpp; sourceTree = "<group>"; };
+		C547FF2D23AE887500B21EAE /* Variable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Variable.hpp; sourceTree = "<group>"; };
+		C547FF3123AE916B00B21EAE /* EnvironmentTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EnvironmentTests.cpp; sourceTree = "<group>"; };
+		C547FF3223AE916B00B21EAE /* EnvironmentTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EnvironmentTests.hpp; sourceTree = "<group>"; };
+		C547FF3523AE92D600B21EAE /* TestMessageContainsInformation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestMessageContainsInformation.cpp; sourceTree = "<group>"; };
+		C547FF3623AE92D600B21EAE /* TestMessageContainsInformation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestMessageContainsInformation.hpp; sourceTree = "<group>"; };
+		C547FF3923AEB52C00B21EAE /* LatteInt.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LatteInt.cpp; sourceTree = "<group>"; };
+		C547FF3A23AEB52C00B21EAE /* LatteInt.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LatteInt.hpp; sourceTree = "<group>"; };
+		C547FF3D23AEB81D00B21EAE /* LatteBool.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LatteBool.cpp; sourceTree = "<group>"; };
+		C547FF3E23AEB81D00B21EAE /* LatteBool.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LatteBool.hpp; sourceTree = "<group>"; };
+		C547FF4123AEB89C00B21EAE /* LatteVoid.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LatteVoid.cpp; sourceTree = "<group>"; };
+		C547FF4223AEB89C00B21EAE /* LatteVoid.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LatteVoid.hpp; sourceTree = "<group>"; };
+		C547FF4523AEB8D100B21EAE /* LatteString.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LatteString.cpp; sourceTree = "<group>"; };
+		C547FF4623AEB8D100B21EAE /* LatteString.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LatteString.hpp; sourceTree = "<group>"; };
+		C547FF4A23AEBC5E00B21EAE /* NoSuchTypeError.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NoSuchTypeError.cpp; sourceTree = "<group>"; };
+		C547FF4B23AEBC5E00B21EAE /* NoSuchTypeError.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NoSuchTypeError.hpp; sourceTree = "<group>"; };
+		C547FF4E23AEC09B00B21EAE /* AllEnvironment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AllEnvironment.cpp; sourceTree = "<group>"; };
+		C547FF4F23AEC09B00B21EAE /* AllEnvironment.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AllEnvironment.hpp; sourceTree = "<group>"; };
+		C553A38523B0028B00D45EBB /* AsmIntConstant.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmIntConstant.cpp; sourceTree = "<group>"; };
+		C553A38623B0028B00D45EBB /* AsmIntConstant.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmIntConstant.hpp; sourceTree = "<group>"; };
+		C553A38D23B003BD00D45EBB /* AsmMemory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmMemory.cpp; sourceTree = "<group>"; };
+		C553A38E23B003BD00D45EBB /* AsmMemory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmMemory.hpp; sourceTree = "<group>"; };
+		C553A39323B0132400D45EBB /* AsmRegisterTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmRegisterTests.cpp; sourceTree = "<group>"; };
+		C553A39423B0132400D45EBB /* AsmRegisterTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmRegisterTests.hpp; sourceTree = "<group>"; };
+		C553A39623B0186200D45EBB /* AllAsmValuesTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AllAsmValuesTests.cpp; sourceTree = "<group>"; };
+		C553A39723B0186200D45EBB /* AllAsmValuesTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AllAsmValuesTests.hpp; sourceTree = "<group>"; };
+		C553A39923B0188F00D45EBB /* AllAssemblerTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AllAssemblerTests.cpp; sourceTree = "<group>"; };
+		C553A39A23B0188F00D45EBB /* AllAssemblerTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AllAssemblerTests.hpp; sourceTree = "<group>"; };
+		C553A39C23B01E8600D45EBB /* AsmIntConstantTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmIntConstantTests.cpp; sourceTree = "<group>"; };
+		C553A39D23B01E8600D45EBB /* AsmIntConstantTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmIntConstantTests.hpp; sourceTree = "<group>"; };
+		C553A39F23B0217000D45EBB /* AsmMemoryTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmMemoryTests.cpp; sourceTree = "<group>"; };
+		C553A3A023B0217000D45EBB /* AsmMemoryTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmMemoryTests.hpp; sourceTree = "<group>"; };
+		C553A3A323B02FF800D45EBB /* Statement.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Statement.cpp; sourceTree = "<group>"; };
+		C553A3A423B02FF800D45EBB /* Statement.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Statement.hpp; sourceTree = "<group>"; };
+		C553A3A723B043C900D45EBB /* ReturnStatement.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ReturnStatement.cpp; sourceTree = "<group>"; };
+		C553A3A823B043C900D45EBB /* ReturnStatement.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ReturnStatement.hpp; sourceTree = "<group>"; };
+		C553A3AC23B0DA5900D45EBB /* InvalidType.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InvalidType.cpp; sourceTree = "<group>"; };
+		C553A3AD23B0DA5900D45EBB /* InvalidType.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InvalidType.hpp; sourceTree = "<group>"; };
+		C553A3B023B0DB5300D45EBB /* InvalidReturnType.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InvalidReturnType.cpp; sourceTree = "<group>"; };
+		C553A3B123B0DB5300D45EBB /* InvalidReturnType.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InvalidReturnType.hpp; sourceTree = "<group>"; };
+		C553A3B623B0DEB300D45EBB /* FunctionEnvironment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FunctionEnvironment.cpp; sourceTree = "<group>"; };
+		C553A3B723B0DEB300D45EBB /* FunctionEnvironment.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FunctionEnvironment.hpp; sourceTree = "<group>"; };
+		C553A3C423B0EA8F00D45EBB /* AsmInstruction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmInstruction.cpp; sourceTree = "<group>"; };
+		C553A3C523B0EA8F00D45EBB /* AsmInstruction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmInstruction.hpp; sourceTree = "<group>"; };
+		C553A3C823B0EAB800D45EBB /* AsmMov.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmMov.cpp; sourceTree = "<group>"; };
+		C553A3C923B0EAB800D45EBB /* AsmMov.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmMov.hpp; sourceTree = "<group>"; };
+		C553A3CC23B0EB1500D45EBB /* AsmPush.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmPush.cpp; sourceTree = "<group>"; };
+		C553A3CD23B0EB1500D45EBB /* AsmPush.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmPush.hpp; sourceTree = "<group>"; };
+		C553A3D023B0EB4600D45EBB /* AsmSub.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmSub.cpp; sourceTree = "<group>"; };
+		C553A3D123B0EB4600D45EBB /* AsmSub.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmSub.hpp; sourceTree = "<group>"; };
+		C553A3D423B0EB9E00D45EBB /* AsmAdd.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmAdd.cpp; sourceTree = "<group>"; };
+		C553A3D523B0EB9E00D45EBB /* AsmAdd.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmAdd.hpp; sourceTree = "<group>"; };
+		C553A3D823B0EBF500D45EBB /* AsmPop.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmPop.cpp; sourceTree = "<group>"; };
+		C553A3D923B0EBF500D45EBB /* AsmPop.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmPop.hpp; sourceTree = "<group>"; };
+		C553A3DC23B0EC2D00D45EBB /* AsmRet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmRet.cpp; sourceTree = "<group>"; };
+		C553A3DD23B0EC2D00D45EBB /* AsmRet.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmRet.hpp; sourceTree = "<group>"; };
+		C553A3E523B0F16D00D45EBB /* AsmRegister.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmRegister.cpp; sourceTree = "<group>"; };
+		C553A3E623B0F16D00D45EBB /* AsmRegister.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmRegister.hpp; sourceTree = "<group>"; };
+		C553A3F923B15D9200D45EBB /* Asm2Instruction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Asm2Instruction.cpp; sourceTree = "<group>"; };
+		C553A3FA23B15D9200D45EBB /* Asm2Instruction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Asm2Instruction.hpp; sourceTree = "<group>"; };
+		C553A3FD23B1617D00D45EBB /* Asm1Instruction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Asm1Instruction.cpp; sourceTree = "<group>"; };
+		C553A3FE23B1617D00D45EBB /* Asm1Instruction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Asm1Instruction.hpp; sourceTree = "<group>"; };
+		C56B508423AF7FA700C56FF2 /* NoSuchVariableError.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NoSuchVariableError.cpp; sourceTree = "<group>"; };
+		C56B508523AF7FA700C56FF2 /* NoSuchVariableError.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NoSuchVariableError.hpp; sourceTree = "<group>"; };
+		C56B508923AF808C00C56FF2 /* NoSuchTypeErrorTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NoSuchTypeErrorTests.cpp; sourceTree = "<group>"; };
+		C56B508A23AF808C00C56FF2 /* NoSuchTypeErrorTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NoSuchTypeErrorTests.hpp; sourceTree = "<group>"; };
+		C56B508C23AF811D00C56FF2 /* AllUndefinedTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AllUndefinedTests.cpp; sourceTree = "<group>"; };
+		C56B508D23AF811D00C56FF2 /* AllUndefinedTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AllUndefinedTests.hpp; sourceTree = "<group>"; };
+		C56B508F23AF81F700C56FF2 /* NoSuchVariableErrorTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NoSuchVariableErrorTests.cpp; sourceTree = "<group>"; };
+		C56B509023AF81F700C56FF2 /* NoSuchVariableErrorTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NoSuchVariableErrorTests.hpp; sourceTree = "<group>"; };
+		C56B509423AF8ABF00C56FF2 /* LatteIntTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LatteIntTests.cpp; sourceTree = "<group>"; };
+		C56B509523AF8ABF00C56FF2 /* LatteIntTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LatteIntTests.hpp; sourceTree = "<group>"; };
+		C56B509723AF8C9D00C56FF2 /* AllBuiltinTypes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AllBuiltinTypes.cpp; sourceTree = "<group>"; };
+		C56B509823AF8C9D00C56FF2 /* AllBuiltinTypes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AllBuiltinTypes.hpp; sourceTree = "<group>"; };
+		C56B509A23AF8D0300C56FF2 /* AllTypesTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AllTypesTests.cpp; sourceTree = "<group>"; };
+		C56B509B23AF8D0300C56FF2 /* AllTypesTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AllTypesTests.hpp; sourceTree = "<group>"; };
+		C56B509D23AF8D8C00C56FF2 /* LatteBoolTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LatteBoolTests.cpp; sourceTree = "<group>"; };
+		C56B509E23AF8D8C00C56FF2 /* LatteBoolTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LatteBoolTests.hpp; sourceTree = "<group>"; };
+		C56B50A023AF8E5200C56FF2 /* LatteStringTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LatteStringTests.cpp; sourceTree = "<group>"; };
+		C56B50A123AF8E5200C56FF2 /* LatteStringTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LatteStringTests.hpp; sourceTree = "<group>"; };
+		C56B50A323AF8F1B00C56FF2 /* LatteVoidTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LatteVoidTests.cpp; sourceTree = "<group>"; };
+		C56B50A423AF8F1B00C56FF2 /* LatteVoidTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LatteVoidTests.hpp; sourceTree = "<group>"; };
+		C56B50A723AF9AF900C56FF2 /* AstNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AstNode.cpp; sourceTree = "<group>"; };
+		C56B50A823AF9AF900C56FF2 /* AstNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AstNode.hpp; sourceTree = "<group>"; };
+		C56B50AD23AF9CD400C56FF2 /* Expression.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Expression.cpp; sourceTree = "<group>"; };
+		C56B50AE23AF9CD400C56FF2 /* Expression.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Expression.hpp; sourceTree = "<group>"; };
+		C56B50B123AF9DD400C56FF2 /* Constant.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Constant.hpp; sourceTree = "<group>"; };
+		C56B50B223AFA02700C56FF2 /* IntConstant.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IntConstant.cpp; sourceTree = "<group>"; };
+		C56B50B323AFA02700C56FF2 /* IntConstant.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IntConstant.hpp; sourceTree = "<group>"; };
+		C56B50B923AFA12A00C56FF2 /* IntConstantTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IntConstantTests.cpp; sourceTree = "<group>"; };
+		C56B50BA23AFA12A00C56FF2 /* IntConstantTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IntConstantTests.hpp; sourceTree = "<group>"; };
+		C56B50BC23AFA2B500C56FF2 /* AllConstantsTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AllConstantsTests.cpp; sourceTree = "<group>"; };
+		C56B50BD23AFA2B500C56FF2 /* AllConstantsTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AllConstantsTests.hpp; sourceTree = "<group>"; };
+		C56B50BF23AFA30500C56FF2 /* AllExpressionsTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AllExpressionsTests.cpp; sourceTree = "<group>"; };
+		C56B50C023AFA30500C56FF2 /* AllExpressionsTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AllExpressionsTests.hpp; sourceTree = "<group>"; };
+		C56B50C223AFA35000C56FF2 /* AllAstTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AllAstTests.cpp; sourceTree = "<group>"; };
+		C56B50C323AFA35000C56FF2 /* AllAstTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AllAstTests.hpp; sourceTree = "<group>"; };
+		C56B50C523AFA41100C56FF2 /* BoolConstant.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BoolConstant.cpp; sourceTree = "<group>"; };
+		C56B50C623AFA41100C56FF2 /* BoolConstant.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BoolConstant.hpp; sourceTree = "<group>"; };
+		C56B50C923AFA68D00C56FF2 /* BoolConstantTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BoolConstantTests.cpp; sourceTree = "<group>"; };
+		C56B50CA23AFA68D00C56FF2 /* BoolConstantTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BoolConstantTests.hpp; sourceTree = "<group>"; };
+		C56B50CC23AFA76500C56FF2 /* StringConstant.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StringConstant.cpp; sourceTree = "<group>"; };
+		C56B50CD23AFA76500C56FF2 /* StringConstant.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StringConstant.hpp; sourceTree = "<group>"; };
+		C56B50D023AFA7CD00C56FF2 /* StringConstantTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StringConstantTests.cpp; sourceTree = "<group>"; };
+		C56B50D123AFA7CD00C56FF2 /* StringConstantTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StringConstantTests.hpp; sourceTree = "<group>"; };
+		C575EAC523AFC926006BCFEF /* AssemblerValue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AssemblerValue.cpp; sourceTree = "<group>"; };
+		C575EAC623AFC926006BCFEF /* AssemblerValue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AssemblerValue.hpp; sourceTree = "<group>"; };
+		C5A45CEE23B4EE17008EAC8F /* GlobalEnvironment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GlobalEnvironment.cpp; sourceTree = "<group>"; };
+		C5A45CEF23B4EE17008EAC8F /* GlobalEnvironment.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GlobalEnvironment.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C547FEC423AE570900B21EAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C547FEEC23AE574F00B21EAE /* libLogic.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C547FED223AE571F00B21EAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C547FEF123AE576000B21EAE /* libLogic.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C547FEDE23AE573D00B21EAE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,7 +344,10 @@
 			isa = PBXGroup;
 			children = (
 				C547FEC923AE570900B21EAE /* Latte */,
+				C547FED623AE571F00B21EAE /* Tests */,
+				C547FEE123AE573D00B21EAE /* Logic */,
 				C547FEC823AE570900B21EAE /* Products */,
+				C547FEEB23AE574F00B21EAE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -50,6 +355,8 @@
 			isa = PBXGroup;
 			children = (
 				C547FEC723AE570900B21EAE /* Latte */,
+				C547FED523AE571F00B21EAE /* Tests */,
+				C547FEE023AE573D00B21EAE /* libLogic.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,7 +369,471 @@
 			path = Latte;
 			sourceTree = "<group>";
 		};
+		C547FED623AE571F00B21EAE /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C547FF0E23AE64F600B21EAE /* tests */,
+				C547FF0723AE609A00B21EAE /* testCase */,
+				C547FED723AE571F00B21EAE /* main.cpp */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		C547FEE123AE573D00B21EAE /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				C575EAC323AFC8DE006BCFEF /* assembler */,
+				C56B50A623AF9ACD00C56FF2 /* ast */,
+				C547FF1823AE6DC900B21EAE /* staticCheck */,
+				C547FEF223AE57E200B21EAE /* environment */,
+				C547FEE223AE573D00B21EAE /* Logic.hpp */,
+				C547FEE423AE573D00B21EAE /* LogicPriv.hpp */,
+				C547FEE623AE573D00B21EAE /* Logic.cpp */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		C547FEEB23AE574F00B21EAE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C547FEF223AE57E200B21EAE /* environment */ = {
+			isa = PBXGroup;
+			children = (
+				C553A3B423B0DC7F00D45EBB /* function */,
+				C547FF2B23AE85FB00B21EAE /* variables */,
+				C547FEF323AE581800B21EAE /* types */,
+				C547FEF823AE58C600B21EAE /* Environment.cpp */,
+				C547FEF923AE58C600B21EAE /* Environment.hpp */,
+				C5A45CEE23B4EE17008EAC8F /* GlobalEnvironment.cpp */,
+				C5A45CEF23B4EE17008EAC8F /* GlobalEnvironment.hpp */,
+				C553A3B623B0DEB300D45EBB /* FunctionEnvironment.cpp */,
+				C553A3B723B0DEB300D45EBB /* FunctionEnvironment.hpp */,
+			);
+			path = environment;
+			sourceTree = "<group>";
+		};
+		C547FEF323AE581800B21EAE /* types */ = {
+			isa = PBXGroup;
+			children = (
+				C547FEF423AE586D00B21EAE /* Type.cpp */,
+				C547FEF523AE586D00B21EAE /* Type.hpp */,
+				C547FF3823AEB50000B21EAE /* builtin */,
+				C5218A5823B3A56800E520FB /* FunctionType.cpp */,
+				C5218A5923B3A56800E520FB /* FunctionType.hpp */,
+			);
+			path = types;
+			sourceTree = "<group>";
+		};
+		C547FF0723AE609A00B21EAE /* testCase */ = {
+			isa = PBXGroup;
+			children = (
+				C547FF3423AE92AD00B21EAE /* units */,
+				C547FF0823AE60D500B21EAE /* TestUnit.cpp */,
+				C547FF0923AE60D500B21EAE /* TestUnit.hpp */,
+				C547FF0B23AE60F400B21EAE /* TestCase.cpp */,
+				C547FF0C23AE60F400B21EAE /* TestCase.hpp */,
+			);
+			path = testCase;
+			sourceTree = "<group>";
+		};
+		C547FF0E23AE64F600B21EAE /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				C553A39123B0129600D45EBB /* assembler */,
+				C56B50B623AFA0FF00C56FF2 /* ast */,
+				C547FF3023AE911B00B21EAE /* environment */,
+				C547FF0F23AE64FC00B21EAE /* staticCheck */,
+				C547FF2823AE71B500B21EAE /* AllTests.cpp */,
+				C547FF2923AE71B500B21EAE /* AllTests.hpp */,
+			);
+			path = tests;
+			sourceTree = "<group>";
+		};
+		C547FF0F23AE64FC00B21EAE /* staticCheck */ = {
+			isa = PBXGroup;
+			children = (
+				C56B508823AF806D00C56FF2 /* undefined */,
+				C547FF1023AE650900B21EAE /* redeclaration */,
+				C547FF2523AE716400B21EAE /* AllStaticCheck.cpp */,
+				C547FF2623AE716400B21EAE /* AllStaticCheck.hpp */,
+			);
+			path = staticCheck;
+			sourceTree = "<group>";
+		};
+		C547FF1023AE650900B21EAE /* redeclaration */ = {
+			isa = PBXGroup;
+			children = (
+				C547FF1123AE65C900B21EAE /* VariableRedeclarationTests.cpp */,
+				C547FF1223AE65C900B21EAE /* VariableRedeclarationTests.hpp */,
+				C547FF2223AE701B00B21EAE /* AllRedeclarationTests.cpp */,
+				C547FF2323AE701B00B21EAE /* AllRedeclarationTests.hpp */,
+			);
+			path = redeclaration;
+			sourceTree = "<group>";
+		};
+		C547FF1823AE6DC900B21EAE /* staticCheck */ = {
+			isa = PBXGroup;
+			children = (
+				C553A3AB23B0DA3B00D45EBB /* types */,
+				C547FF4923AEBC4100B21EAE /* undefined */,
+				C547FF1A23AE6DC900B21EAE /* redeclaration */,
+				C547FF1923AE6DC900B21EAE /* StaticCheckError.cpp */,
+				C547FF1D23AE6DC900B21EAE /* StaticCheckError.hpp */,
+			);
+			path = staticCheck;
+			sourceTree = "<group>";
+		};
+		C547FF1A23AE6DC900B21EAE /* redeclaration */ = {
+			isa = PBXGroup;
+			children = (
+				C547FF1B23AE6DC900B21EAE /* VariableRedeclarationError.cpp */,
+				C547FF1C23AE6DC900B21EAE /* VariableRedeclarationError.hpp */,
+				C52F416123B51CF7009B49CD /* FunctionRedeclarationError.cpp */,
+				C52F416223B51CF7009B49CD /* FunctionRedeclarationError.hpp */,
+			);
+			path = redeclaration;
+			sourceTree = "<group>";
+		};
+		C547FF2B23AE85FB00B21EAE /* variables */ = {
+			isa = PBXGroup;
+			children = (
+				C547FF2C23AE887500B21EAE /* Variable.cpp */,
+				C547FF2D23AE887500B21EAE /* Variable.hpp */,
+			);
+			path = variables;
+			sourceTree = "<group>";
+		};
+		C547FF3023AE911B00B21EAE /* environment */ = {
+			isa = PBXGroup;
+			children = (
+				C56B509223AF8A9B00C56FF2 /* types */,
+				C547FF3123AE916B00B21EAE /* EnvironmentTests.cpp */,
+				C547FF3223AE916B00B21EAE /* EnvironmentTests.hpp */,
+				C547FF4E23AEC09B00B21EAE /* AllEnvironment.cpp */,
+				C547FF4F23AEC09B00B21EAE /* AllEnvironment.hpp */,
+			);
+			path = environment;
+			sourceTree = "<group>";
+		};
+		C547FF3423AE92AD00B21EAE /* units */ = {
+			isa = PBXGroup;
+			children = (
+				C547FF3523AE92D600B21EAE /* TestMessageContainsInformation.cpp */,
+				C547FF3623AE92D600B21EAE /* TestMessageContainsInformation.hpp */,
+			);
+			path = units;
+			sourceTree = "<group>";
+		};
+		C547FF3823AEB50000B21EAE /* builtin */ = {
+			isa = PBXGroup;
+			children = (
+				C547FF3923AEB52C00B21EAE /* LatteInt.cpp */,
+				C547FF3A23AEB52C00B21EAE /* LatteInt.hpp */,
+				C547FF3D23AEB81D00B21EAE /* LatteBool.cpp */,
+				C547FF3E23AEB81D00B21EAE /* LatteBool.hpp */,
+				C547FF4123AEB89C00B21EAE /* LatteVoid.cpp */,
+				C547FF4223AEB89C00B21EAE /* LatteVoid.hpp */,
+				C547FF4523AEB8D100B21EAE /* LatteString.cpp */,
+				C547FF4623AEB8D100B21EAE /* LatteString.hpp */,
+			);
+			path = builtin;
+			sourceTree = "<group>";
+		};
+		C547FF4923AEBC4100B21EAE /* undefined */ = {
+			isa = PBXGroup;
+			children = (
+				C547FF4A23AEBC5E00B21EAE /* NoSuchTypeError.cpp */,
+				C547FF4B23AEBC5E00B21EAE /* NoSuchTypeError.hpp */,
+				C56B508423AF7FA700C56FF2 /* NoSuchVariableError.cpp */,
+				C56B508523AF7FA700C56FF2 /* NoSuchVariableError.hpp */,
+				C52F416523B520EF009B49CD /* NoSuchFunctionError.cpp */,
+				C52F416623B520EF009B49CD /* NoSuchFunctionError.hpp */,
+			);
+			path = undefined;
+			sourceTree = "<group>";
+		};
+		C553A39123B0129600D45EBB /* assembler */ = {
+			isa = PBXGroup;
+			children = (
+				C553A39223B012DC00D45EBB /* values */,
+				C553A39923B0188F00D45EBB /* AllAssemblerTests.cpp */,
+				C553A39A23B0188F00D45EBB /* AllAssemblerTests.hpp */,
+			);
+			path = assembler;
+			sourceTree = "<group>";
+		};
+		C553A39223B012DC00D45EBB /* values */ = {
+			isa = PBXGroup;
+			children = (
+				C553A39323B0132400D45EBB /* AsmRegisterTests.cpp */,
+				C553A39423B0132400D45EBB /* AsmRegisterTests.hpp */,
+				C553A39C23B01E8600D45EBB /* AsmIntConstantTests.cpp */,
+				C553A39D23B01E8600D45EBB /* AsmIntConstantTests.hpp */,
+				C553A39F23B0217000D45EBB /* AsmMemoryTests.cpp */,
+				C553A3A023B0217000D45EBB /* AsmMemoryTests.hpp */,
+				C553A39623B0186200D45EBB /* AllAsmValuesTests.cpp */,
+				C553A39723B0186200D45EBB /* AllAsmValuesTests.hpp */,
+			);
+			path = values;
+			sourceTree = "<group>";
+		};
+		C553A3A223B02EE300D45EBB /* statements */ = {
+			isa = PBXGroup;
+			children = (
+				C553A3A323B02FF800D45EBB /* Statement.cpp */,
+				C553A3A423B02FF800D45EBB /* Statement.hpp */,
+				C553A3A723B043C900D45EBB /* ReturnStatement.cpp */,
+				C553A3A823B043C900D45EBB /* ReturnStatement.hpp */,
+			);
+			path = statements;
+			sourceTree = "<group>";
+		};
+		C553A3AB23B0DA3B00D45EBB /* types */ = {
+			isa = PBXGroup;
+			children = (
+				C553A3AC23B0DA5900D45EBB /* InvalidType.cpp */,
+				C553A3AD23B0DA5900D45EBB /* InvalidType.hpp */,
+				C553A3B023B0DB5300D45EBB /* InvalidReturnType.cpp */,
+				C553A3B123B0DB5300D45EBB /* InvalidReturnType.hpp */,
+			);
+			path = types;
+			sourceTree = "<group>";
+		};
+		C553A3B423B0DC7F00D45EBB /* function */ = {
+			isa = PBXGroup;
+			children = (
+				C5218A5423B3A4D600E520FB /* Function.cpp */,
+				C5218A5523B3A4D600E520FB /* Function.hpp */,
+				C52F415D23B51AAE009B49CD /* FunctionInitializer.cpp */,
+				C52F415E23B51AAE009B49CD /* FunctionInitializer.hpp */,
+			);
+			path = function;
+			sourceTree = "<group>";
+		};
+		C553A3C323B0EA7F00D45EBB /* instructions */ = {
+			isa = PBXGroup;
+			children = (
+				C553A3C423B0EA8F00D45EBB /* AsmInstruction.cpp */,
+				C553A3C523B0EA8F00D45EBB /* AsmInstruction.hpp */,
+				C553A3F923B15D9200D45EBB /* Asm2Instruction.cpp */,
+				C553A3FA23B15D9200D45EBB /* Asm2Instruction.hpp */,
+				C553A3FD23B1617D00D45EBB /* Asm1Instruction.cpp */,
+				C553A3FE23B1617D00D45EBB /* Asm1Instruction.hpp */,
+				C553A3C823B0EAB800D45EBB /* AsmMov.cpp */,
+				C553A3C923B0EAB800D45EBB /* AsmMov.hpp */,
+				C553A3CC23B0EB1500D45EBB /* AsmPush.cpp */,
+				C553A3CD23B0EB1500D45EBB /* AsmPush.hpp */,
+				C553A3D823B0EBF500D45EBB /* AsmPop.cpp */,
+				C553A3D923B0EBF500D45EBB /* AsmPop.hpp */,
+				C553A3D023B0EB4600D45EBB /* AsmSub.cpp */,
+				C553A3D123B0EB4600D45EBB /* AsmSub.hpp */,
+				C553A3D423B0EB9E00D45EBB /* AsmAdd.cpp */,
+				C553A3D523B0EB9E00D45EBB /* AsmAdd.hpp */,
+				C553A3DC23B0EC2D00D45EBB /* AsmRet.cpp */,
+				C553A3DD23B0EC2D00D45EBB /* AsmRet.hpp */,
+			);
+			path = instructions;
+			sourceTree = "<group>";
+		};
+		C553A3E023B0F03F00D45EBB /* registers */ = {
+			isa = PBXGroup;
+			children = (
+				C553A3E523B0F16D00D45EBB /* AsmRegister.cpp */,
+				C553A3E623B0F16D00D45EBB /* AsmRegister.hpp */,
+			);
+			path = registers;
+			sourceTree = "<group>";
+		};
+		C56B508823AF806D00C56FF2 /* undefined */ = {
+			isa = PBXGroup;
+			children = (
+				C56B508923AF808C00C56FF2 /* NoSuchTypeErrorTests.cpp */,
+				C56B508A23AF808C00C56FF2 /* NoSuchTypeErrorTests.hpp */,
+				C56B508F23AF81F700C56FF2 /* NoSuchVariableErrorTests.cpp */,
+				C56B509023AF81F700C56FF2 /* NoSuchVariableErrorTests.hpp */,
+				C56B508C23AF811D00C56FF2 /* AllUndefinedTests.cpp */,
+				C56B508D23AF811D00C56FF2 /* AllUndefinedTests.hpp */,
+			);
+			path = undefined;
+			sourceTree = "<group>";
+		};
+		C56B509223AF8A9B00C56FF2 /* types */ = {
+			isa = PBXGroup;
+			children = (
+				C56B509323AF8AA600C56FF2 /* builtin */,
+				C56B509A23AF8D0300C56FF2 /* AllTypesTests.cpp */,
+				C56B509B23AF8D0300C56FF2 /* AllTypesTests.hpp */,
+			);
+			path = types;
+			sourceTree = "<group>";
+		};
+		C56B509323AF8AA600C56FF2 /* builtin */ = {
+			isa = PBXGroup;
+			children = (
+				C56B509D23AF8D8C00C56FF2 /* LatteBoolTests.cpp */,
+				C56B509E23AF8D8C00C56FF2 /* LatteBoolTests.hpp */,
+				C56B509423AF8ABF00C56FF2 /* LatteIntTests.cpp */,
+				C56B509523AF8ABF00C56FF2 /* LatteIntTests.hpp */,
+				C56B50A023AF8E5200C56FF2 /* LatteStringTests.cpp */,
+				C56B50A123AF8E5200C56FF2 /* LatteStringTests.hpp */,
+				C56B50A323AF8F1B00C56FF2 /* LatteVoidTests.cpp */,
+				C56B50A423AF8F1B00C56FF2 /* LatteVoidTests.hpp */,
+				C56B509723AF8C9D00C56FF2 /* AllBuiltinTypes.cpp */,
+				C56B509823AF8C9D00C56FF2 /* AllBuiltinTypes.hpp */,
+			);
+			path = builtin;
+			sourceTree = "<group>";
+		};
+		C56B50A623AF9ACD00C56FF2 /* ast */ = {
+			isa = PBXGroup;
+			children = (
+				C553A3A223B02EE300D45EBB /* statements */,
+				C56B50AB23AF9BFA00C56FF2 /* expressions */,
+				C56B50A723AF9AF900C56FF2 /* AstNode.cpp */,
+				C56B50A823AF9AF900C56FF2 /* AstNode.hpp */,
+			);
+			path = ast;
+			sourceTree = "<group>";
+		};
+		C56B50AB23AF9BFA00C56FF2 /* expressions */ = {
+			isa = PBXGroup;
+			children = (
+				C56B50AC23AF9C2300C56FF2 /* constants */,
+				C56B50AD23AF9CD400C56FF2 /* Expression.cpp */,
+				C56B50AE23AF9CD400C56FF2 /* Expression.hpp */,
+			);
+			path = expressions;
+			sourceTree = "<group>";
+		};
+		C56B50AC23AF9C2300C56FF2 /* constants */ = {
+			isa = PBXGroup;
+			children = (
+				C56B50B123AF9DD400C56FF2 /* Constant.hpp */,
+				C56B50B223AFA02700C56FF2 /* IntConstant.cpp */,
+				C56B50B323AFA02700C56FF2 /* IntConstant.hpp */,
+				C56B50C523AFA41100C56FF2 /* BoolConstant.cpp */,
+				C56B50C623AFA41100C56FF2 /* BoolConstant.hpp */,
+				C56B50CC23AFA76500C56FF2 /* StringConstant.cpp */,
+				C56B50CD23AFA76500C56FF2 /* StringConstant.hpp */,
+			);
+			path = constants;
+			sourceTree = "<group>";
+		};
+		C56B50B623AFA0FF00C56FF2 /* ast */ = {
+			isa = PBXGroup;
+			children = (
+				C56B50B723AFA10500C56FF2 /* expressions */,
+				C56B50C223AFA35000C56FF2 /* AllAstTests.cpp */,
+				C56B50C323AFA35000C56FF2 /* AllAstTests.hpp */,
+			);
+			path = ast;
+			sourceTree = "<group>";
+		};
+		C56B50B723AFA10500C56FF2 /* expressions */ = {
+			isa = PBXGroup;
+			children = (
+				C56B50B823AFA10E00C56FF2 /* constants */,
+				C56B50BF23AFA30500C56FF2 /* AllExpressionsTests.cpp */,
+				C56B50C023AFA30500C56FF2 /* AllExpressionsTests.hpp */,
+			);
+			path = expressions;
+			sourceTree = "<group>";
+		};
+		C56B50B823AFA10E00C56FF2 /* constants */ = {
+			isa = PBXGroup;
+			children = (
+				C56B50B923AFA12A00C56FF2 /* IntConstantTests.cpp */,
+				C56B50BA23AFA12A00C56FF2 /* IntConstantTests.hpp */,
+				C56B50C923AFA68D00C56FF2 /* BoolConstantTests.cpp */,
+				C56B50CA23AFA68D00C56FF2 /* BoolConstantTests.hpp */,
+				C56B50D023AFA7CD00C56FF2 /* StringConstantTests.cpp */,
+				C56B50D123AFA7CD00C56FF2 /* StringConstantTests.hpp */,
+				C56B50BC23AFA2B500C56FF2 /* AllConstantsTests.cpp */,
+				C56B50BD23AFA2B500C56FF2 /* AllConstantsTests.hpp */,
+			);
+			path = constants;
+			sourceTree = "<group>";
+		};
+		C575EAC323AFC8DE006BCFEF /* assembler */ = {
+			isa = PBXGroup;
+			children = (
+				C553A3C323B0EA7F00D45EBB /* instructions */,
+				C575EAC423AFC8FD006BCFEF /* values */,
+			);
+			path = assembler;
+			sourceTree = "<group>";
+		};
+		C575EAC423AFC8FD006BCFEF /* values */ = {
+			isa = PBXGroup;
+			children = (
+				C553A3E023B0F03F00D45EBB /* registers */,
+				C575EAC523AFC926006BCFEF /* AssemblerValue.cpp */,
+				C575EAC623AFC926006BCFEF /* AssemblerValue.hpp */,
+				C553A38523B0028B00D45EBB /* AsmIntConstant.cpp */,
+				C553A38623B0028B00D45EBB /* AsmIntConstant.hpp */,
+				C553A38D23B003BD00D45EBB /* AsmMemory.cpp */,
+				C553A38E23B003BD00D45EBB /* AsmMemory.hpp */,
+			);
+			path = values;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C547FEDC23AE573D00B21EAE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C553A3B323B0DB5300D45EBB /* InvalidReturnType.hpp in Headers */,
+				C56B508723AF7FA700C56FF2 /* NoSuchVariableError.hpp in Headers */,
+				C553A3CF23B0EB1500D45EBB /* AsmPush.hpp in Headers */,
+				C553A3E823B0F16D00D45EBB /* AsmRegister.hpp in Headers */,
+				C553A38823B0028B00D45EBB /* AsmIntConstant.hpp in Headers */,
+				C553A3DF23B0EC2D00D45EBB /* AsmRet.hpp in Headers */,
+				C5218A5B23B3A56800E520FB /* FunctionType.hpp in Headers */,
+				C56B50AA23AF9AF900C56FF2 /* AstNode.hpp in Headers */,
+				C547FEE523AE573D00B21EAE /* LogicPriv.hpp in Headers */,
+				C553A3CB23B0EAB800D45EBB /* AsmMov.hpp in Headers */,
+				C547FF4D23AEBC5E00B21EAE /* NoSuchTypeError.hpp in Headers */,
+				C553A3AA23B043C900D45EBB /* ReturnStatement.hpp in Headers */,
+				C5218A5723B3A4D600E520FB /* Function.hpp in Headers */,
+				C553A3FC23B15D9200D45EBB /* Asm2Instruction.hpp in Headers */,
+				C547FF4823AEB8D100B21EAE /* LatteString.hpp in Headers */,
+				C553A3D323B0EB4600D45EBB /* AsmSub.hpp in Headers */,
+				C553A39023B003BD00D45EBB /* AsmMemory.hpp in Headers */,
+				C547FF2023AE6DC900B21EAE /* VariableRedeclarationError.hpp in Headers */,
+				C575EAC823AFC926006BCFEF /* AssemblerValue.hpp in Headers */,
+				C553A3B923B0DEB300D45EBB /* FunctionEnvironment.hpp in Headers */,
+				C547FEF723AE586D00B21EAE /* Type.hpp in Headers */,
+				C56B50CF23AFA76500C56FF2 /* StringConstant.hpp in Headers */,
+				C56B50C823AFA41100C56FF2 /* BoolConstant.hpp in Headers */,
+				C52F416423B51CF7009B49CD /* FunctionRedeclarationError.hpp in Headers */,
+				C553A3A623B02FF800D45EBB /* Statement.hpp in Headers */,
+				C553A3D723B0EB9E00D45EBB /* AsmAdd.hpp in Headers */,
+				C547FF4423AEB89C00B21EAE /* LatteVoid.hpp in Headers */,
+				C56B50B023AF9CD400C56FF2 /* Expression.hpp in Headers */,
+				C547FEFB23AE58C600B21EAE /* Environment.hpp in Headers */,
+				C56B50B523AFA02700C56FF2 /* IntConstant.hpp in Headers */,
+				C52F416823B520EF009B49CD /* NoSuchFunctionError.hpp in Headers */,
+				C52F416023B51AAE009B49CD /* FunctionInitializer.hpp in Headers */,
+				C553A3C723B0EA8F00D45EBB /* AsmInstruction.hpp in Headers */,
+				C553A3DB23B0EBF500D45EBB /* AsmPop.hpp in Headers */,
+				C553A3AF23B0DA5900D45EBB /* InvalidType.hpp in Headers */,
+				C5A45CF123B4EE17008EAC8F /* GlobalEnvironment.hpp in Headers */,
+				C547FF2123AE6DC900B21EAE /* StaticCheckError.hpp in Headers */,
+				C547FEE323AE573D00B21EAE /* Logic.hpp in Headers */,
+				C547FF4023AEB81D00B21EAE /* LatteBool.hpp in Headers */,
+				C553A40023B1617D00D45EBB /* Asm1Instruction.hpp in Headers */,
+				C547FF2F23AE887500B21EAE /* Variable.hpp in Headers */,
+				C547FF3C23AEB52C00B21EAE /* LatteInt.hpp in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		C547FEC623AE570900B21EAE /* Latte */ = {
@@ -76,11 +847,47 @@
 			buildRules = (
 			);
 			dependencies = (
+				C547FEEE23AE575600B21EAE /* PBXTargetDependency */,
 			);
 			name = Latte;
 			productName = Latte;
 			productReference = C547FEC723AE570900B21EAE /* Latte */;
 			productType = "com.apple.product-type.tool";
+		};
+		C547FED423AE571F00B21EAE /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C547FED923AE571F00B21EAE /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				C547FED123AE571F00B21EAE /* Sources */,
+				C547FED223AE571F00B21EAE /* Frameworks */,
+				C547FED323AE571F00B21EAE /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C547FEF023AE575B00B21EAE /* PBXTargetDependency */,
+			);
+			name = Tests;
+			productName = Tests;
+			productReference = C547FED523AE571F00B21EAE /* Tests */;
+			productType = "com.apple.product-type.tool";
+		};
+		C547FEDF23AE573D00B21EAE /* Logic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C547FEE823AE573D00B21EAE /* Build configuration list for PBXNativeTarget "Logic" */;
+			buildPhases = (
+				C547FEDC23AE573D00B21EAE /* Headers */,
+				C547FEDD23AE573D00B21EAE /* Sources */,
+				C547FEDE23AE573D00B21EAE /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Logic;
+			productName = Logic;
+			productReference = C547FEE023AE573D00B21EAE /* libLogic.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -92,6 +899,12 @@
 				ORGANIZATIONNAME = "Paweł Czerwiński";
 				TargetAttributes = {
 					C547FEC623AE570900B21EAE = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					C547FED423AE571F00B21EAE = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					C547FEDF23AE573D00B21EAE = {
 						CreatedOnToolsVersion = 11.3;
 					};
 				};
@@ -110,6 +923,8 @@
 			projectRoot = "";
 			targets = (
 				C547FEC623AE570900B21EAE /* Latte */,
+				C547FED423AE571F00B21EAE /* Tests */,
+				C547FEDF23AE573D00B21EAE /* Logic */,
 			);
 		};
 /* End PBXProject section */
@@ -123,7 +938,105 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C547FED123AE571F00B21EAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C547FF2723AE716400B21EAE /* AllStaticCheck.cpp in Sources */,
+				C56B50BE23AFA2B500C56FF2 /* AllConstantsTests.cpp in Sources */,
+				C553A39823B0186200D45EBB /* AllAsmValuesTests.cpp in Sources */,
+				C56B50BB23AFA12A00C56FF2 /* IntConstantTests.cpp in Sources */,
+				C553A39B23B0188F00D45EBB /* AllAssemblerTests.cpp in Sources */,
+				C547FF5023AEC09B00B21EAE /* AllEnvironment.cpp in Sources */,
+				C547FF2A23AE71B500B21EAE /* AllTests.cpp in Sources */,
+				C56B509C23AF8D0300C56FF2 /* AllTypesTests.cpp in Sources */,
+				C56B50C423AFA35000C56FF2 /* AllAstTests.cpp in Sources */,
+				C56B50D223AFA7CD00C56FF2 /* StringConstantTests.cpp in Sources */,
+				C56B50CB23AFA68D00C56FF2 /* BoolConstantTests.cpp in Sources */,
+				C547FED823AE571F00B21EAE /* main.cpp in Sources */,
+				C547FF2423AE701B00B21EAE /* AllRedeclarationTests.cpp in Sources */,
+				C547FF3323AE916B00B21EAE /* EnvironmentTests.cpp in Sources */,
+				C56B50A523AF8F1B00C56FF2 /* LatteVoidTests.cpp in Sources */,
+				C56B509123AF81F700C56FF2 /* NoSuchVariableErrorTests.cpp in Sources */,
+				C547FF1323AE65C900B21EAE /* VariableRedeclarationTests.cpp in Sources */,
+				C56B509923AF8C9D00C56FF2 /* AllBuiltinTypes.cpp in Sources */,
+				C553A39523B0132400D45EBB /* AsmRegisterTests.cpp in Sources */,
+				C56B509623AF8ABF00C56FF2 /* LatteIntTests.cpp in Sources */,
+				C547FF3723AE92D600B21EAE /* TestMessageContainsInformation.cpp in Sources */,
+				C56B50C123AFA30500C56FF2 /* AllExpressionsTests.cpp in Sources */,
+				C56B50A223AF8E5200C56FF2 /* LatteStringTests.cpp in Sources */,
+				C56B508E23AF811D00C56FF2 /* AllUndefinedTests.cpp in Sources */,
+				C56B508B23AF808C00C56FF2 /* NoSuchTypeErrorTests.cpp in Sources */,
+				C553A39E23B01E8600D45EBB /* AsmIntConstantTests.cpp in Sources */,
+				C553A3A123B0217000D45EBB /* AsmMemoryTests.cpp in Sources */,
+				C56B509F23AF8D8C00C56FF2 /* LatteBoolTests.cpp in Sources */,
+				C547FF0D23AE60F400B21EAE /* TestCase.cpp in Sources */,
+				C547FF0A23AE60D500B21EAE /* TestUnit.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C547FEDD23AE573D00B21EAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C56B50B423AFA02700C56FF2 /* IntConstant.cpp in Sources */,
+				C553A3B223B0DB5300D45EBB /* InvalidReturnType.cpp in Sources */,
+				C56B508623AF7FA700C56FF2 /* NoSuchVariableError.cpp in Sources */,
+				C547FEFA23AE58C600B21EAE /* Environment.cpp in Sources */,
+				C547FF1F23AE6DC900B21EAE /* VariableRedeclarationError.cpp in Sources */,
+				C553A3B823B0DEB300D45EBB /* FunctionEnvironment.cpp in Sources */,
+				C553A3D223B0EB4600D45EBB /* AsmSub.cpp in Sources */,
+				C547FF1E23AE6DC900B21EAE /* StaticCheckError.cpp in Sources */,
+				C553A3DE23B0EC2D00D45EBB /* AsmRet.cpp in Sources */,
+				C553A38723B0028B00D45EBB /* AsmIntConstant.cpp in Sources */,
+				C553A3D623B0EB9E00D45EBB /* AsmAdd.cpp in Sources */,
+				C553A3CA23B0EAB800D45EBB /* AsmMov.cpp in Sources */,
+				C5A45CF023B4EE17008EAC8F /* GlobalEnvironment.cpp in Sources */,
+				C553A3A923B043C900D45EBB /* ReturnStatement.cpp in Sources */,
+				C553A3C623B0EA8F00D45EBB /* AsmInstruction.cpp in Sources */,
+				C56B50CE23AFA76500C56FF2 /* StringConstant.cpp in Sources */,
+				C5218A5A23B3A56800E520FB /* FunctionType.cpp in Sources */,
+				C52F416323B51CF7009B49CD /* FunctionRedeclarationError.cpp in Sources */,
+				C553A3A523B02FF800D45EBB /* Statement.cpp in Sources */,
+				C547FF4C23AEBC5E00B21EAE /* NoSuchTypeError.cpp in Sources */,
+				C547FF4723AEB8D100B21EAE /* LatteString.cpp in Sources */,
+				C56B50C723AFA41100C56FF2 /* BoolConstant.cpp in Sources */,
+				C547FF2E23AE887500B21EAE /* Variable.cpp in Sources */,
+				C553A3DA23B0EBF500D45EBB /* AsmPop.cpp in Sources */,
+				C56B50AF23AF9CD400C56FF2 /* Expression.cpp in Sources */,
+				C553A3CE23B0EB1500D45EBB /* AsmPush.cpp in Sources */,
+				C553A3E723B0F16D00D45EBB /* AsmRegister.cpp in Sources */,
+				C52F415F23B51AAE009B49CD /* FunctionInitializer.cpp in Sources */,
+				C547FF3F23AEB81D00B21EAE /* LatteBool.cpp in Sources */,
+				C553A3FB23B15D9200D45EBB /* Asm2Instruction.cpp in Sources */,
+				C5218A5623B3A4D600E520FB /* Function.cpp in Sources */,
+				C553A38F23B003BD00D45EBB /* AsmMemory.cpp in Sources */,
+				C553A3AE23B0DA5900D45EBB /* InvalidType.cpp in Sources */,
+				C547FF4323AEB89C00B21EAE /* LatteVoid.cpp in Sources */,
+				C547FEE723AE573D00B21EAE /* Logic.cpp in Sources */,
+				C52F416723B520EF009B49CD /* NoSuchFunctionError.cpp in Sources */,
+				C553A3FF23B1617D00D45EBB /* Asm1Instruction.cpp in Sources */,
+				C575EAC723AFC926006BCFEF /* AssemblerValue.cpp in Sources */,
+				C547FF3B23AEB52C00B21EAE /* LatteInt.cpp in Sources */,
+				C547FEF623AE586D00B21EAE /* Type.cpp in Sources */,
+				C56B50A923AF9AF900C56FF2 /* AstNode.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C547FEEE23AE575600B21EAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C547FEDF23AE573D00B21EAE /* Logic */;
+			targetProxy = C547FEED23AE575600B21EAE /* PBXContainerItemProxy */;
+		};
+		C547FEF023AE575B00B21EAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C547FEDF23AE573D00B21EAE /* Logic */;
+			targetProxy = C547FEEF23AE575B00B21EAE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		C547FECC23AE570900B21EAE /* Debug */ = {
@@ -238,6 +1151,7 @@
 		C547FECF23AE570900B21EAE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GGF99C3YNQ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -248,10 +1162,61 @@
 		C547FED023AE570900B21EAE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GGF99C3YNQ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C547FEDA23AE571F00B21EAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GGF99C3YNQ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C547FEDB23AE571F00B21EAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GGF99C3YNQ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C547FEE923AE573D00B21EAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GGF99C3YNQ;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C547FEEA23AE573D00B21EAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GGF99C3YNQ;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -272,6 +1237,24 @@
 			buildConfigurations = (
 				C547FECF23AE570900B21EAE /* Debug */,
 				C547FED023AE570900B21EAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C547FED923AE571F00B21EAE /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C547FEDA23AE571F00B21EAE /* Debug */,
+				C547FEDB23AE571F00B21EAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C547FEE823AE573D00B21EAE /* Build configuration list for PBXNativeTarget "Logic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C547FEE923AE573D00B21EAE /* Debug */,
+				C547FEEA23AE573D00B21EAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,9 +7,13 @@
 //
 
 #include <iostream>
+#include "Logic.hpp"
 
 int main(int argc, const char * argv[]) {
     // insert code here...
+    Logic l;
+    Environment e;
+    l.HelloWorld("alo elo 3 2 1");
     std::cout << "Hello, World!\n";
     return 0;
 }
