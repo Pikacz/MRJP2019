@@ -10,22 +10,22 @@
 #define Asm1Instruction_hpp
 
 #include <stdio.h>
-#include "AsmInstruction.hpp"
+#include "AsmTypedInstruction.hpp"
 #include <string>
 #include <memory>
 
-class Asm1Instruction: public AsmInstruction {
+class Asm1Instruction: public AsmTypedInstruction {
 public:
     Asm1Instruction(
         AssemblerValue::Size type,
-        std::shared_ptr<const AssemblerValue> arg
+        std::unique_ptr<const AssemblerValue> arg
     ) noexcept;
     
     void write(std::stringstream & ss) const noexcept override;
     
     
 private:
-    const std::shared_ptr<const AssemblerValue> arg;
+    const std::unique_ptr<const AssemblerValue> arg;
 };
 
 

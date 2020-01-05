@@ -10,12 +10,16 @@
 
 #include "../staticCheck/redeclaration/VariableRedeclarationError.hpp"
 
+#include "function/Function.hpp"
+#include "function/FunctionInitializer.hpp"
+
 using namespace std;
 
 
 FunctionEnvironment::FunctionEnvironment(
-    Environment const * parent
-) noexcept: parent(parent) {}
+    Environment const * parent,
+    FunctionInitializer initializer
+) noexcept: BlockEnvironment(parent) {}
 
 
 // MARK: - variables
@@ -35,17 +39,6 @@ void FunctionEnvironment::declareParameterVariable(
 }
 
 
-void FunctionEnvironment::declareVariable(
-    std::string name, Type const * type, size_t line, size_t column
-) noexcept(false) {
-    const string key = keyForVariableNamed(name);
-    auto search = variables.find(key);
-    if (search != variables.end()) {
-        throw VariableRedeclarationError(line, column, name);
-    }
-    variables[key] = make_unique<Variable>(type);
-}
-
 
 Variable const * FunctionEnvironment::getVariableNamed(
     std::string name, size_t line, size_t column
@@ -63,18 +56,3 @@ Variable const * FunctionEnvironment::getVariableNamed(
     return parent->getVariableNamed(name, line, column);
 }
 
-
-// MARK: - functions
-Function const * FunctionEnvironment::getFunctionNamed(
-    string name, size_t line, size_t column
-) const noexcept(false) {
-    return parent->getFunctionNamed(name, line, column);
-}
-
-
-// MARK: - types
-Type const * FunctionEnvironment::getTypeNamed(
-    string name, size_t line, size_t column
-) const noexcept(false) {
-    return parent->getTypeNamed(name, line, column);
-}

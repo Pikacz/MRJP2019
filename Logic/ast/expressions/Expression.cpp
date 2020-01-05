@@ -11,7 +11,7 @@
 
 Expression::Expression(
     Type const * type, size_t line, size_t column
-) noexcept: type(type), line(line), column(column), AstNode() {}
+) noexcept: type(type), AstNode(line, column) {}
 
 
 Type const * Expression::getType() const noexcept {
@@ -24,10 +24,4 @@ bool Expression::isKindOf(Type const * type) const noexcept {
 }
 
 
-size_t Expression::getLine() const noexcept {
-    return line;
-}
 
-size_t Expression::getColumn() const noexcept {
-    return column;
-}

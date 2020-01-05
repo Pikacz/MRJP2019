@@ -10,6 +10,9 @@
 #define Type_hpp
 
 #include <string>
+#include <list>
+
+#include "../../assembler/instructions/AsmInstruction.hpp"
 
 class Type {
 public:
@@ -20,6 +23,12 @@ public:
     virtual std::string getName() const noexcept = 0;
     
     virtual size_t pointerSize() const noexcept = 0;
+    
+    virtual bool isVoid() const noexcept;
+    
+    virtual void compile(
+        std::list<std::unique_ptr<const AsmInstruction>> & compiled
+    ) const noexcept;
 };
 
 #endif /* Type_hpp */

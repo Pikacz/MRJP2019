@@ -10,14 +10,44 @@
 #define FunctionInitializer_hpp
 
 #include <string>
+#include <vector>
+#include <memory>
 
 #include "../types/FunctionType.hpp"
 
 class FunctionInitializer {
 public:
+    class Parameter {
+    public:
+        Parameter(
+            Type const * type,
+            std::string name,
+            size_t line,
+            size_t column
+        ): type(type), name(name), line(line), column(column) {}
+    
+        Type const * const type;
+        const std::string name;
+        const size_t line;
+        const size_t column;
+    };
+    
+    FunctionInitializer(
+        Type const * returnType,
+        std::string name,
+        std::vector<Parameter> parameters
+    ) noexcept;
+    
+    
     std::string getName() const noexcept;
     
-    FunctionType const * getType() const noexcept;
+    std::shared_ptr<const FunctionType> getType() const noexcept;
+    
+private:
+    const std::shared_ptr<const FunctionType> type;
+    const std::string name;
+    
+    std::vector<Parameter> parameters;
 };
 
 #endif /* FunctionInitializer_hpp */

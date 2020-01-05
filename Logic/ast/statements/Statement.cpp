@@ -7,3 +7,9 @@
 //
 
 #include "Statement.hpp"
+
+
+
+bool Statement::isTerminatingWith(Type const * type) const noexcept(false) {
+    return false;
+}

@@ -20,6 +20,8 @@ public:
     std::string getName() const noexcept override;
     
     size_t pointerSize() const noexcept override;
+    
+    bool isVoid() const noexcept override;
 };
 
 #endif /* LatteVoid_hpp */

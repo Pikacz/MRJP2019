@@ -14,7 +14,15 @@
 
 class IntConstant final: public Constant<int> {
 public:
-    IntConstant(int value, Environment const & env, size_t line, size_t column) noexcept;
+    IntConstant(int value, Environment const * env, size_t line, size_t column) noexcept;
+    
+    void compile(
+        AssemblerValue::Size type,
+        std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+        Environment const * env,
+        AsmRegistersHandler & handler,
+        AsmRegister::Type destination
+    ) const noexcept override;
 };
 
 #endif /* IntConstant_hpp */

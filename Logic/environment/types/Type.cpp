@@ -15,3 +15,14 @@ using namespace std;
 Type::~Type() {
     
 }
+
+bool Type::isVoid() const noexcept {
+    return false;
+}
+
+
+void Type::compile(
+    std::list<std::unique_ptr<const AsmInstruction>> & compiled
+) const noexcept {
+    return;
+}

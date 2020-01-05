@@ -11,6 +11,7 @@
 #include "environment/AllEnvironment.hpp"
 #include "ast/AllAstTests.hpp"
 #include "assembler/AllAssemblerTests.hpp"
+#include "compilation/AllCompilationTests.hpp"
 
 using namespace std;
 
@@ -19,4 +20,6 @@ void runAllTests(string prefix) {
     runAllAstTests(prefix);
     runAllStaticCheck(prefix);
     runAllEnvironment(prefix);
+    
+    runAllCompilationTests(prefix);
 }

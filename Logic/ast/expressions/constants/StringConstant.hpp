@@ -15,7 +15,15 @@
 
 class StringConstant final: public Constant<std::string> {
 public:
-    StringConstant(std::string value, Environment const & env, size_t line, size_t column) noexcept;
+    StringConstant(std::string value, Environment const * env, size_t line, size_t column) noexcept;
+    
+    void compile(
+        AssemblerValue::Size type,
+        std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+        Environment const * env,
+        AsmRegistersHandler & handler,
+        AsmRegister::Type destination
+    ) const noexcept override;
 };
 
 #endif /* StringConstant_hpp */

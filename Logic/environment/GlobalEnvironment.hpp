@@ -12,12 +12,14 @@
 #include <memory>
 #include <map>
 #include <string>
+#include <list>
 
 #include "Environment.hpp"
 #include "types/builtin/LatteBool.hpp"
 #include "types/builtin/LatteInt.hpp"
 #include "types/builtin/LatteString.hpp"
 #include "types/builtin/LatteVoid.hpp"
+#include "../assembler/instructions/AsmInstruction.hpp"
 
 class GlobalEnvironment final: public Environment {
 public:
@@ -39,11 +41,16 @@ public:
     ) const noexcept(false) override;
     
     
-    
+    // MARK: compilation
+    void compile(
+        std::list<std::unique_ptr<const AsmInstruction>> & compiled
+    ) const noexcept(false);
 private:
     std::map<std::string, std::unique_ptr<const Type>> types;
     
     std::map<std::string, std::unique_ptr<const Function>> functions;
+    
+    bool hasMain;
     
 };
 

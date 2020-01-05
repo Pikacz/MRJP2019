@@ -18,10 +18,15 @@ public:
     BoolConstantTest(): TestUnit("Test 1") {}
     
     void run() noexcept override {
-        Environment env = Environment::builtin();
-        BoolConstant b1(true, env), b2(true, env), b3(false, env);
+        GlobalEnvironment gEnv;
+        auto intT = gEnv.getLatteInt();
+        FunctionInitializer mainInitializer(intT, "main", {});
+        auto mainF = gEnv.declareFunction(mainInitializer, 1, 1);
+        auto env = mainF->getEnvironment();
         
-        assertTrue(b1.isKindOf(env.getLatteBool()));
+        BoolConstant b1(true, env, 1, 1), b2(true, env, 1, 2), b3(false, env, 1, 3);
+        
+        assertTrue(b1.isKindOf(env->getLatteBool()));
         
         assertTrue(b1.isEqualTo(&b2));
         assertFalse(b1.isEqualTo(&b3));

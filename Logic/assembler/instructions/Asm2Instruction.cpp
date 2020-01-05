@@ -12,15 +12,15 @@ using namespace std;
 
 Asm2Instruction::Asm2Instruction(
     AssemblerValue::Size type,
-    shared_ptr<const AssemblerValue> source,
-    shared_ptr<const AssemblerValue> destination
-) noexcept: source(source), destination(destination), AsmInstruction(type) {}
+    unique_ptr<const AssemblerValue> source,
+    unique_ptr<const AssemblerValue> destination
+) noexcept: source(move(source)), destination(move(destination)), AsmTypedInstruction(type) {}
 
 
 void Asm2Instruction::write(stringstream & ss) const noexcept {
     writeName(ss);
-    source->write(ss, getType());
-    ss << ",";
-    destination->write(ss, getType());
+    source.get()->write(ss, getType());
+    ss << ", ";
+    destination.get()->write(ss, getType());
     ss << endl;
 }

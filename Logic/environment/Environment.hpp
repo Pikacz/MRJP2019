@@ -19,12 +19,13 @@
 #include "types/builtin/LatteString.hpp"
 #include "types/builtin/LatteVoid.hpp"
 #include "variables/Variable.hpp"
-#include "function/Function.hpp"
 
+class Function;
+class FunctionInitializer;
 
 class Environment {
 protected:
-    Environment();
+    Environment() noexcept;
     
 public:
     // MARK: variables
@@ -51,6 +52,7 @@ public:
     LatteString const * getLatteString() const noexcept;
     
     LatteVoid const * getLatteVoid() const noexcept;
+    
 protected:
     // MARK: map keys
     static std::string keyForVariableNamed(std::string name) noexcept;

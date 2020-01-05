@@ -12,8 +12,8 @@ using namespace std;
 
 Asm1Instruction::Asm1Instruction(
     AssemblerValue::Size type,
-    shared_ptr<const AssemblerValue> arg
-) noexcept: arg(arg), AsmInstruction(type) {}
+    unique_ptr<const AssemblerValue> arg
+) noexcept: arg(move(arg)), AsmTypedInstruction(type) {}
 
 
 void Asm1Instruction::write(stringstream & ss) const noexcept {

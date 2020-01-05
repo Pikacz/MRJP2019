@@ -21,6 +21,8 @@ public:
         Type const * expectedType,
         Type const * recievedType
     ) noexcept;
+    
+    virtual void description(std::stringstream & ss) const noexcept override;
 protected:
     const Type * const expectedType;
     const Type * const recievedType;

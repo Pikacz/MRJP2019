@@ -14,7 +14,15 @@
 
 class BoolConstant final: public Constant<bool> {
 public:
-    BoolConstant(bool value, Environment const & env, size_t line, size_t column) noexcept;
+    BoolConstant(bool value, Environment const * env, size_t line, size_t column) noexcept;
+    
+    void compile(
+        AssemblerValue::Size type,
+        std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+        Environment const * env,
+        AsmRegistersHandler & handler,
+        AsmRegister::Type destination
+    ) const noexcept override;
 };
 
 #endif /* BoolConstant_hpp */

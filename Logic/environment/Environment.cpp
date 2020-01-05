@@ -12,9 +12,15 @@
 #include "../staticCheck/undefined/NoSuchTypeError.hpp"
 #include "../staticCheck/undefined/NoSuchVariableError.hpp"
 
+#include "function/Function.hpp"
+#include "function/FunctionInitializer.hpp"
+
 
 using namespace std;
 
+
+Environment::Environment() noexcept {
+}
 
 Variable const * Environment::getVariableNamed(
     string name, size_t line, size_t column

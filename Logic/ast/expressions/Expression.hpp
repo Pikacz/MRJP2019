@@ -10,7 +10,10 @@
 #define Expression_hpp
 
 #include "../AstNode.hpp"
+#include "../../environment/Environment.hpp"
 #include "../../environment/types/Type.hpp"
+
+#include "../../assembler/AsmRegistersHandler.hpp"
 
 class Expression: public AstNode {
 public:
@@ -20,12 +23,16 @@ public:
     
     bool isKindOf(Type const * type) const noexcept;
     
-    size_t getLine() const noexcept;
     
-    size_t getColumn() const noexcept;
+    virtual void compile(
+        AssemblerValue::Size type,
+        std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+        Environment const * env,
+        AsmRegistersHandler & handler,
+        AsmRegister::Type destination
+    ) const noexcept = 0;
 private:
     const Type * const type;
-    const size_t line, column;
 };
 
 #endif /* Expression_hpp */

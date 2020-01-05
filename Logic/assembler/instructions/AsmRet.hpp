@@ -10,11 +10,11 @@
 #define AsmRet_hpp
 
 #include <stdio.h>
-#include "AsmInstruction.hpp"
+#include "AsmTypedInstruction.hpp"
 
-class AsmRet final: public AsmInstruction {
+class AsmRet final: public AsmTypedInstruction {
 public:
-    using AsmInstruction::AsmInstruction;
+    using AsmTypedInstruction::AsmTypedInstruction;
     
     std::string getName() const noexcept override;
 };

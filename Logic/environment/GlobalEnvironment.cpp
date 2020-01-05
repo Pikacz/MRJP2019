@@ -9,12 +9,18 @@
 #include "GlobalEnvironment.hpp"
 
 #include "../staticCheck/redeclaration/FunctionRedeclarationError.hpp"
+#include "../staticCheck/main/MissingMain.hpp"
+
+#include "function/Function.hpp"
+#include "function/MainFunction.hpp"
+#include "function/FunctionInitializer.hpp"
 
 using namespace std;
 
+static string mainName = "main";
 
 // MARK: - constructor
-GlobalEnvironment::GlobalEnvironment() noexcept {
+GlobalEnvironment::GlobalEnvironment() noexcept: hasMain(false), Environment() {
     string key;
     key = keyForTypeNamed(boolName());
     types[key] = make_unique<LatteBool>();
@@ -50,7 +56,14 @@ Function * GlobalEnvironment::declareFunction(
             line, column, initializer.getName()
         );
     }
-    unique_ptr<Function> func = make_unique<Function>(initializer, this);
+    
+    unique_ptr<Function> func;
+    if (initializer.getName() != mainName) {
+        func = make_unique<Function>(line, column, initializer, this);
+    } else {
+        func = make_unique<MainFunction>(line, column, initializer, this);
+        hasMain = true;
+    }
     Function * result = func.get();
     functions[key] = move(func);
     return result;
@@ -68,4 +81,25 @@ Type const * GlobalEnvironment::getTypeNamed(
     }
     
     return Environment::getTypeNamed(name, line, column);
+}
+
+
+// MARK: - compilation
+void GlobalEnvironment::compile(
+    list<unique_ptr<const AsmInstruction>> & compiled
+) const noexcept(false) {
+    if (!hasMain) {
+        throw MissingMain();
+    }
+    
+    AsmLabelHandler lblHandler;
+    
+    for (auto const & type : types) {
+        type.second.get()->compile(compiled);
+    }
+    
+    
+    for (auto const & func : functions) {
+        func.second.get()->compile(compiled, lblHandler);
+    }
 }

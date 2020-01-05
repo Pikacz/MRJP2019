@@ -18,19 +18,9 @@
 class AsmInstruction {
 
 public:
-    AsmInstruction(AssemblerValue::Size type) noexcept;
+    virtual ~AsmInstruction();
     
-    AssemblerValue::Size getType() const noexcept;
     
-    virtual void write(std::stringstream & ss) const noexcept;
-    
-    virtual std::string getName() const noexcept = 0;
-    
-protected:
-    void writeName(std::stringstream & ss) const noexcept;
-private:
-    void writeSuffix(std::stringstream & ss) const noexcept;
-    
-    const AssemblerValue::Size type;
+    virtual void write(std::stringstream & ss) const noexcept = 0;
 };
 #endif /* AsmInstruction_hpp */

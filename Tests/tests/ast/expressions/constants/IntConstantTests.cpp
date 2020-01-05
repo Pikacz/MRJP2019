@@ -18,10 +18,15 @@ public:
     IntConstantTest(): TestUnit("Test 1") {}
     
     void run() noexcept override {
-        Environment env = Environment::builtin();
-        IntConstant i1(1, env), i2(1, env), i3(0, env);
+        GlobalEnvironment gEnv;
+        auto intT = gEnv.getLatteInt();
+        FunctionInitializer mainInitializer(intT, "main", {});
+        auto mainF = gEnv.declareFunction(mainInitializer, 1, 1);
+        auto env = mainF->getEnvironment();
         
-        assertTrue(i1.isKindOf(env.getLatteInt()));
+        IntConstant i1(1, env, 1, 1), i2(1, env, 1, 2), i3(0, env, 1, 3);
+        
+        assertTrue(i1.isKindOf(env->getLatteInt()));
         
         assertTrue(i1.isEqualTo(&i2));
         assertFalse(i1.isEqualTo(&i3));

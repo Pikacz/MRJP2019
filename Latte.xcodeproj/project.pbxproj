@@ -84,8 +84,6 @@
 		C553A3D723B0EB9E00D45EBB /* AsmAdd.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A3D523B0EB9E00D45EBB /* AsmAdd.hpp */; };
 		C553A3DA23B0EBF500D45EBB /* AsmPop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A3D823B0EBF500D45EBB /* AsmPop.cpp */; };
 		C553A3DB23B0EBF500D45EBB /* AsmPop.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A3D923B0EBF500D45EBB /* AsmPop.hpp */; };
-		C553A3DE23B0EC2D00D45EBB /* AsmRet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A3DC23B0EC2D00D45EBB /* AsmRet.cpp */; };
-		C553A3DF23B0EC2D00D45EBB /* AsmRet.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A3DD23B0EC2D00D45EBB /* AsmRet.hpp */; };
 		C553A3E723B0F16D00D45EBB /* AsmRegister.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A3E523B0F16D00D45EBB /* AsmRegister.cpp */; };
 		C553A3E823B0F16D00D45EBB /* AsmRegister.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C553A3E623B0F16D00D45EBB /* AsmRegister.hpp */; };
 		C553A3FB23B15D9200D45EBB /* Asm2Instruction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C553A3F923B15D9200D45EBB /* Asm2Instruction.cpp */; };
@@ -119,6 +117,54 @@
 		C56B50CE23AFA76500C56FF2 /* StringConstant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B50CC23AFA76500C56FF2 /* StringConstant.cpp */; };
 		C56B50CF23AFA76500C56FF2 /* StringConstant.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56B50CD23AFA76500C56FF2 /* StringConstant.hpp */; };
 		C56B50D223AFA7CD00C56FF2 /* StringConstantTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B50D023AFA7CD00C56FF2 /* StringConstantTests.cpp */; };
+		C56D82E723C0CE5700DDA963 /* ExpectedReturn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D82E523C0CE5700DDA963 /* ExpectedReturn.cpp */; };
+		C56D82E823C0CE5700DDA963 /* ExpectedReturn.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D82E623C0CE5700DDA963 /* ExpectedReturn.hpp */; };
+		C56D82EC23C0DAE600DDA963 /* MissingMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D82EA23C0DAE600DDA963 /* MissingMain.cpp */; };
+		C56D82ED23C0DAE600DDA963 /* MissingMain.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D82EB23C0DAE600DDA963 /* MissingMain.hpp */; };
+		C56D82F023C0DC0200DDA963 /* MainInvalidType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D82EE23C0DC0200DDA963 /* MainInvalidType.cpp */; };
+		C56D82F123C0DC0200DDA963 /* MainInvalidType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D82EF23C0DC0200DDA963 /* MainInvalidType.hpp */; };
+		C56D82F423C0DDDA00DDA963 /* MainFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D82F223C0DDDA00DDA963 /* MainFunction.cpp */; };
+		C56D82F523C0DDDA00DDA963 /* MainFunction.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D82F323C0DDDA00DDA963 /* MainFunction.hpp */; };
+		C56D82F823C0E97F00DDA963 /* AsmFunctionHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D82F623C0E97F00DDA963 /* AsmFunctionHeader.cpp */; };
+		C56D82F923C0E97F00DDA963 /* AsmFunctionHeader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D82F723C0E97F00DDA963 /* AsmFunctionHeader.hpp */; };
+		C56D82FC23C0EA1800DDA963 /* AsmTypedInstruction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D82FA23C0EA1800DDA963 /* AsmTypedInstruction.cpp */; };
+		C56D82FD23C0EA1800DDA963 /* AsmTypedInstruction.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D82FB23C0EA1800DDA963 /* AsmTypedInstruction.hpp */; };
+		C56D830023C0F57600DDA963 /* AsmRegistersHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D82FE23C0F57600DDA963 /* AsmRegistersHandler.cpp */; };
+		C56D830123C0F57600DDA963 /* AsmRegistersHandler.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D82FF23C0F57600DDA963 /* AsmRegistersHandler.hpp */; };
+		C56D830423C1015600DDA963 /* BlockEnvironment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D830223C1015600DDA963 /* BlockEnvironment.cpp */; };
+		C56D830523C1015600DDA963 /* BlockEnvironment.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D830323C1015600DDA963 /* BlockEnvironment.hpp */; };
+		C56D830823C1165500DDA963 /* AsmLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D830623C1165500DDA963 /* AsmLabel.cpp */; };
+		C56D830923C1165500DDA963 /* AsmLabel.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D830723C1165500DDA963 /* AsmLabel.hpp */; };
+		C56D830C23C1170600DDA963 /* AsmJmp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D830A23C1170600DDA963 /* AsmJmp.cpp */; };
+		C56D830D23C1170600DDA963 /* AsmJmp.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D830B23C1170600DDA963 /* AsmJmp.hpp */; };
+		C56D831023C1182600DDA963 /* AsmLabelHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D830E23C1182600DDA963 /* AsmLabelHandler.cpp */; };
+		C56D831123C1182600DDA963 /* AsmLabelHandler.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D830F23C1182600DDA963 /* AsmLabelHandler.hpp */; };
+		C56D831423C11E5600DDA963 /* AsmRet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D831223C11E5600DDA963 /* AsmRet.cpp */; };
+		C56D831523C11E5600DDA963 /* AsmRet.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D831323C11E5600DDA963 /* AsmRet.hpp */; };
+		C56D831923C120AB00DDA963 /* Int2ArgExpression.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D831723C120AB00DDA963 /* Int2ArgExpression.cpp */; };
+		C56D831A23C120AB00DDA963 /* Int2ArgExpression.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D831823C120AB00DDA963 /* Int2ArgExpression.hpp */; };
+		C56D831D23C1240600DDA963 /* Expr2Arg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D831B23C1240600DDA963 /* Expr2Arg.cpp */; };
+		C56D831E23C1240600DDA963 /* Expr2Arg.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D831C23C1240600DDA963 /* Expr2Arg.hpp */; };
+		C56D832123C129D200DDA963 /* IntAdd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D831F23C129D200DDA963 /* IntAdd.cpp */; };
+		C56D832223C129D200DDA963 /* IntAdd.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D832023C129D200DDA963 /* IntAdd.hpp */; };
+		C56D832723C1FF0B00DDA963 /* MainReturnValueTestCaseUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D832523C1FF0B00DDA963 /* MainReturnValueTestCaseUnit.cpp */; };
+		C56D832A23C2042A00DDA963 /* SingleExpression.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D832823C2042A00DDA963 /* SingleExpression.cpp */; };
+		C56D832D23C2062500DDA963 /* AllReturnValueTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D832B23C2062500DDA963 /* AllReturnValueTests.cpp */; };
+		C56D833023C206AF00DDA963 /* AllCompilationTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D832E23C206AF00DDA963 /* AllCompilationTests.cpp */; };
+		C56D833323C2086A00DDA963 /* IntSub.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D833123C2086A00DDA963 /* IntSub.cpp */; };
+		C56D833423C2086A00DDA963 /* IntSub.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D833223C2086A00DDA963 /* IntSub.hpp */; };
+		C56D833723C214B700DDA963 /* IntMul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D833523C214B700DDA963 /* IntMul.cpp */; };
+		C56D833823C214B700DDA963 /* IntMul.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D833623C214B700DDA963 /* IntMul.hpp */; };
+		C56D833B23C2159E00DDA963 /* AsmIMul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D833923C2159E00DDA963 /* AsmIMul.cpp */; };
+		C56D833C23C2159E00DDA963 /* AsmIMul.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D833A23C2159E00DDA963 /* AsmIMul.hpp */; };
+		C56D833F23C21DF100DDA963 /* AsmCqto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D833D23C21DF100DDA963 /* AsmCqto.cpp */; };
+		C56D834023C21DF100DDA963 /* AsmCqto.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D833E23C21DF100DDA963 /* AsmCqto.hpp */; };
+		C56D834323C21F9700DDA963 /* AsmIDiv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D834123C21F9700DDA963 /* AsmIDiv.cpp */; };
+		C56D834423C21F9700DDA963 /* AsmIDiv.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D834223C21F9700DDA963 /* AsmIDiv.hpp */; };
+		C56D834723C2201100DDA963 /* IntDiv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D834523C2201100DDA963 /* IntDiv.cpp */; };
+		C56D834823C2201100DDA963 /* IntDiv.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D834623C2201100DDA963 /* IntDiv.hpp */; };
+		C56D834B23C22DA000DDA963 /* IntMod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D834923C22DA000DDA963 /* IntMod.cpp */; };
+		C56D834C23C22DA000DDA963 /* IntMod.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D834A23C22DA000DDA963 /* IntMod.hpp */; };
 		C575EAC723AFC926006BCFEF /* AssemblerValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C575EAC523AFC926006BCFEF /* AssemblerValue.cpp */; };
 		C575EAC823AFC926006BCFEF /* AssemblerValue.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C575EAC623AFC926006BCFEF /* AssemblerValue.hpp */; };
 		C5A45CF023B4EE17008EAC8F /* GlobalEnvironment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5A45CEE23B4EE17008EAC8F /* GlobalEnvironment.cpp */; };
@@ -256,8 +302,6 @@
 		C553A3D523B0EB9E00D45EBB /* AsmAdd.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmAdd.hpp; sourceTree = "<group>"; };
 		C553A3D823B0EBF500D45EBB /* AsmPop.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmPop.cpp; sourceTree = "<group>"; };
 		C553A3D923B0EBF500D45EBB /* AsmPop.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmPop.hpp; sourceTree = "<group>"; };
-		C553A3DC23B0EC2D00D45EBB /* AsmRet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmRet.cpp; sourceTree = "<group>"; };
-		C553A3DD23B0EC2D00D45EBB /* AsmRet.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmRet.hpp; sourceTree = "<group>"; };
 		C553A3E523B0F16D00D45EBB /* AsmRegister.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmRegister.cpp; sourceTree = "<group>"; };
 		C553A3E623B0F16D00D45EBB /* AsmRegister.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmRegister.hpp; sourceTree = "<group>"; };
 		C553A3F923B15D9200D45EBB /* Asm2Instruction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Asm2Instruction.cpp; sourceTree = "<group>"; };
@@ -307,6 +351,58 @@
 		C56B50CD23AFA76500C56FF2 /* StringConstant.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StringConstant.hpp; sourceTree = "<group>"; };
 		C56B50D023AFA7CD00C56FF2 /* StringConstantTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StringConstantTests.cpp; sourceTree = "<group>"; };
 		C56B50D123AFA7CD00C56FF2 /* StringConstantTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StringConstantTests.hpp; sourceTree = "<group>"; };
+		C56D82E523C0CE5700DDA963 /* ExpectedReturn.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExpectedReturn.cpp; sourceTree = "<group>"; };
+		C56D82E623C0CE5700DDA963 /* ExpectedReturn.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExpectedReturn.hpp; sourceTree = "<group>"; };
+		C56D82EA23C0DAE600DDA963 /* MissingMain.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MissingMain.cpp; sourceTree = "<group>"; };
+		C56D82EB23C0DAE600DDA963 /* MissingMain.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MissingMain.hpp; sourceTree = "<group>"; };
+		C56D82EE23C0DC0200DDA963 /* MainInvalidType.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainInvalidType.cpp; sourceTree = "<group>"; };
+		C56D82EF23C0DC0200DDA963 /* MainInvalidType.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MainInvalidType.hpp; sourceTree = "<group>"; };
+		C56D82F223C0DDDA00DDA963 /* MainFunction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainFunction.cpp; sourceTree = "<group>"; };
+		C56D82F323C0DDDA00DDA963 /* MainFunction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MainFunction.hpp; sourceTree = "<group>"; };
+		C56D82F623C0E97F00DDA963 /* AsmFunctionHeader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmFunctionHeader.cpp; sourceTree = "<group>"; };
+		C56D82F723C0E97F00DDA963 /* AsmFunctionHeader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmFunctionHeader.hpp; sourceTree = "<group>"; };
+		C56D82FA23C0EA1800DDA963 /* AsmTypedInstruction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmTypedInstruction.cpp; sourceTree = "<group>"; };
+		C56D82FB23C0EA1800DDA963 /* AsmTypedInstruction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmTypedInstruction.hpp; sourceTree = "<group>"; };
+		C56D82FE23C0F57600DDA963 /* AsmRegistersHandler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmRegistersHandler.cpp; sourceTree = "<group>"; };
+		C56D82FF23C0F57600DDA963 /* AsmRegistersHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmRegistersHandler.hpp; sourceTree = "<group>"; };
+		C56D830223C1015600DDA963 /* BlockEnvironment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BlockEnvironment.cpp; sourceTree = "<group>"; };
+		C56D830323C1015600DDA963 /* BlockEnvironment.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BlockEnvironment.hpp; sourceTree = "<group>"; };
+		C56D830623C1165500DDA963 /* AsmLabel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmLabel.cpp; sourceTree = "<group>"; };
+		C56D830723C1165500DDA963 /* AsmLabel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmLabel.hpp; sourceTree = "<group>"; };
+		C56D830A23C1170600DDA963 /* AsmJmp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmJmp.cpp; sourceTree = "<group>"; };
+		C56D830B23C1170600DDA963 /* AsmJmp.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmJmp.hpp; sourceTree = "<group>"; };
+		C56D830E23C1182600DDA963 /* AsmLabelHandler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmLabelHandler.cpp; sourceTree = "<group>"; };
+		C56D830F23C1182600DDA963 /* AsmLabelHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmLabelHandler.hpp; sourceTree = "<group>"; };
+		C56D831223C11E5600DDA963 /* AsmRet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmRet.cpp; sourceTree = "<group>"; };
+		C56D831323C11E5600DDA963 /* AsmRet.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmRet.hpp; sourceTree = "<group>"; };
+		C56D831723C120AB00DDA963 /* Int2ArgExpression.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Int2ArgExpression.cpp; sourceTree = "<group>"; };
+		C56D831823C120AB00DDA963 /* Int2ArgExpression.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Int2ArgExpression.hpp; sourceTree = "<group>"; };
+		C56D831B23C1240600DDA963 /* Expr2Arg.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Expr2Arg.cpp; sourceTree = "<group>"; };
+		C56D831C23C1240600DDA963 /* Expr2Arg.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Expr2Arg.hpp; sourceTree = "<group>"; };
+		C56D831F23C129D200DDA963 /* IntAdd.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IntAdd.cpp; sourceTree = "<group>"; };
+		C56D832023C129D200DDA963 /* IntAdd.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IntAdd.hpp; sourceTree = "<group>"; };
+		C56D832523C1FF0B00DDA963 /* MainReturnValueTestCaseUnit.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainReturnValueTestCaseUnit.cpp; sourceTree = "<group>"; };
+		C56D832623C1FF0B00DDA963 /* MainReturnValueTestCaseUnit.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MainReturnValueTestCaseUnit.hpp; sourceTree = "<group>"; };
+		C56D832823C2042A00DDA963 /* SingleExpression.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SingleExpression.cpp; sourceTree = "<group>"; };
+		C56D832923C2042A00DDA963 /* SingleExpression.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SingleExpression.hpp; sourceTree = "<group>"; };
+		C56D832B23C2062500DDA963 /* AllReturnValueTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AllReturnValueTests.cpp; sourceTree = "<group>"; };
+		C56D832C23C2062500DDA963 /* AllReturnValueTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AllReturnValueTests.hpp; sourceTree = "<group>"; };
+		C56D832E23C206AF00DDA963 /* AllCompilationTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AllCompilationTests.cpp; sourceTree = "<group>"; };
+		C56D832F23C206AF00DDA963 /* AllCompilationTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AllCompilationTests.hpp; sourceTree = "<group>"; };
+		C56D833123C2086A00DDA963 /* IntSub.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IntSub.cpp; sourceTree = "<group>"; };
+		C56D833223C2086A00DDA963 /* IntSub.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IntSub.hpp; sourceTree = "<group>"; };
+		C56D833523C214B700DDA963 /* IntMul.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IntMul.cpp; sourceTree = "<group>"; };
+		C56D833623C214B700DDA963 /* IntMul.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IntMul.hpp; sourceTree = "<group>"; };
+		C56D833923C2159E00DDA963 /* AsmIMul.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmIMul.cpp; sourceTree = "<group>"; };
+		C56D833A23C2159E00DDA963 /* AsmIMul.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmIMul.hpp; sourceTree = "<group>"; };
+		C56D833D23C21DF100DDA963 /* AsmCqto.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmCqto.cpp; sourceTree = "<group>"; };
+		C56D833E23C21DF100DDA963 /* AsmCqto.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmCqto.hpp; sourceTree = "<group>"; };
+		C56D834123C21F9700DDA963 /* AsmIDiv.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmIDiv.cpp; sourceTree = "<group>"; };
+		C56D834223C21F9700DDA963 /* AsmIDiv.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmIDiv.hpp; sourceTree = "<group>"; };
+		C56D834523C2201100DDA963 /* IntDiv.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IntDiv.cpp; sourceTree = "<group>"; };
+		C56D834623C2201100DDA963 /* IntDiv.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IntDiv.hpp; sourceTree = "<group>"; };
+		C56D834923C22DA000DDA963 /* IntMod.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IntMod.cpp; sourceTree = "<group>"; };
+		C56D834A23C22DA000DDA963 /* IntMod.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IntMod.hpp; sourceTree = "<group>"; };
 		C575EAC523AFC926006BCFEF /* AssemblerValue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AssemblerValue.cpp; sourceTree = "<group>"; };
 		C575EAC623AFC926006BCFEF /* AssemblerValue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AssemblerValue.hpp; sourceTree = "<group>"; };
 		C5A45CEE23B4EE17008EAC8F /* GlobalEnvironment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GlobalEnvironment.cpp; sourceTree = "<group>"; };
@@ -408,6 +504,8 @@
 				C547FEF323AE581800B21EAE /* types */,
 				C547FEF823AE58C600B21EAE /* Environment.cpp */,
 				C547FEF923AE58C600B21EAE /* Environment.hpp */,
+				C56D830223C1015600DDA963 /* BlockEnvironment.cpp */,
+				C56D830323C1015600DDA963 /* BlockEnvironment.hpp */,
 				C5A45CEE23B4EE17008EAC8F /* GlobalEnvironment.cpp */,
 				C5A45CEF23B4EE17008EAC8F /* GlobalEnvironment.hpp */,
 				C553A3B623B0DEB300D45EBB /* FunctionEnvironment.cpp */,
@@ -443,6 +541,7 @@
 		C547FF0E23AE64F600B21EAE /* tests */ = {
 			isa = PBXGroup;
 			children = (
+				C56D832323C1FEC600DDA963 /* compilation */,
 				C553A39123B0129600D45EBB /* assembler */,
 				C56B50B623AFA0FF00C56FF2 /* ast */,
 				C547FF3023AE911B00B21EAE /* environment */,
@@ -478,6 +577,8 @@
 		C547FF1823AE6DC900B21EAE /* staticCheck */ = {
 			isa = PBXGroup;
 			children = (
+				C56D82E923C0DAA400DDA963 /* main */,
+				C56D82E423C0CE1D00DDA963 /* expectedReturn */,
 				C553A3AB23B0DA3B00D45EBB /* types */,
 				C547FF4923AEBC4100B21EAE /* undefined */,
 				C547FF1A23AE6DC900B21EAE /* redeclaration */,
@@ -608,6 +709,8 @@
 			children = (
 				C5218A5423B3A4D600E520FB /* Function.cpp */,
 				C5218A5523B3A4D600E520FB /* Function.hpp */,
+				C56D82F223C0DDDA00DDA963 /* MainFunction.cpp */,
+				C56D82F323C0DDDA00DDA963 /* MainFunction.hpp */,
 				C52F415D23B51AAE009B49CD /* FunctionInitializer.cpp */,
 				C52F415E23B51AAE009B49CD /* FunctionInitializer.hpp */,
 			);
@@ -619,6 +722,12 @@
 			children = (
 				C553A3C423B0EA8F00D45EBB /* AsmInstruction.cpp */,
 				C553A3C523B0EA8F00D45EBB /* AsmInstruction.hpp */,
+				C56D830623C1165500DDA963 /* AsmLabel.cpp */,
+				C56D830723C1165500DDA963 /* AsmLabel.hpp */,
+				C56D82FA23C0EA1800DDA963 /* AsmTypedInstruction.cpp */,
+				C56D82FB23C0EA1800DDA963 /* AsmTypedInstruction.hpp */,
+				C56D82F623C0E97F00DDA963 /* AsmFunctionHeader.cpp */,
+				C56D82F723C0E97F00DDA963 /* AsmFunctionHeader.hpp */,
 				C553A3F923B15D9200D45EBB /* Asm2Instruction.cpp */,
 				C553A3FA23B15D9200D45EBB /* Asm2Instruction.hpp */,
 				C553A3FD23B1617D00D45EBB /* Asm1Instruction.cpp */,
@@ -633,8 +742,16 @@
 				C553A3D123B0EB4600D45EBB /* AsmSub.hpp */,
 				C553A3D423B0EB9E00D45EBB /* AsmAdd.cpp */,
 				C553A3D523B0EB9E00D45EBB /* AsmAdd.hpp */,
-				C553A3DC23B0EC2D00D45EBB /* AsmRet.cpp */,
-				C553A3DD23B0EC2D00D45EBB /* AsmRet.hpp */,
+				C56D833923C2159E00DDA963 /* AsmIMul.cpp */,
+				C56D833A23C2159E00DDA963 /* AsmIMul.hpp */,
+				C56D830A23C1170600DDA963 /* AsmJmp.cpp */,
+				C56D830B23C1170600DDA963 /* AsmJmp.hpp */,
+				C56D831223C11E5600DDA963 /* AsmRet.cpp */,
+				C56D831323C11E5600DDA963 /* AsmRet.hpp */,
+				C56D833D23C21DF100DDA963 /* AsmCqto.cpp */,
+				C56D833E23C21DF100DDA963 /* AsmCqto.hpp */,
+				C56D834123C21F9700DDA963 /* AsmIDiv.cpp */,
+				C56D834223C21F9700DDA963 /* AsmIDiv.hpp */,
 			);
 			path = instructions;
 			sourceTree = "<group>";
@@ -702,6 +819,7 @@
 		C56B50AB23AF9BFA00C56FF2 /* expressions */ = {
 			isa = PBXGroup;
 			children = (
+				C56D831623C1206200DDA963 /* arithmetic */,
 				C56B50AC23AF9C2300C56FF2 /* constants */,
 				C56B50AD23AF9CD400C56FF2 /* Expression.cpp */,
 				C56B50AE23AF9CD400C56FF2 /* Expression.hpp */,
@@ -758,11 +876,79 @@
 			path = constants;
 			sourceTree = "<group>";
 		};
+		C56D82E423C0CE1D00DDA963 /* expectedReturn */ = {
+			isa = PBXGroup;
+			children = (
+				C56D82E523C0CE5700DDA963 /* ExpectedReturn.cpp */,
+				C56D82E623C0CE5700DDA963 /* ExpectedReturn.hpp */,
+			);
+			path = expectedReturn;
+			sourceTree = "<group>";
+		};
+		C56D82E923C0DAA400DDA963 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				C56D82EA23C0DAE600DDA963 /* MissingMain.cpp */,
+				C56D82EB23C0DAE600DDA963 /* MissingMain.hpp */,
+				C56D82EE23C0DC0200DDA963 /* MainInvalidType.cpp */,
+				C56D82EF23C0DC0200DDA963 /* MainInvalidType.hpp */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		C56D831623C1206200DDA963 /* arithmetic */ = {
+			isa = PBXGroup;
+			children = (
+				C56D831723C120AB00DDA963 /* Int2ArgExpression.cpp */,
+				C56D831823C120AB00DDA963 /* Int2ArgExpression.hpp */,
+				C56D831B23C1240600DDA963 /* Expr2Arg.cpp */,
+				C56D831C23C1240600DDA963 /* Expr2Arg.hpp */,
+				C56D831F23C129D200DDA963 /* IntAdd.cpp */,
+				C56D832023C129D200DDA963 /* IntAdd.hpp */,
+				C56D833123C2086A00DDA963 /* IntSub.cpp */,
+				C56D833223C2086A00DDA963 /* IntSub.hpp */,
+				C56D833523C214B700DDA963 /* IntMul.cpp */,
+				C56D833623C214B700DDA963 /* IntMul.hpp */,
+				C56D834523C2201100DDA963 /* IntDiv.cpp */,
+				C56D834623C2201100DDA963 /* IntDiv.hpp */,
+				C56D834923C22DA000DDA963 /* IntMod.cpp */,
+				C56D834A23C22DA000DDA963 /* IntMod.hpp */,
+			);
+			path = arithmetic;
+			sourceTree = "<group>";
+		};
+		C56D832323C1FEC600DDA963 /* compilation */ = {
+			isa = PBXGroup;
+			children = (
+				C56D832423C1FED700DDA963 /* returnValue */,
+				C56D832E23C206AF00DDA963 /* AllCompilationTests.cpp */,
+				C56D832F23C206AF00DDA963 /* AllCompilationTests.hpp */,
+			);
+			path = compilation;
+			sourceTree = "<group>";
+		};
+		C56D832423C1FED700DDA963 /* returnValue */ = {
+			isa = PBXGroup;
+			children = (
+				C56D832523C1FF0B00DDA963 /* MainReturnValueTestCaseUnit.cpp */,
+				C56D832623C1FF0B00DDA963 /* MainReturnValueTestCaseUnit.hpp */,
+				C56D832823C2042A00DDA963 /* SingleExpression.cpp */,
+				C56D832923C2042A00DDA963 /* SingleExpression.hpp */,
+				C56D832B23C2062500DDA963 /* AllReturnValueTests.cpp */,
+				C56D832C23C2062500DDA963 /* AllReturnValueTests.hpp */,
+			);
+			path = returnValue;
+			sourceTree = "<group>";
+		};
 		C575EAC323AFC8DE006BCFEF /* assembler */ = {
 			isa = PBXGroup;
 			children = (
 				C553A3C323B0EA7F00D45EBB /* instructions */,
 				C575EAC423AFC8FD006BCFEF /* values */,
+				C56D82FE23C0F57600DDA963 /* AsmRegistersHandler.cpp */,
+				C56D82FF23C0F57600DDA963 /* AsmRegistersHandler.hpp */,
+				C56D830E23C1182600DDA963 /* AsmLabelHandler.cpp */,
+				C56D830F23C1182600DDA963 /* AsmLabelHandler.hpp */,
 			);
 			path = assembler;
 			sourceTree = "<group>";
@@ -788,26 +974,38 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C56D834823C2201100DDA963 /* IntDiv.hpp in Headers */,
 				C553A3B323B0DB5300D45EBB /* InvalidReturnType.hpp in Headers */,
 				C56B508723AF7FA700C56FF2 /* NoSuchVariableError.hpp in Headers */,
 				C553A3CF23B0EB1500D45EBB /* AsmPush.hpp in Headers */,
 				C553A3E823B0F16D00D45EBB /* AsmRegister.hpp in Headers */,
+				C56D830D23C1170600DDA963 /* AsmJmp.hpp in Headers */,
 				C553A38823B0028B00D45EBB /* AsmIntConstant.hpp in Headers */,
-				C553A3DF23B0EC2D00D45EBB /* AsmRet.hpp in Headers */,
 				C5218A5B23B3A56800E520FB /* FunctionType.hpp in Headers */,
+				C56D82F523C0DDDA00DDA963 /* MainFunction.hpp in Headers */,
+				C56D82F923C0E97F00DDA963 /* AsmFunctionHeader.hpp in Headers */,
 				C56B50AA23AF9AF900C56FF2 /* AstNode.hpp in Headers */,
+				C56D830123C0F57600DDA963 /* AsmRegistersHandler.hpp in Headers */,
+				C56D833823C214B700DDA963 /* IntMul.hpp in Headers */,
 				C547FEE523AE573D00B21EAE /* LogicPriv.hpp in Headers */,
+				C56D82E823C0CE5700DDA963 /* ExpectedReturn.hpp in Headers */,
 				C553A3CB23B0EAB800D45EBB /* AsmMov.hpp in Headers */,
+				C56D834423C21F9700DDA963 /* AsmIDiv.hpp in Headers */,
 				C547FF4D23AEBC5E00B21EAE /* NoSuchTypeError.hpp in Headers */,
 				C553A3AA23B043C900D45EBB /* ReturnStatement.hpp in Headers */,
 				C5218A5723B3A4D600E520FB /* Function.hpp in Headers */,
 				C553A3FC23B15D9200D45EBB /* Asm2Instruction.hpp in Headers */,
+				C56D831A23C120AB00DDA963 /* Int2ArgExpression.hpp in Headers */,
 				C547FF4823AEB8D100B21EAE /* LatteString.hpp in Headers */,
+				C56D834023C21DF100DDA963 /* AsmCqto.hpp in Headers */,
 				C553A3D323B0EB4600D45EBB /* AsmSub.hpp in Headers */,
+				C56D830523C1015600DDA963 /* BlockEnvironment.hpp in Headers */,
 				C553A39023B003BD00D45EBB /* AsmMemory.hpp in Headers */,
 				C547FF2023AE6DC900B21EAE /* VariableRedeclarationError.hpp in Headers */,
 				C575EAC823AFC926006BCFEF /* AssemblerValue.hpp in Headers */,
+				C56D82FD23C0EA1800DDA963 /* AsmTypedInstruction.hpp in Headers */,
 				C553A3B923B0DEB300D45EBB /* FunctionEnvironment.hpp in Headers */,
+				C56D82F123C0DC0200DDA963 /* MainInvalidType.hpp in Headers */,
 				C547FEF723AE586D00B21EAE /* Type.hpp in Headers */,
 				C56B50CF23AFA76500C56FF2 /* StringConstant.hpp in Headers */,
 				C56B50C823AFA41100C56FF2 /* BoolConstant.hpp in Headers */,
@@ -815,21 +1013,30 @@
 				C553A3A623B02FF800D45EBB /* Statement.hpp in Headers */,
 				C553A3D723B0EB9E00D45EBB /* AsmAdd.hpp in Headers */,
 				C547FF4423AEB89C00B21EAE /* LatteVoid.hpp in Headers */,
+				C56D82ED23C0DAE600DDA963 /* MissingMain.hpp in Headers */,
+				C56D832223C129D200DDA963 /* IntAdd.hpp in Headers */,
 				C56B50B023AF9CD400C56FF2 /* Expression.hpp in Headers */,
+				C56D833423C2086A00DDA963 /* IntSub.hpp in Headers */,
 				C547FEFB23AE58C600B21EAE /* Environment.hpp in Headers */,
+				C56D831523C11E5600DDA963 /* AsmRet.hpp in Headers */,
+				C56D831E23C1240600DDA963 /* Expr2Arg.hpp in Headers */,
+				C56D833C23C2159E00DDA963 /* AsmIMul.hpp in Headers */,
 				C56B50B523AFA02700C56FF2 /* IntConstant.hpp in Headers */,
 				C52F416823B520EF009B49CD /* NoSuchFunctionError.hpp in Headers */,
 				C52F416023B51AAE009B49CD /* FunctionInitializer.hpp in Headers */,
 				C553A3C723B0EA8F00D45EBB /* AsmInstruction.hpp in Headers */,
 				C553A3DB23B0EBF500D45EBB /* AsmPop.hpp in Headers */,
 				C553A3AF23B0DA5900D45EBB /* InvalidType.hpp in Headers */,
+				C56D831123C1182600DDA963 /* AsmLabelHandler.hpp in Headers */,
 				C5A45CF123B4EE17008EAC8F /* GlobalEnvironment.hpp in Headers */,
 				C547FF2123AE6DC900B21EAE /* StaticCheckError.hpp in Headers */,
 				C547FEE323AE573D00B21EAE /* Logic.hpp in Headers */,
+				C56D834C23C22DA000DDA963 /* IntMod.hpp in Headers */,
 				C547FF4023AEB81D00B21EAE /* LatteBool.hpp in Headers */,
 				C553A40023B1617D00D45EBB /* Asm1Instruction.hpp in Headers */,
 				C547FF2F23AE887500B21EAE /* Variable.hpp in Headers */,
 				C547FF3C23AEB52C00B21EAE /* LatteInt.hpp in Headers */,
+				C56D830923C1165500DDA963 /* AsmLabel.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -955,15 +1162,19 @@
 				C56B50CB23AFA68D00C56FF2 /* BoolConstantTests.cpp in Sources */,
 				C547FED823AE571F00B21EAE /* main.cpp in Sources */,
 				C547FF2423AE701B00B21EAE /* AllRedeclarationTests.cpp in Sources */,
+				C56D833023C206AF00DDA963 /* AllCompilationTests.cpp in Sources */,
 				C547FF3323AE916B00B21EAE /* EnvironmentTests.cpp in Sources */,
 				C56B50A523AF8F1B00C56FF2 /* LatteVoidTests.cpp in Sources */,
 				C56B509123AF81F700C56FF2 /* NoSuchVariableErrorTests.cpp in Sources */,
 				C547FF1323AE65C900B21EAE /* VariableRedeclarationTests.cpp in Sources */,
+				C56D832D23C2062500DDA963 /* AllReturnValueTests.cpp in Sources */,
 				C56B509923AF8C9D00C56FF2 /* AllBuiltinTypes.cpp in Sources */,
 				C553A39523B0132400D45EBB /* AsmRegisterTests.cpp in Sources */,
 				C56B509623AF8ABF00C56FF2 /* LatteIntTests.cpp in Sources */,
 				C547FF3723AE92D600B21EAE /* TestMessageContainsInformation.cpp in Sources */,
+				C56D832723C1FF0B00DDA963 /* MainReturnValueTestCaseUnit.cpp in Sources */,
 				C56B50C123AFA30500C56FF2 /* AllExpressionsTests.cpp in Sources */,
+				C56D832A23C2042A00DDA963 /* SingleExpression.cpp in Sources */,
 				C56B50A223AF8E5200C56FF2 /* LatteStringTests.cpp in Sources */,
 				C56B508E23AF811D00C56FF2 /* AllUndefinedTests.cpp in Sources */,
 				C56B508B23AF808C00C56FF2 /* NoSuchTypeErrorTests.cpp in Sources */,
@@ -979,25 +1190,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C56D833323C2086A00DDA963 /* IntSub.cpp in Sources */,
 				C56B50B423AFA02700C56FF2 /* IntConstant.cpp in Sources */,
 				C553A3B223B0DB5300D45EBB /* InvalidReturnType.cpp in Sources */,
+				C56D833723C214B700DDA963 /* IntMul.cpp in Sources */,
 				C56B508623AF7FA700C56FF2 /* NoSuchVariableError.cpp in Sources */,
 				C547FEFA23AE58C600B21EAE /* Environment.cpp in Sources */,
+				C56D830423C1015600DDA963 /* BlockEnvironment.cpp in Sources */,
 				C547FF1F23AE6DC900B21EAE /* VariableRedeclarationError.cpp in Sources */,
 				C553A3B823B0DEB300D45EBB /* FunctionEnvironment.cpp in Sources */,
+				C56D832123C129D200DDA963 /* IntAdd.cpp in Sources */,
+				C56D82F823C0E97F00DDA963 /* AsmFunctionHeader.cpp in Sources */,
+				C56D82F423C0DDDA00DDA963 /* MainFunction.cpp in Sources */,
+				C56D831923C120AB00DDA963 /* Int2ArgExpression.cpp in Sources */,
+				C56D831D23C1240600DDA963 /* Expr2Arg.cpp in Sources */,
 				C553A3D223B0EB4600D45EBB /* AsmSub.cpp in Sources */,
 				C547FF1E23AE6DC900B21EAE /* StaticCheckError.cpp in Sources */,
-				C553A3DE23B0EC2D00D45EBB /* AsmRet.cpp in Sources */,
+				C56D831023C1182600DDA963 /* AsmLabelHandler.cpp in Sources */,
 				C553A38723B0028B00D45EBB /* AsmIntConstant.cpp in Sources */,
 				C553A3D623B0EB9E00D45EBB /* AsmAdd.cpp in Sources */,
 				C553A3CA23B0EAB800D45EBB /* AsmMov.cpp in Sources */,
 				C5A45CF023B4EE17008EAC8F /* GlobalEnvironment.cpp in Sources */,
+				C56D834323C21F9700DDA963 /* AsmIDiv.cpp in Sources */,
+				C56D830023C0F57600DDA963 /* AsmRegistersHandler.cpp in Sources */,
 				C553A3A923B043C900D45EBB /* ReturnStatement.cpp in Sources */,
 				C553A3C623B0EA8F00D45EBB /* AsmInstruction.cpp in Sources */,
 				C56B50CE23AFA76500C56FF2 /* StringConstant.cpp in Sources */,
+				C56D834B23C22DA000DDA963 /* IntMod.cpp in Sources */,
+				C56D830823C1165500DDA963 /* AsmLabel.cpp in Sources */,
 				C5218A5A23B3A56800E520FB /* FunctionType.cpp in Sources */,
 				C52F416323B51CF7009B49CD /* FunctionRedeclarationError.cpp in Sources */,
+				C56D831423C11E5600DDA963 /* AsmRet.cpp in Sources */,
 				C553A3A523B02FF800D45EBB /* Statement.cpp in Sources */,
+				C56D830C23C1170600DDA963 /* AsmJmp.cpp in Sources */,
 				C547FF4C23AEBC5E00B21EAE /* NoSuchTypeError.cpp in Sources */,
 				C547FF4723AEB8D100B21EAE /* LatteString.cpp in Sources */,
 				C56B50C723AFA41100C56FF2 /* BoolConstant.cpp in Sources */,
@@ -1012,13 +1237,20 @@
 				C5218A5623B3A4D600E520FB /* Function.cpp in Sources */,
 				C553A38F23B003BD00D45EBB /* AsmMemory.cpp in Sources */,
 				C553A3AE23B0DA5900D45EBB /* InvalidType.cpp in Sources */,
+				C56D834723C2201100DDA963 /* IntDiv.cpp in Sources */,
+				C56D82E723C0CE5700DDA963 /* ExpectedReturn.cpp in Sources */,
+				C56D82EC23C0DAE600DDA963 /* MissingMain.cpp in Sources */,
+				C56D833F23C21DF100DDA963 /* AsmCqto.cpp in Sources */,
 				C547FF4323AEB89C00B21EAE /* LatteVoid.cpp in Sources */,
 				C547FEE723AE573D00B21EAE /* Logic.cpp in Sources */,
 				C52F416723B520EF009B49CD /* NoSuchFunctionError.cpp in Sources */,
+				C56D82F023C0DC0200DDA963 /* MainInvalidType.cpp in Sources */,
 				C553A3FF23B1617D00D45EBB /* Asm1Instruction.cpp in Sources */,
 				C575EAC723AFC926006BCFEF /* AssemblerValue.cpp in Sources */,
 				C547FF3B23AEB52C00B21EAE /* LatteInt.cpp in Sources */,
 				C547FEF623AE586D00B21EAE /* Type.cpp in Sources */,
+				C56D82FC23C0EA1800DDA963 /* AsmTypedInstruction.cpp in Sources */,
+				C56D833B23C2159E00DDA963 /* AsmIMul.cpp in Sources */,
 				C56B50A923AF9AF900C56FF2 /* AstNode.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
