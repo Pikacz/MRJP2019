@@ -26,6 +26,7 @@ void IntConstant::compile(
     std::list<std::unique_ptr<const AsmInstruction>> & compiled,
     Environment const * env,
     AsmRegistersHandler & handler,
+    AsmLabelHandler & lblHandler,
     AsmRegister::Type destination
 ) const noexcept {
     unique_ptr<const AsmInstruction> mov = make_unique<AsmMov>(

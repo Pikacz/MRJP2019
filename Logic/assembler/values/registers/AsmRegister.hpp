@@ -34,7 +34,7 @@ public:
         r15
     };
     
-    AsmRegister(Type type);
+    AsmRegister(Type type, AssemblerValue::Size size = AssemblerValue::Size::bit64);
     
     void write(
         std::stringstream & ss, AssemblerValue::Size size
@@ -51,6 +51,8 @@ public:
     
 private:
     const Type type;
+    
+    const AssemblerValue::Size size;
 };
 
 #endif /* AsmRegister_hpp */

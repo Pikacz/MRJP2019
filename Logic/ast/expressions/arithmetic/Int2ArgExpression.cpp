@@ -50,6 +50,7 @@ void Int2ArgExpression::compile(
     list<unique_ptr<const AsmInstruction>> & compiled,
     Environment const * env,
     AsmRegistersHandler & handler,
+    AsmLabelHandler & lblHandler,
     AsmRegister::Type destination
 ) const noexcept {
     auto lPos = lhsPosition(destination, handler);
@@ -58,7 +59,7 @@ void Int2ArgExpression::compile(
     if (lPos != destination) {
         handler.freeRegister(lPos, type, compiled);
     }
-    lhs.get()->compile(type, compiled, env, handler, lPos);
+    lhs.get()->compile(type, compiled, env, handler, lblHandler, lPos);
     // w lPos mam lewą stronę
     
     if (rPos != destination) {
@@ -66,7 +67,7 @@ void Int2ArgExpression::compile(
     }
     
     handler.freeRegister(lPos, type, compiled);
-    rhs.get()->compile(type, compiled, env, handler, rPos);
+    rhs.get()->compile(type, compiled, env, handler, lblHandler, rPos);
     // w lPos mam cokolwiek
     // w rPos mam prawą stronę
     handler.restoreRegister(lPos, type, compiled);

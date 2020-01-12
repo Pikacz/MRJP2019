@@ -374,6 +374,461 @@ public:
     }
 };
 
+//  if (true && false) {
+//    return 1
+//  } else {
+//    return 2
+//  }
+class SimpleExpr10 final: public MainReturnValueTestCaseUnit {
+public:
+    SimpleExpr10(): MainReturnValueTestCaseUnit("simple and") {}
+    
+    void fillEnv(GlobalEnvironment & env) const noexcept override {
+        auto intT = env.getLatteInt();
+        FunctionInitializer mainInitializer(intT, "main", {});
+        auto mainF = env.declareFunction(mainInitializer, 1, 1);
+        auto fEnv = mainF->getEnvironment();
+        
+        vector<unique_ptr<const Statement>> body;
+        
+        
+        unique_ptr<const Expression> justTrue = make_unique<BoolConstant>(true, fEnv, 1, 2);
+        unique_ptr<const Expression> justFalse = make_unique<BoolConstant>(false, fEnv, 1, 2);
+        unique_ptr<const Expression> boolExpr = make_unique<BoolAndExpr>(fEnv, 3, 6, move(justTrue), move(justFalse));
+        
+        
+        unique_ptr<const Expression> justOne = make_unique<IntConstant>(1, fEnv, 1, 2);
+        unique_ptr<const Statement> returnOne = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justOne)
+        );
+        
+        unique_ptr<const Expression> justTwo = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Statement> returnTwo = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justTwo)
+        );
+        
+        unique_ptr<const Statement> ifStm = make_unique<IfStatement>(1, 2, fEnv, move(boolExpr), move(returnOne), move(returnTwo));
+        
+        
+        body.push_back(move(ifStm));
+        mainF->completeWith(move(body));
+    }
+    
+    int expectedExitCode() const noexcept override {
+        return 2;
+    }
+};
+
+
+//  if (true || false) {
+//    return 1
+//  } else {
+//    return 2
+//  }
+class SimpleExpr11 final: public MainReturnValueTestCaseUnit {
+public:
+    SimpleExpr11(): MainReturnValueTestCaseUnit("simple or") {}
+    
+    void fillEnv(GlobalEnvironment & env) const noexcept override {
+        auto intT = env.getLatteInt();
+        FunctionInitializer mainInitializer(intT, "main", {});
+        auto mainF = env.declareFunction(mainInitializer, 1, 1);
+        auto fEnv = mainF->getEnvironment();
+        
+        vector<unique_ptr<const Statement>> body;
+        
+        
+        unique_ptr<const Expression> justTrue = make_unique<BoolConstant>(true, fEnv, 1, 2);
+        unique_ptr<const Expression> justFalse = make_unique<BoolConstant>(false, fEnv, 1, 2);
+        unique_ptr<const Expression> boolExpr = make_unique<BoolOrExpr>(fEnv, 3, 6, move(justTrue), move(justFalse));
+        
+        
+        unique_ptr<const Expression> justOne = make_unique<IntConstant>(1, fEnv, 1, 2);
+        unique_ptr<const Statement> returnOne = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justOne)
+        );
+        
+        unique_ptr<const Expression> justTwo = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Statement> returnTwo = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justTwo)
+        );
+        
+        unique_ptr<const Statement> ifStm = make_unique<IfStatement>(1, 2, fEnv, move(boolExpr), move(returnOne), move(returnTwo));
+        
+        
+        body.push_back(move(ifStm));
+        mainF->completeWith(move(body));
+    }
+    
+    int expectedExitCode() const noexcept override {
+        return 1;
+    }
+};
+
+
+//  if (1 < 2) {
+//    return 1
+//  } else {
+//    return 2
+//  }
+class SimpleExpr12 final: public MainReturnValueTestCaseUnit {
+public:
+    SimpleExpr12(): MainReturnValueTestCaseUnit("simple less") {}
+    
+    void fillEnv(GlobalEnvironment & env) const noexcept override {
+        auto intT = env.getLatteInt();
+        FunctionInitializer mainInitializer(intT, "main", {});
+        auto mainF = env.declareFunction(mainInitializer, 1, 1);
+        auto fEnv = mainF->getEnvironment();
+        
+        vector<unique_ptr<const Statement>> body;
+        
+        
+        unique_ptr<const Expression> just1 = make_unique<IntConstant>(1, fEnv, 1, 2);
+        unique_ptr<const Expression> just2 = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Expression> boolExpr = make_unique<CompareLess>(fEnv, 3, 6, move(just1), move(just2));
+        
+        
+        unique_ptr<const Expression> justOne = make_unique<IntConstant>(1, fEnv, 1, 2);
+        unique_ptr<const Statement> returnOne = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justOne)
+        );
+        
+        unique_ptr<const Expression> justTwo = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Statement> returnTwo = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justTwo)
+        );
+        
+        unique_ptr<const Statement> ifStm = make_unique<IfStatement>(1, 2, fEnv, move(boolExpr), move(returnOne), move(returnTwo));
+        
+        
+        body.push_back(move(ifStm));
+        mainF->completeWith(move(body));
+    }
+    
+    int expectedExitCode() const noexcept override {
+        return 1;
+    }
+};
+
+//  if (2 <= 2) {
+//    return 1
+//  } else {
+//    return 2
+//  }
+class SimpleExpr13 final: public MainReturnValueTestCaseUnit {
+public:
+    SimpleExpr13(): MainReturnValueTestCaseUnit("simple less eq") {}
+    
+    void fillEnv(GlobalEnvironment & env) const noexcept override {
+        auto intT = env.getLatteInt();
+        FunctionInitializer mainInitializer(intT, "main", {});
+        auto mainF = env.declareFunction(mainInitializer, 1, 1);
+        auto fEnv = mainF->getEnvironment();
+        
+        vector<unique_ptr<const Statement>> body;
+        
+        
+        unique_ptr<const Expression> just2 = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Expression> just2_2 = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Expression> boolExpr = make_unique<CompareLessEqual>(fEnv, 3, 6, move(just2), move(just2_2));
+        
+        
+        unique_ptr<const Expression> justOne = make_unique<IntConstant>(1, fEnv, 1, 2);
+        unique_ptr<const Statement> returnOne = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justOne)
+        );
+        
+        unique_ptr<const Expression> justTwo = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Statement> returnTwo = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justTwo)
+        );
+        
+        unique_ptr<const Statement> ifStm = make_unique<IfStatement>(1, 2, fEnv, move(boolExpr), move(returnOne), move(returnTwo));
+        
+        
+        body.push_back(move(ifStm));
+        mainF->completeWith(move(body));
+    }
+    
+    int expectedExitCode() const noexcept override {
+        return 1;
+    }
+};
+
+
+//  if (2 > 2) {
+//    return 1
+//  } else {
+//    return 2
+//  }
+class SimpleExpr14 final: public MainReturnValueTestCaseUnit {
+public:
+    SimpleExpr14(): MainReturnValueTestCaseUnit("simple greater") {}
+    
+    void fillEnv(GlobalEnvironment & env) const noexcept override {
+        auto intT = env.getLatteInt();
+        FunctionInitializer mainInitializer(intT, "main", {});
+        auto mainF = env.declareFunction(mainInitializer, 1, 1);
+        auto fEnv = mainF->getEnvironment();
+        
+        vector<unique_ptr<const Statement>> body;
+        
+        
+        unique_ptr<const Expression> just2 = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Expression> just2_2 = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Expression> boolExpr = make_unique<CompareGreater>(fEnv, 3, 6, move(just2), move(just2_2));
+        
+        
+        unique_ptr<const Expression> justOne = make_unique<IntConstant>(1, fEnv, 1, 2);
+        unique_ptr<const Statement> returnOne = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justOne)
+        );
+        
+        unique_ptr<const Expression> justTwo = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Statement> returnTwo = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justTwo)
+        );
+        
+        unique_ptr<const Statement> ifStm = make_unique<IfStatement>(1, 2, fEnv, move(boolExpr), move(returnOne), move(returnTwo));
+        
+        
+        body.push_back(move(ifStm));
+        mainF->completeWith(move(body));
+    }
+    
+    int expectedExitCode() const noexcept override {
+        return 2;
+    }
+};
+
+
+//  if (2 >= 2) {
+//    return 1
+//  } else {
+//    return 2
+//  }
+class SimpleExpr15 final: public MainReturnValueTestCaseUnit {
+public:
+    SimpleExpr15(): MainReturnValueTestCaseUnit("simple greater eq") {}
+    
+    void fillEnv(GlobalEnvironment & env) const noexcept override {
+        auto intT = env.getLatteInt();
+        FunctionInitializer mainInitializer(intT, "main", {});
+        auto mainF = env.declareFunction(mainInitializer, 1, 1);
+        auto fEnv = mainF->getEnvironment();
+        
+        vector<unique_ptr<const Statement>> body;
+        
+        
+        unique_ptr<const Expression> just2 = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Expression> just2_2 = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Expression> boolExpr = make_unique<CompareGreaterEqual>(fEnv, 3, 6, move(just2), move(just2_2));
+        
+        
+        unique_ptr<const Expression> justOne = make_unique<IntConstant>(1, fEnv, 1, 2);
+        unique_ptr<const Statement> returnOne = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justOne)
+        );
+        
+        unique_ptr<const Expression> justTwo = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Statement> returnTwo = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justTwo)
+        );
+        
+        unique_ptr<const Statement> ifStm = make_unique<IfStatement>(1, 2, fEnv, move(boolExpr), move(returnOne), move(returnTwo));
+        
+        
+        body.push_back(move(ifStm));
+        mainF->completeWith(move(body));
+    }
+    
+    int expectedExitCode() const noexcept override {
+        return 1;
+    }
+};
+
+//  if (2 == 2) {
+//    return 1
+//  } else {
+//    return 2
+//  }
+class SimpleExpr16 final: public MainReturnValueTestCaseUnit {
+public:
+    SimpleExpr16(): MainReturnValueTestCaseUnit("simple eq") {}
+    
+    void fillEnv(GlobalEnvironment & env) const noexcept override {
+        auto intT = env.getLatteInt();
+        FunctionInitializer mainInitializer(intT, "main", {});
+        auto mainF = env.declareFunction(mainInitializer, 1, 1);
+        auto fEnv = mainF->getEnvironment();
+        
+        vector<unique_ptr<const Statement>> body;
+        
+        
+        unique_ptr<const Expression> just2 = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Expression> just2_2 = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Expression> boolExpr = make_unique<CompareEqual>(fEnv, 3, 6, move(just2), move(just2_2));
+        
+        
+        unique_ptr<const Expression> justOne = make_unique<IntConstant>(1, fEnv, 1, 2);
+        unique_ptr<const Statement> returnOne = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justOne)
+        );
+        
+        unique_ptr<const Expression> justTwo = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Statement> returnTwo = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justTwo)
+        );
+        
+        unique_ptr<const Statement> ifStm = make_unique<IfStatement>(1, 2, fEnv, move(boolExpr), move(returnOne), move(returnTwo));
+        
+        
+        body.push_back(move(ifStm));
+        mainF->completeWith(move(body));
+    }
+    
+    int expectedExitCode() const noexcept override {
+        return 1;
+    }
+};
+
+//  if (2 != 2) {
+//    return 1
+//  } else {
+//    return 2
+//  }
+class SimpleExpr17 final: public MainReturnValueTestCaseUnit {
+public:
+    SimpleExpr17(): MainReturnValueTestCaseUnit("simple not eq") {}
+    
+    void fillEnv(GlobalEnvironment & env) const noexcept override {
+        auto intT = env.getLatteInt();
+        FunctionInitializer mainInitializer(intT, "main", {});
+        auto mainF = env.declareFunction(mainInitializer, 1, 1);
+        auto fEnv = mainF->getEnvironment();
+        
+        vector<unique_ptr<const Statement>> body;
+        
+        
+        unique_ptr<const Expression> just2 = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Expression> just2_2 = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Expression> boolExpr = make_unique<CompareNotEqual>(fEnv, 3, 6, move(just2), move(just2_2));
+        
+        
+        unique_ptr<const Expression> justOne = make_unique<IntConstant>(1, fEnv, 1, 2);
+        unique_ptr<const Statement> returnOne = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justOne)
+        );
+        
+        unique_ptr<const Expression> justTwo = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Statement> returnTwo = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justTwo)
+        );
+        
+        unique_ptr<const Statement> ifStm = make_unique<IfStatement>(1, 2, fEnv, move(boolExpr), move(returnOne), move(returnTwo));
+        
+        
+        body.push_back(move(ifStm));
+        mainF->completeWith(move(body));
+    }
+    
+    int expectedExitCode() const noexcept override {
+        return 2;
+    }
+};
+
+
+//  if (!true) {
+//    return 1
+//  } else {
+//    return 2
+//  }
+class SimpleExpr18 final: public MainReturnValueTestCaseUnit {
+public:
+    SimpleExpr18(): MainReturnValueTestCaseUnit("simple not") {}
+    
+    void fillEnv(GlobalEnvironment & env) const noexcept override {
+        auto intT = env.getLatteInt();
+        FunctionInitializer mainInitializer(intT, "main", {});
+        auto mainF = env.declareFunction(mainInitializer, 1, 1);
+        auto fEnv = mainF->getEnvironment();
+        
+        vector<unique_ptr<const Statement>> body;
+        
+        unique_ptr<const Expression> _boolExpr = make_unique<BoolConstant>(true, fEnv, 6, 2);
+        
+        unique_ptr<const Expression> boolExpr = make_unique<NotExpr>(fEnv, 3, 5, move(_boolExpr));
+        
+        unique_ptr<const Expression> justOne = make_unique<IntConstant>(1, fEnv, 1, 2);
+        unique_ptr<const Statement> returnOne = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justOne)
+        );
+        
+        unique_ptr<const Expression> justTwo = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Statement> returnTwo = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justTwo)
+        );
+        
+        unique_ptr<const Statement> ifStm = make_unique<IfStatement>(1, 2, fEnv, move(boolExpr), move(returnOne), move(returnTwo));
+        
+        
+        body.push_back(move(ifStm));
+        mainF->completeWith(move(body));
+    }
+    
+    int expectedExitCode() const noexcept override {
+        return 2;
+    }
+};
+
+
+//  if (!(2 >= 2)) {
+//    return 1
+//  } else {
+//    return 2
+//  }
+class SimpleExpr19 final: public MainReturnValueTestCaseUnit {
+public:
+    SimpleExpr19(): MainReturnValueTestCaseUnit("simple not2") {}
+    
+    void fillEnv(GlobalEnvironment & env) const noexcept override {
+        auto intT = env.getLatteInt();
+        FunctionInitializer mainInitializer(intT, "main", {});
+        auto mainF = env.declareFunction(mainInitializer, 1, 1);
+        auto fEnv = mainF->getEnvironment();
+        
+        vector<unique_ptr<const Statement>> body;
+        
+        
+        unique_ptr<const Expression> just2 = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Expression> just2_2 = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Expression> _boolExpr = make_unique<CompareGreaterEqual>(fEnv, 3, 6, move(just2), move(just2_2));
+        
+        unique_ptr<const Expression> boolExpr = make_unique<NotExpr>(fEnv, 3, 5, move(_boolExpr));
+        
+        unique_ptr<const Expression> justOne = make_unique<IntConstant>(1, fEnv, 1, 2);
+        unique_ptr<const Statement> returnOne = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justOne)
+        );
+        
+        unique_ptr<const Expression> justTwo = make_unique<IntConstant>(2, fEnv, 1, 2);
+        unique_ptr<const Statement> returnTwo = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justTwo)
+        );
+        
+        unique_ptr<const Statement> ifStm = make_unique<IfStatement>(1, 2, fEnv, move(boolExpr), move(returnOne), move(returnTwo));
+        
+        
+        body.push_back(move(ifStm));
+        mainF->completeWith(move(body));
+    }
+    
+    int expectedExitCode() const noexcept override {
+        return 2;
+    }
+};
+
 
 vector<shared_ptr<TestUnit> > SingleExpression::getTests() const noexcept {
     return {
@@ -385,6 +840,16 @@ vector<shared_ptr<TestUnit> > SingleExpression::getTests() const noexcept {
         make_shared<SimpleExpr6>(),
         make_shared<SimpleExpr7>(),
         make_shared<SimpleExpr8>(),
-        make_shared<SimpleExpr9>()
+        make_shared<SimpleExpr9>(),
+        make_shared<SimpleExpr10>(),
+        make_shared<SimpleExpr11>(),
+        make_shared<SimpleExpr12>(),
+        make_shared<SimpleExpr13>(),
+        make_shared<SimpleExpr14>(),
+        make_shared<SimpleExpr15>(),
+        make_shared<SimpleExpr16>(),
+        make_shared<SimpleExpr17>(),
+        make_shared<SimpleExpr18>(),
+        make_shared<SimpleExpr19>()
     };
 }

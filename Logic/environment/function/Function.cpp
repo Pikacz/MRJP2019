@@ -22,12 +22,13 @@ using namespace std;
 Function::Function(
     size_t line, size_t column,
     FunctionInitializer initializer,
-    Environment const * globalEnv
+    Environment const * globalEnv,
+    bool isMain
 ) noexcept:
     line(line), column(column),
     name(initializer.getName()),
     type(initializer.getType()),
-    env(make_unique<FunctionEnvironment>(globalEnv, initializer)),
+    env(make_unique<FunctionEnvironment>(globalEnv, initializer, isMain)),
     isCompleted(false) {
 }
 

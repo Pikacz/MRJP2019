@@ -22,7 +22,7 @@ string LatteVoid::getName() const noexcept {
 }
 
 size_t LatteVoid::pointerSize() const noexcept {
-    assert(false);
+    return 0;
 }
 
 

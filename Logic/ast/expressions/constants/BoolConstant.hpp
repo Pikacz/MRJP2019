@@ -11,6 +11,9 @@
 
 #include "Constant.hpp"
 #include "../../../environment/Environment.hpp"
+#include "../../../assembler/values/AsmIntConstant.hpp"
+
+#include <memory>
 
 class BoolConstant final: public Constant<bool> {
 public:
@@ -21,8 +24,13 @@ public:
         std::list<std::unique_ptr<const AsmInstruction>> & compiled,
         Environment const * env,
         AsmRegistersHandler & handler,
+        AsmLabelHandler & lblHandler,
         AsmRegister::Type destination
     ) const noexcept override;
+    
+    static std::unique_ptr<AsmIntConstant> getTrue() noexcept;
+    
+    static std::unique_ptr<AsmIntConstant> getFalse() noexcept;
 };
 
 #endif /* BoolConstant_hpp */

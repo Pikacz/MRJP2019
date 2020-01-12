@@ -74,6 +74,7 @@ void ReturnStatement::compile(
             compiled,
             env,
             regHandler,
+            handler,
             AsmRegister::Type::rax
         );
     }

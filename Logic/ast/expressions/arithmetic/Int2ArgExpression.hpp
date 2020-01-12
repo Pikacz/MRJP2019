@@ -9,7 +9,7 @@
 #ifndef Int2ArgExpression_hpp
 #define Int2ArgExpression_hpp
 
-#include "Expr2Arg.hpp"
+#include "../Expr2Arg.hpp"
 #include "../../../environment/Environment.hpp"
 
 
@@ -28,6 +28,7 @@ public:
         std::list<std::unique_ptr<const AsmInstruction>> & compiled,
         Environment const * env,
         AsmRegistersHandler & handler,
+        AsmLabelHandler & lblHandler,
         AsmRegister::Type destination
     ) const noexcept override;
     

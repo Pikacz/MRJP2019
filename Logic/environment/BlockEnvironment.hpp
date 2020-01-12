@@ -17,8 +17,12 @@
 #include <string>
 
 
+class FunctionEnvironment;
+
 class BlockEnvironment: public Environment {
 public:
+    friend class FunctionEnvironment;
+    
     BlockEnvironment(
         Environment const * parent
     ) noexcept;
@@ -43,18 +47,35 @@ public:
     ) const noexcept(false) override;
     
     // MARK: compilation
-    virtual void compileVariables(
+    virtual void initializeVariables(
         std::list<std::unique_ptr<const AsmInstruction>> & compiled
     ) const noexcept;
     
     virtual void cleanVariables(
         std::list<std::unique_ptr<const AsmInstruction>> & compiled
     ) const noexcept;
-
 protected:
-    std::map<std::string, std::unique_ptr<const Variable>> variables;
+    
+    
+    virtual int getSize() const noexcept;
+    
+    int childMaxSize() const noexcept;
+    
+    
+    
+    virtual void setVariables(
+        std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+        int firstAt
+    ) const noexcept;
+    
+    std::map<std::string, std::unique_ptr<Variable>> variables;
     
     const Environment * const parent;
+    
+    void addChild(BlockEnvironment const * child) const noexcept;
+    mutable std::vector<BlockEnvironment const *> children;
+private:
+    
     
 };
 

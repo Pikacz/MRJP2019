@@ -20,6 +20,6 @@ string LatteInt::getName() const noexcept {
 }
 
 size_t LatteInt::pointerSize() const noexcept {
-    return 4;
+    return 8;
 }
 

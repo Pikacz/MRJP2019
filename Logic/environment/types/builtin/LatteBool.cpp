@@ -20,5 +20,5 @@ string LatteBool::getName() const noexcept {
 }
 
 size_t LatteBool::pointerSize() const noexcept {
-    return 4;
+    return 8;
 }

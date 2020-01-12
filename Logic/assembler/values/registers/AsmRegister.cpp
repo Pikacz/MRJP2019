@@ -12,8 +12,9 @@
 using namespace std;
 
 AsmRegister::AsmRegister(
-    Type type
-): type(type), AssemblerValue() {}
+    Type type,
+    AssemblerValue::Size size
+): type(type), size(size), AssemblerValue() {}
 
 
 bool AsmRegister::isEqualTo(AssemblerValue const * val) const noexcept {
@@ -189,7 +190,7 @@ void AsmRegister::write(
     stringstream & ss, AssemblerValue::Size size
 ) const noexcept {
     ss << "%";
-    switch (size) {
+    switch (this->size) {
         case AssemblerValue::Size::bit8:
             ss << get8BitName(type);
             break;

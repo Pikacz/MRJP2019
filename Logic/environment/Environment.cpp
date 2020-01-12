@@ -14,6 +14,7 @@
 
 #include "function/Function.hpp"
 #include "function/FunctionInitializer.hpp"
+#include <cassert>
 
 
 using namespace std;

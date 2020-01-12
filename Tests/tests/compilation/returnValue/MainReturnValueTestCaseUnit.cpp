@@ -11,6 +11,7 @@
 #include <list>
 #include <sstream>
 #include <fstream>
+#include <iostream>
 
 
 using namespace std;
@@ -33,6 +34,22 @@ void MainReturnValueTestCaseUnit::run() noexcept {
     system("clang++ tmp.s -o elo");
     int result = system("./elo > xx.txt");
     result = WEXITSTATUS(result);
+    
+//    cout << endl;
+//    cout << endl;
+//    string line;
+//    ifstream myfile ("tmp.s");
+//    if (myfile.is_open())
+//    {
+//      while ( getline (myfile,line) )
+//      {
+//        cout << line << '\n';
+//      }
+//      myfile.close();
+//    }
+//    cout << endl;
+//    cout << endl;
+    
     system("rm -rf tmp.s elo xx.txt");
     assertTrue(result == expectedExitCode());
 }

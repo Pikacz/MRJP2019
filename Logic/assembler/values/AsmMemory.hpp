@@ -36,6 +36,8 @@ public:
     ) const noexcept override;
 
     bool isEqualTo(AssemblerValue const * val) const noexcept override;
+    
+    std::unique_ptr<const AsmMemory> movedBy(int distance) const noexcept;
 
 private:
     const int displacement;

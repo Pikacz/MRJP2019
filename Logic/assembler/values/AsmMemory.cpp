@@ -91,3 +91,8 @@ bool AsmMemory::isEqualTo(AssemblerValue const * val) const noexcept {
     }
     return false;
 }
+
+
+std::unique_ptr<const AsmMemory> AsmMemory::movedBy(int distance) const noexcept {
+    return make_unique<AsmMemory>(displacement + distance, base, index, scale);
+}

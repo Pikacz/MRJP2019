@@ -8,6 +8,10 @@
 
 #include "BoolConstant.hpp"
 
+
+#include "../../../assembler/values/registers/AsmRegister.hpp"
+#include "../../../assembler/instructions/AsmMov.hpp"
+
 using namespace std;
 
 
@@ -21,7 +25,22 @@ void BoolConstant::compile(
     std::list<std::unique_ptr<const AsmInstruction>> & compiled,
     Environment const * env,
     AsmRegistersHandler & handler,
+    AsmLabelHandler & lblHandler,
     AsmRegister::Type destination
 ) const noexcept {
-    throw "not implemented";
+    unique_ptr<const AsmInstruction> mov = make_unique<AsmMov>(
+        type,
+        getValue() ? getTrue() : getFalse(),
+        make_unique<AsmRegister>(destination)
+    );
+    compiled.push_back(move(mov));
+}
+
+
+std::unique_ptr<AsmIntConstant> BoolConstant::getTrue() noexcept {
+    return make_unique<AsmIntConstant>(1);
+}
+
+std::unique_ptr<AsmIntConstant> BoolConstant::getFalse() noexcept {
+    return make_unique<AsmIntConstant>(0);
 }

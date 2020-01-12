@@ -38,7 +38,7 @@ public:
         AsmLabel const * exitLabel
     ) const noexcept override;
 private:
-    std::optional<std::unique_ptr<const Expression>> expr;
+    const std::optional<std::unique_ptr<const Expression>> expr;
     const Type * const voidType;
 };
 

@@ -28,7 +28,8 @@ public:
     Function(
         size_t line, size_t column,
         FunctionInitializer initializer,
-        Environment const * globalEnv
+        Environment const * globalEnv,
+        bool isMain = false
     ) noexcept;
     
     void completeWith(

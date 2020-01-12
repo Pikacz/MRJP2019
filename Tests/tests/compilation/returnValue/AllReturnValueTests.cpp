@@ -8,9 +8,12 @@
 
 #include "AllReturnValueTests.hpp"
 #include "SingleExpression.hpp"
+#include "VariableExpression.hpp"
 
 
 void runAllReturnValueTests(std::string prefix) noexcept {
     SingleExpression t1("SingleExpression");
     t1.run(prefix);
+    VariableExpression t2("VariableExpression");
+    t2.run(prefix);
 }
