@@ -37,11 +37,13 @@ public:
         );
         
         
-        unique_ptr<const Statement> decA = make_unique<DeclareStatement>(4, 3, fEnv, "int", "a");
+        unique_ptr<const Statement> decA = make_unique<DeclareStatement>(4, 3, fEnv, intT, "a");
         body.push_back(move(decA));
         
         auto aVar = fEnv->getVariableNamed("a", 4, 3);
-        unique_ptr<const Statement> setA = make_unique<AssignementStatement>(4, 3, aVar, move(expr1));
+        unique_ptr<const Statement> setA = make_unique<AssignementStatement>(
+                4, 3, make_unique<VarExpression>(3, 6, aVar), move(expr1)
+        );
         body.push_back(move(setA));
         
         unique_ptr<const Expression> expr2 = make_unique<VarExpression>(3, 6, aVar);
@@ -82,29 +84,29 @@ public:
         );
         
         
-        unique_ptr<const Statement> decA = make_unique<DeclareStatement>(4, 3, fEnv, "int", "a");
+        unique_ptr<const Statement> decA = make_unique<DeclareStatement>(4, 3, fEnv, intT, "a");
         body.push_back(move(decA));
-        unique_ptr<const Statement> tmp = make_unique<DeclareStatement>(4, 3, fEnv, "int", "b");
+        unique_ptr<const Statement> tmp = make_unique<DeclareStatement>(4, 3, fEnv, intT, "b");
         body.push_back(move(tmp));
-        tmp = make_unique<DeclareStatement>(4, 3, fEnv, "int", "c");
+        tmp = make_unique<DeclareStatement>(4, 3, fEnv, intT, "c");
         body.push_back(move(tmp));
-        tmp = make_unique<DeclareStatement>(4, 3, fEnv, "int", "d");
+        tmp = make_unique<DeclareStatement>(4, 3, fEnv, intT, "d");
         body.push_back(move(tmp));
-        tmp = make_unique<DeclareStatement>(4, 3, fEnv, "int", "e");
+        tmp = make_unique<DeclareStatement>(4, 3, fEnv, intT, "e");
         body.push_back(move(tmp));
-        tmp = make_unique<DeclareStatement>(4, 3, fEnv, "int", "f");
+        tmp = make_unique<DeclareStatement>(4, 3, fEnv, intT, "f");
         body.push_back(move(tmp));
-        tmp = make_unique<DeclareStatement>(4, 3, fEnv, "int", "g");
+        tmp = make_unique<DeclareStatement>(4, 3, fEnv, intT, "g");
         body.push_back(move(tmp));
-        tmp = make_unique<DeclareStatement>(4, 3, fEnv, "int", "h");
+        tmp = make_unique<DeclareStatement>(4, 3, fEnv, intT, "h");
         body.push_back(move(tmp));
-        tmp = make_unique<DeclareStatement>(4, 3, fEnv, "int", "i");
+        tmp = make_unique<DeclareStatement>(4, 3, fEnv, intT, "i");
         body.push_back(move(tmp));
-        tmp = make_unique<DeclareStatement>(4, 3, fEnv, "int", "j");
+        tmp = make_unique<DeclareStatement>(4, 3, fEnv, intT, "j");
         body.push_back(move(tmp));
         
         auto aVar = fEnv->getVariableNamed("i", 4, 3);
-        unique_ptr<const Statement> setA = make_unique<AssignementStatement>(4, 3, aVar, move(expr1));
+        unique_ptr<const Statement> setA = make_unique<AssignementStatement>(4, 3, make_unique<VarExpression>(3, 6, aVar), move(expr1));
         body.push_back(move(setA));
         
         unique_ptr<const Expression> expr2 = make_unique<VarExpression>(3, 6, aVar);
@@ -136,23 +138,23 @@ public:
         
         vector<unique_ptr<const Statement>> body;
         
-        unique_ptr<const Statement> decA = make_unique<DeclareStatement>(4, 3, fEnv, "int", "a");
+        unique_ptr<const Statement> decA = make_unique<DeclareStatement>(4, 3, fEnv, intT, "a");
         body.push_back(move(decA));
         
         unique_ptr<BlockStatement> block = make_unique<BlockStatement>(4, 3, fEnv);
         auto bEnv = block.get()->getEnvironment();
         vector<unique_ptr<const Statement>> blockBody;
-        unique_ptr<const Statement> decB = make_unique<DeclareStatement>(4, 3, bEnv, "int", "b");
+        unique_ptr<const Statement> decB = make_unique<DeclareStatement>(4, 3, bEnv, intT, "b");
         blockBody.push_back(move(decB));
-        unique_ptr<const Statement> decC = make_unique<DeclareStatement>(4, 3, bEnv, "int", "c");
+        unique_ptr<const Statement> decC = make_unique<DeclareStatement>(4, 3, bEnv, intT, "c");
         blockBody.push_back(move(decC));
         auto bVar = bEnv->getVariableNamed("b", 4, 3);
         unique_ptr<const Expression> val1 = make_unique<IntConstant>(3, bEnv, 2, 4);
-        unique_ptr<const Statement> setB = make_unique<AssignementStatement>(4, 3, bVar, move(val1));
+        unique_ptr<const Statement> setB = make_unique<AssignementStatement>(4, 3, make_unique<VarExpression>(3, 6, bVar), move(val1));
         blockBody.push_back(move(setB));
         auto cVar = bEnv->getVariableNamed("c", 4, 3);
         unique_ptr<const Expression> val2 = make_unique<IntConstant>(4, bEnv, 2, 4);
-        unique_ptr<const Statement> setC = make_unique<AssignementStatement>(4, 3, cVar, move(val2));
+        unique_ptr<const Statement> setC = make_unique<AssignementStatement>(4, 3, make_unique<VarExpression>(3, 6, cVar), move(val2));
         blockBody.push_back(move(setC));
         unique_ptr<const Expression> exprB = make_unique<VarExpression>(3, 6, bVar);
         unique_ptr<const Expression> exprC = make_unique<VarExpression>(3, 6, cVar);
@@ -160,7 +162,7 @@ public:
             bEnv, 2, 5, move(exprB), move(exprC)
         );
         auto aVar = bEnv->getVariableNamed("a", 4, 3);
-        unique_ptr<const Statement> setA = make_unique<AssignementStatement>(4, 3, aVar, move(expr1));
+        unique_ptr<const Statement> setA = make_unique<AssignementStatement>(4, 3, make_unique<VarExpression>(3, 6, aVar), move(expr1));
         blockBody.push_back(move(setA));
         block.get()->completeWith(move(blockBody));
         
@@ -193,24 +195,24 @@ public:
         
         vector<unique_ptr<const Statement>> body;
         
-        unique_ptr<const Statement> decA = make_unique<DeclareStatement>(4, 3, fEnv, "int", "a");
+        unique_ptr<const Statement> decA = make_unique<DeclareStatement>(4, 3, fEnv, intT, "a");
         body.push_back(move(decA));
         
         {
             unique_ptr<BlockStatement> block = make_unique<BlockStatement>(4, 3, fEnv);
             auto bEnv = block.get()->getEnvironment();
             vector<unique_ptr<const Statement>> blockBody;
-            unique_ptr<const Statement> decB = make_unique<DeclareStatement>(4, 3, bEnv, "int", "b");
+            unique_ptr<const Statement> decB = make_unique<DeclareStatement>(4, 3, bEnv, intT, "b");
             blockBody.push_back(move(decB));
-            unique_ptr<const Statement> decC = make_unique<DeclareStatement>(4, 3, bEnv, "int", "c");
+            unique_ptr<const Statement> decC = make_unique<DeclareStatement>(4, 3, bEnv, intT, "c");
             blockBody.push_back(move(decC));
             auto bVar = bEnv->getVariableNamed("b", 4, 3);
             unique_ptr<const Expression> val1 = make_unique<IntConstant>(3, bEnv, 2, 4);
-            unique_ptr<const Statement> setB = make_unique<AssignementStatement>(4, 3, bVar, move(val1));
+            unique_ptr<const Statement> setB = make_unique<AssignementStatement>(4, 3, make_unique<VarExpression>(3, 6, bVar), move(val1));
             blockBody.push_back(move(setB));
             auto cVar = bEnv->getVariableNamed("c", 4, 3);
             unique_ptr<const Expression> val2 = make_unique<IntConstant>(2, bEnv, 2, 4);
-            unique_ptr<const Statement> setC = make_unique<AssignementStatement>(4, 3, cVar, move(val2));
+            unique_ptr<const Statement> setC = make_unique<AssignementStatement>(4, 3, make_unique<VarExpression>(3, 6, cVar), move(val2));
             blockBody.push_back(move(setC));
             unique_ptr<const Expression> exprB = make_unique<VarExpression>(3, 6, bVar);
             unique_ptr<const Expression> exprC = make_unique<VarExpression>(3, 6, cVar);
@@ -218,7 +220,7 @@ public:
                 bEnv, 2, 5, move(exprB), move(exprC)
             );
             auto aVar = bEnv->getVariableNamed("a", 4, 3);
-            unique_ptr<const Statement> setA = make_unique<AssignementStatement>(4, 3, aVar, move(expr1));
+            unique_ptr<const Statement> setA = make_unique<AssignementStatement>(4, 3, make_unique<VarExpression>(3, 6, aVar), move(expr1));
             blockBody.push_back(move(setA));
             block.get()->completeWith(move(blockBody));
             body.push_back(move(block));
@@ -228,13 +230,13 @@ public:
             unique_ptr<BlockStatement> block = make_unique<BlockStatement>(4, 3, fEnv);
             auto bEnv = block.get()->getEnvironment();
             vector<unique_ptr<const Statement>> blockBody;
-            unique_ptr<const Statement> decD = make_unique<DeclareStatement>(4, 3, bEnv, "int", "d");
+            unique_ptr<const Statement> decD = make_unique<DeclareStatement>(4, 3, bEnv, intT, "d");
             blockBody.push_back(move(decD));
             
             auto dVar = bEnv->getVariableNamed("d", 4, 3);
             
             unique_ptr<const Expression> val1 = make_unique<IntConstant>(2, bEnv, 2, 4);
-            unique_ptr<const Statement> setD = make_unique<AssignementStatement>(4, 3, dVar, move(val1));
+            unique_ptr<const Statement> setD = make_unique<AssignementStatement>(4, 3, make_unique<VarExpression>(3, 6, dVar), move(val1));
             blockBody.push_back(move(setD));
             
             unique_ptr<const Expression> exprD = make_unique<VarExpression>(3, 6, dVar);
@@ -244,7 +246,7 @@ public:
                 bEnv, 2, 5, move(exprD), move(exprA)
             );
             auto aVar = bEnv->getVariableNamed("a", 4, 3);
-            unique_ptr<const Statement> setA = make_unique<AssignementStatement>(4, 3, aVar, move(expr1));
+            unique_ptr<const Statement> setA = make_unique<AssignementStatement>(4, 3, make_unique<VarExpression>(3, 6, aVar), move(expr1));
             blockBody.push_back(move(setA));
             block.get()->completeWith(move(blockBody));
             body.push_back(move(block));
@@ -285,10 +287,10 @@ public:
         
         { // int a = 0;
             unique_ptr<const Expression> just0 = make_unique<IntConstant>(0, fEnv, 1, 2);
-            unique_ptr<const Statement> decA = make_unique<DeclareStatement>(4, 3, fEnv, "int", "a");
+            unique_ptr<const Statement> decA = make_unique<DeclareStatement>(4, 3, fEnv, intT, "a");
             body.push_back(move(decA));
             auto aVar = fEnv->getVariableNamed("a", 4, 3);
-            unique_ptr<const Statement> setA = make_unique<AssignementStatement>(4, 3, aVar, move(just0));
+            unique_ptr<const Statement> setA = make_unique<AssignementStatement>(4, 3, make_unique<VarExpression>(3, 6, aVar), move(just0));
             body.push_back(move(setA));
         }
         
@@ -302,7 +304,7 @@ public:
             auto aExpr2 = make_unique<VarExpression>(3, 6, aVar);
             unique_ptr<const Expression> just1 = make_unique<IntConstant>(1, fEnv, 1, 2);
             auto incA = make_unique<IntAdd>(fEnv, 1, 2, move(aExpr2), move(just1));
-            auto setA = make_unique<AssignementStatement>(4, 3, aVar, move(incA));
+            auto setA = make_unique<AssignementStatement>(4, 3, make_unique<VarExpression>(3, 6, aVar), move(incA));
             
             auto wh = make_unique<WhileStatement>(1, 2, fEnv, move(boolExpr), move(setA));
             body.push_back(move(wh));
@@ -344,10 +346,10 @@ public:
         
         { // int a = 0;
             unique_ptr<const Expression> just0 = make_unique<IntConstant>(0, fEnv, 1, 2);
-            unique_ptr<const Statement> decA = make_unique<DeclareStatement>(4, 3, fEnv, "int", "a");
+            unique_ptr<const Statement> decA = make_unique<DeclareStatement>(4, 3, fEnv, intT, "a");
             body.push_back(move(decA));
             auto aVar = fEnv->getVariableNamed("a", 4, 3);
-            unique_ptr<const Statement> setA = make_unique<AssignementStatement>(4, 3, aVar, move(just0));
+            unique_ptr<const Statement> setA = make_unique<AssignementStatement>(4, 3, make_unique<VarExpression>(3, 6, aVar), move(just0));
             body.push_back(move(setA));
         }
         
@@ -361,7 +363,7 @@ public:
             auto aExpr2 = make_unique<VarExpression>(3, 6, aVar);
             unique_ptr<const Expression> just1 = make_unique<IntConstant>(1, fEnv, 1, 2);
             auto incA = make_unique<IntAdd>(fEnv, 1, 2, move(aExpr2), move(just1));
-            auto setA = make_unique<AssignementStatement>(4, 3, aVar, move(incA));
+            auto setA = make_unique<AssignementStatement>(4, 3, make_unique<VarExpression>(3, 6, aVar), move(incA));
             
             auto wh = make_unique<WhileStatement>(1, 2, fEnv, move(boolExpr), move(setA));
             body.push_back(move(wh));
@@ -403,10 +405,10 @@ public:
         
         { // int a = 0;
             unique_ptr<const Expression> just0 = make_unique<IntConstant>(100, fEnv, 1, 2);
-            unique_ptr<const Statement> decA = make_unique<DeclareStatement>(4, 3, fEnv, "int", "a");
+            unique_ptr<const Statement> decA = make_unique<DeclareStatement>(4, 3, fEnv, intT, "a");
             body.push_back(move(decA));
             auto aVar = fEnv->getVariableNamed("a", 4, 3);
-            unique_ptr<const Statement> setA = make_unique<AssignementStatement>(4, 3, aVar, move(just0));
+            unique_ptr<const Statement> setA = make_unique<AssignementStatement>(4, 3, make_unique<VarExpression>(3, 6, aVar), move(just0));
             body.push_back(move(setA));
         }
         
@@ -420,7 +422,7 @@ public:
             auto aExpr2 = make_unique<VarExpression>(3, 6, aVar);
             unique_ptr<const Expression> just1 = make_unique<IntConstant>(1, fEnv, 1, 2);
             auto incA = make_unique<IntAdd>(fEnv, 1, 2, move(aExpr2), move(just1));
-            auto setA = make_unique<AssignementStatement>(4, 3, aVar, move(incA));
+            auto setA = make_unique<AssignementStatement>(4, 3, make_unique<VarExpression>(3, 6, aVar), move(incA));
             
             auto wh = make_unique<WhileStatement>(1, 2, fEnv, move(boolExpr), move(setA));
             body.push_back(move(wh));

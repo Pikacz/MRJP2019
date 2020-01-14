@@ -9,6 +9,7 @@
 #include "AllReturnValueTests.hpp"
 #include "SingleExpression.hpp"
 #include "VariableExpression.hpp"
+#include "ParserTests.hpp"
 
 
 void runAllReturnValueTests(std::string prefix) noexcept {
@@ -16,4 +17,6 @@ void runAllReturnValueTests(std::string prefix) noexcept {
     t1.run(prefix);
     VariableExpression t2("VariableExpression");
     t2.run(prefix);
+    ParserTests t3("ParserTests");
+    t3.run(prefix);
 }

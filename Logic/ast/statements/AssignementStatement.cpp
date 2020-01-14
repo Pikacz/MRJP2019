@@ -9,24 +9,35 @@
 #include "AssignementStatement.hpp"
 
 #include "../../staticCheck/types/InvalidType.hpp"
+#include "../../staticCheck/NotLValue.hpp"
 
 using namespace std;
+
+static unique_ptr<const LExpression> getLVal(
+    unique_ptr<const Expression> var
+) noexcept(false) {
+    if (auto ptr = dynamic_cast<LExpression const *>(var.get())) {
+        var.release();
+        return unique_ptr<const LExpression>(ptr);
+    }
+    throw NotLValue(var.get());
+}
 
 AssignementStatement::AssignementStatement(
     size_t line,
     size_t column,
-    LValue const * var,
-    std::unique_ptr<const Expression> expr
-) noexcept(false): var(var), expr(move(expr)), Statement(line, column) {
-    if (! this->expr.get()->isKindOf(var->getType())) {
-        throw InvalidType(line, column, var->getType(), this->expr.get()->getType());
+    unique_ptr<const Expression> var,
+    unique_ptr<const Expression> expr
+) noexcept(false): var(getLVal(move(var))), expr(move(expr)), Statement(line, column) {
+    if (! this->expr.get()->isKindOf(this->var->getType())) {
+        throw InvalidType(line, column, this->var->getType(), this->expr.get()->getType());
     }
 }
 
 
 bool AssignementStatement::isEqualTo(AstNode const * node) const noexcept {
     if (auto nd = dynamic_cast<AssignementStatement const *>(node)) {
-        return var->isEqualTo(nd->var) && expr.get()->isEqualTo(nd->expr.get());
+        return var->isEqualTo(nd->var.get()) && expr.get()->isEqualTo(nd->expr.get());
     }
     return false;
 }

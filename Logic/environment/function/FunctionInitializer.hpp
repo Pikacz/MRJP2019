@@ -24,7 +24,7 @@ public:
             std::string name,
             size_t line,
             size_t column
-        ): type(type), name(name), line(line), column(column) {}
+        ) noexcept: type(type), name(name), line(line), column(column) {}
     
         Type const * const type;
         const std::string name;

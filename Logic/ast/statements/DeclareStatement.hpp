@@ -20,7 +20,7 @@ public:
         size_t line,
         size_t column,
         BlockEnvironment * env,
-        std::string typeName,
+        Type const * type,
         std::string varName
     ) noexcept(false);
     
@@ -33,7 +33,8 @@ public:
         AsmLabel const * exitLabel
     ) const noexcept override;
 private:
-    const std::string typeName, varName;
+    const Type * const type;
+    const std::string varName;
 };
 
 

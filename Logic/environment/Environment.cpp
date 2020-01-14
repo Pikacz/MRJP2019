@@ -37,6 +37,11 @@ Type const * Environment::getTypeNamed(
     throw NoSuchTypeError(line, column, name);
 }
 
+ArrayType const * Environment::getArrayOfType(Type const * type) noexcept {
+    arrays.push_back(make_unique<ArrayType>(type));
+    return arrays.end()->get();
+}
+
 LatteBool const * Environment::getLatteBool() const noexcept {
     return dynamic_cast<LatteBool const *>(
         getTypeNamed(boolName(), 0, 0)
@@ -87,7 +92,7 @@ string Environment::keyForTypeNamed(string name) noexcept {
 
 
 string Environment::boolName() noexcept {
-    return "bool";
+    return "boolean";
 }
 
 string Environment::intName() noexcept {

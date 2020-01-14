@@ -54,10 +54,18 @@
 #include "environment/Environment.hpp"
 #include "environment/GlobalEnvironment.hpp"
 
+#include "staticCheck/ParserError.hpp"
 #include "staticCheck/StaticCheckError.hpp"
 #include "staticCheck/undefined/NoSuchTypeError.hpp"
 #include "staticCheck/undefined/NoSuchVariableError.hpp"
 #include "staticCheck/redeclaration/VariableRedeclarationError.hpp"
+
+#include "parser/LatteParser.h"
+#include "parser/LatteLexer.h"
+#include "parser/LatteBaseListener.h"
+#include "parser/LatteListener.h"
+
+#include "ast_factory/TopDefFactory.hpp"
 
 
 class Logic

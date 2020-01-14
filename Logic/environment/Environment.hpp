@@ -11,9 +11,11 @@
 
 #include <memory>
 #include <map>
+#include <vector>
 #include <string>
 
 #include "types/Type.hpp"
+#include "types/ArrayType.hpp"
 #include "types/builtin/LatteBool.hpp"
 #include "types/builtin/LatteInt.hpp"
 #include "types/builtin/LatteString.hpp"
@@ -45,6 +47,10 @@ public:
         std::string name, size_t line, size_t column
     ) const noexcept(false);
     
+    
+    ArrayType const * getArrayOfType(Type const * type) noexcept;
+
+    
     LatteBool const * getLatteBool() const noexcept;
     
     LatteInt const * getLatteInt() const noexcept;
@@ -65,6 +71,9 @@ protected:
     static std::string intName() noexcept;
     static std::string stringName() noexcept;
     static std::string voidName() noexcept;
+    
+private:
+    std::vector<std::unique_ptr<const ArrayType>> arrays;
 };
 
 #endif /* Environment_hpp */

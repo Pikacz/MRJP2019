@@ -13,18 +13,17 @@ DeclareStatement::  DeclareStatement(
     size_t line,
     size_t column,
     BlockEnvironment * env,
-    std::string typeName,
+    Type const * type,
     std::string varName
-) noexcept(false): typeName(typeName), varName(varName), Statement(line, column) {
+) noexcept(false): type(type), varName(varName), Statement(line, column) {
     
-    auto type = env->getTypeNamed(typeName, line, column);
     env->declareVariable(varName, type, line, column);
 }
 
 
 bool DeclareStatement::isEqualTo(AstNode const * node) const noexcept {
     if (auto nd = dynamic_cast<DeclareStatement const *>(node)) {
-        return typeName == nd->typeName && varName == nd->varName;
+        return type->isKindOf(nd->type) && nd->type->isKindOf(type) && varName == nd->varName;
     }
     return false;
 }

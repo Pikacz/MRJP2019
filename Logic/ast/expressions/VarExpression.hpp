@@ -9,16 +9,16 @@
 #ifndef VarExpression_hpp
 #define VarExpression_hpp
 
-#include "Expression.hpp"
-#include "../../environment/variables/LValue.hpp"
+#include "LExpression.hpp"
+#include "../../environment/variables/Variable.hpp"
 #include "../../environment/BlockEnvironment.hpp"
 
 #include <string>
 
-class VarExpression final: public Expression {
+class VarExpression final: public LExpression {
 public:
     VarExpression(
-        size_t line, size_t column, LValue const * var
+        size_t line, size_t column, Variable const * var
     ) noexcept;
     
     void compile(
@@ -30,10 +30,17 @@ public:
         AsmRegister::Type destination
     ) const noexcept override;
     
+    std::unique_ptr<const AssemblerValue> getAddress(
+        AssemblerValue::Size size,
+        std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+        Environment const * env,
+        AsmRegistersHandler & handler
+    ) const noexcept override;
+    
     bool isEqualTo(AstNode const * node) const noexcept override;
     
 private:
-    const LValue * const var;
+    const Variable * const var;
 
 };
 

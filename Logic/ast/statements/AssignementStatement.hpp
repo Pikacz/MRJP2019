@@ -13,6 +13,7 @@
 
 #include "../expressions/Expression.hpp"
 #include "../../environment/Environment.hpp"
+#include "../expressions/LExpression.hpp"
 
 
 
@@ -21,7 +22,7 @@ public:
     AssignementStatement(
         size_t line,
         size_t column,
-        LValue const * var,
+        std::unique_ptr<const Expression> var,
         std::unique_ptr<const Expression> expr
     ) noexcept(false);
     
@@ -34,7 +35,7 @@ public:
         AsmLabel const * exitLabel
     ) const noexcept override;
 private:
-    const LValue * const var;
+    const std::unique_ptr<const LExpression> var;
     const std::unique_ptr<const Expression> expr;
 };
 

@@ -17,7 +17,7 @@ using namespace std;
 Variable::Variable(
     Type const * type, Environment const * env
 ):
-type(type), location(nullopt), env(env), LValue() {
+type(type), location(nullopt), env(env) {
 }
 
 
@@ -37,7 +37,7 @@ Type const * Variable::getType() const noexcept {
 }
 
 
-bool Variable::isEqualTo(LValue const * node) const noexcept {
+bool Variable::isEqualTo(Variable const * node) const noexcept {
     if (auto nd = dynamic_cast<Variable const *>(node)) {
         if (type->isKindOf(nd->type)) {
             if (location == nullopt && nd->location == nullopt) {

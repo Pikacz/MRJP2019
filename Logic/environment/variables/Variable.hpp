@@ -19,7 +19,7 @@
 
 class Type;
 
-class Variable final: public LValue {
+class Variable final {
 public:
     Variable(Type const * type, Environment const * env);
     
@@ -28,11 +28,11 @@ public:
         std::list<std::unique_ptr<const AsmInstruction>> & compiled,
         Environment const * env,
         AsmRegistersHandler & handler
-    ) const noexcept override;
+    ) const noexcept;
     
-    Type const * getType() const noexcept override;
+    Type const * getType() const noexcept;
     
-    bool isEqualTo(LValue const * node) const noexcept override;
+    bool isEqualTo(Variable const * node) const noexcept;
     
     void setMemory(std::unique_ptr<const AsmMemory> memory) noexcept;
 private:
