@@ -29,7 +29,7 @@ using namespace std;
 
 BlockEnvironment::BlockEnvironment(
     Environment const * parent
-) noexcept: parent(parent), Environment() {
+) noexcept: parent(parent), func_params(0), Environment() {
     
     if (auto p = dynamic_cast<BlockEnvironment const *>(parent)) {
         p->addChild(this);
@@ -69,12 +69,25 @@ Function const * BlockEnvironment::getFunctionNamed(
     return parent->getFunctionNamed(name, line, column);
 }
 
+void BlockEnvironment::markFuncCall(size_t parameters_count) noexcept {
+    func_params = max(parameters_count + 1, func_params);
+}
+
+FuncVariable const * BlockEnvironment::getConcatStrings() const noexcept {
+    return parent->getConcatStrings();
+}
 
 // MARK: - types
 Type const * BlockEnvironment::getTypeNamed(
     string name, size_t line, size_t column
 ) const noexcept(false) {
     return parent->getTypeNamed(name, line, column);
+}
+
+
+// MARK: - string
+AsmLabel const * BlockEnvironment::registerString(string str) const noexcept {
+    return parent->registerString(str);
 }
 
 
@@ -91,19 +104,33 @@ void BlockEnvironment::cleanVariables(
 }
 
 
-int BlockEnvironment::getSize() const noexcept {
+size_t BlockEnvironment::getSize() const noexcept {
     size_t result = 0;
     
     for (auto& it : variables) {
         result += it.second.get()->getType()->pointerSize();
     }
+    size_t children_size = 0;
     
-    return (int)result;
+    for (auto& child : children) {
+        children_size = max(children_size, child->getSize());
+    }
+    
+    return result + children_size;
+}
+
+
+size_t BlockEnvironment::getFuncParams() const noexcept {
+    size_t result = func_params;
+    for (auto& child : children) {
+        result = max(result, child->getFuncParams());
+    }
+    return result;
 }
 
 
 void BlockEnvironment::setVariables(
-    list<unique_ptr<const AsmInstruction>> & compiled, int firstAt
+    size_t firstAt
 ) const noexcept {
     
     for (auto& it : variables) {
@@ -116,16 +143,10 @@ void BlockEnvironment::setVariables(
                 AsmMemory::ScaleT::one
             )
         );
-        
     }
-}
-
-int BlockEnvironment::childMaxSize() const noexcept {
-    int result = 0;
-    for (auto & child : children) {
-        result = max(result, child->getSize());
+    for (auto& child : children) {
+        child->setVariables(firstAt);
     }
-    return result;
 }
 
 

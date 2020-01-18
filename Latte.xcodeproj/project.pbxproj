@@ -11,6 +11,8 @@
 		C5218A5723B3A4D600E520FB /* Function.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5218A5523B3A4D600E520FB /* Function.hpp */; };
 		C5218A5A23B3A56800E520FB /* FunctionType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5218A5823B3A56800E520FB /* FunctionType.cpp */; };
 		C5218A5B23B3A56800E520FB /* FunctionType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5218A5923B3A56800E520FB /* FunctionType.hpp */; };
+		C524499D23CE6D2F00C4EA4A /* FuncVariable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C524499B23CE6D2F00C4EA4A /* FuncVariable.cpp */; };
+		C524499E23CE6D2F00C4EA4A /* FuncVariable.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C524499C23CE6D2F00C4EA4A /* FuncVariable.hpp */; };
 		C52F415F23B51AAE009B49CD /* FunctionInitializer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C52F415D23B51AAE009B49CD /* FunctionInitializer.cpp */; };
 		C52F416023B51AAE009B49CD /* FunctionInitializer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C52F415E23B51AAE009B49CD /* FunctionInitializer.hpp */; };
 		C52F416323B51CF7009B49CD /* FunctionRedeclarationError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C52F416123B51CF7009B49CD /* FunctionRedeclarationError.cpp */; };
@@ -444,6 +446,19 @@
 		C55AB4E223C3867D00675EEA /* VariableExpression.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C55AB4E023C3867D00675EEA /* VariableExpression.cpp */; };
 		C55AB4F623C38DAA00675EEA /* BlockStatement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C55AB4F423C38DAA00675EEA /* BlockStatement.cpp */; };
 		C55AB4F723C38DAA00675EEA /* BlockStatement.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C55AB4F523C38DAA00675EEA /* BlockStatement.hpp */; };
+		C56A708123D0CFF900AE6CB8 /* WholeProgramTestCaseUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56A707F23D0CFF900AE6CB8 /* WholeProgramTestCaseUnit.cpp */; };
+		C56A708523D0D3E900AE6CB8 /* SimpleProgramsTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56A708323D0D3E900AE6CB8 /* SimpleProgramsTests.cpp */; };
+		C56A708823D0D6A300AE6CB8 /* AllComplicatedProgramsTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56A708623D0D6A300AE6CB8 /* AllComplicatedProgramsTests.cpp */; };
+		C56A708B23D0E2A900AE6CB8 /* LattePrintString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56A708923D0E2A900AE6CB8 /* LattePrintString.cpp */; };
+		C56A708C23D0E2A900AE6CB8 /* LattePrintString.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56A708A23D0E2A900AE6CB8 /* LattePrintString.hpp */; };
+		C56A708F23D0E38B00AE6CB8 /* LatteError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56A708D23D0E38B00AE6CB8 /* LatteError.cpp */; };
+		C56A709023D0E38B00AE6CB8 /* LatteError.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56A708E23D0E38B00AE6CB8 /* LatteError.hpp */; };
+		C56A709323D0E45C00AE6CB8 /* ReadInt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56A709123D0E45C00AE6CB8 /* ReadInt.cpp */; };
+		C56A709423D0E45C00AE6CB8 /* ReadInt.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56A709223D0E45C00AE6CB8 /* ReadInt.hpp */; };
+		C56A709723D0E56E00AE6CB8 /* ReadString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56A709523D0E56E00AE6CB8 /* ReadString.cpp */; };
+		C56A709823D0E56E00AE6CB8 /* ReadString.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56A709623D0E56E00AE6CB8 /* ReadString.hpp */; };
+		C56A709B23D0EC7500AE6CB8 /* ConcatString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56A709923D0EC7500AE6CB8 /* ConcatString.cpp */; };
+		C56A709C23D0EC7500AE6CB8 /* ConcatString.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56A709A23D0EC7500AE6CB8 /* ConcatString.hpp */; };
 		C56B508623AF7FA700C56FF2 /* NoSuchVariableError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B508423AF7FA700C56FF2 /* NoSuchVariableError.cpp */; };
 		C56B508723AF7FA700C56FF2 /* NoSuchVariableError.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56B508523AF7FA700C56FF2 /* NoSuchVariableError.hpp */; };
 		C56B508B23AF808C00C56FF2 /* NoSuchTypeErrorTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56B508923AF808C00C56FF2 /* NoSuchTypeErrorTests.cpp */; };
@@ -523,8 +538,6 @@
 		C56D835023C2430800DDA963 /* DeclareStatement.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D834E23C2430800DDA963 /* DeclareStatement.hpp */; };
 		C56D835323C245F900DDA963 /* AssignementStatement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D835123C245F900DDA963 /* AssignementStatement.cpp */; };
 		C56D835423C245F900DDA963 /* AssignementStatement.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D835223C245F900DDA963 /* AssignementStatement.hpp */; };
-		C56D835723C26C9000DDA963 /* LValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D835523C26C9000DDA963 /* LValue.cpp */; };
-		C56D835823C26C9000DDA963 /* LValue.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D835623C26C9000DDA963 /* LValue.hpp */; };
 		C56D835B23C278C300DDA963 /* VarExpression.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C56D835923C278C300DDA963 /* VarExpression.cpp */; };
 		C56D835C23C278C300DDA963 /* VarExpression.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C56D835A23C278C300DDA963 /* VarExpression.hpp */; };
 		C575EAC723AFC926006BCFEF /* AssemblerValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C575EAC523AFC926006BCFEF /* AssemblerValue.cpp */; };
@@ -545,6 +558,28 @@
 		C59BB71623C518A30044EA97 /* IfStatement.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C59BB71423C518A30044EA97 /* IfStatement.hpp */; };
 		C5A45CF023B4EE17008EAC8F /* GlobalEnvironment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5A45CEE23B4EE17008EAC8F /* GlobalEnvironment.cpp */; };
 		C5A45CF123B4EE17008EAC8F /* GlobalEnvironment.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5A45CEF23B4EE17008EAC8F /* GlobalEnvironment.hpp */; };
+		C5B6A01323CFA3B800E1982A /* PrintInt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5B6A01123CFA3B800E1982A /* PrintInt.cpp */; };
+		C5B6A01423CFA3B800E1982A /* PrintInt.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5B6A01223CFA3B800E1982A /* PrintInt.hpp */; };
+		C5B6A01723CFB4A000E1982A /* AsmCall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5B6A01523CFB4A000E1982A /* AsmCall.cpp */; };
+		C5B6A01823CFB4A000E1982A /* AsmCall.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5B6A01623CFB4A000E1982A /* AsmCall.hpp */; };
+		C5B6A01B23CFBA9300E1982A /* ExprCall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5B6A01923CFBA9300E1982A /* ExprCall.cpp */; };
+		C5B6A01C23CFBA9300E1982A /* ExprCall.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5B6A01A23CFBA9300E1982A /* ExprCall.hpp */; };
+		C5B6A01F23CFBEE000E1982A /* LatteErrorFuncVar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5B6A01D23CFBEE000E1982A /* LatteErrorFuncVar.cpp */; };
+		C5B6A02023CFBEE000E1982A /* LatteErrorFuncVar.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5B6A01E23CFBEE000E1982A /* LatteErrorFuncVar.hpp */; };
+		C5B6A02323CFC28800E1982A /* ExprStatement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5B6A02123CFC28800E1982A /* ExprStatement.cpp */; };
+		C5B6A02423CFC28800E1982A /* ExprStatement.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5B6A02223CFC28800E1982A /* ExprStatement.hpp */; };
+		C5B6A02723CFD63600E1982A /* ExpectedFunctionType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5B6A02523CFD63600E1982A /* ExpectedFunctionType.cpp */; };
+		C5B6A02823CFD63600E1982A /* ExpectedFunctionType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5B6A02623CFD63600E1982A /* ExpectedFunctionType.hpp */; };
+		C5B6A02B23CFDC4000E1982A /* InvalidNumberOfParameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5B6A02923CFDC4000E1982A /* InvalidNumberOfParameters.cpp */; };
+		C5B6A02C23CFDC4000E1982A /* InvalidNumberOfParameters.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5B6A02A23CFDC4000E1982A /* InvalidNumberOfParameters.hpp */; };
+		C5B6A02F23CFFA4F00E1982A /* BuiltinFunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5B6A02D23CFFA4F00E1982A /* BuiltinFunc.cpp */; };
+		C5B6A03023CFFA4F00E1982A /* BuiltinFunc.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5B6A02E23CFFA4F00E1982A /* BuiltinFunc.hpp */; };
+		C5DD2CEB23D247F4003A9E1F /* AsmData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5DD2CE923D247F4003A9E1F /* AsmData.cpp */; };
+		C5DD2CEC23D247F4003A9E1F /* AsmData.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5DD2CEA23D247F4003A9E1F /* AsmData.hpp */; };
+		C5DD2CF323D24FEB003A9E1F /* AsmAsciz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5DD2CF123D24FEB003A9E1F /* AsmAsciz.cpp */; };
+		C5DD2CF423D24FEB003A9E1F /* AsmAsciz.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5DD2CF223D24FEB003A9E1F /* AsmAsciz.hpp */; };
+		C5DD2CFB23D2558A003A9E1F /* AsmLea.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5DD2CF923D2558A003A9E1F /* AsmLea.cpp */; };
+		C5DD2CFC23D2558A003A9E1F /* AsmLea.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5DD2CFA23D2558A003A9E1F /* AsmLea.hpp */; };
 		C5E44F1D23CC8554006DE6B5 /* CustomType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5E44F1B23CC8554006DE6B5 /* CustomType.cpp */; };
 		C5E44F1E23CC8554006DE6B5 /* CustomType.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5E44F1C23CC8554006DE6B5 /* CustomType.hpp */; };
 		C5E44F2123CC8899006DE6B5 /* ArrayType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5E44F1F23CC8899006DE6B5 /* ArrayType.cpp */; };
@@ -611,6 +646,8 @@
 		C5218A5523B3A4D600E520FB /* Function.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Function.hpp; sourceTree = "<group>"; };
 		C5218A5823B3A56800E520FB /* FunctionType.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FunctionType.cpp; sourceTree = "<group>"; };
 		C5218A5923B3A56800E520FB /* FunctionType.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FunctionType.hpp; sourceTree = "<group>"; };
+		C524499B23CE6D2F00C4EA4A /* FuncVariable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FuncVariable.cpp; sourceTree = "<group>"; };
+		C524499C23CE6D2F00C4EA4A /* FuncVariable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FuncVariable.hpp; sourceTree = "<group>"; };
 		C52F415D23B51AAE009B49CD /* FunctionInitializer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FunctionInitializer.cpp; sourceTree = "<group>"; };
 		C52F415E23B51AAE009B49CD /* FunctionInitializer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FunctionInitializer.hpp; sourceTree = "<group>"; };
 		C52F416123B51CF7009B49CD /* FunctionRedeclarationError.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FunctionRedeclarationError.cpp; sourceTree = "<group>"; };
@@ -1066,6 +1103,22 @@
 		C55AB4E123C3867D00675EEA /* VariableExpression.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VariableExpression.hpp; sourceTree = "<group>"; };
 		C55AB4F423C38DAA00675EEA /* BlockStatement.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BlockStatement.cpp; sourceTree = "<group>"; };
 		C55AB4F523C38DAA00675EEA /* BlockStatement.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BlockStatement.hpp; sourceTree = "<group>"; };
+		C56A707F23D0CFF900AE6CB8 /* WholeProgramTestCaseUnit.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WholeProgramTestCaseUnit.cpp; sourceTree = "<group>"; };
+		C56A708023D0CFF900AE6CB8 /* WholeProgramTestCaseUnit.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WholeProgramTestCaseUnit.hpp; sourceTree = "<group>"; };
+		C56A708323D0D3E900AE6CB8 /* SimpleProgramsTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleProgramsTests.cpp; sourceTree = "<group>"; };
+		C56A708423D0D3E900AE6CB8 /* SimpleProgramsTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SimpleProgramsTests.hpp; sourceTree = "<group>"; };
+		C56A708623D0D6A300AE6CB8 /* AllComplicatedProgramsTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AllComplicatedProgramsTests.cpp; sourceTree = "<group>"; };
+		C56A708723D0D6A300AE6CB8 /* AllComplicatedProgramsTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AllComplicatedProgramsTests.hpp; sourceTree = "<group>"; };
+		C56A708923D0E2A900AE6CB8 /* LattePrintString.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LattePrintString.cpp; sourceTree = "<group>"; };
+		C56A708A23D0E2A900AE6CB8 /* LattePrintString.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LattePrintString.hpp; sourceTree = "<group>"; };
+		C56A708D23D0E38B00AE6CB8 /* LatteError.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LatteError.cpp; sourceTree = "<group>"; };
+		C56A708E23D0E38B00AE6CB8 /* LatteError.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LatteError.hpp; sourceTree = "<group>"; };
+		C56A709123D0E45C00AE6CB8 /* ReadInt.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ReadInt.cpp; sourceTree = "<group>"; };
+		C56A709223D0E45C00AE6CB8 /* ReadInt.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ReadInt.hpp; sourceTree = "<group>"; };
+		C56A709523D0E56E00AE6CB8 /* ReadString.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ReadString.cpp; sourceTree = "<group>"; };
+		C56A709623D0E56E00AE6CB8 /* ReadString.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ReadString.hpp; sourceTree = "<group>"; };
+		C56A709923D0EC7500AE6CB8 /* ConcatString.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConcatString.cpp; sourceTree = "<group>"; };
+		C56A709A23D0EC7500AE6CB8 /* ConcatString.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConcatString.hpp; sourceTree = "<group>"; };
 		C56B508423AF7FA700C56FF2 /* NoSuchVariableError.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NoSuchVariableError.cpp; sourceTree = "<group>"; };
 		C56B508523AF7FA700C56FF2 /* NoSuchVariableError.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NoSuchVariableError.hpp; sourceTree = "<group>"; };
 		C56B508923AF808C00C56FF2 /* NoSuchTypeErrorTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NoSuchTypeErrorTests.cpp; sourceTree = "<group>"; };
@@ -1165,8 +1218,6 @@
 		C56D834E23C2430800DDA963 /* DeclareStatement.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DeclareStatement.hpp; sourceTree = "<group>"; };
 		C56D835123C245F900DDA963 /* AssignementStatement.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AssignementStatement.cpp; sourceTree = "<group>"; };
 		C56D835223C245F900DDA963 /* AssignementStatement.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AssignementStatement.hpp; sourceTree = "<group>"; };
-		C56D835523C26C9000DDA963 /* LValue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LValue.cpp; sourceTree = "<group>"; };
-		C56D835623C26C9000DDA963 /* LValue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LValue.hpp; sourceTree = "<group>"; };
 		C56D835923C278C300DDA963 /* VarExpression.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VarExpression.cpp; sourceTree = "<group>"; };
 		C56D835A23C278C300DDA963 /* VarExpression.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VarExpression.hpp; sourceTree = "<group>"; };
 		C575EAC523AFC926006BCFEF /* AssemblerValue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AssemblerValue.cpp; sourceTree = "<group>"; };
@@ -1187,6 +1238,28 @@
 		C59BB71423C518A30044EA97 /* IfStatement.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IfStatement.hpp; sourceTree = "<group>"; };
 		C5A45CEE23B4EE17008EAC8F /* GlobalEnvironment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GlobalEnvironment.cpp; sourceTree = "<group>"; };
 		C5A45CEF23B4EE17008EAC8F /* GlobalEnvironment.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GlobalEnvironment.hpp; sourceTree = "<group>"; };
+		C5B6A01123CFA3B800E1982A /* PrintInt.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PrintInt.cpp; sourceTree = "<group>"; };
+		C5B6A01223CFA3B800E1982A /* PrintInt.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PrintInt.hpp; sourceTree = "<group>"; };
+		C5B6A01523CFB4A000E1982A /* AsmCall.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmCall.cpp; sourceTree = "<group>"; };
+		C5B6A01623CFB4A000E1982A /* AsmCall.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmCall.hpp; sourceTree = "<group>"; };
+		C5B6A01923CFBA9300E1982A /* ExprCall.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExprCall.cpp; sourceTree = "<group>"; };
+		C5B6A01A23CFBA9300E1982A /* ExprCall.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExprCall.hpp; sourceTree = "<group>"; };
+		C5B6A01D23CFBEE000E1982A /* LatteErrorFuncVar.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LatteErrorFuncVar.cpp; sourceTree = "<group>"; };
+		C5B6A01E23CFBEE000E1982A /* LatteErrorFuncVar.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LatteErrorFuncVar.hpp; sourceTree = "<group>"; };
+		C5B6A02123CFC28800E1982A /* ExprStatement.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExprStatement.cpp; sourceTree = "<group>"; };
+		C5B6A02223CFC28800E1982A /* ExprStatement.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExprStatement.hpp; sourceTree = "<group>"; };
+		C5B6A02523CFD63600E1982A /* ExpectedFunctionType.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExpectedFunctionType.cpp; sourceTree = "<group>"; };
+		C5B6A02623CFD63600E1982A /* ExpectedFunctionType.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExpectedFunctionType.hpp; sourceTree = "<group>"; };
+		C5B6A02923CFDC4000E1982A /* InvalidNumberOfParameters.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InvalidNumberOfParameters.cpp; sourceTree = "<group>"; };
+		C5B6A02A23CFDC4000E1982A /* InvalidNumberOfParameters.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InvalidNumberOfParameters.hpp; sourceTree = "<group>"; };
+		C5B6A02D23CFFA4F00E1982A /* BuiltinFunc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BuiltinFunc.cpp; sourceTree = "<group>"; };
+		C5B6A02E23CFFA4F00E1982A /* BuiltinFunc.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BuiltinFunc.hpp; sourceTree = "<group>"; };
+		C5DD2CE923D247F4003A9E1F /* AsmData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmData.cpp; sourceTree = "<group>"; };
+		C5DD2CEA23D247F4003A9E1F /* AsmData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmData.hpp; sourceTree = "<group>"; };
+		C5DD2CF123D24FEB003A9E1F /* AsmAsciz.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmAsciz.cpp; sourceTree = "<group>"; };
+		C5DD2CF223D24FEB003A9E1F /* AsmAsciz.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmAsciz.hpp; sourceTree = "<group>"; };
+		C5DD2CF923D2558A003A9E1F /* AsmLea.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AsmLea.cpp; sourceTree = "<group>"; };
+		C5DD2CFA23D2558A003A9E1F /* AsmLea.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AsmLea.hpp; sourceTree = "<group>"; };
 		C5E44F1B23CC8554006DE6B5 /* CustomType.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CustomType.cpp; sourceTree = "<group>"; };
 		C5E44F1C23CC8554006DE6B5 /* CustomType.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CustomType.hpp; sourceTree = "<group>"; };
 		C5E44F1F23CC8899006DE6B5 /* ArrayType.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ArrayType.cpp; sourceTree = "<group>"; };
@@ -1419,8 +1492,10 @@
 			children = (
 				C547FF2C23AE887500B21EAE /* Variable.cpp */,
 				C547FF2D23AE887500B21EAE /* Variable.hpp */,
-				C56D835523C26C9000DDA963 /* LValue.cpp */,
-				C56D835623C26C9000DDA963 /* LValue.hpp */,
+				C524499B23CE6D2F00C4EA4A /* FuncVariable.cpp */,
+				C524499C23CE6D2F00C4EA4A /* FuncVariable.hpp */,
+				C5B6A01D23CFBEE000E1982A /* LatteErrorFuncVar.cpp */,
+				C5B6A01E23CFBEE000E1982A /* LatteErrorFuncVar.hpp */,
 			);
 			path = variables;
 			sourceTree = "<group>";
@@ -1516,6 +1591,8 @@
 				C59BB71423C518A30044EA97 /* IfStatement.hpp */,
 				C554CE8C23CA35980018E414 /* WhileStatement.cpp */,
 				C554CE8D23CA35980018E414 /* WhileStatement.hpp */,
+				C5B6A02123CFC28800E1982A /* ExprStatement.cpp */,
+				C5B6A02223CFC28800E1982A /* ExprStatement.hpp */,
 			);
 			path = statements;
 			sourceTree = "<group>";
@@ -1527,6 +1604,10 @@
 				C553A3AD23B0DA5900D45EBB /* InvalidType.hpp */,
 				C553A3B023B0DB5300D45EBB /* InvalidReturnType.cpp */,
 				C553A3B123B0DB5300D45EBB /* InvalidReturnType.hpp */,
+				C5B6A02523CFD63600E1982A /* ExpectedFunctionType.cpp */,
+				C5B6A02623CFD63600E1982A /* ExpectedFunctionType.hpp */,
+				C5B6A02923CFDC4000E1982A /* InvalidNumberOfParameters.cpp */,
+				C5B6A02A23CFDC4000E1982A /* InvalidNumberOfParameters.hpp */,
 			);
 			path = types;
 			sourceTree = "<group>";
@@ -1536,6 +1617,7 @@
 			children = (
 				C5218A5423B3A4D600E520FB /* Function.cpp */,
 				C5218A5523B3A4D600E520FB /* Function.hpp */,
+				C5B6A01023CFA36A00E1982A /* builtin */,
 				C56D82F223C0DDDA00DDA963 /* MainFunction.cpp */,
 				C56D82F323C0DDDA00DDA963 /* MainFunction.hpp */,
 				C52F415D23B51AAE009B49CD /* FunctionInitializer.cpp */,
@@ -1593,6 +1675,12 @@
 				C56D834223C21F9700DDA963 /* AsmIDiv.hpp */,
 				C59BB70323C4F4CC0044EA97 /* AsmCmp.cpp */,
 				C59BB70423C4F4CC0044EA97 /* AsmCmp.hpp */,
+				C5B6A01523CFB4A000E1982A /* AsmCall.cpp */,
+				C5B6A01623CFB4A000E1982A /* AsmCall.hpp */,
+				C5DD2CF123D24FEB003A9E1F /* AsmAsciz.cpp */,
+				C5DD2CF223D24FEB003A9E1F /* AsmAsciz.hpp */,
+				C5DD2CF923D2558A003A9E1F /* AsmLea.cpp */,
+				C5DD2CFA23D2558A003A9E1F /* AsmLea.hpp */,
 			);
 			path = instructions;
 			sourceTree = "<group>";
@@ -2028,6 +2116,19 @@
 			path = stmts;
 			sourceTree = "<group>";
 		};
+		C56A707E23D0CF8F00AE6CB8 /* complicatedPrograms */ = {
+			isa = PBXGroup;
+			children = (
+				C56A707F23D0CFF900AE6CB8 /* WholeProgramTestCaseUnit.cpp */,
+				C56A708023D0CFF900AE6CB8 /* WholeProgramTestCaseUnit.hpp */,
+				C56A708323D0D3E900AE6CB8 /* SimpleProgramsTests.cpp */,
+				C56A708423D0D3E900AE6CB8 /* SimpleProgramsTests.hpp */,
+				C56A708623D0D6A300AE6CB8 /* AllComplicatedProgramsTests.cpp */,
+				C56A708723D0D6A300AE6CB8 /* AllComplicatedProgramsTests.hpp */,
+			);
+			path = complicatedPrograms;
+			sourceTree = "<group>";
+		};
 		C56B508823AF806D00C56FF2 /* undefined */ = {
 			isa = PBXGroup;
 			children = (
@@ -2089,6 +2190,8 @@
 				C56B50AC23AF9C2300C56FF2 /* constants */,
 				C5E44F3C23CCD589006DE6B5 /* LExpression.cpp */,
 				C5E44F3D23CCD589006DE6B5 /* LExpression.hpp */,
+				C5B6A01923CFBA9300E1982A /* ExprCall.cpp */,
+				C5B6A01A23CFBA9300E1982A /* ExprCall.hpp */,
 				C56B50AD23AF9CD400C56FF2 /* Expression.cpp */,
 				C56B50AE23AF9CD400C56FF2 /* Expression.hpp */,
 				C56D835923C278C300DDA963 /* VarExpression.cpp */,
@@ -2191,6 +2294,7 @@
 			isa = PBXGroup;
 			children = (
 				C56D832423C1FED700DDA963 /* returnValue */,
+				C56A707E23D0CF8F00AE6CB8 /* complicatedPrograms */,
 				C56D832E23C206AF00DDA963 /* AllCompilationTests.cpp */,
 				C56D832F23C206AF00DDA963 /* AllCompilationTests.hpp */,
 			);
@@ -2239,6 +2343,8 @@
 				C553A38623B0028B00D45EBB /* AsmIntConstant.hpp */,
 				C553A38D23B003BD00D45EBB /* AsmMemory.cpp */,
 				C553A38E23B003BD00D45EBB /* AsmMemory.hpp */,
+				C5DD2CE923D247F4003A9E1F /* AsmData.cpp */,
+				C5DD2CEA23D247F4003A9E1F /* AsmData.hpp */,
 			);
 			path = values;
 			sourceTree = "<group>";
@@ -2288,6 +2394,27 @@
 			path = compareExpr;
 			sourceTree = "<group>";
 		};
+		C5B6A01023CFA36A00E1982A /* builtin */ = {
+			isa = PBXGroup;
+			children = (
+				C5B6A02D23CFFA4F00E1982A /* BuiltinFunc.cpp */,
+				C5B6A02E23CFFA4F00E1982A /* BuiltinFunc.hpp */,
+				C5B6A01123CFA3B800E1982A /* PrintInt.cpp */,
+				C5B6A01223CFA3B800E1982A /* PrintInt.hpp */,
+				C56A708923D0E2A900AE6CB8 /* LattePrintString.cpp */,
+				C56A708A23D0E2A900AE6CB8 /* LattePrintString.hpp */,
+				C56A708D23D0E38B00AE6CB8 /* LatteError.cpp */,
+				C56A708E23D0E38B00AE6CB8 /* LatteError.hpp */,
+				C56A709123D0E45C00AE6CB8 /* ReadInt.cpp */,
+				C56A709223D0E45C00AE6CB8 /* ReadInt.hpp */,
+				C56A709523D0E56E00AE6CB8 /* ReadString.cpp */,
+				C56A709623D0E56E00AE6CB8 /* ReadString.hpp */,
+				C56A709923D0EC7500AE6CB8 /* ConcatString.cpp */,
+				C56A709A23D0EC7500AE6CB8 /* ConcatString.hpp */,
+			);
+			path = builtin;
+			sourceTree = "<group>";
+		};
 		C5E44F1A23CC853B006DE6B5 /* custom */ = {
 			isa = PBXGroup;
 			children = (
@@ -2315,8 +2442,10 @@
 			files = (
 				C56D834823C2201100DDA963 /* IntDiv.hpp in Headers */,
 				C554CE7723CA06CC0018E414 /* CompareGreater.hpp in Headers */,
+				C56A708C23D0E2A900AE6CB8 /* LattePrintString.hpp in Headers */,
 				C554CE7B23CA07100018E414 /* CompareGreaterEqual.hpp in Headers */,
 				C553A3B323B0DB5300D45EBB /* InvalidReturnType.hpp in Headers */,
+				C5DD2CFC23D2558A003A9E1F /* AsmLea.hpp in Headers */,
 				C56B508723AF7FA700C56FF2 /* NoSuchVariableError.hpp in Headers */,
 				C553A3CF23B0EB1500D45EBB /* AsmPush.hpp in Headers */,
 				C553A3E823B0F16D00D45EBB /* AsmRegister.hpp in Headers */,
@@ -2338,7 +2467,11 @@
 				C59BB71623C518A30044EA97 /* IfStatement.hpp in Headers */,
 				C547FEE523AE573D00B21EAE /* LogicPriv.hpp in Headers */,
 				C56D82E823C0CE5700DDA963 /* ExpectedReturn.hpp in Headers */,
+				C5DD2CF423D24FEB003A9E1F /* AsmAsciz.hpp in Headers */,
+				C5B6A01C23CFBA9300E1982A /* ExprCall.hpp in Headers */,
+				C56A709423D0E45C00AE6CB8 /* ReadInt.hpp in Headers */,
 				C553A3CB23B0EAB800D45EBB /* AsmMov.hpp in Headers */,
+				C56A709823D0E56E00AE6CB8 /* ReadString.hpp in Headers */,
 				C5E44F3F23CCD589006DE6B5 /* LExpression.hpp in Headers */,
 				C56D834423C21F9700DDA963 /* AsmIDiv.hpp in Headers */,
 				C547FF4D23AEBC5E00B21EAE /* NoSuchTypeError.hpp in Headers */,
@@ -2365,6 +2498,7 @@
 				C56D82F123C0DC0200DDA963 /* MainInvalidType.hpp in Headers */,
 				C547FEF723AE586D00B21EAE /* Type.hpp in Headers */,
 				C56B50CF23AFA76500C56FF2 /* StringConstant.hpp in Headers */,
+				C5DD2CEC23D247F4003A9E1F /* AsmData.hpp in Headers */,
 				C554CE7323CA04ED0018E414 /* CompareLessEqual.hpp in Headers */,
 				C59BB70623C4F4CC0044EA97 /* AsmCmp.hpp in Headers */,
 				C59BB71223C4F9750044EA97 /* BoolAndExpr.hpp in Headers */,
@@ -2374,10 +2508,12 @@
 				C5E44F2223CC8899006DE6B5 /* ArrayType.hpp in Headers */,
 				C553A3A623B02FF800D45EBB /* Statement.hpp in Headers */,
 				C553A3D723B0EB9E00D45EBB /* AsmAdd.hpp in Headers */,
+				C5B6A02C23CFDC4000E1982A /* InvalidNumberOfParameters.hpp in Headers */,
 				C5E44F4323CCD8A8006DE6B5 /* NotLValue.hpp in Headers */,
 				C547FF4423AEB89C00B21EAE /* LatteVoid.hpp in Headers */,
 				C56D82ED23C0DAE600DDA963 /* MissingMain.hpp in Headers */,
 				C56D832223C129D200DDA963 /* IntAdd.hpp in Headers */,
+				C56A709C23D0EC7500AE6CB8 /* ConcatString.hpp in Headers */,
 				C56B50B023AF9CD400C56FF2 /* Expression.hpp in Headers */,
 				C59BB70A23C4F6130044EA97 /* AsmJe.hpp in Headers */,
 				C56D833423C2086A00DDA963 /* IntSub.hpp in Headers */,
@@ -2395,6 +2531,7 @@
 				C52F416023B51AAE009B49CD /* FunctionInitializer.hpp in Headers */,
 				C553A3C723B0EA8F00D45EBB /* AsmInstruction.hpp in Headers */,
 				C553A3DB23B0EBF500D45EBB /* AsmPop.hpp in Headers */,
+				C5B6A02423CFC28800E1982A /* ExprStatement.hpp in Headers */,
 				C554CE6723CA03370018E414 /* AsmJle.hpp in Headers */,
 				C554D9C923CB94C50018E414 /* LatteLexer.h in Headers */,
 				C554CE6B23CA03930018E414 /* AsmJg.hpp in Headers */,
@@ -2403,18 +2540,24 @@
 				C5E44F1E23CC8554006DE6B5 /* CustomType.hpp in Headers */,
 				C5A45CF123B4EE17008EAC8F /* GlobalEnvironment.hpp in Headers */,
 				C554CE6F23CA03DD0018E414 /* AsmJge.hpp in Headers */,
+				C524499E23CE6D2F00C4EA4A /* FuncVariable.hpp in Headers */,
 				C59BB70E23C4F73C0044EA97 /* AsmJne.hpp in Headers */,
 				C547FF2123AE6DC900B21EAE /* StaticCheckError.hpp in Headers */,
+				C5B6A02023CFBEE000E1982A /* LatteErrorFuncVar.hpp in Headers */,
+				C5B6A02823CFD63600E1982A /* ExpectedFunctionType.hpp in Headers */,
 				C547FEE323AE573D00B21EAE /* Logic.hpp in Headers */,
+				C5B6A01423CFA3B800E1982A /* PrintInt.hpp in Headers */,
 				C56D834C23C22DA000DDA963 /* IntMod.hpp in Headers */,
 				C547FF4023AEB81D00B21EAE /* LatteBool.hpp in Headers */,
 				C553A40023B1617D00D45EBB /* Asm1Instruction.hpp in Headers */,
+				C56A709023D0E38B00AE6CB8 /* LatteError.hpp in Headers */,
 				C547FF2F23AE887500B21EAE /* Variable.hpp in Headers */,
+				C5B6A03023CFFA4F00E1982A /* BuiltinFunc.hpp in Headers */,
 				C55AB4F723C38DAA00675EEA /* BlockStatement.hpp in Headers */,
 				C554CE8B23CA2C0C0018E414 /* Expr1Arg.hpp in Headers */,
 				C547FF3C23AEB52C00B21EAE /* LatteInt.hpp in Headers */,
+				C5B6A01823CFB4A000E1982A /* AsmCall.hpp in Headers */,
 				C56D830923C1165500DDA963 /* AsmLabel.hpp in Headers */,
-				C56D835823C26C9000DDA963 /* LValue.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2727,14 +2870,17 @@
 				C56B50C423AFA35000C56FF2 /* AllAstTests.cpp in Sources */,
 				C56B50D223AFA7CD00C56FF2 /* StringConstantTests.cpp in Sources */,
 				C56B50CB23AFA68D00C56FF2 /* BoolConstantTests.cpp in Sources */,
+				C56A708823D0D6A300AE6CB8 /* AllComplicatedProgramsTests.cpp in Sources */,
 				C5E44F3823CCC8B2006DE6B5 /* MainReturnParserTestCaseUnit.cpp in Sources */,
 				C547FED823AE571F00B21EAE /* main.cpp in Sources */,
 				C547FF2423AE701B00B21EAE /* AllRedeclarationTests.cpp in Sources */,
 				C56D833023C206AF00DDA963 /* AllCompilationTests.cpp in Sources */,
 				C547FF3323AE916B00B21EAE /* EnvironmentTests.cpp in Sources */,
 				C56B50A523AF8F1B00C56FF2 /* LatteVoidTests.cpp in Sources */,
+				C56A708523D0D3E900AE6CB8 /* SimpleProgramsTests.cpp in Sources */,
 				C56B509123AF81F700C56FF2 /* NoSuchVariableErrorTests.cpp in Sources */,
 				C547FF1323AE65C900B21EAE /* VariableRedeclarationTests.cpp in Sources */,
+				C56A708123D0CFF900AE6CB8 /* WholeProgramTestCaseUnit.cpp in Sources */,
 				C56D832D23C2062500DDA963 /* AllReturnValueTests.cpp in Sources */,
 				C56B509923AF8C9D00C56FF2 /* AllBuiltinTypes.cpp in Sources */,
 				C55AB4E223C3867D00675EEA /* VariableExpression.cpp in Sources */,
@@ -2759,12 +2905,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5B6A01B23CFBA9300E1982A /* ExprCall.cpp in Sources */,
 				C56D833323C2086A00DDA963 /* IntSub.cpp in Sources */,
+				C5B6A01323CFA3B800E1982A /* PrintInt.cpp in Sources */,
+				C5B6A02B23CFDC4000E1982A /* InvalidNumberOfParameters.cpp in Sources */,
 				C56B50B423AFA02700C56FF2 /* IntConstant.cpp in Sources */,
 				C553A3B223B0DB5300D45EBB /* InvalidReturnType.cpp in Sources */,
 				C56D833723C214B700DDA963 /* IntMul.cpp in Sources */,
 				C554CE7E23CA07A40018E414 /* CompareEqual.cpp in Sources */,
+				C5DD2CF323D24FEB003A9E1F /* AsmAsciz.cpp in Sources */,
 				C554CE7623CA06CC0018E414 /* CompareGreater.cpp in Sources */,
+				C56A709723D0E56E00AE6CB8 /* ReadString.cpp in Sources */,
 				C56B508623AF7FA700C56FF2 /* NoSuchVariableError.cpp in Sources */,
 				C547FEFA23AE58C600B21EAE /* Environment.cpp in Sources */,
 				C554D9CC23CB94C50018E414 /* LatteLexer.cpp in Sources */,
@@ -2775,6 +2926,7 @@
 				C59BB70D23C4F73C0044EA97 /* AsmJne.cpp in Sources */,
 				C553A3B823B0DEB300D45EBB /* FunctionEnvironment.cpp in Sources */,
 				C5E44F4223CCD8A8006DE6B5 /* NotLValue.cpp in Sources */,
+				C524499D23CE6D2F00C4EA4A /* FuncVariable.cpp in Sources */,
 				C554CE8623CA268B0018E414 /* NotExpr.cpp in Sources */,
 				C554CE5A23C9FE4B0018E414 /* CompareExpr.cpp in Sources */,
 				C554D9D823CB9C410018E414 /* TopDefFactory.cpp in Sources */,
@@ -2792,7 +2944,10 @@
 				C547FF1E23AE6DC900B21EAE /* StaticCheckError.cpp in Sources */,
 				C56D831023C1182600DDA963 /* AsmLabelHandler.cpp in Sources */,
 				C553A38723B0028B00D45EBB /* AsmIntConstant.cpp in Sources */,
+				C56A708B23D0E2A900AE6CB8 /* LattePrintString.cpp in Sources */,
+				C5B6A01723CFB4A000E1982A /* AsmCall.cpp in Sources */,
 				C553A3D623B0EB9E00D45EBB /* AsmAdd.cpp in Sources */,
+				C5B6A02F23CFFA4F00E1982A /* BuiltinFunc.cpp in Sources */,
 				C553A3CA23B0EAB800D45EBB /* AsmMov.cpp in Sources */,
 				C554CE6623CA03370018E414 /* AsmJle.cpp in Sources */,
 				C5A45CF023B4EE17008EAC8F /* GlobalEnvironment.cpp in Sources */,
@@ -2802,8 +2957,8 @@
 				C553A3A923B043C900D45EBB /* ReturnStatement.cpp in Sources */,
 				C554D9E123CBA8940018E414 /* DecFactory.cpp in Sources */,
 				C553A3C623B0EA8F00D45EBB /* AsmInstruction.cpp in Sources */,
-				C56D835723C26C9000DDA963 /* LValue.cpp in Sources */,
 				C56D834F23C2430800DDA963 /* DeclareStatement.cpp in Sources */,
+				C56A709323D0E45C00AE6CB8 /* ReadInt.cpp in Sources */,
 				C554CE8A23CA2C0C0018E414 /* Expr1Arg.cpp in Sources */,
 				C56B50CE23AFA76500C56FF2 /* StringConstant.cpp in Sources */,
 				C56D834B23C22DA000DDA963 /* IntMod.cpp in Sources */,
@@ -2811,11 +2966,15 @@
 				C56D830823C1165500DDA963 /* AsmLabel.cpp in Sources */,
 				C5218A5A23B3A56800E520FB /* FunctionType.cpp in Sources */,
 				C554D9CF23CB94C50018E414 /* LatteParser.cpp in Sources */,
+				C5DD2CFB23D2558A003A9E1F /* AsmLea.cpp in Sources */,
 				C52F416323B51CF7009B49CD /* FunctionRedeclarationError.cpp in Sources */,
 				C56D831423C11E5600DDA963 /* AsmRet.cpp in Sources */,
 				C554D9DC23CB9FE40018E414 /* ParserError.cpp in Sources */,
+				C56A708F23D0E38B00AE6CB8 /* LatteError.cpp in Sources */,
+				C5DD2CEB23D247F4003A9E1F /* AsmData.cpp in Sources */,
 				C553A3A523B02FF800D45EBB /* Statement.cpp in Sources */,
 				C554CE6A23CA03930018E414 /* AsmJg.cpp in Sources */,
+				C5B6A01F23CFBEE000E1982A /* LatteErrorFuncVar.cpp in Sources */,
 				C56D830C23C1170600DDA963 /* AsmJmp.cpp in Sources */,
 				C547FF4C23AEBC5E00B21EAE /* NoSuchTypeError.cpp in Sources */,
 				C5E44F3423CC9AFE006DE6B5 /* ExprFactory.cpp in Sources */,
@@ -2829,6 +2988,8 @@
 				C553A3E723B0F16D00D45EBB /* AsmRegister.cpp in Sources */,
 				C52F415F23B51AAE009B49CD /* FunctionInitializer.cpp in Sources */,
 				C547FF3F23AEB81D00B21EAE /* LatteBool.cpp in Sources */,
+				C56A709B23D0EC7500AE6CB8 /* ConcatString.cpp in Sources */,
+				C5B6A02723CFD63600E1982A /* ExpectedFunctionType.cpp in Sources */,
 				C553A3FB23B15D9200D45EBB /* Asm2Instruction.cpp in Sources */,
 				C59BB70923C4F6130044EA97 /* AsmJe.cpp in Sources */,
 				C5218A5623B3A4D600E520FB /* Function.cpp in Sources */,
@@ -2849,6 +3010,7 @@
 				C56D82F023C0DC0200DDA963 /* MainInvalidType.cpp in Sources */,
 				C553A3FF23B1617D00D45EBB /* Asm1Instruction.cpp in Sources */,
 				C575EAC723AFC926006BCFEF /* AssemblerValue.cpp in Sources */,
+				C5B6A02323CFC28800E1982A /* ExprStatement.cpp in Sources */,
 				C55AB4F623C38DAA00675EEA /* BlockStatement.cpp in Sources */,
 				C547FF3B23AEB52C00B21EAE /* LatteInt.cpp in Sources */,
 				C547FEF623AE586D00B21EAE /* Type.cpp in Sources */,

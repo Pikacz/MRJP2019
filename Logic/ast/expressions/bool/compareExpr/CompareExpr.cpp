@@ -56,9 +56,9 @@ void CompareExpr::compile(
     AsmLabelHandler & lblHandler,
     AsmRegister::Type destination
 ) const noexcept {
-    auto resultTrue = lblHandler.getNextLbl();
-    auto resultFalse = lblHandler.getNextLbl();
-    auto end = lblHandler.getNextLbl();
+    auto resultTrue = lblHandler.getNextLbl("compare_true");
+    auto resultFalse = lblHandler.getNextLbl("compare_false");
+    auto end = lblHandler.getNextLbl("compare_calculated");
     
     
     

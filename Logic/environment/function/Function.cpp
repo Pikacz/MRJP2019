@@ -15,7 +15,10 @@
 #include "../../assembler/instructions/AsmFunctionHeader.hpp"
 #include "../../assembler/instructions/AsmRet.hpp"
 
+
+
 #include <cassert>
+#include <sstream>
 
 using namespace std;
 
@@ -67,9 +70,14 @@ void Function::compile(
     std::list<std::unique_ptr<const AsmInstruction>> & compiled,
     AsmLabelHandler & handler
 ) const noexcept {
-    unique_ptr<const AsmInstruction> header = make_unique<AsmFunctionHeader>(name);
+    string name;
+    unique_ptr<const AsmInstruction> header = make_unique<AsmFunctionHeader>(
+        getCompiledName()
+    );
     compiled.push_back(move(header));
-    env.get()->compileVariables(compiled);
+    AsmRegistersHandler regHandler;
+    
+    env.get()->compileVariables(compiled, regHandler);
     
     unique_ptr<const AsmLabel> exitLbl = handler.getNextLbl();
     
@@ -83,4 +91,26 @@ void Function::compile(
         AssemblerValue::Size::bit64
     );
     compiled.push_back(move(ret));
+}
+
+
+
+
+FunctionType const * Function::getType() const noexcept {
+    return type.get();
+}
+
+string Function::getName() const noexcept {
+    return name;
+}
+
+bool Function::isTerminating() const noexcept {
+    return false;
+}
+
+
+string Function::getCompiledName() const noexcept {
+    stringstream ss;
+    ss << "_latte_func_" << name;
+    return ss.str();
 }

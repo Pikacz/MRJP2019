@@ -19,7 +19,7 @@ AsmFunctionHeader::AsmFunctionHeader(
 
 void AsmFunctionHeader::write(stringstream & ss) const noexcept {
     stringstream ss2;
-    ss2 << "_" << funcName;
+    ss2 << funcName;
     string name = ss2.str();
     
     ss << "    .globl  " << name << endl;

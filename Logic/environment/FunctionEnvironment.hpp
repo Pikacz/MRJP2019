@@ -25,7 +25,7 @@ public:
         Environment const * parent,
         FunctionInitializer initializer,
         bool isMain
-    ) noexcept;
+    ) noexcept(false);
     
     // MARK: variables
     Variable const * getVariableNamed(
@@ -42,15 +42,21 @@ public:
     ) const noexcept override;
     
     void compileVariables(
-        std::list<std::unique_ptr<const AsmInstruction>> & compiled
+        std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+        AsmRegistersHandler & handler
     ) const noexcept;
     
 protected:
-    int getSize() const noexcept override;
+    virtual size_t getSize() const noexcept override;
+    
+    virtual void setVariables(
+        size_t firstAt
+    ) const noexcept override;
     
 private:
     void compileParameters(
-        std::list<std::unique_ptr<const AsmInstruction>> & compiled
+        std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+        AsmRegistersHandler & handler
     ) const noexcept;
     
     void declareParameterVariable(
@@ -61,12 +67,11 @@ private:
     ) noexcept(false);
     
     std::vector<
-        std::pair<std::string, std::unique_ptr<const Variable>>
+        std::pair<std::string, std::unique_ptr<Variable>>
     > parameters;
     
     const bool isMain;
     
-    int requiredSpace() const noexcept;
 };
 
 #endif /* FunctionEnvironment_hpp */

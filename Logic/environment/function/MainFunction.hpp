@@ -21,6 +21,8 @@ public:
         FunctionInitializer initializer,
         Environment const * globalEnv
     ) noexcept(false);
+    
+    virtual std::string getCompiledName() const noexcept override;
 };
 
 #endif /* MainFunction_hpp */

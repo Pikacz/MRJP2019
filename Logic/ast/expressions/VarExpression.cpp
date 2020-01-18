@@ -8,6 +8,8 @@
 
 #include "VarExpression.hpp"
 
+#include "../../environment/variables/LatteErrorFuncVar.hpp"
+
 using namespace std;
 
 
@@ -37,6 +39,19 @@ void VarExpression::compile(
     );
 }
 
+
+void VarExpression::compileCall(
+    AssemblerValue::Size size,
+    std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+    Environment const * env,
+    AsmRegistersHandler & handler,
+    AsmLabelHandler & lblHandler
+) const noexcept {
+    auto fVar = dynamic_cast<FuncVariable const *>(var);
+    fVar->compileCall(size, compiled, env, handler, lblHandler);
+}
+
+
 unique_ptr<const AssemblerValue> VarExpression::getAddress(
     AssemblerValue::Size size,
     list<unique_ptr<const AsmInstruction>> & compiled,
@@ -52,4 +67,9 @@ bool VarExpression::isEqualTo(AstNode const * node) const noexcept {
         return var->isEqualTo(nd->var);
     }
     return false;
+}
+
+
+bool VarExpression::isLatteErrorFunc() const noexcept {
+    return (dynamic_cast<LatteErrorFuncVar const *>(var) != nullptr);
 }

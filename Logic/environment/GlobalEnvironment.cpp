@@ -14,6 +14,14 @@
 #include "function/Function.hpp"
 #include "function/MainFunction.hpp"
 #include "function/FunctionInitializer.hpp"
+#include "function/builtin/PrintInt.hpp"
+#include "function/builtin/LattePrintString.hpp"
+#include "function/builtin/LatteError.hpp"
+#include "function/builtin/ReadInt.hpp"
+#include "function/builtin/ReadString.hpp"
+#include "variables/FuncVariable.hpp"
+#include "../assembler/instructions/AsmAsciz.hpp"
+
 
 using namespace std;
 
@@ -30,6 +38,65 @@ GlobalEnvironment::GlobalEnvironment() noexcept: hasMain(false), Environment() {
     types[key] = make_unique<LatteString>();
     key = keyForTypeNamed(voidName());
     types[key] = make_unique<LatteVoid>();
+    
+    
+    unique_ptr<Function> func;
+    unique_ptr<FuncVariable> funcVar;
+    func = make_unique<PrintInt>(this);
+    funcVar = make_unique<FuncVariable>(func.get(), this);
+    key = keyForVariableNamed(func.get()->getName());
+    variables[key] = move(funcVar);
+    key = keyForFunctionNamed(func.get()->getName());
+    functions[key] = move(func);
+    
+    func = make_unique<LattePrintString>(this);
+    funcVar = make_unique<FuncVariable>(func.get(), this);
+    key = keyForVariableNamed(func.get()->getName());
+    variables[key] = move(funcVar);
+    key = keyForFunctionNamed(func.get()->getName());
+    functions[key] = move(func);
+    
+    func = make_unique<LatteError>(this);
+    funcVar = make_unique<FuncVariable>(func.get(), this);
+    key = keyForVariableNamed(func.get()->getName());
+    variables[key] = move(funcVar);
+    key = keyForFunctionNamed(func.get()->getName());
+    functions[key] = move(func);
+    
+    func = make_unique<ReadInt>(this);
+    funcVar = make_unique<FuncVariable>(func.get(), this);
+    key = keyForVariableNamed(func.get()->getName());
+    variables[key] = move(funcVar);
+    key = keyForFunctionNamed(func.get()->getName());
+    functions[key] = move(func);
+    
+    func = make_unique<ReadString>(this);
+    funcVar = make_unique<FuncVariable>(func.get(), this);
+    key = keyForVariableNamed(func.get()->getName());
+    variables[key] = move(funcVar);
+    key = keyForFunctionNamed(func.get()->getName());
+    functions[key] = move(func);
+    
+    auto concatString = make_unique<ConcatString>(this);
+    funcVar = make_unique<FuncVariable>(concatString.get(), this);
+    _concatString = funcVar.get();
+    key = keyForVariableNamed(concatString.get()->getName());
+    variables[key] = move(funcVar);
+    key = keyForFunctionNamed(concatString.get()->getName());
+    functions[key] = move(concatString);
+}
+
+
+// MARK: - variables
+Variable const * GlobalEnvironment::getVariableNamed(
+    string name, size_t line, size_t column
+) const noexcept(false) {
+    const string key = keyForVariableNamed(name);
+    auto search = variables.find(key);
+    if (search != variables.end()) {
+        return search->second.get();
+    }
+    return Environment::getVariableNamed(name, line, column);
 }
 
 
@@ -65,10 +132,17 @@ Function * GlobalEnvironment::declareFunction(
         hasMain = true;
     }
     Function * result = func.get();
+    string varKey = keyForVariableNamed(result->getName());
+    variables[varKey] = make_unique<FuncVariable>(result, this);
     functions[key] = move(func);
+    
     return result;
 }
 
+
+FuncVariable const * GlobalEnvironment::getConcatStrings() const noexcept {
+    return _concatString;
+}
 
 // MARK: - types
 Type const * GlobalEnvironment::getTypeNamed(
@@ -81,6 +155,20 @@ Type const * GlobalEnvironment::getTypeNamed(
     }
     
     return Environment::getTypeNamed(name, line, column);
+}
+
+// MARK: - string
+AsmLabel const * GlobalEnvironment::registerString(string str) const noexcept {
+    
+    size_t number = strings.size() + 1;
+    stringstream ss;
+    ss << "L_.str." << number;
+    string lbl_name = ss.str();
+    auto lbl = make_unique<AsmLabel>(lbl_name);
+    auto result = lbl.get();
+    strings[lbl_name] = str;
+    stringLabels.push_back(move(lbl));
+    return result;
 }
 
 
@@ -101,5 +189,12 @@ void GlobalEnvironment::compile(
     
     for (auto const & func : functions) {
         func.second.get()->compile(compiled, lblHandler);
+    }
+    
+    string lbl_name;
+    for (size_t i = 0; i < stringLabels.size(); ++i) {
+        lbl_name = stringLabels[i]->name;
+        compiled.push_back(make_unique<AsmLabel>(lbl_name));
+        compiled.push_back(make_unique<AsmAsciz>(strings[lbl_name]));
     }
 }

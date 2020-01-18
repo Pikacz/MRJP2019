@@ -33,6 +33,16 @@ public:
         AsmLabelHandler & lblHandler,
         AsmRegister::Type destination
     ) const noexcept = 0;
+    
+    virtual bool isTerminating() const noexcept;
+    
+    virtual void compileCall(
+        AssemblerValue::Size size,
+        std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+        Environment const * env,
+        AsmRegistersHandler & handler,
+        AsmLabelHandler & lblHandler
+    ) const noexcept;
 private:
     const Type * const type;
 };

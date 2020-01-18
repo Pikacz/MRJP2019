@@ -59,8 +59,8 @@ void BlockStatement::compile(
 ) const noexcept {
     this->env.get()->initializeVariables(compiled);
     
-    unique_ptr<const AsmLabel> newExitLbl = handler.getNextLbl();
-    unique_ptr<const AsmLabel> leaveLbl = handler.getNextLbl();
+    unique_ptr<const AsmLabel> newExitLbl = handler.getNextLbl("block_exit");
+    unique_ptr<const AsmLabel> leaveLbl = handler.getNextLbl("block_leave");
     
     for (size_t i = 0; i < statements.size(); ++i) {
         statements[i].get()->compile(

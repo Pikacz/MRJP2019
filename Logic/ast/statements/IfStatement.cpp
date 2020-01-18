@@ -84,6 +84,11 @@ void IfStatement::compile(
 
 
 bool IfStatement::isTerminatingWith(Type const * type) const noexcept(false) {
-    return ifTrue.get()->isTerminatingWith(type)
-        && ifFalse.get()->isTerminatingWith(type);
+    
+    bool tResult = ifTrue.get()->isTerminatingWith(type);
+    bool fResult = ifFalse.get()->isTerminatingWith(type);
+    
+    bool exprResult = expr.get()->isTerminating();
+    
+    return (tResult && fResult) || exprResult;
 }

@@ -10,6 +10,8 @@
 #include "../../staticCheck/main/MainInvalidType.hpp"
 
 
+using namespace std;
+
 MainFunction::MainFunction(
     size_t line, size_t column,
     FunctionInitializer initializer,
@@ -21,4 +23,9 @@ MainFunction::MainFunction(
         }
     }
     throw MainInvalidType(line, column);
+}
+
+
+string MainFunction::getCompiledName() const noexcept {
+    return "_main";
 }

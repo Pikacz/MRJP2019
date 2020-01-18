@@ -13,13 +13,15 @@
 
 #include <optional>
 
+#include "../Environment.hpp"
 #include "../../assembler/values/AsmMemory.hpp"
-#include "LValue.hpp"
+#include "../../assembler/AsmRegistersHandler.hpp"
 
 
 class Type;
+class Environment;
 
-class Variable final {
+class Variable {
 public:
     Variable(Type const * type, Environment const * env);
     
@@ -30,9 +32,9 @@ public:
         AsmRegistersHandler & handler
     ) const noexcept;
     
-    Type const * getType() const noexcept;
+    virtual Type const * getType() const noexcept;
     
-    bool isEqualTo(Variable const * node) const noexcept;
+    virtual bool isEqualTo(Variable const * node) const noexcept;
     
     void setMemory(std::unique_ptr<const AsmMemory> memory) noexcept;
 private:

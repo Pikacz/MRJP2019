@@ -28,7 +28,12 @@ FunctionEnvironment::FunctionEnvironment(
     Environment const * parent,
     FunctionInitializer initializer,
     bool isMain
-) noexcept: isMain(isMain), BlockEnvironment(parent) {}
+) noexcept(false): isMain(isMain), BlockEnvironment(parent) {
+    
+    for (auto & param : initializer.getParameters()) {
+        declareParameterVariable(param.name, param.type, param.line, param.column);
+    }
+}
 
 
 // MARK: - variables
@@ -39,7 +44,7 @@ void FunctionEnvironment::declareParameterVariable(
     size_t column
 ) noexcept(false) {
     const string key = keyForVariableNamed(name);
-    for (size_t i = 0; i <= parameters.size(); ++i) {
+    for (size_t i = 0; i < parameters.size(); ++i) {
         if (parameters[i].first == key) {
             throw VariableRedeclarationError(line, column, name);
         }
@@ -57,7 +62,7 @@ Variable const * FunctionEnvironment::getVariableNamed(
     if (search != variables.end()) {
         return search->second.get();
     }
-    for (size_t i = 0; i <= parameters.size(); ++i) {
+    for (size_t i = 0; i < parameters.size(); ++i) {
         if (parameters[i].first == key) {
             return parameters[i].second.get();
         }
@@ -66,19 +71,37 @@ Variable const * FunctionEnvironment::getVariableNamed(
 }
 
 
-int FunctionEnvironment::getSize() const noexcept {
-    int result = BlockEnvironment::getSize();
+size_t FunctionEnvironment::getSize() const noexcept {
+    size_t result = BlockEnvironment::getSize();
     if (isMain) {
-        result += 4;
+        result += 8;
+    }
+    for (size_t i = 0; i < parameters.size(); ++i) {
+        result += 8;
     }
     
     return result;
 }
 
-
-int FunctionEnvironment::requiredSpace() const noexcept {
-    return getSize() + childMaxSize();
+void FunctionEnvironment::setVariables(
+    size_t firstAt
+) const noexcept {
+    
+    for (auto& it : parameters) {
+        firstAt -= it.second.get()->getType()->pointerSize();
+        it.second.get()->setMemory(
+            make_unique<AsmMemory>(
+                firstAt,
+                make_unique<AsmRegister>(AsmRegister::Type::rbp),
+                nullopt,
+                AsmMemory::ScaleT::one
+            )
+        );
+    }
+    
+    BlockEnvironment::setVariables(firstAt);
 }
+
 
 void FunctionEnvironment::initializeVariables(
     std::list<std::unique_ptr<const AsmInstruction>> & compiled
@@ -91,12 +114,12 @@ void FunctionEnvironment::cleanVariables(
     std::list<std::unique_ptr<const AsmInstruction>> & compiled
 ) const noexcept {
     BlockEnvironment::cleanVariables(compiled);
-    int mySpace = getSize();
-    int childrenSpace = childMaxSize() + mySpace;
+    size_t myFirst = getSize() + 8 * getFuncParams();
+    
     compiled.push_back(
         make_unique<AsmAdd>(
             AssemblerValue::Size::bit64,
-            make_unique<AsmIntConstant>(childrenSpace),
+            make_unique<AsmIntConstant>(myFirst),
             make_unique<AsmRegister>(AsmRegister::rsp)
         )
     );
@@ -110,15 +133,10 @@ void FunctionEnvironment::cleanVariables(
 
 
 void FunctionEnvironment::compileVariables(
-    std::list<std::unique_ptr<const AsmInstruction>> & compiled
+    std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+    AsmRegistersHandler & handler
 ) const noexcept {
-    int mySpace = getSize();
-    
-    int childrenSpace = childMaxSize();
-    int myFirst = childrenSpace + mySpace;
-    if (isMain) {
-        myFirst -= 4;
-    }
+    size_t myFirst = getSize() + 8 * getFuncParams();
     
     
     compiled.push_back(
@@ -131,7 +149,7 @@ void FunctionEnvironment::compileVariables(
     compiled.push_back(
         make_unique<AsmSub>(
             AssemblerValue::Size::bit64,
-            make_unique<AsmIntConstant>(mySpace + childrenSpace),
+            make_unique<AsmIntConstant>(myFirst),
             make_unique<AsmRegister>(AsmRegister::rsp)
         )
     );
@@ -150,16 +168,50 @@ void FunctionEnvironment::compileVariables(
                 AssemblerValue::Size::bit32,
                 make_unique<AsmIntConstant>(0),
                 make_unique<AsmMemory>(
-                    myFirst,
+                    myFirst - 4,
                     make_unique<AsmRegister>(AsmRegister::rbp),
                     nullopt,
                     AsmMemory::ScaleT::one
                 )
             )
         );
+        myFirst -= 8;
     }
-    setVariables(compiled, myFirst);
-    for (auto & child : children) {
-        child->setVariables(compiled, child->getSize());
+    setVariables(myFirst);
+    compileParameters(compiled, handler);
+}
+
+
+void FunctionEnvironment::compileParameters(
+    std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+    AsmRegistersHandler & handler
+) const noexcept {
+    static vector<AsmRegister::Type> paramRegs = {
+        AsmRegister::Type::rdi,
+        AsmRegister::Type::rsi,
+        AsmRegister::Type::rdx,
+        AsmRegister::Type::rcx,
+        AsmRegister::Type::r8,
+        AsmRegister::Type::r9
+    };
+    
+    for (size_t i = parameters.size(); i > 0; --i) {
+        size_t idx = i - 1;
+        auto address = parameters[idx].second->getAddress(
+            AssemblerValue::Size::bit64, compiled, this, handler
+        );
+        if (idx < paramRegs.size()) {
+            compiled.push_back(
+                make_unique<AsmMov>(
+                    AssemblerValue::Size::bit64,
+                    make_unique<AsmRegister>(paramRegs[idx]),
+                    move(address)
+                )
+            );
+        } else {
+            compiled.push_back(
+                make_unique<AsmPop>(AssemblerValue::Size::bit64, move(address))
+            );
+        }
     }
 }

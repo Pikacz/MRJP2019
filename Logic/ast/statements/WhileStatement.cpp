@@ -45,26 +45,15 @@ void WhileStatement::compile(
     AsmLabel const * exitLabel
 ) const noexcept {
     AsmRegistersHandler regHandler;
-    expr.get()->compile(
-        AssemblerValue::Size::bit64,
-        compiled,
-        env,
-        regHandler,
-        handler,
-        AsmRegister::Type::rax
-    );
 
-    auto end = handler.getNextLbl();
-    auto compare = handler.getNextLbl();
-    auto body = handler.getNextLbl();
+    auto end = handler.getNextLbl("while_end");
+    auto compare = handler.getNextLbl("while_expr");
+    auto body = handler.getNextLbl("while_body");
     
     
     compiled.push_back(
         make_unique<AsmJmp>(compare.get())
     );
-    
-    // nie podoba mi się takie użycie unique_ptr,
-    // da się jakoś ładniej użyć wskaźnik po przekazaniu go dalej?
     auto bodyLbl = body.get();
     
     compiled.push_back(move(body));
@@ -97,5 +86,5 @@ void WhileStatement::compile(
 
 bool WhileStatement::isTerminatingWith(Type const * type) const noexcept(false) {
     body.get()->isTerminatingWith(type);
-    return false;
+    return expr.get()->isTerminating();
 }

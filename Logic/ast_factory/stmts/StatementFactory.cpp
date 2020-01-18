@@ -14,6 +14,9 @@
 #include "../../ast/statements/ReturnStatement.hpp"
 #include "../../ast/statements/DeclareStatement.hpp"
 #include "../../ast/statements/AssignementStatement.hpp"
+#include "../../ast/statements/ExprStatement.hpp"
+#include "../../ast/statements/IfStatement.hpp"
+#include "../../ast/statements/WhileStatement.hpp"
 #include "../../ast/expressions/VarExpression.hpp"
 #include "../../ast/expressions/arithmetic/IntAdd.hpp"
 #include "../../ast/expressions/arithmetic/IntSub.hpp"
@@ -37,6 +40,7 @@ static void getAssStmt(
     BlockEnvironment * env,
     LatteParser::ExprContext * lhs,
     LatteParser::ExprContext * rhs,
+    Token* symbol,
     vector<unique_ptr<const Statement>> & result
 ) noexcept(false);
 
@@ -68,6 +72,7 @@ static void getIfStmt(
     LatteParser::ExprContext * expr,
     LatteParser::StmtContext * ifTrue,
     LatteParser::StmtContext * ifFalse,
+    Token* symbol,
     vector<unique_ptr<const Statement>> & result
 ) noexcept(false);
 
@@ -75,6 +80,7 @@ static void getWhileStmt(
     BlockEnvironment * env,
     LatteParser::ExprContext * expr,
     LatteParser::StmtContext * body,
+    Token* symbol,
     vector<unique_ptr<const Statement>> & result
 ) noexcept(false);
 
@@ -108,7 +114,9 @@ void StatementFactory::getStatements(
     
     if (ctx->OAss()) {
         if (exprs.size() == 2) {
-            getAssStmt(env, exprs[0], exprs[1], result);
+            getAssStmt(
+                env, exprs[0], exprs[1], ctx->OAss()->getSymbol(), result
+            );
             return;
         }
     }
@@ -140,12 +148,18 @@ void StatementFactory::getStatements(
     if (ctx->Kif()) {
         if (ctx->Kelse()) {
             if (exprs.size() == 1 && stmts.size() == 2) {
-                getIfStmt(env, exprs[0], stmts[0], stmts[1], result);
+                getIfStmt(
+                    env, exprs[0], stmts[0], stmts[1],
+                    ctx->Kif()->getSymbol(), result
+                );
                 return;
             }
         } else {
             if (exprs.size() == 1 && stmts.size() == 1) {
-                getIfStmt(env, exprs[0], stmts[0], nullptr, result);
+                getIfStmt(
+                    env, exprs[0], stmts[0], nullptr,
+                    ctx->Kif()->getSymbol(), result
+                );
                 return;
             }
         }
@@ -153,7 +167,10 @@ void StatementFactory::getStatements(
     
     if (ctx->Kwhile()) {
         if (exprs.size() == 1 && stmts.size() == 1) {
-            getWhileStmt(env, exprs[0], stmts[0], result);
+            getWhileStmt(
+                env, exprs[0], stmts[0],
+                ctx->Kwhile()->getSymbol(), result
+            );
             return;
         }
     }
@@ -228,11 +245,21 @@ static void getDeclareStmt(
 // MARK: - assignement
 static void getAssStmt(
     BlockEnvironment * env,
-    LatteParser::ExprContext * lhs,
-    LatteParser::ExprContext * rhs,
+    LatteParser::ExprContext * _lhs,
+    LatteParser::ExprContext * _rhs,
+    Token* symbol,
     vector<unique_ptr<const Statement>> & result
 ) noexcept(false) {
-    throw "TODO";
+    auto lhs = ExprFactory::getExpr(env, _lhs);
+    auto rhs = ExprFactory::getExpr(env, _rhs);
+    
+    auto ass = make_unique<AssignementStatement>(
+        symbol->getLine(),
+        symbol->getCharPositionInLine(),
+        move(lhs),
+        move(rhs)
+    );
+    result.push_back(move(ass));
 }
 
 
@@ -316,31 +343,95 @@ static void getReturnStmt(
 // MARK: - if
 static void getIfStmt(
     BlockEnvironment * env,
-    LatteParser::ExprContext * expr,
-    LatteParser::StmtContext * ifTrue,
-    LatteParser::StmtContext * ifFalse,
+    LatteParser::ExprContext * _expr,
+    LatteParser::StmtContext * _ifTrue,
+    LatteParser::StmtContext * _ifFalse,
+    Token* symbol,
     vector<unique_ptr<const Statement>> & result
 ) noexcept(false) {
-    throw "TODO";
+    auto expr = ExprFactory::getExpr(env, _expr);
+    
+    unique_ptr<BlockStatement> ifTrueBlock = make_unique<BlockStatement>(
+        _ifTrue->getStart()->getLine(),
+        _ifTrue->getStart()->getCharPositionInLine(),
+        env
+    );
+    auto ifTrueEnv = ifTrueBlock.get()->getEnvironment();
+    vector<unique_ptr<const Statement>> ifTrueBody;
+    StatementFactory::getStatements(ifTrueEnv, _ifTrue, ifTrueBody);
+    ifTrueBlock.get()->completeWith(move(ifTrueBody));
+    
+    unique_ptr<BlockStatement> ifFalseBlock;
+    
+    if (_ifFalse) {
+        ifFalseBlock = make_unique<BlockStatement>(
+            _ifFalse->getStart()->getLine(),
+            _ifFalse->getStart()->getCharPositionInLine(),
+            env
+        );
+        auto ifFalseEnv = ifFalseBlock.get()->getEnvironment();
+        vector<unique_ptr<const Statement>> ifFalseBody;
+        StatementFactory::getStatements(ifFalseEnv, _ifFalse, ifFalseBody);
+        ifFalseBlock.get()->completeWith(move(ifFalseBody));
+    } else {
+        ifFalseBlock = make_unique<BlockStatement>(
+            -1,
+            -1,
+            env
+        );
+        ifFalseBlock.get()->completeWith({});
+    }
+    
+    
+    auto ifS = make_unique<IfStatement>(
+        symbol->getLine(), symbol->getCharPositionInLine(),
+        env, move(expr), move(ifTrueBlock), move(ifFalseBlock)
+    );
+    result.push_back(move(ifS));
 }
 
 
 // MARK: - while
 static void getWhileStmt(
     BlockEnvironment * env,
-    LatteParser::ExprContext * expr,
-    LatteParser::StmtContext * body,
+    LatteParser::ExprContext * _expr,
+    LatteParser::StmtContext * _body,
+    Token* symbol,
     vector<unique_ptr<const Statement>> & result
 ) noexcept(false) {
-    throw "TODO";
+    auto expr = ExprFactory::getExpr(env, _expr);
+       
+    unique_ptr<BlockStatement> bodyBlock = make_unique<BlockStatement>(
+       _body->getStart()->getLine(),
+       _body->getStart()->getCharPositionInLine(),
+       env
+    );
+    auto bodyEnv = bodyBlock.get()->getEnvironment();
+    vector<unique_ptr<const Statement>> bodyBody;
+    StatementFactory::getStatements(bodyEnv, _body, bodyBody);
+    bodyBlock.get()->completeWith(move(bodyBody));
+
+    auto wS = make_unique<WhileStatement>(
+       symbol->getLine(), symbol->getCharPositionInLine(),
+       env, move(expr), move(bodyBlock)
+    );
+    result.push_back(move(wS));
 }
 
 
 // MARK: - expression
 static void getExprStmt(
     BlockEnvironment * env,
-    LatteParser::ExprContext * expr,
+    LatteParser::ExprContext * _expr,
     vector<unique_ptr<const Statement>> & result
 ) noexcept(false) {
-    throw "TODO";
+    auto expr = ExprFactory::getExpr(env, _expr);
+    
+    result.push_back(
+        make_unique<ExprStatement>(
+            _expr->getStart()->getLine(),
+            _expr->getStart()->getCharPositionInLine(),
+            move(expr)
+        )
+    );
 }

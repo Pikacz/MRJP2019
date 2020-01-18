@@ -24,6 +24,7 @@ public:
         rdi,
         rsp,
         rbp,
+        rip,
         r8,
         r9,
         r10,

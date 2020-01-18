@@ -42,6 +42,10 @@ bool AssignementStatement::isEqualTo(AstNode const * node) const noexcept {
     return false;
 }
 
+bool AssignementStatement::isTerminatingWith(Type const * type) const noexcept(false) {
+    return expr.get()->isTerminating();
+}
+
 void AssignementStatement::compile(
     std::list<std::unique_ptr<const AsmInstruction>> & compiled,
     Environment const * env,

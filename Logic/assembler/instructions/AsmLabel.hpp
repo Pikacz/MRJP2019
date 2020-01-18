@@ -12,13 +12,6 @@
 #include "AsmInstruction.hpp"
 #include <string>
 
-class AsmJmp;
-class AsmJe;
-class AsmJne;
-class AsmJl;
-class AsmJle;
-class AsmJg;
-class AsmJge;
 
 class AsmLabel: public AsmInstruction {
 public:
@@ -26,14 +19,6 @@ public:
     
     void write(std::stringstream & ss) const noexcept override;
     
-    friend class AsmJmp;
-    friend class AsmJe;
-    friend class AsmJne;
-    friend class AsmJl;
-    friend class AsmJle;
-    friend class AsmJg;
-    friend class AsmJge;
-private:
     const std::string name;
 };
 

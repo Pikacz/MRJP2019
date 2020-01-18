@@ -25,9 +25,9 @@ void BoolOrExpr::compile(
     AsmLabelHandler & lblHandler,
     AsmRegister::Type destination
 ) const noexcept {
-    auto resultTrue = lblHandler.getNextLbl();
-    auto resultFalse = lblHandler.getNextLbl();
-    auto end = lblHandler.getNextLbl();
+    auto resultTrue = lblHandler.getNextLbl("or_true");
+    auto resultFalse = lblHandler.getNextLbl("or_false");
+    auto end = lblHandler.getNextLbl("or_calculated");
     
     
     lhs.get()->compile(type, compiled, env, handler, lblHandler, destination);

@@ -41,10 +41,17 @@ public:
         std::string name, size_t line, size_t column
     ) const noexcept(false) override;
     
+    virtual void markFuncCall(size_t parameters_count) noexcept override;
+    
+    FuncVariable const * getConcatStrings() const noexcept override;
+    
     // MARK: types
     virtual Type const * getTypeNamed(
         std::string name, size_t line, size_t column
     ) const noexcept(false) override;
+    
+    // MARK: string
+    AsmLabel const * registerString(std::string str) const noexcept override;
     
     // MARK: compilation
     virtual void initializeVariables(
@@ -57,15 +64,15 @@ public:
 protected:
     
     
-    virtual int getSize() const noexcept;
+    size_t func_params;
     
-    int childMaxSize() const noexcept;
+    virtual size_t getFuncParams() const noexcept;
     
+    virtual size_t getSize() const noexcept;
     
     
     virtual void setVariables(
-        std::list<std::unique_ptr<const AsmInstruction>> & compiled,
-        int firstAt
+        size_t firstAt
     ) const noexcept;
     
     std::map<std::string, std::unique_ptr<Variable>> variables;

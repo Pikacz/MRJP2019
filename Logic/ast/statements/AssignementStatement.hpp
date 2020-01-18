@@ -28,6 +28,8 @@ public:
     
     bool isEqualTo(AstNode const * node) const noexcept override;
     
+    bool isTerminatingWith(Type const * type) const noexcept(false) override;
+    
     void compile(
         std::list<std::unique_ptr<const AsmInstruction>> & compiled,
         Environment const * env,

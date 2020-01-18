@@ -8,9 +8,11 @@
 
 #include "AllCompilationTests.hpp"
 #include "returnValue/AllReturnValueTests.hpp"
+#include "complicatedPrograms/AllComplicatedProgramsTests.hpp"
 
 using namespace std;
 
 void runAllCompilationTests(string prefix) noexcept {
     runAllReturnValueTests(prefix);
+    runAllComplicatedProgramsTests(prefix);
 }

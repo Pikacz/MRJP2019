@@ -8,6 +8,7 @@
 
 #include "AsmRegister.hpp"
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -70,6 +71,8 @@ inline static string get8BitName(AsmRegister::Type type) noexcept {
             return "r14b";
         case AsmRegister::r15:
             return "r15b";
+        case AsmRegister::rip:
+            assert(false);
     }
 }
 
@@ -107,6 +110,8 @@ inline static string get16BitName(AsmRegister::Type type) noexcept {
             return "r14w";
         case AsmRegister::r15:
             return "r15w";
+        case AsmRegister::rip:
+            assert(false);
     }
 }
 
@@ -144,6 +149,8 @@ inline static string get32BitName(AsmRegister::Type type) noexcept {
             return "r14d";
         case AsmRegister::r15:
             return "r15d";
+        case AsmRegister::rip:
+            assert(false);
     }
 }
 
@@ -182,6 +189,8 @@ inline static string get64BitName(AsmRegister::Type type) noexcept {
             return "r14";
         case AsmRegister::r15:
             return "r15";
+        case AsmRegister::rip:
+            return "rip";
     }
 }
 

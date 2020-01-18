@@ -25,6 +25,8 @@ public:
         AsmLabelHandler & lblHandler,
         AsmRegister::Type destination
     ) const noexcept override;
+private:
+    const AsmLabel * const location;
 };
 
 #endif /* StringConstant_hpp */

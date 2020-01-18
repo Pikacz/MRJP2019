@@ -38,10 +38,19 @@ public:
     
     FunctionEnvironment * getEnvironment() const noexcept;
     
-    void compile(
+    virtual void compile(
         std::list<std::unique_ptr<const AsmInstruction>> & compiled,
         AsmLabelHandler & handler
     ) const noexcept;
+    
+    
+    FunctionType const * getType() const noexcept;
+    
+    std::string getName() const noexcept;
+    
+    virtual bool isTerminating() const noexcept;
+    
+    virtual std::string getCompiledName() const noexcept;
 private:
     const size_t line;
     const size_t column;

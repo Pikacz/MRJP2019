@@ -75,6 +75,16 @@ Function const * Environment::getFunctionNamed(
     throw NoSuchFunctionError(line, column, name);
 }
 
+void Environment::markFuncCall(size_t parameters_count) noexcept {
+    
+}
+
+
+FuncVariable const * Environment::getConcatStrings() const noexcept {
+    assert(false);
+}
+
+
 // MARK:- keys
 string Environment::keyForVariableNamed(string name) noexcept {
     return name;

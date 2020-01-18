@@ -39,3 +39,7 @@ shared_ptr<const FunctionType> FunctionInitializer::getType() const noexcept {
     return type;
 }
 
+
+vector<FunctionInitializer::Parameter> FunctionInitializer::getParameters() const noexcept {
+    return parameters;
+}

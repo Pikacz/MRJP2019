@@ -8,12 +8,15 @@
 
 #include "StringConstant.hpp"
 
+#include "../../../assembler/instructions/AsmLea.hpp"
+#include "../../../assembler/values/registers/AsmRegister.hpp"
+
 using namespace std;
 
 
 StringConstant::StringConstant(
     string value, Environment const * env, size_t line, size_t column
-) noexcept: Constant<string>(value, env->getLatteString(), line, column) {}
+) noexcept: location(env->registerString(value)), Constant<string>(value, env->getLatteString(), line, column) {}
 
 
 void StringConstant::compile(
@@ -24,5 +27,11 @@ void StringConstant::compile(
     AsmLabelHandler & lblHandler,
     AsmRegister::Type destination
 ) const noexcept {
-    throw "not implemented";
+    compiled.push_back(
+        make_unique<AsmLea>(
+            type,
+            make_unique<AsmData>(location),
+            make_unique<AsmRegister>(destination)
+        )
+    );
 }

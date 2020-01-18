@@ -43,6 +43,7 @@ public:
     
     std::shared_ptr<const FunctionType> getType() const noexcept;
     
+    std::vector<Parameter> getParameters() const noexcept;
 private:
     const std::shared_ptr<const FunctionType> type;
     const std::string name;

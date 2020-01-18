@@ -32,7 +32,16 @@ void AsmRegistersHandler::freeRegister(
     AssemblerValue::Size size,
     list<unique_ptr<const AsmInstruction>> & compiled
 ) {
-    int count = registers[type];
+    auto search = registers.find(type);
+    if (search == registers.end()) {
+        unique_ptr<const AsmInstruction> push = make_unique<AsmPush>(
+            size, make_unique<AsmRegister>(type)
+        );
+        compiled.push_back(move(push));
+        return;
+    }
+    int count = search->second;
+
     if (count != 0) {
         unique_ptr<const AsmInstruction> push = make_unique<AsmPush>(
             size, make_unique<AsmRegister>(type)
@@ -48,7 +57,16 @@ void AsmRegistersHandler::restoreRegister(
     AssemblerValue::Size size,
     list<unique_ptr<const AsmInstruction>> & compiled
 ) {
-    int count = registers[type];
+    auto search = registers.find(type);
+    if (search == registers.end()) {
+        unique_ptr<const AsmInstruction> pop = make_unique<AsmPop>(
+            size, make_unique<AsmRegister>(type)
+        );
+        
+        compiled.push_back(move(pop));
+        return;
+    }
+    int count = search->second;
     
     if (count > 1) {
         unique_ptr<const AsmInstruction> pop = make_unique<AsmPop>(

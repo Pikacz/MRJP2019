@@ -7,6 +7,7 @@
 //
 
 #include "Expression.hpp"
+#include <cassert>
 
 
 Expression::Expression(
@@ -23,5 +24,16 @@ bool Expression::isKindOf(Type const * type) const noexcept {
     return myType->isKindOf(type);
 }
 
+bool Expression::isTerminating() const noexcept {
+    return false;
+}
 
-
+void Expression::compileCall(
+    AssemblerValue::Size size,
+    std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+    Environment const * env,
+    AsmRegistersHandler & handler,
+    AsmLabelHandler & lblHandler
+) const noexcept {
+    assert(false);
+}

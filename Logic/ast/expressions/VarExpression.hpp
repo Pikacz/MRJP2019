@@ -30,6 +30,15 @@ public:
         AsmRegister::Type destination
     ) const noexcept override;
     
+    
+    void compileCall(
+        AssemblerValue::Size size,
+        std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+        Environment const * env,
+        AsmRegistersHandler & handler,
+        AsmLabelHandler & lblHandler
+    ) const noexcept override;
+    
     std::unique_ptr<const AssemblerValue> getAddress(
         AssemblerValue::Size size,
         std::list<std::unique_ptr<const AsmInstruction>> & compiled,
@@ -38,6 +47,8 @@ public:
     ) const noexcept override;
     
     bool isEqualTo(AstNode const * node) const noexcept override;
+    
+    bool isLatteErrorFunc() const noexcept;
     
 private:
     const Variable * const var;

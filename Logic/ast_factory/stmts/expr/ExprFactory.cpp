@@ -18,6 +18,7 @@
 #include "../../../ast/expressions/bool/compareExpr/CompareNotEqual.hpp"
 #include "../../../ast/expressions/bool/NotExpr.hpp"
 #include "../../../ast/expressions/VarExpression.hpp"
+#include "../../../ast/expressions/ExprCall.hpp"
 #include "../../../ast/expressions/arithmetic/IntAdd.hpp"
 #include "../../../ast/expressions/arithmetic/IntSub.hpp"
 #include "../../../ast/expressions/arithmetic/IntMul.hpp"
@@ -26,6 +27,8 @@
 #include "../../../ast/expressions/constants/IntConstant.hpp"
 #include "../../../ast/expressions/constants/BoolConstant.hpp"
 #include "../../../ast/expressions/constants/StringConstant.hpp"
+
+#include "../../../environment/variables/FuncVariable.hpp"
 
 
 
@@ -177,7 +180,25 @@ static unique_ptr<const Expression> getExpr4(
             );
             
         } else {
-            throw "TODO";
+            unique_ptr<const Expression> func;
+            auto f = env->getConcatStrings();
+            auto symbol = ctx->OPlus()->getSymbol();
+            func = make_unique<VarExpression>(
+                symbol->getLine(), symbol->getCharPositionInLine(), f
+            );
+            
+            vector<unique_ptr<const Expression>> params;
+            params.push_back(getExpr4(env, ctx->expr4()));
+            params.push_back(getExpr3(env, ctx->expr3()));
+            
+            
+            return make_unique<ExprCall>(
+                ctx->getStart()->getLine(),
+                ctx->getStart()->getCharPositionInLine(),
+                env,
+                move(func),
+                move(params)
+            );
         }
     } else if (auto oMinus = ctx->OMinus()) {
         return make_unique<IntSub>(
@@ -240,12 +261,27 @@ static unique_ptr<const Expression> getExpr1(
 static unique_ptr<const Expression> getExpr2(
     Environment * env, LatteParser::Expr2Context * ctx
 ) noexcept(false) {
+    auto callList = ctx->callList();
     if (auto nm = ctx->Identifier()) {
         throw "TODO";
     } else if (ctx->OArrBL()) {
         throw "TODO";
-    } else if (auto callList = ctx->callList()) {
-        throw "TODO";
+    } else if (callList != nullptr) {
+        auto func = getExpr2(env, ctx->expr2());
+        vector<unique_ptr<const Expression>> params;
+        
+        for (auto & p: ctx->callList()->expr()) {
+            params.push_back(ExprFactory::getExpr(env, p));
+        }
+        
+        return make_unique<ExprCall>(
+            ctx->getStart()->getLine(),
+            ctx->getStart()->getCharPositionInLine(),
+            env,
+            move(func),
+            move(params)
+        );
+        
     }
     return getExpr1(env, ctx->expr1());
 }

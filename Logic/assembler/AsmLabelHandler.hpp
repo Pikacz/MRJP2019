@@ -19,7 +19,7 @@ public:
     AsmLabelHandler() noexcept;
     
     
-    std::unique_ptr<const AsmLabel> getNextLbl() noexcept;
+    std::unique_ptr<const AsmLabel> getNextLbl(std::string info = "") noexcept;
 private:
     size_t counter;
 };

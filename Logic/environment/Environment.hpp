@@ -21,9 +21,13 @@
 #include "types/builtin/LatteString.hpp"
 #include "types/builtin/LatteVoid.hpp"
 #include "variables/Variable.hpp"
+#include "../assembler/instructions/AsmLabel.hpp"
+#include "../assembler/values/AsmData.hpp"
 
 class Function;
+class Variable;
 class FunctionInitializer;
+class FuncVariable;
 
 class Environment {
 protected:
@@ -41,12 +45,17 @@ public:
         std::string name, size_t line, size_t column
     ) const noexcept(false);
     
+    virtual void markFuncCall(size_t parameters_count) noexcept;
+    
+    virtual FuncVariable const * getConcatStrings() const noexcept;
     
     // MARK: types
     virtual Type const * getTypeNamed(
         std::string name, size_t line, size_t column
     ) const noexcept(false);
     
+    // MARK: string
+    virtual AsmLabel const * registerString(std::string str) const noexcept = 0;
     
     ArrayType const * getArrayOfType(Type const * type) noexcept;
 
