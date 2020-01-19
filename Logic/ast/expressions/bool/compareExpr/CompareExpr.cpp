@@ -23,25 +23,40 @@ CompareExpr::CompareExpr(
     size_t line,
     size_t column,
     unique_ptr<const Expression> _lhs,
-    unique_ptr<const Expression> _rhs
+    unique_ptr<const Expression> _rhs,
+    bool allowBool
 ) noexcept(false): Expr2Arg(env->getLatteBool(), line, column, move(_lhs), move(_rhs)) {
+    
     auto lType = this->lhs.get()->getType();
-    if (!lType->isKindOf(env->getLatteInt())) {
-        throw InvalidType(
-            this->lhs.get()->getLine(),
-            this->lhs.get()->getColumn(),
-            env->getLatteInt(),
-            lType
-        );
+    auto rType = this->rhs.get()->getType();
+    
+    if (allowBool) {
+        if (!lType->isKindOf(env->getLatteInt())) {
+            if (!lType->isKindOf(env->getLatteBool())) {
+                throw InvalidType(
+                    this->lhs.get()->getLine(),
+                    this->lhs.get()->getColumn(),
+                    env->getLatteInt(),
+                    lType
+                );
+            }
+        }
+    } else {
+        if (!lType->isKindOf(env->getLatteInt())) {
+            throw InvalidType(
+                this->lhs.get()->getLine(),
+                this->lhs.get()->getColumn(),
+                env->getLatteInt(),
+                lType
+            );
+        }
     }
     
-    
-    auto rType = this->rhs.get()->getType();
-    if (!rType->isKindOf(env->getLatteInt())) {
+    if (!rType->isKindOf(lType)) {
         throw InvalidType(
             this->rhs.get()->getLine(),
             this->rhs.get()->getColumn(),
-            env->getLatteInt(),
+            lType,
             rType
         );
     }

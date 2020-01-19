@@ -23,6 +23,8 @@ protected:
     void assertTrue(bool expr);
     
     void assertFalse(bool expr);
+    
+    void createLatteLib() noexcept;
 private:
     const std::string name;
 };

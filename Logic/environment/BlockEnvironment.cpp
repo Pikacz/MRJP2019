@@ -37,6 +37,20 @@ BlockEnvironment::BlockEnvironment(
 }
 
 
+BlockEnvironment::~BlockEnvironment() {
+    for (auto child: children) {
+        if (child->parent == this) {
+            child->parent = nullptr;
+        }
+    }
+    
+    if (parent != nullptr) {
+        if (auto p = dynamic_cast<BlockEnvironment const *>(parent)) {
+            p->removeChild(this);
+        }
+    }
+}
+
 // MARK: - variables
 void BlockEnvironment::declareVariable(
     string name, Type const * type, size_t line, size_t column
@@ -70,7 +84,7 @@ Function const * BlockEnvironment::getFunctionNamed(
 }
 
 void BlockEnvironment::markFuncCall(size_t parameters_count) noexcept {
-    func_params = max(parameters_count + 1, func_params);
+//    func_params = max(8 * parameters_count, func_params);
 }
 
 FuncVariable const * BlockEnvironment::getConcatStrings() const noexcept {
@@ -153,4 +167,14 @@ void BlockEnvironment::setVariables(
 
 void BlockEnvironment::addChild(BlockEnvironment const * child) const noexcept {
     children.push_back(child);
+}
+
+
+void BlockEnvironment::removeChild(BlockEnvironment const * child) const noexcept {
+    
+    vector<BlockEnvironment const *> tmp;
+    
+    copy_if (children.begin(), children.end(), std::back_inserter(tmp), [child](auto i){return i != child;} );
+    
+    children = tmp;
 }

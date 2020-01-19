@@ -17,6 +17,7 @@
 using namespace std;
 
 void MainReturnParserTestCaseUnit::run() noexcept {
+    createLatteLib();
     stringstream ss;
     fillCode(ss);
     auto env = TopDefFactory::createFrom(ss.str());
@@ -32,7 +33,7 @@ void MainReturnParserTestCaseUnit::run() noexcept {
         o << ss.str();
     }
     o.close();
-    system("clang++ tmp.s -o elo");
+    system("clang++ tmp.s latte_lib.o -o elo");
     int result = system("./elo > xx.txt");
     result = WEXITSTATUS(result);
     

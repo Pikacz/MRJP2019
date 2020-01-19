@@ -27,6 +27,8 @@ public:
         Environment const * parent
     ) noexcept;
     
+    ~BlockEnvironment();
+    
     // MARK: variables
     virtual void declareVariable(
         std::string name, Type const * type, size_t line, size_t column
@@ -77,9 +79,11 @@ protected:
     
     std::map<std::string, std::unique_ptr<Variable>> variables;
     
-    const Environment * const parent;
+    mutable Environment const * parent;
     
     void addChild(BlockEnvironment const * child) const noexcept;
+    
+    void removeChild(BlockEnvironment const * child) const noexcept;
     mutable std::vector<BlockEnvironment const *> children;
 private:
     

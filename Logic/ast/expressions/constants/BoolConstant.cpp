@@ -44,3 +44,8 @@ std::unique_ptr<AsmIntConstant> BoolConstant::getTrue() noexcept {
 std::unique_ptr<AsmIntConstant> BoolConstant::getFalse() noexcept {
     return make_unique<AsmIntConstant>(0);
 }
+
+
+optional<bool> BoolConstant::boolValue(VarValues const & values) const noexcept {
+    return getValue();
+}

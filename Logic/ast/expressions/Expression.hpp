@@ -16,6 +16,9 @@
 #include "../../assembler/AsmRegistersHandler.hpp"
 #include "../../assembler/AsmLabelHandler.hpp"
 
+#include "../../ast_factory/VarValues.hpp"
+#include <optional>
+
 class Expression: public AstNode {
 public:
     Expression(Type const * type, size_t line, size_t column) noexcept;
@@ -43,6 +46,8 @@ public:
         AsmRegistersHandler & handler,
         AsmLabelHandler & lblHandler
     ) const noexcept;
+    
+    virtual std::optional<bool> boolValue(VarValues const & values) const noexcept;
 private:
     const Type * const type;
 };

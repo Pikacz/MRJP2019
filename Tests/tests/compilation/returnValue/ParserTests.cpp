@@ -114,6 +114,36 @@ public:
     }
 };
 
+class ParseT7 final: public MainReturnParserTestCaseUnit {
+public:
+    ParseT7(): MainReturnParserTestCaseUnit("ParseT7") {}
+    
+    void fillCode(std::stringstream &ss) const noexcept override {
+        ss << "int main() {" << endl;
+        ss << "    return 78 % 3;" << endl;
+        ss << "}" << endl;
+    }
+    
+    int expectedExitCode() const noexcept override {
+        return 0;
+    }
+};
+        
+class ParseT8 final: public MainReturnParserTestCaseUnit {
+public:
+    ParseT8(): MainReturnParserTestCaseUnit("ParseT8") {}
+    
+    void fillCode(std::stringstream &ss) const noexcept override {
+        ss << "int main() {" << endl;
+        ss << "    return 78%3;" << endl;
+        ss << "}" << endl;
+    }
+    
+    int expectedExitCode() const noexcept override {
+        return 0;
+    }
+};
+
 vector<shared_ptr<TestUnit> > ParserTests::getTests() const noexcept {
     return {
         make_shared<ParseT1>(),
@@ -121,6 +151,8 @@ vector<shared_ptr<TestUnit> > ParserTests::getTests() const noexcept {
         make_shared<ParseT3>(),
         make_shared<ParseT4>(),
         make_shared<ParseT5>(),
-        make_shared<ParseT6>()
+        make_shared<ParseT6>(),
+        make_shared<ParseT7>(),
+        make_shared<ParseT8>(),
     };
 }

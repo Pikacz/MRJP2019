@@ -18,7 +18,11 @@ AsmRegistersHandler::AsmRegistersHandler() noexcept {
         AsmRegister::Type::rax,
         AsmRegister::Type::rbx,
         AsmRegister::Type::rcx,
-        AsmRegister::Type::rdx
+        AsmRegister::Type::rdx,
+        AsmRegister::Type::rdi,
+        AsmRegister::Type::rsi,
+        AsmRegister::Type::r8,
+        AsmRegister::Type::r9
     };
     
     for (auto r : regs) {
@@ -33,13 +37,6 @@ void AsmRegistersHandler::freeRegister(
     list<unique_ptr<const AsmInstruction>> & compiled
 ) {
     auto search = registers.find(type);
-    if (search == registers.end()) {
-        unique_ptr<const AsmInstruction> push = make_unique<AsmPush>(
-            size, make_unique<AsmRegister>(type)
-        );
-        compiled.push_back(move(push));
-        return;
-    }
     int count = search->second;
 
     if (count != 0) {
@@ -47,6 +44,11 @@ void AsmRegistersHandler::freeRegister(
             size, make_unique<AsmRegister>(type)
         );
         compiled.push_back(move(push));
+        
+        unique_ptr<const AsmInstruction> push2 = make_unique<AsmPush>(
+            size, make_unique<AsmRegister>(type)
+        );
+        compiled.push_back(move(push2));
     }
     registers[type] = count + 1;
 }
@@ -58,14 +60,6 @@ void AsmRegistersHandler::restoreRegister(
     list<unique_ptr<const AsmInstruction>> & compiled
 ) {
     auto search = registers.find(type);
-    if (search == registers.end()) {
-        unique_ptr<const AsmInstruction> pop = make_unique<AsmPop>(
-            size, make_unique<AsmRegister>(type)
-        );
-        
-        compiled.push_back(move(pop));
-        return;
-    }
     int count = search->second;
     
     if (count > 1) {
@@ -74,6 +68,12 @@ void AsmRegistersHandler::restoreRegister(
         );
         
         compiled.push_back(move(pop));
+        
+        unique_ptr<const AsmInstruction> pop2 = make_unique<AsmPop>(
+            size, make_unique<AsmRegister>(type)
+        );
+        
+        compiled.push_back(move(pop2));
     }
     
     registers[type] = count - 1;

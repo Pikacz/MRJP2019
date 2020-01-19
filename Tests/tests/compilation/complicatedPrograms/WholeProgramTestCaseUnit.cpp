@@ -16,7 +16,6 @@
 
 using namespace std;
 
-static void createLatteLib() noexcept;
 
 void WholeProgramTestCaseUnit::run() noexcept {
     createLatteLib();
@@ -74,7 +73,15 @@ void WholeProgramTestCaseUnit::run() noexcept {
     system("rm -rf tmp.s elo xx.txt tmp.in");
     
     string pOut = programOutSS.str();
-    assertTrue(pOut == out);
+    
+    if (pOut != out) {
+        cout << "wyplułem:" << endl;
+        cout << pOut << endl;
+        cout << "zamiast:" << endl;
+        cout << out << endl;
+        cout.flush();
+        assertTrue(false);
+    }
     int expExitCode = expectedExitCode();
     assertTrue(result == expExitCode);
 }
@@ -92,58 +99,3 @@ int WholeProgramTestCaseUnit::expectedExitCode() const noexcept {
     return 0;
 }
 
-
-static void createLatteLib() noexcept {
-    static bool initialized = false;
-    if (initialized) return;
-    initialized = true;
-    
-    ofstream headerFile("latte_lib.hpp");
-    headerFile << "void printInt(long long int l);" << endl;
-    headerFile << "void printString(char *);" << endl;
-    headerFile << "void error();" << endl;
-    headerFile << "long long int readInt();" << endl;
-    headerFile << "char * readString();" << endl;
-    headerFile.close();
-    
-    ofstream codeFile("latte_lib.cpp");
-    codeFile << "#include \"latte_lib.hpp\"" << endl;
-    codeFile << endl;
-    codeFile << "#include <iostream>" << endl;
-    codeFile << "#include <string>" << endl;
-    codeFile << "#include <cstring>" << endl;
-    codeFile << "#include <cassert>" << endl;
-    codeFile << endl;
-    codeFile << "using namespace std;" << endl;
-    codeFile << endl;
-    codeFile << endl;
-    codeFile << "void printInt(long long int i) {" << endl;
-    codeFile << "    cout << i << endl;" << endl;
-    codeFile << "}" << endl;
-    codeFile << endl;
-    codeFile << "void printString(char * s) {" << endl;
-    codeFile << "    cout << s << endl;" << endl;
-    codeFile << "}" << endl;
-    codeFile << endl;
-    codeFile << "void error() {" << endl;
-    codeFile << "    assert(false);" << endl;
-    codeFile << "}" << endl;
-    codeFile << endl;
-    codeFile << "long long int readInt() {" << endl;
-    codeFile << "    long long int val;" << endl;
-    codeFile << "    cin >> val;" << endl;
-    codeFile << "    return val;" << endl;
-    codeFile << "}" << endl;
-    codeFile << endl;
-    codeFile << "char * readString() {" << endl;
-    codeFile << "    string str;" << endl;
-    codeFile << "    cin >> str;" << endl;
-    codeFile << "    char * cstr = new char [str.length()+1];" << endl;
-    codeFile << "    strcpy(cstr, str.c_str());" << endl;
-    codeFile << "    return cstr;" << endl;
-    codeFile << "}" << endl;
-    codeFile.close();
-    
-    
-    system("clang++  -O3 latte_lib.hpp latte_lib.cpp -c");
-}

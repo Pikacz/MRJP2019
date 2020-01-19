@@ -114,7 +114,11 @@ void FunctionEnvironment::cleanVariables(
     std::list<std::unique_ptr<const AsmInstruction>> & compiled
 ) const noexcept {
     BlockEnvironment::cleanVariables(compiled);
-    size_t myFirst = getSize() + 8 * getFuncParams();
+    size_t myFirst = getSize() + getFuncParams();
+    
+    if (myFirst % 16 != 0) {
+        myFirst += 8;
+    }
     
     compiled.push_back(
         make_unique<AsmAdd>(
@@ -126,7 +130,7 @@ void FunctionEnvironment::cleanVariables(
     compiled.push_back(
         make_unique<AsmPop>(
             AssemblerValue::Size::bit64,
-            make_unique<AsmRegister>(AsmRegister::rsp)
+            make_unique<AsmRegister>(AsmRegister::rbp)
         )
     );
 }
@@ -136,13 +140,16 @@ void FunctionEnvironment::compileVariables(
     std::list<std::unique_ptr<const AsmInstruction>> & compiled,
     AsmRegistersHandler & handler
 ) const noexcept {
-    size_t myFirst = getSize() + 8 * getFuncParams();
+    size_t myFirst = getSize() + getFuncParams();
     
+    if (myFirst % 16 != 0) {
+        myFirst += 8;
+    }
     
     compiled.push_back(
         make_unique<AsmPush>(
             AssemblerValue::Size::bit64,
-            make_unique<AsmRegister>(AsmRegister::rsp)
+            make_unique<AsmRegister>(AsmRegister::rbp)
         )
     );
     

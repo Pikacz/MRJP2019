@@ -12,10 +12,10 @@
 class  LatteLexer : public antlr4::Lexer {
 public:
   enum {
-    T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, T__4 = 5, T__5 = 6, T__6 = 7, 
-    OPlus = 8, OMinus = 9, ODiv = 10, OMul = 11, OMod = 12, OPlusPlus = 13, 
-    OMinusMinus = 14, OAss = 15, OLT = 16, OLTE = 17, OGT = 18, OGTE = 19, 
-    OEq = 20, ONEq = 21, ONot = 22, OAnd = 23, OOr = 24, OArrBL = 25, OArrBR = 26, 
+    T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, OPlus = 5, OMinus = 6, ODiv = 7, 
+    OMul = 8, OMod = 9, OPlusPlus = 10, OMinusMinus = 11, OAss = 12, OLT = 13, 
+    OLTE = 14, OGT = 15, OGTE = 16, OEq = 17, ONEq = 18, ONot = 19, OAnd = 20, 
+    OOr = 21, OArrBL = 22, OArrBR = 23, ParBL = 24, ParBR = 25, Dot = 26, 
     Kreturn = 27, Kwhile = 28, Kif = 29, Kelse = 30, Kclass = 31, Kextends = 32, 
     Knew = 33, Kint = 34, Kstring = 35, Kvoid = 36, Kbool = 37, KTrue = 38, 
     KFalse = 39, Identifier = 40, IntLiteral = 41, StringLiteral = 42, Whitespace = 43, 

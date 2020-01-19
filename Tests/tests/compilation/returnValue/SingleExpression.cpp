@@ -829,6 +829,71 @@ public:
     }
 };
 
+// return 3 / 2
+class SimpleExpr20 final: public MainReturnValueTestCaseUnit {
+public:
+    SimpleExpr20(): MainReturnValueTestCaseUnit("return 3 / 2") {}
+    
+    void fillEnv(GlobalEnvironment & env) const noexcept override {
+        auto intT = env.getLatteInt();
+        FunctionInitializer mainInitializer(intT, "main", {});
+        auto mainF = env.declareFunction(mainInitializer, 1, 1);
+        auto fEnv = mainF->getEnvironment();
+
+        unique_ptr<const Expression> justThree = make_unique<IntConstant>(3, fEnv, 2, 4);
+        unique_ptr<const Expression> justTwo = make_unique<IntConstant>(2, fEnv, 2, 7);
+        
+        unique_ptr<const Expression> justDiv = make_unique<IntDiv>(
+            fEnv, 2, 5, move(justThree), move(justTwo)
+        );
+        
+        unique_ptr<const Statement> returnOne = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(justDiv)
+        );
+        
+        vector<unique_ptr<const Statement>> body;
+        body.push_back(move(returnOne));
+        mainF->completeWith(move(body));
+    }
+    
+    int expectedExitCode() const noexcept override {
+        return 1;
+    }
+};
+
+
+// return 78 % 3
+class SimpleExpr21 final: public MainReturnValueTestCaseUnit {
+public:
+    SimpleExpr21(): MainReturnValueTestCaseUnit("return 78 % 3") {}
+    
+    void fillEnv(GlobalEnvironment & env) const noexcept override {
+        auto intT = env.getLatteInt();
+        FunctionInitializer mainInitializer(intT, "main", {});
+        auto mainF = env.declareFunction(mainInitializer, 1, 1);
+        auto fEnv = mainF->getEnvironment();
+
+        unique_ptr<const Expression> lhs = make_unique<IntConstant>(78, fEnv, 2, 4);
+        unique_ptr<const Expression> rhs = make_unique<IntConstant>(3, fEnv, 2, 7);
+        
+        unique_ptr<const Expression> expr = make_unique<IntMod>(
+            fEnv, 2, 5, move(lhs), move(rhs)
+        );
+        
+        unique_ptr<const Statement> returnOne = make_unique<ReturnStatement>(
+            2, 4, fEnv, move(expr)
+        );
+        
+        vector<unique_ptr<const Statement>> body;
+        body.push_back(move(returnOne));
+        mainF->completeWith(move(body));
+    }
+    
+    int expectedExitCode() const noexcept override {
+        return 0;
+    }
+};
+
 
 vector<shared_ptr<TestUnit> > SingleExpression::getTests() const noexcept {
     return {
@@ -850,6 +915,8 @@ vector<shared_ptr<TestUnit> > SingleExpression::getTests() const noexcept {
         make_shared<SimpleExpr16>(),
         make_shared<SimpleExpr17>(),
         make_shared<SimpleExpr18>(),
-        make_shared<SimpleExpr19>()
+        make_shared<SimpleExpr19>(),
+        make_shared<SimpleExpr20>(),
+        make_shared<SimpleExpr21>()
     };
 }

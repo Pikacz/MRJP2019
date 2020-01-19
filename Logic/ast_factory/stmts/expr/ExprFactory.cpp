@@ -230,7 +230,7 @@ static unique_ptr<const Expression> getExpr3(
             getExpr3(env, ctx->expr3()),
             getExpr2(env, ctx->expr2())
         );
-    } else if (auto oMod = ctx->OMul()) {
+    } else if (auto oMod = ctx->OMod()) {
         return make_unique<IntMod>(
             env,
             oMod->getSymbol()->getLine(),
@@ -238,7 +238,7 @@ static unique_ptr<const Expression> getExpr3(
             getExpr3(env, ctx->expr3()),
             getExpr2(env, ctx->expr2())
         );
-    } else if (auto oDiv = ctx->OMul()) {
+    } else if (auto oDiv = ctx->ODiv()) {
         return make_unique<IntDiv>(
             env,
             oDiv->getSymbol()->getLine(),
@@ -261,17 +261,20 @@ static unique_ptr<const Expression> getExpr1(
 static unique_ptr<const Expression> getExpr2(
     Environment * env, LatteParser::Expr2Context * ctx
 ) noexcept(false) {
-    auto callList = ctx->callList();
+    
     if (auto nm = ctx->Identifier()) {
         throw "TODO";
     } else if (ctx->OArrBL()) {
         throw "TODO";
-    } else if (callList != nullptr) {
+    } else if (ctx->ParBL() != nullptr) {
         auto func = getExpr2(env, ctx->expr2());
         vector<unique_ptr<const Expression>> params;
         
-        for (auto & p: ctx->callList()->expr()) {
-            params.push_back(ExprFactory::getExpr(env, p));
+        auto callList = ctx->callList();
+        if (callList != nullptr) {
+            for (auto & p: ctx->callList()->expr()) {
+                params.push_back(ExprFactory::getExpr(env, p));
+            }
         }
         
         return make_unique<ExprCall>(

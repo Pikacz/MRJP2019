@@ -168,7 +168,9 @@ static void defineFunctions(
         auto fEnv = incompleteFuncs[i]->getEnvironment();
         vector<unique_ptr<const Statement>> body;
         
-        StatementFactory::getStatements(fEnv, funcs[i]->block(), body);
+        VarValues vals;
+        
+        StatementFactory::getStatements(fEnv, funcs[i]->block(), vals, body);
         incompleteFuncs[i]->completeWith(move(body));
         
     }

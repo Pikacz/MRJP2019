@@ -17,6 +17,8 @@
 using namespace std;
 
 void MainReturnValueTestCaseUnit::run() noexcept {
+    createLatteLib();
+    
     GlobalEnvironment env;
     fillEnv(env);
     
@@ -31,7 +33,7 @@ void MainReturnValueTestCaseUnit::run() noexcept {
         o << ss.str();
     }
     o.close();
-    system("clang++ tmp.s -o elo");
+    system("clang++ tmp.s latte_lib.o -o elo");
     int result = system("./elo > xx.txt");
     result = WEXITSTATUS(result);
     

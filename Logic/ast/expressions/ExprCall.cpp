@@ -17,6 +17,7 @@
 #include "../../assembler/instructions/AsmPop.hpp"
 #include "../../assembler/instructions/AsmPush.hpp"
 #include "../../assembler/instructions/AsmMov.hpp"
+#include "../../assembler/GarbageCollector.hpp"
 
 using namespace std;
 
@@ -120,8 +121,14 @@ void ExprCall::compile(
     
     for (size_t i = 0; i < params.size(); ++i) {
         if (i < paramRegs.size()) {
-            handler.freeRegister(paramRegs[i], type, compiled);
+            if (destination != paramRegs[i]) {
+                handler.freeRegister(paramRegs[i], type, compiled);
+            }
+            
             params[i]->compile(type, compiled, env, handler, lblHandler, paramRegs[i]);
+            if (params[i]->getType()->isKindOf(env->getLatteString())) {
+                
+            }
         } else {
             params[i]->compile(type, compiled, env, handler, lblHandler, AsmRegister::Type::r10);
             compiled.push_back(
@@ -133,7 +140,17 @@ void ExprCall::compile(
         }
     }
     
-    handler.freeRegister(AsmRegister::Type::rbx, type, compiled);
+    if (params.size() < paramRegs.size()) {
+        for (size_t i = params.size(); i < paramRegs.size(); ++i) {
+            if (destination != paramRegs[i]) {
+                handler.freeRegister(paramRegs[i], type, compiled);
+            }
+        }
+    }
+    
+    if (destination != AsmRegister::Type::rbx) {
+        handler.freeRegister(AsmRegister::Type::rbx, type, compiled);
+    }
     if (destination != AsmRegister::Type::rax) {
         handler.freeRegister(AsmRegister::Type::rax, type, compiled);
     }
@@ -149,13 +166,24 @@ void ExprCall::compile(
         );
         handler.restoreRegister(AsmRegister::Type::rax, type, compiled);
     }
-    handler.restoreRegister(AsmRegister::Type::rbx, type, compiled);
+    if (destination != AsmRegister::Type::rbx) {
+        handler.restoreRegister(AsmRegister::Type::rbx, type, compiled);
+    }
     
+    if (params.size() < paramRegs.size()) {
+        for (size_t i = params.size(); i < paramRegs.size(); ++i) {
+            if (destination != paramRegs[i]) {
+                handler.restoreRegister(paramRegs[i], type, compiled);
+            }
+        }
+    }
     
     for (size_t _i = params.size(); _i > 0; --_i) {
         size_t i = _i - 1;
         if (i < paramRegs.size()) {
-            handler.restoreRegister(paramRegs[i], type, compiled);
+            if (destination != paramRegs[i]) {
+                handler.restoreRegister(paramRegs[i], type, compiled);
+            }
         } else {
             compiled.push_back(
                 make_unique<AsmPop>(

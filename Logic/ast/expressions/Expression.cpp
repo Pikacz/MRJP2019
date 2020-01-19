@@ -9,6 +9,7 @@
 #include "Expression.hpp"
 #include <cassert>
 
+using namespace std;
 
 Expression::Expression(
     Type const * type, size_t line, size_t column
@@ -36,4 +37,9 @@ void Expression::compileCall(
     AsmLabelHandler & lblHandler
 ) const noexcept {
     assert(false);
+}
+
+
+optional<bool> Expression::boolValue(VarValues const & values) const noexcept {
+    return nullopt;
 }

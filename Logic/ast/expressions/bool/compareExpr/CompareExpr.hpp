@@ -19,7 +19,8 @@ public:
         size_t line,
         size_t column,
         std::unique_ptr<const Expression> lhs,
-        std::unique_ptr<const Expression> rhs
+        std::unique_ptr<const Expression> rhs,
+        bool allowBool = false
     ) noexcept(false);
     
     void compile(

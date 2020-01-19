@@ -31,6 +31,8 @@ public:
     static std::unique_ptr<AsmIntConstant> getTrue() noexcept;
     
     static std::unique_ptr<AsmIntConstant> getFalse() noexcept;
+    
+    virtual std::optional<bool> boolValue(VarValues const & values) const noexcept override;
 };
 
 #endif /* BoolConstant_hpp */
