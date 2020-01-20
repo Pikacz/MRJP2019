@@ -42,6 +42,7 @@ public:
     
     bool isEqualTo(AstNode const * node) const noexcept override;
     
+    size_t fakeVariablesCount() const noexcept override;
 private:
     bool isCompleted;
     const std::unique_ptr<BlockEnvironment> env;

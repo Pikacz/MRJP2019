@@ -15,6 +15,7 @@
 #include "../../../../assembler/instructions/AsmJe.hpp"
 #include "../../../../assembler/instructions/AsmCmp.hpp"
 #include "../../../../assembler/instructions/AsmMov.hpp"
+#include "../../VarExpression.hpp"
 
 using namespace std;
 
@@ -94,7 +95,7 @@ void CompareExpr::compile(
     rhs.get()->compile(type, compiled, env, handler, lblHandler, destination);
     handler.restoreRegister(tmp, type, compiled);
     
-    compiled.push_back(make_unique<AsmCmp>( // -1000000 for AT&T intuition ...
+    compiled.push_back(make_unique<AsmCmp>(
             type,
             make_unique<AsmRegister>(destination),
             make_unique<AsmRegister>(tmp)

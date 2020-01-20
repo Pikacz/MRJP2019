@@ -57,6 +57,12 @@ void Function::completeWith(
     }
     
     this->statements = move(statements);
+    
+    size_t fake_vars = 0;
+    for (auto & s: this->statements) {
+        fake_vars = max(fake_vars, s->fakeVariablesCount());
+    }
+    env->declareFakeVariables(fake_vars);
 }
 
 
@@ -85,7 +91,10 @@ void Function::compile(
         statements[i].get()->compile(compiled, env.get(), handler, exitLbl.get());
     }
     compiled.push_back(move(exitLbl));
-    env.get()->cleanVariables(compiled);
+    // rax jest ustwione i cenne
+    regHandler.freeRegister(AsmRegister::Type::rax, AssemblerValue::Size::bit64, compiled);
+    // jesli ktos bedzie chciał użyc rax to musi go wrzucić wpier na stos, a później odtworzyć
+    env.get()->cleanVariables(compiled, regHandler, handler);
     
     unique_ptr<const AsmInstruction> ret = make_unique<AsmRet>(
         AssemblerValue::Size::bit64

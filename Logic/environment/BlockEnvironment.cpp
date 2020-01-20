@@ -17,9 +17,11 @@
 #include "../assembler/instructions/AsmPop.hpp"
 #include "../assembler/instructions/AsmPush.hpp"
 #include "../assembler/values/AsmMemory.hpp"
+#include "../assembler/GarbageCollector.hpp"
 
 #include "function/Function.hpp"
 #include "function/FunctionInitializer.hpp"
+#include "../ast/expressions/VarExpression.hpp"
 
 #include <optional>
 #include <algorithm>
@@ -61,6 +63,20 @@ void BlockEnvironment::declareVariable(
         throw VariableRedeclarationError(line, column, name);
     }
     variables[key] = make_unique<Variable>(type, this);
+}
+
+Variable const * BlockEnvironment::getNextFakeVariable() const noexcept {
+    return parent->getNextFakeVariable();
+}
+
+
+void BlockEnvironment::releaseFakeVariable(
+    Variable const * var,
+    std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+    AsmRegistersHandler & handler,
+    AsmLabelHandler & lblHandler
+) const noexcept {
+    parent->releaseFakeVariable(var, compiled, handler, lblHandler);
 }
 
 
@@ -113,8 +129,25 @@ void BlockEnvironment::initializeVariables(
 
 
 void BlockEnvironment::cleanVariables(
-    list<unique_ptr<const AsmInstruction>> & compiled
+    list<unique_ptr<const AsmInstruction>> & compiled,
+    AsmRegistersHandler & handler,
+    AsmLabelHandler & lblHandler
 ) const noexcept {
+    
+    
+    for (auto& it : variables) {
+        if (it.second->getType()->isPointer()) {
+            
+            auto varExpr = make_unique<VarExpression>(-1, -1, it.second.get());
+            varExpr->loadValueInto(
+                AsmRegister::Type::rdx, AssemblerValue::Size::bit64,
+                compiled, this, handler
+            );
+            GarbageCollector::decCounter(
+                AsmRegister::Type::rdx, compiled, this, handler, lblHandler
+            );
+        }
+    }
 }
 
 

@@ -13,6 +13,7 @@
 #include <memory>
 #include <map>
 #include <optional>
+#include <vector>
  
 
 #include "instructions/AsmInstruction.hpp"
@@ -37,6 +38,8 @@ public:
     std::optional<AsmRegister::Type> anyFreeNotEqual(
         AsmRegister::Type type
     ) const noexcept;
+    
+    std::vector<AsmRegister::Type> allUsedRegisters() const noexcept;
 private:
     std::map<AsmRegister::Type, int> registers;
     std::list<AsmRegister::Type> pushedRegisters;

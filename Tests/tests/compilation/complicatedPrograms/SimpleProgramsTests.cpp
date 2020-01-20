@@ -425,9 +425,9 @@ public:
 };
         
         
-class SimpleProgram1500 final: public WholeProgramTestCaseUnit {
+class SimpleProgram19 final: public WholeProgramTestCaseUnit {
 public:
-    SimpleProgram1500(): WholeProgramTestCaseUnit("Simple program 1500") {}
+    SimpleProgram19(): WholeProgramTestCaseUnit("Simple program 19") {}
     
     void fillCode(std::ostream & ss) const noexcept override {
         ss << "int main() {" << endl;
@@ -455,6 +455,138 @@ public:
 };
         
         
+class SimpleProgram20 final: public WholeProgramTestCaseUnit {
+public:
+    SimpleProgram20(): WholeProgramTestCaseUnit("Simple program 20") {}
+    
+    void fillCode(std::ostream & ss) const noexcept override {
+        ss << "int main() {" << endl;
+        ss << "    printString(\"Hello\" + \" world\");" << endl;
+        ss << "    return 0;" << endl;
+        ss << "}" << endl;
+        ss << endl;
+    }
+    
+    void fillOutput(std::ostream & ss) const noexcept override {
+        ss << "Hello world" << endl;
+    }
+};
+        
+
+class SimpleProgram21 final: public WholeProgramTestCaseUnit {
+public:
+    SimpleProgram21(): WholeProgramTestCaseUnit("Simple program 21") {}
+    
+    void fillCode(std::ostream & ss) const noexcept override {
+        ss << "int main() {" << endl;
+        ss << "    printString(\"a\" + \"b\" + \"c\");" << endl;
+        ss << "    return 0;" << endl;
+        ss << "}" << endl;
+        ss << endl;
+    }
+    
+    void fillOutput(std::ostream & ss) const noexcept override {
+        ss << "abc" << endl;
+    }
+};
+
+        
+class SimpleProgram22 final: public WholeProgramTestCaseUnit {
+public:
+    SimpleProgram22(): WholeProgramTestCaseUnit("Simple program 22") {}
+    
+    void fillCode(std::ostream & ss) const noexcept override {
+        ss << "int main() {" << endl;
+        ss << "    string s1 = readString();" << endl;
+        ss << "    return 0;" << endl;
+        ss << "}" << endl;
+        ss << endl;
+    }
+    
+    void fillInput(std::ostream & ss) const noexcept override {
+        ss << "ab" << endl;
+    }
+};
+        
+
+class SimpleProgram23 final: public WholeProgramTestCaseUnit {
+public:
+    SimpleProgram23(): WholeProgramTestCaseUnit("Simple program 23") {}
+    
+    void fillCode(std::ostream & ss) const noexcept override {
+        ss << "int main() {" << endl;
+        ss << "    string s1 = \"a\" + \"b\";" << endl;
+        ss << "    printString(s1);" << endl;
+        ss << "    return 0;" << endl;
+        ss << "}" << endl;
+        ss << endl;
+    }
+    
+    void fillOutput(std::ostream & ss) const noexcept override {
+        ss << "ab" << endl;
+    }
+};
+        
+
+class SimpleProgram24 final: public WholeProgramTestCaseUnit {
+public:
+    SimpleProgram24(): WholeProgramTestCaseUnit("Simple program 24") {}
+    
+    void fillCode(std::ostream & ss) const noexcept override {
+        ss << "int main() {" << endl;
+        ss << "    string s1 = \"a\" + \"b\";" << endl;
+        ss << "    printString(s1 + \"c\");" << endl;
+        ss << "    return 0;" << endl;
+        ss << "}" << endl;
+        ss << endl;
+    }
+    
+    void fillOutput(std::ostream & ss) const noexcept override {
+        ss << "abc" << endl;
+    }
+};
+      
+
+class SimpleProgram25 final: public WholeProgramTestCaseUnit {
+public:
+    SimpleProgram25(): WholeProgramTestCaseUnit("Simple program 25") {}
+    
+    void fillCode(std::ostream & ss) const noexcept override {
+        ss << "int main() {" << endl;
+        ss << "    string s1 = \"a\";" << endl;
+        ss << "    string s2 = \"c\";" << endl;
+        ss << "    printString(s1 + s2);" << endl;
+        ss << "    return 0;" << endl;
+        ss << "}" << endl;
+        ss << endl;
+    }
+    
+    void fillOutput(std::ostream & ss) const noexcept override {
+        ss << "ac" << endl;
+    }
+};
+        
+        
+class SimpleProgram26 final: public WholeProgramTestCaseUnit {
+public:
+    SimpleProgram26(): WholeProgramTestCaseUnit("Simple program 26") {}
+    
+    void fillCode(std::ostream & ss) const noexcept override {
+        ss << "int main() {" << endl;
+        ss << "    string s1 = \"a\" + \"b\";" << endl;
+        ss << "    string s2 = \"c\" + \"d\";" << endl;
+        ss << "    printString(s1 + s2);" << endl;
+        ss << "    return 0;" << endl;
+        ss << "}" << endl;
+        ss << endl;
+    }
+    
+    void fillOutput(std::ostream & ss) const noexcept override {
+        ss << "abcd" << endl;
+    }
+};
+        
+        
 vector<shared_ptr<TestUnit> > SimpleProgramsTests::getTests() const noexcept {
     return {
         make_shared<SimpleProgram1>(),
@@ -475,6 +607,13 @@ vector<shared_ptr<TestUnit> > SimpleProgramsTests::getTests() const noexcept {
         make_shared<SimpleProgram16>(),
         make_shared<SimpleProgram17>(),
         make_shared<SimpleProgram18>(),
-        make_shared<SimpleProgram1500>()
+        make_shared<SimpleProgram19>(),
+        make_shared<SimpleProgram20>(),
+        make_shared<SimpleProgram21>(),
+        make_shared<SimpleProgram22>(),
+        make_shared<SimpleProgram23>(),
+        make_shared<SimpleProgram24>(),
+        make_shared<SimpleProgram25>(),
+        make_shared<SimpleProgram26>()
     };
 }

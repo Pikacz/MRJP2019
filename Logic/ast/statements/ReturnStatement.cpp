@@ -81,3 +81,11 @@ void ReturnStatement::compile(
     unique_ptr<const AsmInstruction> exit = make_unique<AsmJmp>(exitLabel);
     compiled.push_back(move(exit));
 }
+
+
+size_t ReturnStatement::fakeVariablesCount() const noexcept {
+    if (expr != nullopt) {
+        return expr->get()->fakeVariablesCount();
+    }
+    return 0;
+}

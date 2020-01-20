@@ -34,5 +34,5 @@ ConcatString::ConcatString(
 
 
 string ConcatString::getCompiledName() const noexcept {
-    return "__Z13concatStringsPcS_";
+    return "__Z13concatStringsPvS_";
 }

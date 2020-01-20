@@ -19,6 +19,7 @@
 #include "../../assembler/instructions/AsmMov.hpp"
 #include "../../assembler/GarbageCollector.hpp"
 
+
 using namespace std;
 
 
@@ -97,10 +98,56 @@ void ExprCall::compile(
     AssemblerValue::Size type,
     std::list<std::unique_ptr<const AsmInstruction>> & compiled,
     Environment const * env,
-    AsmRegistersHandler & handler,
+    AsmRegistersHandler & _handler,
     AsmLabelHandler & lblHandler,
     AsmRegister::Type destination
 ) const noexcept {
+    // zachowaj używane rejestry
+    vector<AsmRegister::Type> regsToSave = _handler.allUsedRegisters();
+    
+    for (size_t i = 0; i < regsToSave.size(); ++i) {
+        if (regsToSave[i] != destination) {
+            _handler.freeRegister(
+                regsToSave[i], type, compiled
+            );
+        }
+    }
+    // w tym momencie mamy czystego enva rejestrów
+    AsmRegistersHandler handler;
+    
+    // skompiluj usuwalne parametry do fikcyjnych zmiennych
+    vector<Variable const *> fakeVariables;
+    vector<unique_ptr<VarExpression>> fakeVarExprs;
+    
+    
+    for (size_t i = 0; i < params.size(); ++i) {
+        if (params[i]->getType()->isPointer()) {
+            handler.freeRegister(
+                AsmRegister::Type::rdi, type, compiled
+            );
+            params[i]->compile(
+                type,
+                compiled,
+                env,
+                handler,
+                lblHandler,
+                AsmRegister::Type::rdi
+            );
+            handler.restoreRegister(
+                AsmRegister::Type::rdi, AssemblerValue::Size::bit64, compiled
+            );
+            auto var = env->getNextFakeVariable();
+            fakeVariables.push_back(var);
+            fakeVarExprs.push_back(make_unique<VarExpression>(-1, -1, var));
+            fakeVarExprs.back()->saveValueFrom(
+                AsmRegister::Type::rdi, type,
+                compiled, env, handler
+            );
+        }
+    }
+    
+    
+    // wylicz parametry funckcji
     static vector<AsmRegister::Type> paramRegs = {
         AsmRegister::Type::rdi,
         AsmRegister::Type::rsi,
@@ -110,50 +157,37 @@ void ExprCall::compile(
         AsmRegister::Type::r9
     };
     
-    if (params.size() > paramRegs.size()) {
-        handler.freeRegister(
-            AsmRegister::Type::r10,
-            type,
-            compiled
-        );
-    }
-    
-    
+    size_t var_i = 0;
+    AsmRegister::Type d;
     for (size_t i = 0; i < params.size(); ++i) {
         if (i < paramRegs.size()) {
-            if (destination != paramRegs[i]) {
-                handler.freeRegister(paramRegs[i], type, compiled);
-            }
-            
-            params[i]->compile(type, compiled, env, handler, lblHandler, paramRegs[i]);
-            if (params[i]->getType()->isKindOf(env->getLatteString())) {
-                
-            }
+            d = paramRegs[i];
+            // jeśli ktoś w przyszłości weźmie tę wartość to musi mi ją oddac
+            handler.freeRegister(d, AssemblerValue::Size::bit64, compiled);
         } else {
-            params[i]->compile(type, compiled, env, handler, lblHandler, AsmRegister::Type::r10);
+            d = AsmRegister::Type::r10;
+        }
+        
+        if (params[i]->getType()->isPointer()) {
+            fakeVarExprs[var_i]->loadValueInto(
+                d, type, compiled, env, handler
+            );
+            var_i++;
+        } else {
+            params[i]->compile(type, compiled, env, handler, lblHandler, d);
+        }
+        
+        if (i >= paramRegs.size()) {
             compiled.push_back(
                 make_unique<AsmPush>(
                     type,
-                    make_unique<AsmRegister>( AsmRegister::Type::r10)
+                    make_unique<AsmRegister>(d)
                 )
             );
         }
     }
     
-    if (params.size() < paramRegs.size()) {
-        for (size_t i = params.size(); i < paramRegs.size(); ++i) {
-            if (destination != paramRegs[i]) {
-                handler.freeRegister(paramRegs[i], type, compiled);
-            }
-        }
-    }
-    
-    if (destination != AsmRegister::Type::rbx) {
-        handler.freeRegister(AsmRegister::Type::rbx, type, compiled);
-    }
-    if (destination != AsmRegister::Type::rax) {
-        handler.freeRegister(AsmRegister::Type::rax, type, compiled);
-    }
+    // wykonaj call
     func->compileCall(type, compiled, env, handler, lblHandler);
     
     if (destination != AsmRegister::Type::rax) {
@@ -164,43 +198,67 @@ void ExprCall::compile(
                 make_unique<AsmRegister>(destination)
             )
         );
-        handler.restoreRegister(AsmRegister::Type::rax, type, compiled);
-    }
-    if (destination != AsmRegister::Type::rbx) {
-        handler.restoreRegister(AsmRegister::Type::rbx, type, compiled);
     }
     
-    if (params.size() < paramRegs.size()) {
-        for (size_t i = params.size(); i < paramRegs.size(); ++i) {
-            if (destination != paramRegs[i]) {
-                handler.restoreRegister(paramRegs[i], type, compiled);
-            }
+    // oczyść fikcyjne zmienne
+    if (fakeVariables.size() > 0) {
+        for (size_t i = 0; i < 2; ++i) {
+            compiled.push_back(
+                make_unique<AsmPush>(
+                    type,
+                    make_unique<AsmRegister>(destination)
+                )
+            );
         }
-    }
-    
-    for (size_t _i = params.size(); _i > 0; --_i) {
-        size_t i = _i - 1;
-        if (i < paramRegs.size()) {
-            if (destination != paramRegs[i]) {
-                handler.restoreRegister(paramRegs[i], type, compiled);
-            }
-        } else {
+        AsmRegistersHandler handler2;
+        for (auto &fVar : fakeVariables) {
+            env->releaseFakeVariable(fVar, compiled, handler2, lblHandler);
+        }
+        
+        for (size_t i = 0; i < 2; ++i) {
             compiled.push_back(
                 make_unique<AsmPop>(
                     type,
-                    make_unique<AsmRegister>(AsmRegister::Type::r10)
+                    make_unique<AsmRegister>(destination)
                 )
             );
         }
     }
     
     
-    if (params.size() > paramRegs.size()) {
-        handler.restoreRegister(
-            AsmRegister::Type::r10,
-            type,
-            compiled
+    // przywróć rejestry sprzed calla
+    for (size_t ii = regsToSave.size(); ii > 0; --ii) {
+        size_t i = ii - 1;
+        if (regsToSave[i] != destination) {
+            _handler.restoreRegister(
+                regsToSave[i], AssemblerValue::Size::bit64, compiled
+            );
+        }
+    }
+    
+}
+
+#include <iostream>
+
+size_t ExprCall::fakeVariablesCount() const noexcept {
+    size_t result = 0;
+    size_t pointers = 0;
+    size_t store_previous_and_calc;
+    
+    for (size_t i = 0; i < params.size(); ++i) {
+        if (params[i]->getType()->isPointer()) {
+            store_previous_and_calc = pointers + params[i]->fakeVariablesCount();
+            pointers++;
+        } else {
+            store_previous_and_calc = 0;
+        }
+        size_t store_results = pointers;
+        
+        result = max(
+            store_previous_and_calc,
+            store_results
         );
     }
     
+    return result;
 }

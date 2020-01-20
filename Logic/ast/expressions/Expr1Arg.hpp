@@ -22,6 +22,7 @@ public:
         std::unique_ptr<const Expression> expr
     ) noexcept;
     
+    size_t fakeVariablesCount() const noexcept override;
 protected:
     const std::unique_ptr<const Expression> expr;
 };

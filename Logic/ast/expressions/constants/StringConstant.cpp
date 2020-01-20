@@ -10,6 +10,7 @@
 
 #include "../../../assembler/instructions/AsmLea.hpp"
 #include "../../../assembler/values/registers/AsmRegister.hpp"
+#include "../../../assembler/GarbageCollector.hpp"
 
 using namespace std;
 
@@ -27,11 +28,28 @@ void StringConstant::compile(
     AsmLabelHandler & lblHandler,
     AsmRegister::Type destination
 ) const noexcept {
+    if (destination != AsmRegister::Type::rdi) {
+        handler.freeRegister(
+            AsmRegister::Type::rdi, AssemblerValue::Size::bit64, compiled
+        );
+    }
+    
+    
     compiled.push_back(
         make_unique<AsmLea>(
             type,
             make_unique<AsmData>(location),
-            make_unique<AsmRegister>(destination)
+            make_unique<AsmRegister>(AsmRegister::Type::rdi)
         )
     );
+    GarbageCollector::wrapUncleanable(
+        AsmRegister::Type::rdi, destination, true,
+        compiled, env, handler, lblHandler
+    );
+    
+    if (destination != AsmRegister::Type::rdi) {
+        handler.restoreRegister(
+            AsmRegister::Type::rdi, AssemblerValue::Size::bit64, compiled
+        );
+    }
 }

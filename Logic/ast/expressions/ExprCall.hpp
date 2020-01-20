@@ -39,7 +39,7 @@ public:
         AsmRegister::Type destination
     ) const noexcept override;
     
-    
+    size_t fakeVariablesCount() const noexcept override;
 private:
     const std::unique_ptr<const Expression> func;
     const std::vector<std::unique_ptr<const Expression>> params;

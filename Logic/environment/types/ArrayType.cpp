@@ -31,3 +31,7 @@ string ArrayType::getName() const noexcept {
 size_t ArrayType::pointerSize() const noexcept {
     return 8;
 }
+
+bool ArrayType::isPointer() const noexcept {
+    return true;
+}

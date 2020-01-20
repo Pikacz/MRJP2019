@@ -29,6 +29,19 @@ Variable const * Environment::getVariableNamed(
     throw NoSuchVariableError(line, column, name);
 }
 
+Variable const * Environment::getNextFakeVariable() const noexcept {
+    assert(false);
+}
+
+void Environment::releaseFakeVariable(
+    Variable const * var,
+    std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+    AsmRegistersHandler & handler,
+    AsmLabelHandler & lblHandler
+) const noexcept {
+    assert(false);
+}
+
 
 // MARK:- types
 Type const * Environment::getTypeNamed(

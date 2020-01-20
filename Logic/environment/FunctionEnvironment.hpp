@@ -32,13 +32,26 @@ public:
         std::string name, size_t line, size_t column
     ) const noexcept(false) override;
     
+    Variable const * getNextFakeVariable() const noexcept override;
+    
+    void declareFakeVariables(size_t count) noexcept;
+    
+    void releaseFakeVariable(
+        Variable const * var,
+        std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+        AsmRegistersHandler & handler,
+        AsmLabelHandler & lblHandler
+    ) const noexcept override;
+    
     // MARK: compilation
     void initializeVariables(
         std::list<std::unique_ptr<const AsmInstruction>> & compiled
     ) const noexcept override;
     
     void cleanVariables(
-        std::list<std::unique_ptr<const AsmInstruction>> & compiled
+        std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+        AsmRegistersHandler & handler,
+        AsmLabelHandler & lblHandler
     ) const noexcept override;
     
     void compileVariables(
@@ -72,6 +85,8 @@ private:
     
     const bool isMain;
     
+    mutable std::map<std::string, std::pair<Variable const *, bool>> fakeVars;
 };
+
 
 #endif /* FunctionEnvironment_hpp */

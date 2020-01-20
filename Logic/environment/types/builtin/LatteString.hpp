@@ -20,6 +20,8 @@ public:
     std::string getName() const noexcept override;
     
     size_t pointerSize() const noexcept override;
+    
+    bool isPointer() const noexcept override;
 };
 
 #endif /* LatteString_hpp */

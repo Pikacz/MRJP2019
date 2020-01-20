@@ -29,6 +29,8 @@ public:
         AsmLabelHandler & handler,
         AsmLabel const * exitLabel
     ) const noexcept = 0;
+    
+    virtual size_t fakeVariablesCount() const noexcept = 0;
 };
 
 #endif /* Statement_hpp */

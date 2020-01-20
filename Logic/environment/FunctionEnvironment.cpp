@@ -16,10 +16,18 @@
 #include "../assembler/instructions/AsmMov.hpp"
 #include "../assembler/instructions/AsmPop.hpp"
 #include "../assembler/instructions/AsmPush.hpp"
+#include "../assembler/instructions/AsmCall.hpp"
 #include "../assembler/values/AsmMemory.hpp"
+#include "../assembler/GarbageCollector.hpp"
+
+#include "../ast/expressions/VarExpression.hpp"
 
 #include "function/Function.hpp"
 #include "function/FunctionInitializer.hpp"
+
+#include <sstream>
+
+#include <cassert>
 
 using namespace std;
 
@@ -71,6 +79,70 @@ Variable const * FunctionEnvironment::getVariableNamed(
 }
 
 
+void FunctionEnvironment::declareFakeVariables(size_t count) noexcept {
+    for (size_t i = 0; i < count; ++i) {
+        stringstream ss;
+        ss << " fake var " << i;
+        string nm = ss.str();
+        declareVariable(nm, getLatteInt(), -1, -1);
+        fakeVars[nm] = make_pair(getVariableNamed(nm, -1, -1), true);
+    }
+}
+
+
+Variable const * FunctionEnvironment::getNextFakeVariable() const noexcept {
+    for (auto it = fakeVars.begin(); it != fakeVars.end(); ++it) {
+        if (it->second.second) {
+            it->second.second = false;
+            return it->second.first;
+        }
+    }
+    
+    assert(false);
+}
+
+
+void FunctionEnvironment::releaseFakeVariable(
+    Variable const * var,
+    std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+    AsmRegistersHandler & handler,
+    AsmLabelHandler & lblHandler
+) const noexcept {
+    AsmRegister::Type reg;
+    auto r = handler.anyFreeNotEqual(AsmRegister::Type::rax);
+    if (r != nullopt) {
+        reg = *r;
+    } else {
+        handler.freeRegister(
+            AsmRegister::Type::rax, AssemblerValue::Size::bit64, compiled
+        );
+        reg = AsmRegister::Type::rax;
+    }
+    
+    auto varExpr = make_unique<VarExpression>(-1, -1, var);
+    varExpr->compile(
+        AssemblerValue::Size::bit64, compiled, this, handler, lblHandler, reg
+    );
+    
+    GarbageCollector::decCounter(reg, compiled, this, handler, lblHandler);
+    
+    
+    if (r == nullopt) {
+        handler.restoreRegister(
+            AsmRegister::Type::rax, AssemblerValue::Size::bit64, compiled
+        );
+    }
+    
+    for (auto it = fakeVars.begin(); it != fakeVars.end(); ++it) {
+        if (it->second.first == var) {
+            it->second.second = true;
+            return;
+        }
+    }
+    
+    assert(false);
+}
+
 size_t FunctionEnvironment::getSize() const noexcept {
     size_t result = BlockEnvironment::getSize();
     if (isMain) {
@@ -111,9 +183,26 @@ void FunctionEnvironment::initializeVariables(
 
 
 void FunctionEnvironment::cleanVariables(
-    std::list<std::unique_ptr<const AsmInstruction>> & compiled
+    std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+    AsmRegistersHandler & handler,
+    AsmLabelHandler & lblHandler
 ) const noexcept {
-    BlockEnvironment::cleanVariables(compiled);
+    BlockEnvironment::cleanVariables(compiled, handler, lblHandler);
+    
+    if (isMain) {
+        
+        handler.freeRegister(AsmRegister::Type::rax, AssemblerValue::Size::bit64, compiled);
+        
+        compiled.push_back(
+            make_unique<AsmCall>(
+                AssemblerValue::Size::bit64, "__Z11checkDeletev"
+            )
+        );
+        
+        handler.restoreRegister(AsmRegister::Type::rax, AssemblerValue::Size::bit64, compiled);
+    }
+    
+    
     size_t myFirst = getSize() + getFuncParams();
     
     if (myFirst % 16 != 0) {

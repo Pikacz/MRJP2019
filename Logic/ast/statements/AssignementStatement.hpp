@@ -23,7 +23,8 @@ public:
         size_t line,
         size_t column,
         std::unique_ptr<const Expression> var,
-        std::unique_ptr<const Expression> expr
+        std::unique_ptr<const Expression> expr,
+        bool first_association
     ) noexcept(false);
     
     bool isEqualTo(AstNode const * node) const noexcept override;
@@ -36,7 +37,10 @@ public:
         AsmLabelHandler & handler,
         AsmLabel const * exitLabel
     ) const noexcept override;
+    
+    size_t fakeVariablesCount() const noexcept override;
 private:
+    const bool first_association;
     const std::unique_ptr<const LExpression> var;
     const std::unique_ptr<const Expression> expr;
 };

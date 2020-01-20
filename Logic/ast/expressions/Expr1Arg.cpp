@@ -19,3 +19,9 @@ Expr1Arg::Expr1Arg(
 ) noexcept: expr(move(expr)), Expression(type, line, column) {
     
 }
+
+
+size_t Expr1Arg::fakeVariablesCount() const noexcept {
+    // only call operates on pointers
+    return expr->fakeVariablesCount();
+}

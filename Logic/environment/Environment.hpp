@@ -23,6 +23,8 @@
 #include "variables/Variable.hpp"
 #include "../assembler/instructions/AsmLabel.hpp"
 #include "../assembler/values/AsmData.hpp"
+#include "../assembler/AsmLabelHandler.hpp"
+#include "../assembler/AsmRegistersHandler.hpp"
 
 class Function;
 class Variable;
@@ -38,6 +40,15 @@ public:
     virtual Variable const * getVariableNamed(
         std::string name, size_t line, size_t column
     ) const noexcept(false);
+    
+    virtual Variable const * getNextFakeVariable() const noexcept;
+    
+    virtual void releaseFakeVariable(
+        Variable const * var,
+        std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+        AsmRegistersHandler & handler,
+        AsmLabelHandler & lblHandler
+    ) const noexcept;
     
     
     // MARK: functions

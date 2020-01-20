@@ -21,33 +21,37 @@
 #include "../environment/Environment.hpp"
 
 class GarbageCollector {
-    // objects, dynamic strings
+public:
+    // objects, dynamic strings, source will be overriden
     static void wrapCleanable(
-        AsmRegister::Type reg,
+        AsmRegister::Type source,
+        AsmRegister::Type destination,
         bool isString,
         std::list<std::unique_ptr<const AsmInstruction>> & compiled,
         Environment const * env,
         AsmRegistersHandler & handler,
         AsmLabelHandler & lblHandler
-    );
+    ) noexcept;
     
-    // string constants etc
+    // string constants, source will be overriden
     static void wrapUncleanable(
-        AsmRegister::Type reg,
+        AsmRegister::Type source,
+        AsmRegister::Type destination,
         bool isString,
         std::list<std::unique_ptr<const AsmInstruction>> & compiled,
         Environment const * env,
         AsmRegistersHandler & handler,
         AsmLabelHandler & lblHandler
-    );
+    ) noexcept;
     
-    static std::unique_ptr<const AssemblerValue> getValue(
+    static void getValue(
         AsmRegister::Type reg,
         std::list<std::unique_ptr<const AsmInstruction>> & compiled,
         Environment const * env,
         AsmRegistersHandler & handler,
         AsmLabelHandler & lblHandler
-    );
+    ) noexcept;
+    
     
     static void incCounter(
         AsmRegister::Type reg,
@@ -55,7 +59,7 @@ class GarbageCollector {
         Environment const * env,
         AsmRegistersHandler & handler,
         AsmLabelHandler & lblHandler
-    );
+    ) noexcept;
     
     static void decCounter(
         AsmRegister::Type reg,
@@ -63,8 +67,28 @@ class GarbageCollector {
         Environment const * env,
         AsmRegistersHandler & handler,
         AsmLabelHandler & lblHandler
-    );
+    ) noexcept;
     
+private:
+    static void wrap(
+        std::string funcName,
+        AsmRegister::Type source,
+        AsmRegister::Type destination,
+        bool isString,
+        std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+        Environment const * env,
+        AsmRegistersHandler & handler,
+        AsmLabelHandler & lblHandler
+    ) noexcept;
+    
+    static void counter(
+        std::string funcName,
+        AsmRegister::Type reg,
+        std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+        Environment const * env,
+        AsmRegistersHandler & handler,
+        AsmLabelHandler & lblHandler
+    ) noexcept;
 };
 
 #endif /* GarbageCollector_hpp */

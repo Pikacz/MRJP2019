@@ -26,3 +26,8 @@ void Type::compile(
 ) const noexcept {
     return;
 }
+
+
+bool Type::isPointer() const noexcept {
+    return false;
+}

@@ -48,6 +48,8 @@ public:
     ) const noexcept;
     
     virtual std::optional<bool> boolValue(VarValues const & values) const noexcept;
+    
+    virtual size_t fakeVariablesCount() const noexcept;
 private:
     const Type * const type;
 };

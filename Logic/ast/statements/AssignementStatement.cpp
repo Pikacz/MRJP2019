@@ -10,6 +10,10 @@
 
 #include "../../staticCheck/types/InvalidType.hpp"
 #include "../../staticCheck/NotLValue.hpp"
+#include "../expressions/VarExpression.hpp"
+#include "../../assembler/instructions/AsmPush.hpp"
+#include "../../assembler/instructions/AsmPop.hpp"
+#include "../../assembler/GarbageCollector.hpp"
 
 using namespace std;
 
@@ -27,8 +31,9 @@ AssignementStatement::AssignementStatement(
     size_t line,
     size_t column,
     unique_ptr<const Expression> var,
-    unique_ptr<const Expression> expr
-) noexcept(false): var(getLVal(move(var))), expr(move(expr)), Statement(line, column) {
+    unique_ptr<const Expression> expr,
+    bool first_association
+) noexcept(false): var(getLVal(move(var))), expr(move(expr)), first_association(first_association), Statement(line, column) {
     if (! this->expr.get()->isKindOf(this->var->getType())) {
         throw InvalidType(line, column, this->var->getType(), this->expr.get()->getType());
     }
@@ -53,6 +58,23 @@ void AssignementStatement::compile(
     AsmLabel const * exitLabel
 ) const noexcept {
     AsmRegistersHandler regHandler;
+    
+    if (expr->getType()->isPointer() && !first_association) {
+        AsmRegistersHandler regHandler;
+        var->loadValueInto(
+            AsmRegister::Type::rax, AssemblerValue::Size::bit64, compiled, env, regHandler
+        );
+        for (size_t i = 0; i < 2; ++i) {
+            compiled.push_back(
+                make_unique<AsmPush>(
+                    AssemblerValue::Size::bit64,
+                    make_unique<AsmRegister>(AsmRegister::Type::rax)
+                )
+            );
+        }
+    }
+    
+    regHandler.freeRegister(AsmRegister::Type::rax, AssemblerValue::Size::bit64, compiled);
     expr.get()->compile(
         AssemblerValue::Size::bit64,
         compiled,
@@ -68,4 +90,24 @@ void AssignementStatement::compile(
         env,
         regHandler
     );
+    
+    if (expr->getType()->isPointer() && !first_association) {
+        for (size_t i = 0; i < 2; ++i) {
+            compiled.push_back(
+                make_unique<AsmPop>(
+                    AssemblerValue::Size::bit64,
+                    make_unique<AsmRegister>(AsmRegister::Type::rax)
+                )
+            );
+        }
+        AsmRegistersHandler regHandler;
+        GarbageCollector::decCounter(
+            AsmRegister::Type::rax, compiled, env, regHandler, handler
+        );
+    }
+}
+
+
+size_t AssignementStatement::fakeVariablesCount() const noexcept {
+    return expr->fakeVariablesCount();
 }

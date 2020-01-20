@@ -22,6 +22,8 @@ public:
     
     size_t pointerSize() const noexcept override;
     
+    bool isPointer() const noexcept override;
+    
 private:
     const Type * const type;
 };

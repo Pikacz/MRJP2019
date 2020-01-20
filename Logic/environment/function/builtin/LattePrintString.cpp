@@ -32,5 +32,5 @@ LattePrintString::LattePrintString(
 
 
 string LattePrintString::getCompiledName() const noexcept {
-    return "__Z11printStringPc";
+    return "__Z11printStringPv";
 }

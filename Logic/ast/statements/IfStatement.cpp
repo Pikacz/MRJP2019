@@ -92,3 +92,11 @@ bool IfStatement::isTerminatingWith(Type const * type) const noexcept(false) {
     
     return (tResult && fResult) || exprResult;
 }
+
+
+size_t IfStatement::fakeVariablesCount() const noexcept {
+    size_t result = expr->fakeVariablesCount();
+    result = max(result, ifTrue->fakeVariablesCount());
+    result = max(result, ifFalse->fakeVariablesCount());
+    return result;
+}

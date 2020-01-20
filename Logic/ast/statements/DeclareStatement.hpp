@@ -32,6 +32,8 @@ public:
         AsmLabelHandler & handler,
         AsmLabel const * exitLabel
     ) const noexcept override;
+    
+    size_t fakeVariablesCount() const noexcept override;
 private:
     const Type * const type;
     const std::string varName;

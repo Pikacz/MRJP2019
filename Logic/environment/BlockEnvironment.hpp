@@ -38,6 +38,15 @@ public:
         std::string name, size_t line, size_t column
     ) const noexcept(false) override;
     
+    Variable const * getNextFakeVariable() const noexcept override;
+    
+    void releaseFakeVariable(
+        Variable const * var,
+        std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+        AsmRegistersHandler & handler,
+        AsmLabelHandler & lblHandler
+    ) const noexcept override;
+    
     // MARK: functions
     virtual Function const * getFunctionNamed(
         std::string name, size_t line, size_t column
@@ -61,7 +70,9 @@ public:
     ) const noexcept;
     
     virtual void cleanVariables(
-        std::list<std::unique_ptr<const AsmInstruction>> & compiled
+        std::list<std::unique_ptr<const AsmInstruction>> & compiled,
+        AsmRegistersHandler & handler,
+        AsmLabelHandler & lblHandler
     ) const noexcept;
 protected:
     

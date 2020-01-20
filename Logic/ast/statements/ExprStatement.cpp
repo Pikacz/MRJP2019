@@ -7,6 +7,8 @@
 //
 
 #include "ExprStatement.hpp"
+#include "../../assembler/GarbageCollector.hpp"
+
 
 using namespace std;
 
@@ -33,6 +35,9 @@ void ExprStatement::compile(
     AsmLabel const * exitLabel
 ) const noexcept {
     AsmRegistersHandler regHandler;
+    regHandler.freeRegister(
+        AsmRegister::Type::rax, AssemblerValue::Size::bit64, compiled
+    );
     expr.get()->compile(
         AssemblerValue::Size::bit64,
         compiled,
@@ -41,9 +46,21 @@ void ExprStatement::compile(
         handler,
         AsmRegister::Type::rax
     );
+    AsmRegistersHandler regHandler2;
+    
+    if (expr->getType()->isPointer()) {
+        GarbageCollector::decCounter(
+            AsmRegister::Type::rax, compiled, env, regHandler2, handler
+        );
+    }
 }
 
 
 bool ExprStatement::isTerminatingWith(Type const * type) const noexcept(false) {
     return expr.get()->isTerminating();
+}
+
+
+size_t ExprStatement::fakeVariablesCount() const noexcept {
+    return expr->fakeVariablesCount();
 }

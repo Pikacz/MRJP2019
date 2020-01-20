@@ -21,3 +21,9 @@ Expr2Arg::Expr2Arg(
 ) noexcept: lhs(move(lhs)), rhs(move(rhs)), Expression(type, line, column) {
     
 }
+
+
+size_t Expr2Arg::fakeVariablesCount() const noexcept {
+    // only call have to save values
+    return max(lhs->fakeVariablesCount(), rhs->fakeVariablesCount());
+}

@@ -9,6 +9,7 @@
 #include "VarExpression.hpp"
 
 #include "../../environment/variables/LatteErrorFuncVar.hpp"
+#include "../../assembler/GarbageCollector.hpp"
 
 using namespace std;
 
@@ -37,6 +38,9 @@ void VarExpression::compile(
         env,
         handler
     );
+    if (getType()->isPointer()) {
+        GarbageCollector::incCounter(destination, compiled, env, handler, lblHandler);
+    }
 }
 
 

@@ -43,3 +43,8 @@ void Expression::compileCall(
 optional<bool> Expression::boolValue(VarValues const & values) const noexcept {
     return nullopt;
 }
+
+
+size_t Expression::fakeVariablesCount() const noexcept {
+    return 0;
+}

@@ -22,7 +22,13 @@ AsmRegistersHandler::AsmRegistersHandler() noexcept {
         AsmRegister::Type::rdi,
         AsmRegister::Type::rsi,
         AsmRegister::Type::r8,
-        AsmRegister::Type::r9
+        AsmRegister::Type::r9,
+        AsmRegister::Type::r10,
+        AsmRegister::Type::r11,
+        AsmRegister::Type::r12,
+        AsmRegister::Type::r13,
+        AsmRegister::Type::r14,
+        AsmRegister::Type::r15
     };
     
     for (auto r : regs) {
@@ -90,4 +96,15 @@ optional<AsmRegister::Type> AsmRegistersHandler::anyFreeNotEqual(
         }
     }
     return nullopt;
+}
+
+
+vector<AsmRegister::Type> AsmRegistersHandler::allUsedRegisters() const noexcept {
+    vector<AsmRegister::Type> result;
+    for (auto it = registers.begin(); it != registers.end(); ++it) {
+        if (it->second != 0) {
+            result.push_back(it->first);
+        }
+    }
+    return result;
 }

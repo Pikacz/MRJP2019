@@ -37,6 +37,8 @@ public:
         AsmLabelHandler & handler,
         AsmLabel const * exitLabel
     ) const noexcept override;
+    
+    size_t fakeVariablesCount() const noexcept override;
 private:
     const std::unique_ptr<const Expression> expr;
     const std::unique_ptr<const Statement> ifTrue;

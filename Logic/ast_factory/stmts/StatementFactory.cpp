@@ -265,7 +265,8 @@ static void getDeclareStmt(
                     as_line,
                     as_col,
                     make_unique<VarExpression>(-1, -1, _var),
-                    move(*expr)
+                    move(*expr),
+                    true
                 )
             );
         }
@@ -289,7 +290,8 @@ static void getAssStmt(
         symbol->getLine(),
         symbol->getCharPositionInLine(),
         move(lhs),
-        move(rhs)
+        move(rhs),
+        false
     );
     result.push_back(move(ass));
 }
@@ -315,7 +317,8 @@ static void getIncStmt(
         symbol->getLine(),
         symbol->getCharPositionInLine(),
         move(lhs),
-        move(rhs)
+        move(rhs),
+        false
     );
     
     result.push_back(move(inc));
@@ -342,7 +345,8 @@ static void getDecStmt(
         symbol->getLine(),
         symbol->getCharPositionInLine(),
         move(lhs),
-        move(rhs)
+        move(rhs),
+        false 
     );
     
     result.push_back(move(inc));

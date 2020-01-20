@@ -29,6 +29,8 @@ public:
     virtual void compile(
         std::list<std::unique_ptr<const AsmInstruction>> & compiled
     ) const noexcept;
+    
+    virtual bool isPointer() const noexcept;
 };
 
 #endif /* Type_hpp */

@@ -188,8 +188,8 @@ static unique_ptr<const Expression> getExpr4(
             );
             
             vector<unique_ptr<const Expression>> params;
-            params.push_back(getExpr4(env, ctx->expr4()));
-            params.push_back(getExpr3(env, ctx->expr3()));
+            params.push_back(move(lhs));
+            params.push_back(move(rhs));
             
             
             return make_unique<ExprCall>(

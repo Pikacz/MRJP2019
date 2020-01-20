@@ -9,6 +9,8 @@
 #include "BlockStatement.hpp"
 
 #include "../../assembler/instructions/AsmJmp.hpp"
+#include "../../assembler/instructions/AsmPop.hpp"
+#include "../../assembler/instructions/AsmPush.hpp"
 
 #include <cassert>
 
@@ -71,12 +73,35 @@ void BlockStatement::compile(
     compiled.push_back(move(leave));
     
     compiled.push_back(move(newExitLbl));
-    this->env.get()->cleanVariables(compiled);
+    // rax jest ustawione i cenne
+    AsmRegistersHandler regHandler1;
+    
+    for (size_t i = 0; i < 2; ++i) {
+        compiled.push_back(
+            make_unique<AsmPush>(
+                AssemblerValue::Size::bit64,
+                make_unique<AsmRegister>(AsmRegister::Type::rax)
+            )
+        );
+    }
+    this->env.get()->cleanVariables(compiled, regHandler1, handler);
+    for (size_t i = 0; i < 2; ++i) {
+        compiled.push_back(
+            make_unique<AsmPop>(
+                AssemblerValue::Size::bit64,
+                make_unique<AsmRegister>(AsmRegister::Type::rax)
+            )
+        );
+    }
     unique_ptr<const AsmInstruction> exit = make_unique<AsmJmp>(exitLabel);
+    // opuszczam blok z powodu return
     compiled.push_back(move(exit));
     
     compiled.push_back(move(leaveLbl));
-    this->env.get()->cleanVariables(compiled);
+    // tutaj wszystkie rejestry są puste
+    AsmRegistersHandler regHandler2;
+    this->env.get()->cleanVariables(compiled, regHandler2, handler);
+    
 }
 
 
@@ -92,4 +117,13 @@ bool BlockStatement::isEqualTo(AstNode const * node) const noexcept {
         }
     }
     return false;
+}
+
+
+size_t BlockStatement::fakeVariablesCount() const noexcept {
+    size_t result = 0;
+    for (auto & stmt: statements) {
+        result = max(result, stmt->fakeVariablesCount());
+    }
+    return result;
 }

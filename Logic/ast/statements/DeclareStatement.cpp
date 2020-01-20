@@ -37,3 +37,8 @@ void DeclareStatement::compile(
 ) const noexcept {
     
 }
+
+
+size_t DeclareStatement::fakeVariablesCount() const noexcept {
+    return 0;
+}

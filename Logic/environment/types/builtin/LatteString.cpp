@@ -23,3 +23,6 @@ size_t LatteString::pointerSize() const noexcept {
     return 8;
 }
 
+bool LatteString::isPointer() const noexcept {
+    return true;
+}

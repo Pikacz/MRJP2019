@@ -88,3 +88,10 @@ bool WhileStatement::isTerminatingWith(Type const * type) const noexcept(false) 
     body.get()->isTerminatingWith(type);
     return expr.get()->isTerminating();
 }
+
+
+size_t WhileStatement::fakeVariablesCount() const noexcept {
+    size_t result = expr->fakeVariablesCount();
+    result = max(result, body->fakeVariablesCount());
+    return result;
+}
