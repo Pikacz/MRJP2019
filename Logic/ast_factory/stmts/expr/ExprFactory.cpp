@@ -195,7 +195,6 @@ static unique_ptr<const Expression> getExpr4(
             return make_unique<ExprCall>(
                 ctx->getStart()->getLine(),
                 ctx->getStart()->getCharPositionInLine(),
-                env,
                 move(func),
                 move(params)
             );
@@ -280,7 +279,6 @@ static unique_ptr<const Expression> getExpr2(
         return make_unique<ExprCall>(
             ctx->getStart()->getLine(),
             ctx->getStart()->getCharPositionInLine(),
-            env,
             move(func),
             move(params)
         );

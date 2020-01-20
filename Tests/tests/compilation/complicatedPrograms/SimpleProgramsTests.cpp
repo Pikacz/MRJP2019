@@ -586,6 +586,22 @@ public:
     }
 };
         
+
+class SimpleProgram27 final: public WholeProgramTestCaseUnit {
+public:
+    SimpleProgram27(): WholeProgramTestCaseUnit("Simple program 27") {}
+    
+    void fillCode(std::ostream & ss) const noexcept override {
+        ss << "int main() {" << endl;
+        ss << "    \"a\" + \"b\";" << endl;
+        ss << "    return 0;" << endl;
+        ss << "}" << endl;
+        ss << endl;
+    }
+    
+    void fillOutput(std::ostream & ss) const noexcept override {
+    }
+};
         
 vector<shared_ptr<TestUnit> > SimpleProgramsTests::getTests() const noexcept {
     return {
@@ -614,6 +630,7 @@ vector<shared_ptr<TestUnit> > SimpleProgramsTests::getTests() const noexcept {
         make_shared<SimpleProgram23>(),
         make_shared<SimpleProgram24>(),
         make_shared<SimpleProgram25>(),
-        make_shared<SimpleProgram26>()
+        make_shared<SimpleProgram26>(),
+        make_shared<SimpleProgram27>()
     };
 }

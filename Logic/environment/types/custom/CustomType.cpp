@@ -8,6 +8,10 @@
 
 #include "CustomType.hpp"
 
+#include "../../../staticCheck/types/CyclicDependency.hpp"
+
+#include <cassert>
+
 using namespace std;
 
 
@@ -36,4 +40,15 @@ string CustomType::getName() const noexcept {
 
 size_t CustomType::pointerSize() const noexcept {
     return 8;
+}
+
+
+void CustomType::setParent(
+    CustomType const * parent, size_t line, size_t column
+) noexcept(false) {
+    assert(parentType == nullopt);
+    if (parent->isKindOf(this)) {
+        throw CyclicDependency(line, column, this, parent);
+    }
+    parentType = parent;
 }

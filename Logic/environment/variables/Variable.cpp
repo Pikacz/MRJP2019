@@ -17,7 +17,7 @@ using namespace std;
 Variable::Variable(
     Type const * type, Environment const * env
 ):
-type(type), location(nullopt), env(env) {
+type(type), location(nullopt) {
 }
 
 

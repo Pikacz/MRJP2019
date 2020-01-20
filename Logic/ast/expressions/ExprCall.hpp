@@ -21,7 +21,6 @@ public:
     ExprCall(
         size_t line,
         size_t column,
-        Environment * env,
         std::unique_ptr<const Expression> func,
         std::vector<std::unique_ptr<const Expression>> params
     ) noexcept(false);

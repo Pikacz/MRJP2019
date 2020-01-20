@@ -39,7 +39,6 @@ static Type const * getReturnType(
 ExprCall::ExprCall(
     size_t line,
     size_t column,
-    Environment * env,
     unique_ptr<const Expression> _func,
     vector<unique_ptr<const Expression>> _params
 ) noexcept(false): func(move(_func)), params(move(_params)), Expression(getReturnType(_func.get()), line, column) {
@@ -64,8 +63,6 @@ ExprCall::ExprCall(
             );
         }
     }
-    
-    env->markFuncCall(params.size());
 }
 
 

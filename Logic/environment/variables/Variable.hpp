@@ -39,7 +39,6 @@ public:
     void setMemory(std::unique_ptr<const AsmMemory> memory) noexcept;
 private:
     const Type * const type;
-    const Environment * const env;
     
     std::optional<std::unique_ptr<const AsmMemory>> location;
 };

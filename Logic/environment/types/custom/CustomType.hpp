@@ -10,6 +10,7 @@
 #define CustomType_hpp
 
 #include <optional>
+#include <map>
 
 #include "../Type.hpp"
 
@@ -24,9 +25,20 @@ public:
     
     size_t pointerSize() const noexcept override;
     
+    void setParent(
+        CustomType const * parent, size_t line, size_t column
+    ) noexcept(false);
+    
+    
+    
+protected:
+    bool hasMemberNamed(std::string name) const noexcept;
+    
+    size_t getVarFooset() const noexcept;
+
 private:
     const std::string name;
-    std::optional<CustomType * const> parentType;
+    std::optional<CustomType const *> parentType;
 };
 
 

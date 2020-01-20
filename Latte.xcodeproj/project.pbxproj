@@ -543,6 +543,10 @@
 		C575EAC723AFC926006BCFEF /* AssemblerValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C575EAC523AFC926006BCFEF /* AssemblerValue.cpp */; };
 		C575EAC823AFC926006BCFEF /* AssemblerValue.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C575EAC623AFC926006BCFEF /* AssemblerValue.hpp */; };
 		C577F12A23D33A810038D647 /* MimUWTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C577F12823D33A810038D647 /* MimUWTests.cpp */; };
+		C58FF07C23D54599007D056C /* CyclicDependency.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C58FF07A23D54599007D056C /* CyclicDependency.cpp */; };
+		C58FF07D23D54599007D056C /* CyclicDependency.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C58FF07B23D54599007D056C /* CyclicDependency.hpp */; };
+		C58FF08023D5605A007D056C /* TypeEnvironment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C58FF07E23D5605A007D056C /* TypeEnvironment.cpp */; };
+		C58FF08123D5605A007D056C /* TypeEnvironment.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C58FF07F23D5605A007D056C /* TypeEnvironment.hpp */; };
 		C59BB6FD23C4E3920044EA97 /* Bool2Expr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C59BB6FB23C4E3920044EA97 /* Bool2Expr.cpp */; };
 		C59BB6FE23C4E3920044EA97 /* Bool2Expr.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C59BB6FC23C4E3920044EA97 /* Bool2Expr.hpp */; };
 		C59BB70123C4E68E0044EA97 /* BoolOrExpr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C59BB6FF23C4E68E0044EA97 /* BoolOrExpr.cpp */; };
@@ -1229,6 +1233,10 @@
 		C575EAC623AFC926006BCFEF /* AssemblerValue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AssemblerValue.hpp; sourceTree = "<group>"; };
 		C577F12823D33A810038D647 /* MimUWTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MimUWTests.cpp; sourceTree = "<group>"; };
 		C577F12923D33A810038D647 /* MimUWTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MimUWTests.hpp; sourceTree = "<group>"; };
+		C58FF07A23D54599007D056C /* CyclicDependency.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CyclicDependency.cpp; sourceTree = "<group>"; };
+		C58FF07B23D54599007D056C /* CyclicDependency.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CyclicDependency.hpp; sourceTree = "<group>"; };
+		C58FF07E23D5605A007D056C /* TypeEnvironment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TypeEnvironment.cpp; sourceTree = "<group>"; };
+		C58FF07F23D5605A007D056C /* TypeEnvironment.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TypeEnvironment.hpp; sourceTree = "<group>"; };
 		C59BB6FB23C4E3920044EA97 /* Bool2Expr.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bool2Expr.cpp; sourceTree = "<group>"; };
 		C59BB6FC23C4E3920044EA97 /* Bool2Expr.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Bool2Expr.hpp; sourceTree = "<group>"; };
 		C59BB6FF23C4E68E0044EA97 /* BoolOrExpr.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BoolOrExpr.cpp; sourceTree = "<group>"; };
@@ -1402,6 +1410,8 @@
 				C5A45CEF23B4EE17008EAC8F /* GlobalEnvironment.hpp */,
 				C553A3B623B0DEB300D45EBB /* FunctionEnvironment.cpp */,
 				C553A3B723B0DEB300D45EBB /* FunctionEnvironment.hpp */,
+				C58FF07E23D5605A007D056C /* TypeEnvironment.cpp */,
+				C58FF07F23D5605A007D056C /* TypeEnvironment.hpp */,
 			);
 			path = environment;
 			sourceTree = "<group>";
@@ -1619,6 +1629,8 @@
 				C5B6A02623CFD63600E1982A /* ExpectedFunctionType.hpp */,
 				C5B6A02923CFDC4000E1982A /* InvalidNumberOfParameters.cpp */,
 				C5B6A02A23CFDC4000E1982A /* InvalidNumberOfParameters.hpp */,
+				C58FF07A23D54599007D056C /* CyclicDependency.cpp */,
+				C58FF07B23D54599007D056C /* CyclicDependency.hpp */,
 			);
 			path = types;
 			sourceTree = "<group>";
@@ -2561,6 +2573,7 @@
 				C554CE6F23CA03DD0018E414 /* AsmJge.hpp in Headers */,
 				C524499E23CE6D2F00C4EA4A /* FuncVariable.hpp in Headers */,
 				C59BB70E23C4F73C0044EA97 /* AsmJne.hpp in Headers */,
+				C58FF08123D5605A007D056C /* TypeEnvironment.hpp in Headers */,
 				C547FF2123AE6DC900B21EAE /* StaticCheckError.hpp in Headers */,
 				C5B6A02023CFBEE000E1982A /* LatteErrorFuncVar.hpp in Headers */,
 				C5B6A02823CFD63600E1982A /* ExpectedFunctionType.hpp in Headers */,
@@ -2572,6 +2585,7 @@
 				C56A709023D0E38B00AE6CB8 /* LatteError.hpp in Headers */,
 				C547FF2F23AE887500B21EAE /* Variable.hpp in Headers */,
 				C5B6A03023CFFA4F00E1982A /* BuiltinFunc.hpp in Headers */,
+				C58FF07D23D54599007D056C /* CyclicDependency.hpp in Headers */,
 				C55AB4F723C38DAA00675EEA /* BlockStatement.hpp in Headers */,
 				C554CE8B23CA2C0C0018E414 /* Expr1Arg.hpp in Headers */,
 				C547FF3C23AEB52C00B21EAE /* LatteInt.hpp in Headers */,
@@ -3016,6 +3030,7 @@
 				C59BB70923C4F6130044EA97 /* AsmJe.cpp in Sources */,
 				C5218A5623B3A4D600E520FB /* Function.cpp in Sources */,
 				C5E44F2123CC8899006DE6B5 /* ArrayType.cpp in Sources */,
+				C58FF07C23D54599007D056C /* CyclicDependency.cpp in Sources */,
 				C553A38F23B003BD00D45EBB /* AsmMemory.cpp in Sources */,
 				C553A3AE23B0DA5900D45EBB /* InvalidType.cpp in Sources */,
 				C554CE6223CA02C10018E414 /* AsmJl.cpp in Sources */,
@@ -3026,6 +3041,7 @@
 				C56D833F23C21DF100DDA963 /* AsmCqto.cpp in Sources */,
 				C547FF4323AEB89C00B21EAE /* LatteVoid.cpp in Sources */,
 				C554D9CB23CB94C50018E414 /* LatteListener.cpp in Sources */,
+				C58FF08023D5605A007D056C /* TypeEnvironment.cpp in Sources */,
 				C554CE8E23CA35980018E414 /* WhileStatement.cpp in Sources */,
 				C547FEE723AE573D00B21EAE /* Logic.cpp in Sources */,
 				C52F416723B520EF009B49CD /* NoSuchFunctionError.cpp in Sources */,
