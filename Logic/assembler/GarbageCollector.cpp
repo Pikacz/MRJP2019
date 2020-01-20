@@ -10,6 +10,7 @@
 #include "../ast/expressions/constants/BoolConstant.hpp"
 #include "instructions/AsmMov.hpp"
 #include "instructions/AsmCall.hpp"
+#include "../environment/Platform.hpp"
 
 
 using namespace std;
@@ -87,8 +88,15 @@ void GarbageCollector::wrapCleanable(
     AsmRegistersHandler & handler,
     AsmLabelHandler & lblHandler
 ) noexcept {
+    string func;
+    
+    if (isOSx()) {
+        func = "__Z16wrapDestructablePvx";
+    } else {
+        func = "_Z16wrapDestructablePvx";
+    }
     wrap(
-        "__Z16wrapDestructablePvx",
+        func,
          source,
          destination,
          isString,
@@ -110,8 +118,16 @@ void GarbageCollector::wrapUncleanable(
     AsmRegistersHandler & handler,
     AsmLabelHandler & lblHandler
 ) noexcept{
+    string func;
+    
+    if (isOSx()) {
+        func = "__Z18wrapUndestructablePvx";
+    } else {
+        func = "_Z18wrapUndestructablePvx";
+    }
+    
     wrap(
-        "__Z18wrapUndestructablePvx",
+        func,
          source,
          destination,
          isString,
@@ -184,8 +200,14 @@ void GarbageCollector::incCounter(
     AsmRegistersHandler & handler,
     AsmLabelHandler & lblHandler
 ) noexcept {
+    string func;
+    if (isOSx()) {
+        func = "__Z10incCounterPv";
+    } else {
+        func = "_Z10incCounterPv";
+    }
     counter(
-        "__Z10incCounterPv",
+        func,
         reg, compiled, env, handler, lblHandler
     );
 }
@@ -198,8 +220,15 @@ void GarbageCollector::decCounter(
     AsmRegistersHandler & handler,
     AsmLabelHandler & lblHandler
 ) noexcept {
+    string func;
+    if (isOSx()) {
+        func = "__Z10decCounterPv";
+    } else {
+        func = "_Z10decCounterPv";
+    }
+    
     counter(
-        "__Z10decCounterPv",
+        func,
         reg, compiled, env, handler, lblHandler
     );
 }
