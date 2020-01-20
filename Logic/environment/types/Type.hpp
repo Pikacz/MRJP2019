@@ -11,6 +11,7 @@
 
 #include <string>
 #include <list>
+#include <memory>
 
 #include "../../assembler/instructions/AsmInstruction.hpp"
 

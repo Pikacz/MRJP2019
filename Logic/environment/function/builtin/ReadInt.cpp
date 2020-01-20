@@ -7,6 +7,7 @@
 //
 
 #include "ReadInt.hpp"
+#include "../../Platform.hpp"
 
 using namespace std;
 
@@ -28,5 +29,9 @@ ReadInt::ReadInt(
 
 
 string ReadInt::getCompiledName() const noexcept {
-    return "__Z7readIntv";
+    if (isOSx()) {
+        return "__Z7readIntv";
+    } else {
+        return "_Z7readIntv";
+    }
 }

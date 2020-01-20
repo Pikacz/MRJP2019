@@ -18,6 +18,7 @@
 #include "../../../ast/expressions/bool/compareExpr/CompareNotEqual.hpp"
 #include "../../../ast/expressions/bool/NotExpr.hpp"
 #include "../../../ast/expressions/VarExpression.hpp"
+#include "../../../ast/expressions/ExprDot.hpp"
 #include "../../../ast/expressions/ExprCall.hpp"
 #include "../../../ast/expressions/arithmetic/IntAdd.hpp"
 #include "../../../ast/expressions/arithmetic/IntSub.hpp"
@@ -214,7 +215,7 @@ static unique_ptr<const Expression> getExpr4(
 
 // MARK: - expr 3
 static unique_ptr<const Expression> getExpr2(
-    Environment * env, LatteParser::Expr2Context * ctx
+    Environment * env, LatteParser::Expr2Context * ctx, bool expectingFunction
 ) noexcept(false);
 
 
@@ -227,7 +228,7 @@ static unique_ptr<const Expression> getExpr3(
             oMul->getSymbol()->getLine(),
             oMul->getSymbol()->getCharPositionInLine(),
             getExpr3(env, ctx->expr3()),
-            getExpr2(env, ctx->expr2())
+            getExpr2(env, ctx->expr2(), false)
         );
     } else if (auto oMod = ctx->OMod()) {
         return make_unique<IntMod>(
@@ -235,7 +236,7 @@ static unique_ptr<const Expression> getExpr3(
             oMod->getSymbol()->getLine(),
             oMod->getSymbol()->getCharPositionInLine(),
             getExpr3(env, ctx->expr3()),
-            getExpr2(env, ctx->expr2())
+            getExpr2(env, ctx->expr2(), false)
         );
     } else if (auto oDiv = ctx->ODiv()) {
         return make_unique<IntDiv>(
@@ -243,22 +244,22 @@ static unique_ptr<const Expression> getExpr3(
             oDiv->getSymbol()->getLine(),
             oDiv->getSymbol()->getCharPositionInLine(),
             getExpr3(env, ctx->expr3()),
-            getExpr2(env, ctx->expr2())
+            getExpr2(env, ctx->expr2(), false)
         );
     }
     
-    return getExpr2(env, ctx->expr2());
+    return getExpr2(env, ctx->expr2(), false);
 }
 
 
 // MARK: - expr 2
 static unique_ptr<const Expression> getExpr1(
-    Environment * env, LatteParser::Expr1Context * ctx
+    Environment * env, LatteParser::Expr1Context * ctx, bool expectingFunction
 ) noexcept(false);
 
 
 static unique_ptr<const Expression> getExpr2(
-    Environment * env, LatteParser::Expr2Context * ctx
+    Environment * env, LatteParser::Expr2Context * ctx, bool expectingFunction
 ) noexcept(false) {
     
     if (auto nm = ctx->Identifier()) {
@@ -266,7 +267,7 @@ static unique_ptr<const Expression> getExpr2(
     } else if (ctx->OArrBL()) {
         throw "TODO";
     } else if (ctx->ParBL() != nullptr) {
-        auto func = getExpr2(env, ctx->expr2());
+        auto func = getExpr2(env, ctx->expr2(), true);
         vector<unique_ptr<const Expression>> params;
         
         auto callList = ctx->callList();
@@ -284,7 +285,7 @@ static unique_ptr<const Expression> getExpr2(
         );
         
     }
-    return getExpr1(env, ctx->expr1());
+    return getExpr1(env, ctx->expr1(), expectingFunction);
 }
 
 
@@ -295,7 +296,7 @@ static unique_ptr<const Expression> getExpr2(
 static string getStringVal(tree::TerminalNode * ctx) noexcept;
 
 static unique_ptr<const Expression> getExpr1(
-    Environment * env, LatteParser::Expr1Context * ctx
+    Environment * env, LatteParser::Expr1Context * ctx, bool expectingFunction
 ) noexcept(false) {
     if (auto intConst = ctx->expr1IntConstant()) {
         auto intLit = intConst->IntLiteral();
@@ -331,15 +332,26 @@ static unique_ptr<const Expression> getExpr1(
             token->getLine(),
             token->getCharPositionInLine()
         );
-    } else if (auto varExpr = ctx->expr1Variable()) {
-        string name = varExpr->Identifier()->getText();
-        Token * token = varExpr->Identifier()->getSymbol();
+    } else if (auto _varExpr = ctx->expr1Variable()) {
+        string name = _varExpr->Identifier()->getText();
+        Token * token = _varExpr->Identifier()->getSymbol();
         auto var = env->getVariableNamed(
-            name, token->getLine(), token->getCharPositionInLine()
+            name, expectingFunction, token->getLine(), token->getCharPositionInLine()
         );
-        return make_unique<VarExpression>(
+        auto varExpr = make_unique<VarExpression>(
             token->getLine(), token->getCharPositionInLine(), var
         );
+        if (!var->isMemberVar()) {
+            return move(varExpr);
+        } else {
+            auto _self = env->getVariableNamed("self", false, -1, -1);
+            auto selfExpr = make_unique<VarExpression>(
+                -1, -1, _self
+            );
+            
+            return make_unique<ExprDot>(-1, -1, move(selfExpr), move(varExpr));
+        }
+        
     } else if (auto exprMinus = ctx->expr1Minus()) {
         Token * token = exprMinus->OMinus()->getSymbol();
         
@@ -348,7 +360,7 @@ static unique_ptr<const Expression> getExpr1(
             token->getLine(),
             token->getCharPositionInLine(),
             make_unique<IntConstant>(0, env, -1, -1),
-            getExpr1(env, exprMinus->expr1())
+            getExpr1(env, exprMinus->expr1(), expectingFunction)
         );
     } else if (auto exprNot = ctx->expr1Not()) {
         Token * token = exprNot->ONot()->getSymbol();
@@ -356,7 +368,7 @@ static unique_ptr<const Expression> getExpr1(
             env,
             token->getLine(),
             token->getCharPositionInLine(),
-            getExpr1(env, exprNot->expr1())
+            getExpr1(env, exprNot->expr1(), expectingFunction)
         );
     } else if (auto exprPar = ctx->expr1Par()) {
         return ExprFactory::getExpr(env, exprPar->expr());
@@ -364,6 +376,7 @@ static unique_ptr<const Expression> getExpr1(
         throw "TODO";
     }
     auto newObj = ctx->expr1NewObject();
+//    aoto
     throw "TODO";
 }
 

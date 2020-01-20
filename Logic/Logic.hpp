@@ -68,11 +68,6 @@
 #include "ast_factory/TopDefFactory.hpp"
 
 
-class Logic
-{
-    public:
-    void HelloWorld(const char *);
-};
 
 #pragma GCC visibility pop
 #endif

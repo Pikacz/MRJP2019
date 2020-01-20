@@ -7,6 +7,7 @@
 //
 
 #include "ReadString.hpp"
+#include "../../Platform.hpp"
 
 using namespace std;
 
@@ -28,5 +29,9 @@ ReadString::ReadString(
 
 
 string ReadString::getCompiledName() const noexcept {
-    return "__Z10readStringv";
+    if (isOSx()) {
+        return "__Z10readStringv";
+    } else {
+        return "_Z10readStringv";
+    }
 }

@@ -51,6 +51,7 @@ public:
     virtual bool isTerminating() const noexcept;
     
     virtual std::string getCompiledName() const noexcept;
+    
 private:
     const size_t line;
     const size_t column;

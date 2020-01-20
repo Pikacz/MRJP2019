@@ -7,7 +7,7 @@
 //
 
 #include "LattePrintString.hpp"
-
+#include "../../Platform.hpp"
 
 using namespace std;
 
@@ -32,5 +32,9 @@ LattePrintString::LattePrintString(
 
 
 string LattePrintString::getCompiledName() const noexcept {
-    return "__Z11printStringPv";
+    if (isOSx()) {
+        return "__Z11printStringPv";
+    } else {
+        return "_Z11printStringPv";
+    }
 }

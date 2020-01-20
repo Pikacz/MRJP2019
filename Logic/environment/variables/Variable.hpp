@@ -37,6 +37,8 @@ public:
     virtual bool isEqualTo(Variable const * node) const noexcept;
     
     void setMemory(std::unique_ptr<const AsmMemory> memory) noexcept;
+    
+    virtual bool isMemberVar() const noexcept;
 private:
     const Type * const type;
     

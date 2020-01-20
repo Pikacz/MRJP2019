@@ -13,11 +13,7 @@
 #pragma GCC visibility push(default)
 
 #include "antlr4-runtime.h"
-class antlr4_runtime
-{
-    public:
-    void HelloWorld(const char *);
-};
+
 
 #pragma GCC visibility pop
 #endif

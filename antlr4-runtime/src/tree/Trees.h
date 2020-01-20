@@ -53,7 +53,7 @@ namespace tree {
     static std::vector<ParseTree *> getDescendants(ParseTree *t);
 
     /**  */
-      static std::vector<ParseTree *> descendants(ParseTree *t) __AVAILABILITY_INTERNAL_DEPRECATED;
+      static std::vector<ParseTree *> descendants(ParseTree *t);
 
     /** Find smallest subtree of t enclosing range startTokenIndex..stopTokenIndex
      *  inclusively using postorder traversal.  Recursive depth-first-search.

@@ -38,7 +38,7 @@ protected:
 public:
     // MARK: variables
     virtual Variable const * getVariableNamed(
-        std::string name, size_t line, size_t column
+        std::string name, bool expectingFunction, size_t line, size_t column
     ) const noexcept(false);
     
     virtual Variable const * getNextFakeVariable() const noexcept;

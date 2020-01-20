@@ -9,6 +9,7 @@
 #include "MainFunction.hpp"
 #include "../../staticCheck/main/MainInvalidType.hpp"
 
+#include "../Platform.hpp"
 
 using namespace std;
 
@@ -27,5 +28,9 @@ MainFunction::MainFunction(
 
 
 string MainFunction::getCompiledName() const noexcept {
-    return "_main";
+    if (isOSx()) {
+        return "_main";
+    } else {
+        return "main";
+    }
 }

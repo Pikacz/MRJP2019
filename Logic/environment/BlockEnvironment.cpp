@@ -81,14 +81,14 @@ void BlockEnvironment::releaseFakeVariable(
 
 
 Variable const * BlockEnvironment::getVariableNamed(
-    string name, size_t line, size_t column
+    string name, bool expectingFunction, size_t line, size_t column
 ) const noexcept(false) {
     const string key = keyForVariableNamed(name);
     auto search = variables.find(key);
     if (search != variables.end()) {
         return search->second.get();
     }
-    return parent->getVariableNamed(name, line, column);
+    return parent->getVariableNamed(name, expectingFunction, line, column);
 }
 
 

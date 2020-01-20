@@ -24,6 +24,7 @@
 
 #include "function/Function.hpp"
 #include "function/FunctionInitializer.hpp"
+#include "Platform.hpp"
 
 #include <sstream>
 
@@ -63,7 +64,7 @@ void FunctionEnvironment::declareParameterVariable(
 
 
 Variable const * FunctionEnvironment::getVariableNamed(
-    std::string name, size_t line, size_t column
+    std::string name, bool expectingFunction, size_t line, size_t column
 ) const noexcept(false) {
     const string key = keyForVariableNamed(name);
     auto search = variables.find(key);
@@ -75,7 +76,7 @@ Variable const * FunctionEnvironment::getVariableNamed(
             return parameters[i].second.get();
         }
     }
-    return parent->getVariableNamed(name, line, column);
+    return parent->getVariableNamed(name, expectingFunction, line, column);
 }
 
 
@@ -85,7 +86,7 @@ void FunctionEnvironment::declareFakeVariables(size_t count) noexcept {
         ss << " fake var " << i;
         string nm = ss.str();
         declareVariable(nm, getLatteInt(), -1, -1);
-        fakeVars[nm] = make_pair(getVariableNamed(nm, -1, -1), true);
+        fakeVars[nm] = make_pair(getVariableNamed(nm, false, -1, -1), true);
     }
 }
 
@@ -193,9 +194,16 @@ void FunctionEnvironment::cleanVariables(
         
         handler.freeRegister(AsmRegister::Type::rax, AssemblerValue::Size::bit64, compiled);
         
+        string checkDelStr;
+        if (isOSx()) {
+            checkDelStr = "__Z11checkDeletev";
+        } else {
+            checkDelStr = "_Z11checkDeletev";
+        }
+        
         compiled.push_back(
             make_unique<AsmCall>(
-                AssemblerValue::Size::bit64, "__Z11checkDeletev"
+                AssemblerValue::Size::bit64, checkDelStr
             )
         );
         

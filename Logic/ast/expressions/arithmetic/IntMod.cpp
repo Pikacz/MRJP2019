@@ -10,6 +10,7 @@
 #include "../../../assembler/instructions/AsmCqto.hpp"
 #include "../../../assembler/instructions/AsmIDiv.hpp"
 #include "../../../assembler/instructions/AsmMov.hpp"
+#include <cassert>
 
 using namespace std;
 

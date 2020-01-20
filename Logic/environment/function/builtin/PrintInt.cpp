@@ -11,6 +11,8 @@
 
 using namespace std;
 
+#include "../../Platform.hpp"
+
 
 PrintInt::PrintInt(
     Environment const * globalEnv
@@ -32,5 +34,9 @@ PrintInt::PrintInt(
 
 
 string PrintInt::getCompiledName() const noexcept {
-    return "__Z8printIntx";
+    if (isOSx()) {
+        return "__Z8printIntx";
+    } else {
+        return "_Z8printIntx";
+    }
 }

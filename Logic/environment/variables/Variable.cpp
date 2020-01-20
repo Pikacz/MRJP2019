@@ -56,3 +56,8 @@ void Variable::setMemory(unique_ptr<const AsmMemory> memory) noexcept {
     assert(location == nullopt);
     location = move(memory);
 }
+
+
+bool Variable::isMemberVar() const noexcept {
+    return false;
+}

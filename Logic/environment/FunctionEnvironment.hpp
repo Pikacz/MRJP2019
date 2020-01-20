@@ -29,7 +29,7 @@ public:
     
     // MARK: variables
     Variable const * getVariableNamed(
-        std::string name, size_t line, size_t column
+        std::string name, bool expectingFunction, size_t line, size_t column
     ) const noexcept(false) override;
     
     Variable const * getNextFakeVariable() const noexcept override;

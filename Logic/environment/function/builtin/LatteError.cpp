@@ -7,6 +7,7 @@
 //
 
 #include "LatteError.hpp"
+#include "../../Platform.hpp"
 
 using namespace std;
 
@@ -29,5 +30,10 @@ LatteError::LatteError(
 
 
 string LatteError::getCompiledName() const noexcept {
-    return "__Z5errorv";
+    
+    if (isOSx()) {
+        return "__Z5errorv";
+    } else {
+        return "_Z5errorv";
+    }
 }

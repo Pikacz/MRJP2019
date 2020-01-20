@@ -22,8 +22,6 @@
 		C547FECB23AE570900B21EAE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FECA23AE570900B21EAE /* main.cpp */; };
 		C547FED823AE571F00B21EAE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FED723AE571F00B21EAE /* main.cpp */; };
 		C547FEE323AE573D00B21EAE /* Logic.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C547FEE223AE573D00B21EAE /* Logic.hpp */; };
-		C547FEE523AE573D00B21EAE /* LogicPriv.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C547FEE423AE573D00B21EAE /* LogicPriv.hpp */; };
-		C547FEE723AE573D00B21EAE /* Logic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FEE623AE573D00B21EAE /* Logic.cpp */; };
 		C547FEEC23AE574F00B21EAE /* libLogic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C547FEE023AE573D00B21EAE /* libLogic.a */; };
 		C547FEF123AE576000B21EAE /* libLogic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C547FEE023AE573D00B21EAE /* libLogic.a */; };
 		C547FEF623AE586D00B21EAE /* Type.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C547FEF423AE586D00B21EAE /* Type.cpp */; };
@@ -121,8 +119,6 @@
 		C554CE8E23CA35980018E414 /* WhileStatement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C554CE8C23CA35980018E414 /* WhileStatement.cpp */; };
 		C554CE8F23CA35980018E414 /* WhileStatement.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C554CE8D23CA35980018E414 /* WhileStatement.hpp */; };
 		C554D12C23CB89F00018E414 /* antlr4_runtime.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C554D12B23CB89F00018E414 /* antlr4_runtime.hpp */; };
-		C554D12E23CB89F00018E414 /* antlr4_runtimePriv.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C554D12D23CB89F00018E414 /* antlr4_runtimePriv.hpp */; };
-		C554D13023CB89F00018E414 /* antlr4_runtime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C554D12F23CB89F00018E414 /* antlr4_runtime.cpp */; };
 		C554D88A23CB8CBC0018E414 /* Exceptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C554D74F23CB8CBB0018E414 /* Exceptions.cpp */; };
 		C554D88B23CB8CBC0018E414 /* ListTokenSource.h in Headers */ = {isa = PBXBuildFile; fileRef = C554D75023CB8CBB0018E414 /* ListTokenSource.h */; };
 		C554D88C23CB8CBC0018E414 /* InterpreterDataReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C554D75223CB8CBB0018E414 /* InterpreterDataReader.cpp */; };
@@ -547,6 +543,12 @@
 		C58FF07D23D54599007D056C /* CyclicDependency.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C58FF07B23D54599007D056C /* CyclicDependency.hpp */; };
 		C58FF08023D5605A007D056C /* TypeEnvironment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C58FF07E23D5605A007D056C /* TypeEnvironment.cpp */; };
 		C58FF08123D5605A007D056C /* TypeEnvironment.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C58FF07F23D5605A007D056C /* TypeEnvironment.hpp */; };
+		C58FF08423D5B4E6007D056C /* ExprDot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C58FF08223D5B4E6007D056C /* ExprDot.cpp */; };
+		C58FF08523D5B4E6007D056C /* ExprDot.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C58FF08323D5B4E6007D056C /* ExprDot.hpp */; };
+		C58FF08823D5B975007D056C /* ExprNewObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C58FF08623D5B975007D056C /* ExprNewObject.cpp */; };
+		C58FF08923D5B975007D056C /* ExprNewObject.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C58FF08723D5B975007D056C /* ExprNewObject.hpp */; };
+		C58FF08B23D604D8007D056C /* Platform.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C58FF08A23D604D8007D056C /* Platform.hpp */; };
+		C58FF08D23D611C0007D056C /* Platform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C58FF08C23D611C0007D056C /* Platform.cpp */; };
 		C59BB6FD23C4E3920044EA97 /* Bool2Expr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C59BB6FB23C4E3920044EA97 /* Bool2Expr.cpp */; };
 		C59BB6FE23C4E3920044EA97 /* Bool2Expr.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C59BB6FC23C4E3920044EA97 /* Bool2Expr.hpp */; };
 		C59BB70123C4E68E0044EA97 /* BoolOrExpr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C59BB6FF23C4E68E0044EA97 /* BoolOrExpr.cpp */; };
@@ -669,8 +671,6 @@
 		C547FED723AE571F00B21EAE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C547FEE023AE573D00B21EAE /* libLogic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLogic.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C547FEE223AE573D00B21EAE /* Logic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Logic.hpp; sourceTree = "<group>"; };
-		C547FEE423AE573D00B21EAE /* LogicPriv.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LogicPriv.hpp; sourceTree = "<group>"; };
-		C547FEE623AE573D00B21EAE /* Logic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Logic.cpp; sourceTree = "<group>"; };
 		C547FEF423AE586D00B21EAE /* Type.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Type.cpp; sourceTree = "<group>"; };
 		C547FEF523AE586D00B21EAE /* Type.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Type.hpp; sourceTree = "<group>"; };
 		C547FEF823AE58C600B21EAE /* Environment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Environment.cpp; sourceTree = "<group>"; };
@@ -781,8 +781,6 @@
 		C554CE8D23CA35980018E414 /* WhileStatement.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WhileStatement.hpp; sourceTree = "<group>"; };
 		C554D12923CB89F00018E414 /* libantlr4-runtime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libantlr4-runtime.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C554D12B23CB89F00018E414 /* antlr4_runtime.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = antlr4_runtime.hpp; sourceTree = "<group>"; };
-		C554D12D23CB89F00018E414 /* antlr4_runtimePriv.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = antlr4_runtimePriv.hpp; sourceTree = "<group>"; };
-		C554D12F23CB89F00018E414 /* antlr4_runtime.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = antlr4_runtime.cpp; sourceTree = "<group>"; };
 		C554D74F23CB8CBB0018E414 /* Exceptions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Exceptions.cpp; sourceTree = "<group>"; };
 		C554D75023CB8CBB0018E414 /* ListTokenSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTokenSource.h; sourceTree = "<group>"; };
 		C554D75223CB8CBB0018E414 /* InterpreterDataReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InterpreterDataReader.cpp; sourceTree = "<group>"; };
@@ -1237,6 +1235,12 @@
 		C58FF07B23D54599007D056C /* CyclicDependency.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CyclicDependency.hpp; sourceTree = "<group>"; };
 		C58FF07E23D5605A007D056C /* TypeEnvironment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TypeEnvironment.cpp; sourceTree = "<group>"; };
 		C58FF07F23D5605A007D056C /* TypeEnvironment.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TypeEnvironment.hpp; sourceTree = "<group>"; };
+		C58FF08223D5B4E6007D056C /* ExprDot.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExprDot.cpp; sourceTree = "<group>"; };
+		C58FF08323D5B4E6007D056C /* ExprDot.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExprDot.hpp; sourceTree = "<group>"; };
+		C58FF08623D5B975007D056C /* ExprNewObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExprNewObject.cpp; sourceTree = "<group>"; };
+		C58FF08723D5B975007D056C /* ExprNewObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExprNewObject.hpp; sourceTree = "<group>"; };
+		C58FF08A23D604D8007D056C /* Platform.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Platform.hpp; sourceTree = "<group>"; };
+		C58FF08C23D611C0007D056C /* Platform.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Platform.cpp; sourceTree = "<group>"; };
 		C59BB6FB23C4E3920044EA97 /* Bool2Expr.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bool2Expr.cpp; sourceTree = "<group>"; };
 		C59BB6FC23C4E3920044EA97 /* Bool2Expr.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Bool2Expr.hpp; sourceTree = "<group>"; };
 		C59BB6FF23C4E68E0044EA97 /* BoolOrExpr.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BoolOrExpr.cpp; sourceTree = "<group>"; };
@@ -1383,8 +1387,6 @@
 				C547FF1823AE6DC900B21EAE /* staticCheck */,
 				C547FEF223AE57E200B21EAE /* environment */,
 				C547FEE223AE573D00B21EAE /* Logic.hpp */,
-				C547FEE423AE573D00B21EAE /* LogicPriv.hpp */,
-				C547FEE623AE573D00B21EAE /* Logic.cpp */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -1412,6 +1414,8 @@
 				C553A3B723B0DEB300D45EBB /* FunctionEnvironment.hpp */,
 				C58FF07E23D5605A007D056C /* TypeEnvironment.cpp */,
 				C58FF07F23D5605A007D056C /* TypeEnvironment.hpp */,
+				C58FF08A23D604D8007D056C /* Platform.hpp */,
+				C58FF08C23D611C0007D056C /* Platform.cpp */,
 			);
 			path = environment;
 			sourceTree = "<group>";
@@ -1741,8 +1745,6 @@
 			children = (
 				C554D74E23CB8CBB0018E414 /* src */,
 				C554D12B23CB89F00018E414 /* antlr4_runtime.hpp */,
-				C554D12D23CB89F00018E414 /* antlr4_runtimePriv.hpp */,
-				C554D12F23CB89F00018E414 /* antlr4_runtime.cpp */,
 			);
 			path = "antlr4-runtime";
 			sourceTree = "<group>";
@@ -2225,6 +2227,10 @@
 				C56D835A23C278C300DDA963 /* VarExpression.hpp */,
 				C554CE8823CA2C0C0018E414 /* Expr1Arg.cpp */,
 				C554CE8923CA2C0C0018E414 /* Expr1Arg.hpp */,
+				C58FF08223D5B4E6007D056C /* ExprDot.cpp */,
+				C58FF08323D5B4E6007D056C /* ExprDot.hpp */,
+				C58FF08623D5B975007D056C /* ExprNewObject.cpp */,
+				C58FF08723D5B975007D056C /* ExprNewObject.hpp */,
 			);
 			path = expressions;
 			sourceTree = "<group>";
@@ -2495,7 +2501,6 @@
 				C554D9CD23CB94C50018E414 /* LatteParser.h in Headers */,
 				C59BB6FE23C4E3920044EA97 /* Bool2Expr.hpp in Headers */,
 				C59BB71623C518A30044EA97 /* IfStatement.hpp in Headers */,
-				C547FEE523AE573D00B21EAE /* LogicPriv.hpp in Headers */,
 				C56D82E823C0CE5700DDA963 /* ExpectedReturn.hpp in Headers */,
 				C5DD2CF423D24FEB003A9E1F /* AsmAsciz.hpp in Headers */,
 				C5B6A01C23CFBA9300E1982A /* ExprCall.hpp in Headers */,
@@ -2504,6 +2509,7 @@
 				C56A709823D0E56E00AE6CB8 /* ReadString.hpp in Headers */,
 				C5E44F3F23CCD589006DE6B5 /* LExpression.hpp in Headers */,
 				C56D834423C21F9700DDA963 /* AsmIDiv.hpp in Headers */,
+				C58FF08923D5B975007D056C /* ExprNewObject.hpp in Headers */,
 				C547FF4D23AEBC5E00B21EAE /* NoSuchTypeError.hpp in Headers */,
 				C553A3AA23B043C900D45EBB /* ReturnStatement.hpp in Headers */,
 				C5218A5723B3A4D600E520FB /* Function.hpp in Headers */,
@@ -2519,6 +2525,7 @@
 				C56D830523C1015600DDA963 /* BlockEnvironment.hpp in Headers */,
 				C553A39023B003BD00D45EBB /* AsmMemory.hpp in Headers */,
 				C554CE7F23CA07A40018E414 /* CompareEqual.hpp in Headers */,
+				C58FF08523D5B4E6007D056C /* ExprDot.hpp in Headers */,
 				C547FF2023AE6DC900B21EAE /* VariableRedeclarationError.hpp in Headers */,
 				C59BB70223C4E68E0044EA97 /* BoolOrExpr.hpp in Headers */,
 				C575EAC823AFC926006BCFEF /* AssemblerValue.hpp in Headers */,
@@ -2531,6 +2538,7 @@
 				C56B50CF23AFA76500C56FF2 /* StringConstant.hpp in Headers */,
 				C5DD2CEC23D247F4003A9E1F /* AsmData.hpp in Headers */,
 				C554CE7323CA04ED0018E414 /* CompareLessEqual.hpp in Headers */,
+				C58FF08B23D604D8007D056C /* Platform.hpp in Headers */,
 				C59BB70623C4F4CC0044EA97 /* AsmCmp.hpp in Headers */,
 				C59BB71223C4F9750044EA97 /* BoolAndExpr.hpp in Headers */,
 				C56B50C823AFA41100C56FF2 /* BoolConstant.hpp in Headers */,
@@ -2744,7 +2752,6 @@
 				C554D92023CB8CBC0018E414 /* CommonTokenStream.h in Headers */,
 				C554D9AD23CB8CBC0018E414 /* NoViableAltException.h in Headers */,
 				C554D8B123CB8CBC0018E414 /* TerminalNode.h in Headers */,
-				C554D12E23CB89F00018E414 /* antlr4_runtimePriv.hpp in Headers */,
 				C554D8E123CB8CBC0018E414 /* DFAState.h in Headers */,
 				C554D91223CB8CBC0018E414 /* StringUtils.h in Headers */,
 				C554D8CD23CB8CBC0018E414 /* TagChunk.h in Headers */,
@@ -2941,6 +2948,7 @@
 			files = (
 				C5B6A01B23CFBA9300E1982A /* ExprCall.cpp in Sources */,
 				C56D833323C2086A00DDA963 /* IntSub.cpp in Sources */,
+				C58FF08423D5B4E6007D056C /* ExprDot.cpp in Sources */,
 				C5B6A01323CFA3B800E1982A /* PrintInt.cpp in Sources */,
 				C5B6A02B23CFDC4000E1982A /* InvalidNumberOfParameters.cpp in Sources */,
 				C56B50B423AFA02700C56FF2 /* IntConstant.cpp in Sources */,
@@ -2975,6 +2983,7 @@
 				C56D831D23C1240600DDA963 /* Expr2Arg.cpp in Sources */,
 				C554CE6E23CA03DD0018E414 /* AsmJge.cpp in Sources */,
 				C553A3D223B0EB4600D45EBB /* AsmSub.cpp in Sources */,
+				C58FF08D23D611C0007D056C /* Platform.cpp in Sources */,
 				C56D835B23C278C300DDA963 /* VarExpression.cpp in Sources */,
 				C547FF1E23AE6DC900B21EAE /* StaticCheckError.cpp in Sources */,
 				C56D831023C1182600DDA963 /* AsmLabelHandler.cpp in Sources */,
@@ -3003,6 +3012,7 @@
 				C554D9CF23CB94C50018E414 /* LatteParser.cpp in Sources */,
 				C5DD2CFB23D2558A003A9E1F /* AsmLea.cpp in Sources */,
 				C52F416323B51CF7009B49CD /* FunctionRedeclarationError.cpp in Sources */,
+				C58FF08823D5B975007D056C /* ExprNewObject.cpp in Sources */,
 				C56D831423C11E5600DDA963 /* AsmRet.cpp in Sources */,
 				C554D9DC23CB9FE40018E414 /* ParserError.cpp in Sources */,
 				C56A708F23D0E38B00AE6CB8 /* LatteError.cpp in Sources */,
@@ -3043,7 +3053,6 @@
 				C554D9CB23CB94C50018E414 /* LatteListener.cpp in Sources */,
 				C58FF08023D5605A007D056C /* TypeEnvironment.cpp in Sources */,
 				C554CE8E23CA35980018E414 /* WhileStatement.cpp in Sources */,
-				C547FEE723AE573D00B21EAE /* Logic.cpp in Sources */,
 				C52F416723B520EF009B49CD /* NoSuchFunctionError.cpp in Sources */,
 				C56D82F023C0DC0200DDA963 /* MainInvalidType.cpp in Sources */,
 				C553A3FF23B1617D00D45EBB /* Asm1Instruction.cpp in Sources */,
@@ -3088,7 +3097,6 @@
 				C554D95D23CB8CBC0018E414 /* LexerActionExecutor.cpp in Sources */,
 				C554D8D823CB8CBC0018E414 /* BaseErrorListener.cpp in Sources */,
 				C554D98023CB8CBC0018E414 /* ParserATNSimulator.cpp in Sources */,
-				C554D13023CB89F00018E414 /* antlr4_runtime.cpp in Sources */,
 				C554D97223CB8CBC0018E414 /* PredictionMode.cpp in Sources */,
 				C554D8B323CB8CBC0018E414 /* ParseTreeListener.cpp in Sources */,
 				C554D94D23CB8CBC0018E414 /* ATNSimulator.cpp in Sources */,

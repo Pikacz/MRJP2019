@@ -24,7 +24,7 @@ Environment::Environment() noexcept {
 }
 
 Variable const * Environment::getVariableNamed(
-    string name, size_t line, size_t column
+    string name, bool expectingFunction, size_t line, size_t column
 ) const noexcept(false) {
     throw NoSuchVariableError(line, column, name);
 }

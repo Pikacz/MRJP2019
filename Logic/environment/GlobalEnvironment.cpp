@@ -89,14 +89,14 @@ GlobalEnvironment::GlobalEnvironment() noexcept: hasMain(false), Environment() {
 
 // MARK: - variables
 Variable const * GlobalEnvironment::getVariableNamed(
-    string name, size_t line, size_t column
+    string name, bool expectingFunction, size_t line, size_t column
 ) const noexcept(false) {
     const string key = keyForVariableNamed(name);
     auto search = variables.find(key);
     if (search != variables.end()) {
         return search->second.get();
     }
-    return Environment::getVariableNamed(name, line, column);
+    return Environment::getVariableNamed(name, expectingFunction, line, column);
 }
 
 

@@ -48,7 +48,7 @@ public:
         
         Type const * type = env->getLatteInt();
         env->declareVariable("kot", type, 1, 3);
-        env->getVariableNamed("kot", 2, 3);
+        env->getVariableNamed("kot", false, 2, 3);
     }
 };
 
@@ -135,7 +135,7 @@ public:
     void run() noexcept override {
         GlobalEnvironment env;
         try {
-            env.getVariableNamed("placki", 1, 2);
+            env.getVariableNamed("placki", false, 1, 2);
         } catch(NoSuchVariableError & error) {
             return;
         }

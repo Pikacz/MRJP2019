@@ -7,6 +7,7 @@
 //
 
 #include "ConcatString.hpp"
+#include "../../Platform.hpp"
 
 using namespace std;
 
@@ -34,5 +35,9 @@ ConcatString::ConcatString(
 
 
 string ConcatString::getCompiledName() const noexcept {
-    return "__Z13concatStringsPvS_";
+    if (isOSx()) {
+        return "__Z13concatStringsPvS_";
+    } else {
+        return "_Z13concatStringsPvS_";
+    }
 }

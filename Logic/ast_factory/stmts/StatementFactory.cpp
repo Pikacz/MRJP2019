@@ -258,7 +258,7 @@ static void getDeclareStmt(
         );
         
         if (expr != nullopt) {
-            auto _var = env->getVariableNamed(name, -1, -1);
+            auto _var = env->getVariableNamed(name, false, -1, -1);
             
             result.push_back(
                 make_unique<AssignementStatement>(
