@@ -28,9 +28,13 @@ BUILD_DIRS=$(addprefix $(OUTPUT)/, $(LOGIC_DIRS) $(ANTLR_DIRS) $(TESTS_DIRS) $(L
 
 all: latc_x86_64
 
-latc_x86_64: $(ANTLR_OBJS) $(LOGIC_OBJS) Logic/Logic.hpp antlr4-runtime/antlr4_runtime.hpp $(ANTLR_HS) $(LOGIC_HPPS) Latte/main.cpp
+latc_x86_64: $(ANTLR_OBJS) $(LOGIC_OBJS) Logic/Logic.hpp antlr4-runtime/antlr4_runtime.hpp $(ANTLR_HS) $(LOGIC_HPPS) Latte/main.cpp latte_lib/latte_lib.o
 	@echo "building compiler"
 	@clang++ -std=c++17 $(OPT) Latte/main.cpp $(ANTLR_OBJS) $(LOGIC_OBJS) -I antlr4-runtime/ -I Logic/ -I antlr4-runtime/src/ -o latc_x86_64
+
+latte_lib/latte_lib.o: latte_lib/latte_lib.cpp latte_lib/latte_lib.hpp
+	@clang++ -O3 latte_lib/latte_lib.cpp -o latte_lib/latte_lib.o -c
+
 
 tests: $(ANTLR_OBJS) $(LOGIC_OBJS) $(TESTS_OBJS) Logic/Logic.hpp antlr4-runtime/antlr4_runtime.hpp $(ANTLR_HS) $(LOGIC_HPPS) $(TESTS_HPPS) Tests/main.cpp
 	@echo "building Tests"
