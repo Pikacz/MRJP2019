@@ -39,17 +39,14 @@ string getOutputBaseName(string str) {
 int main(int argc, const char * argv[]) {
     
     stringstream inputStream;
-    if (argc > 0) {
-        inputStream << argv[0];
+    if (argc > 1) {
+        inputStream << argv[1];
     }
     string inName = inputStream.str();
     string baseName = getOutputBaseName(inName);
     
-    
-    cout << getOutputBaseName("") << endl;
-    
     stringstream ss;
-    
+
     ifstream input(inName);
     ss << input.rdbuf();
     string str = ss.str();
@@ -79,7 +76,7 @@ int main(int argc, const char * argv[]) {
             ((ofstream *)asmStream)->close();
             delete asmStream;
             
-            string compile = "clang++ latte_lib/latte_lib.o" + asmName + " -o " + baseName;
+            string compile = "clang++ latte_lib/latte_lib.o " + asmName + " -o " + baseName;
             
             system(compile.c_str());
         }
