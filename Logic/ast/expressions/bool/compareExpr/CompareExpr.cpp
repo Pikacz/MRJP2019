@@ -37,8 +37,8 @@ CompareExpr::CompareExpr(
                 throw InvalidType(
                     this->lhs.get()->getLine(),
                     this->lhs.get()->getColumn(),
-                    env->getLatteInt(),
-                    lType
+                    env->getLatteInt()->getName(),
+                    lType->getName()
                 );
             }
         }
@@ -47,8 +47,8 @@ CompareExpr::CompareExpr(
             throw InvalidType(
                 this->lhs.get()->getLine(),
                 this->lhs.get()->getColumn(),
-                env->getLatteInt(),
-                lType
+                env->getLatteInt()->getName(),
+                lType->getName()
             );
         }
     }
@@ -57,8 +57,8 @@ CompareExpr::CompareExpr(
         throw InvalidType(
             this->rhs.get()->getLine(),
             this->rhs.get()->getColumn(),
-            lType,
-            rType
+            lType->getName(),
+            rType->getName()
         );
     }
 }

@@ -24,7 +24,7 @@ static unique_ptr<const LExpression> getLVal(
         var.release();
         return unique_ptr<const LExpression>(ptr);
     }
-    throw NotLValue(var.get());
+    throw NotLValue(var.get()->getLine(), var.get()->getColumn());
 }
 
 AssignementStatement::AssignementStatement(
@@ -35,7 +35,7 @@ AssignementStatement::AssignementStatement(
     bool first_association
 ) noexcept(false): var(getLVal(move(var))), expr(move(expr)), first_association(first_association), Statement(line, column) {
     if (! this->expr.get()->isKindOf(this->var->getType())) {
-        throw InvalidType(line, column, this->var->getType(), this->expr.get()->getType());
+        throw InvalidType(line, column, this->var->getType()->getName(), this->expr.get()->getType()->getName());
     }
 }
 

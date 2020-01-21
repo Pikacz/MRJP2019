@@ -14,16 +14,17 @@
 #include <string>
 #include <list>
 
-#include "Environment.hpp"
+#include "EnvWithFunctions.hpp"
 #include "types/builtin/LatteBool.hpp"
 #include "types/builtin/LatteInt.hpp"
 #include "types/builtin/LatteString.hpp"
 #include "types/builtin/LatteVoid.hpp"
+#include "types/custom/CustomType.hpp"
 #include "function/builtin/ConcatString.hpp"
 #include "../assembler/instructions/AsmInstruction.hpp"
 
 
-class GlobalEnvironment final: public Environment {
+class GlobalEnvironment final: public EnvWithFunctions {
 public:
     GlobalEnvironment() noexcept;
     
@@ -39,7 +40,7 @@ public:
     
     Function * declareFunction(
         FunctionInitializer initializer, size_t line, size_t column
-    ) noexcept(false);
+    ) noexcept(false) override;
     
     FuncVariable const * getConcatStrings() const noexcept override;
     
@@ -48,6 +49,11 @@ public:
     Type const * getTypeNamed(
         std::string name, size_t line, size_t column
     ) const noexcept(false) override;
+    
+    
+    CustomType * declareType(
+        std::string name, size_t line, size_t column
+    ) noexcept(false);
     
     
     // MARK: string

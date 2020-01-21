@@ -8,6 +8,8 @@
 
 #include "Type.hpp"
 
+#include "../../staticCheck/types/InvalidMember.hpp"
+#include "../variables/Variable.hpp"
 
 using namespace std;
 
@@ -21,6 +23,11 @@ bool Type::isVoid() const noexcept {
 }
 
 
+Variable const * Type::getMemberNamed(std::string name, size_t line, size_t column) const noexcept(false) {
+    throw InvalidMember(line, column, this->getName(), name);
+}
+
+
 void Type::compile(
     std::list<std::unique_ptr<const AsmInstruction>> & compiled
 ) const noexcept {
@@ -29,5 +36,10 @@ void Type::compile(
 
 
 bool Type::isPointer() const noexcept {
+    return false;
+}
+
+
+bool Type::isArray() const noexcept {
     return false;
 }

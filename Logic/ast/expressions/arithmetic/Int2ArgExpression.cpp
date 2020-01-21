@@ -26,8 +26,8 @@ Int2ArgExpression::Int2ArgExpression(
         throw InvalidType(
             this->lhs.get()->getLine(),
             this->lhs.get()->getColumn(),
-            env->getLatteInt(),
-            lType
+            env->getLatteInt()->getName(),
+            lType->getName()
         );
     }
     
@@ -37,8 +37,8 @@ Int2ArgExpression::Int2ArgExpression(
         throw InvalidType(
             this->rhs.get()->getLine(),
             this->rhs.get()->getColumn(),
-            env->getLatteInt(),
-            rType
+            env->getLatteInt()->getName(),
+            rType->getName()
         );
     }
 }

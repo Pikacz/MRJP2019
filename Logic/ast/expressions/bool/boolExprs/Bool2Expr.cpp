@@ -24,8 +24,8 @@ Bool2Expr::Bool2Expr(
         throw InvalidType(
             this->lhs.get()->getLine(),
             this->lhs.get()->getColumn(),
-            env->getLatteBool(),
-            lType
+            env->getLatteBool()->getName(),
+            lType->getName()
         );
     }
     
@@ -35,8 +35,8 @@ Bool2Expr::Bool2Expr(
         throw InvalidType(
             this->rhs.get()->getLine(),
             this->rhs.get()->getColumn(),
-            env->getLatteBool(),
-            rType
+            env->getLatteBool()->getName(),
+            rType->getName()
         );
     }
 }

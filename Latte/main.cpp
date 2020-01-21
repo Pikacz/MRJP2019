@@ -22,18 +22,14 @@ using namespace std;
 int main(int argc, const char * argv[]) {
     stringstream ss;
     
+    ss << "class A { }" << endl;
+    ss << "class B extends A { }" << endl;
     ss << "int main() {" << endl;
-    ss << "    return 0;" << endl;
+    ss << "    int[] a;" << endl;
+    ss << "    printInt(a.length);" << endl;
+    ss << "    return a[1];" << endl;
     ss << "}" << endl;
-    ss << "void f1() {" << endl;
-    ss << "    printString(\"f1\");" << endl;
-    ss << "}" << endl;
-    ss << "void f2() {" << endl;
-    ss << "    printString(\"f2\");" << endl;
-    ss << "}" << endl;
-    ss << "void f3() {" << endl;
-    ss << "    printString(\"f2\");" << endl;
-    ss << "}" << endl;
+    ss << "" << endl;
 
     
     string str = ss.str();

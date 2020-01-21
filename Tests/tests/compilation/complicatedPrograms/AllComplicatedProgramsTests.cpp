@@ -10,6 +10,7 @@
 
 #include "SimpleProgramsTests.hpp"
 #include "MimUWTests.hpp"
+#include "ObjectTests.hpp"
 
 using namespace std;
 
@@ -18,4 +19,6 @@ void runAllComplicatedProgramsTests(string prefix) noexcept {
     t1.run(prefix);
     MimUWTests t2("MimUWTests");
     t2.run(prefix);
+    ObjectTests t3("ObjectTests");
+    t3.run(prefix);
 }

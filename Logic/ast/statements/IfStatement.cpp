@@ -27,7 +27,7 @@ IfStatement::IfStatement(
 expr(move(_expr)), ifTrue(move(_ifTrue)), ifFalse(move(_ifFalse)),
 Statement(line, column) {
     if (! this->expr.get()->isKindOf(env->getLatteBool())) {
-        throw InvalidType(line, column, env->getLatteBool(), this->expr.get()->getType());
+        throw InvalidType(line, column, env->getLatteBool()->getName(), this->expr.get()->getType()->getName());
     }
 }
 

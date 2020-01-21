@@ -51,8 +51,11 @@ Type const * Environment::getTypeNamed(
 }
 
 ArrayType const * Environment::getArrayOfType(Type const * type) noexcept {
-    arrays.push_back(make_unique<ArrayType>(type));
-    return arrays.end()->get();
+    ArrayType const * result;
+    auto nType = make_unique<ArrayType>(type);
+    result = nType.get();
+    arrays.push_back(move(nType));
+    return result;
 }
 
 LatteBool const * Environment::getLatteBool() const noexcept {

@@ -15,6 +15,8 @@
 
 #include "../../assembler/instructions/AsmInstruction.hpp"
 
+
+class Variable;
 class Type {
 public:
     virtual ~Type();
@@ -27,11 +29,15 @@ public:
     
     virtual bool isVoid() const noexcept;
     
+    virtual Variable const * getMemberNamed(std::string name, size_t line, size_t column) const noexcept(false);
+    
     virtual void compile(
         std::list<std::unique_ptr<const AsmInstruction>> & compiled
     ) const noexcept;
     
     virtual bool isPointer() const noexcept;
+    
+    virtual bool isArray() const noexcept;
 };
 
 #endif /* Type_hpp */

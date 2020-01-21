@@ -10,9 +10,6 @@
 
 using namespace std;
 
-NotLValue::NotLValue(
-    Expression const * expr
-) noexcept: StaticCheckError(expr->getLine(), expr->getColumn()) {}
 
 
 void NotLValue::description(stringstream & ss) const noexcept {

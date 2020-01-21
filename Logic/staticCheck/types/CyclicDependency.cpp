@@ -13,8 +13,8 @@ using namespace std;
 CyclicDependency::CyclicDependency(
     size_t line,
     size_t column,
-    Type const * type,
-    Type const * parentType
+    string type,
+    string parentType
 ) noexcept
 : type(type),
   parentType(parentType),
@@ -22,6 +22,6 @@ CyclicDependency::CyclicDependency(
 
 
 void CyclicDependency::description(stringstream & ss) const noexcept {
-    ss << "Cyclic dependency. Type \"" << parentType->getName();
-    ss << "\" deriveres from \"" << type->getName() << "\".";
+    ss << "Cyclic dependency. Type \"" << parentType;
+    ss << "\" deriveres from \"" << type<< "\".";
 }

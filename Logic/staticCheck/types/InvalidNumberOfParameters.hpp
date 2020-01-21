@@ -18,13 +18,15 @@ public:
     InvalidNumberOfParameters(
         size_t line,
         size_t column,
-        FunctionType const * recievedType,
+        std::string recievedType,
+        size_t expectedParams,
         size_t recievedParameters
     ) noexcept;
     
     virtual void description(std::stringstream & ss) const noexcept override;
 protected:
-    const FunctionType * const recievedType;
+    const std::string recievedType;
+    const size_t expectedParams;
     const size_t recievedParameters;
 };
 

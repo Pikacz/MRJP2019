@@ -28,8 +28,8 @@ NotExpr::NotExpr(
         throw InvalidType(
             this->expr.get()->getLine(),
             this->expr.get()->getColumn(),
-            env->getLatteBool(),
-            eType
+            env->getLatteBool()->getName(),
+            eType->getName()
         );
     }
 }

@@ -10,11 +10,10 @@
 #define ArrayType_hpp
 
 #include "Type.hpp"
-
-
 class ArrayType final: public Type {
 public:
     ArrayType(Type const * type) noexcept;
+    
     
     bool isKindOf(Type const * type) const noexcept override;
     
@@ -24,6 +23,9 @@ public:
     
     bool isPointer() const noexcept override;
     
+    const Type * const getElemType() const noexcept;
+    
+    virtual bool isArray() const noexcept override;
 private:
     const Type * const type;
 };

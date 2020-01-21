@@ -42,8 +42,8 @@ bool ReturnStatement::isTerminatingWith(Type const * type) const noexcept(false)
             throw InvalidReturnType(
                 getLine(),
                 getColumn(),
-                type,
-                expr->get()->getType()
+                type->getName(),
+                expr->get()->getType()->getName()
             );
         }
     } else {
@@ -51,8 +51,8 @@ bool ReturnStatement::isTerminatingWith(Type const * type) const noexcept(false)
             throw InvalidReturnType(
                 getLine(),
                 getColumn(),
-                type,
-                voidType
+                type->getName(),
+                voidType->getName()
             );
         }
     }

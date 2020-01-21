@@ -549,6 +549,25 @@
 		C58FF08923D5B975007D056C /* ExprNewObject.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C58FF08723D5B975007D056C /* ExprNewObject.hpp */; };
 		C58FF08B23D604D8007D056C /* Platform.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C58FF08A23D604D8007D056C /* Platform.hpp */; };
 		C58FF08D23D611C0007D056C /* Platform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C58FF08C23D611C0007D056C /* Platform.cpp */; };
+		C58FF09023D63C78007D056C /* EnvWithFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C58FF08E23D63C78007D056C /* EnvWithFunctions.cpp */; };
+		C58FF09123D63C78007D056C /* EnvWithFunctions.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C58FF08F23D63C78007D056C /* EnvWithFunctions.hpp */; };
+		C5907A4623D6FF2400DA181D /* ObjectTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5907A4423D6FF2400DA181D /* ObjectTests.cpp */; };
+		C5907A4923D705C800DA181D /* TypeRedeclaration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5907A4723D705C800DA181D /* TypeRedeclaration.cpp */; };
+		C5907A4A23D705C800DA181D /* TypeRedeclaration.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5907A4823D705C800DA181D /* TypeRedeclaration.hpp */; };
+		C5907A4D23D7191700DA181D /* CantBeExtended.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5907A4B23D7191700DA181D /* CantBeExtended.cpp */; };
+		C5907A4E23D7191700DA181D /* CantBeExtended.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5907A4C23D7191700DA181D /* CantBeExtended.hpp */; };
+		C5907A5123D71CB900DA181D /* TypeNotAnObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5907A4F23D71CB900DA181D /* TypeNotAnObject.cpp */; };
+		C5907A5223D71CB900DA181D /* TypeNotAnObject.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5907A5023D71CB900DA181D /* TypeNotAnObject.hpp */; };
+		C5907A5523D720E500DA181D /* InvalidMember.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5907A5323D720E500DA181D /* InvalidMember.cpp */; };
+		C5907A5623D720E500DA181D /* InvalidMember.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5907A5423D720E500DA181D /* InvalidMember.hpp */; };
+		C5907A5923D7244900DA181D /* ExprNewArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5907A5723D7244900DA181D /* ExprNewArray.cpp */; };
+		C5907A5A23D7244900DA181D /* ExprNewArray.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5907A5823D7244900DA181D /* ExprNewArray.hpp */; };
+		C5907A5D23D72A0500DA181D /* ExprSubscript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5907A5B23D72A0500DA181D /* ExprSubscript.cpp */; };
+		C5907A5E23D72A0500DA181D /* ExprSubscript.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5907A5C23D72A0500DA181D /* ExprSubscript.hpp */; };
+		C5907A6123D72A2E00DA181D /* CantBeSubscripted.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5907A5F23D72A2E00DA181D /* CantBeSubscripted.cpp */; };
+		C5907A6223D72A2E00DA181D /* CantBeSubscripted.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5907A6023D72A2E00DA181D /* CantBeSubscripted.hpp */; };
+		C5907A6523D72AE400DA181D /* ExprArrayLength.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5907A6323D72AE400DA181D /* ExprArrayLength.cpp */; };
+		C5907A6623D72AE400DA181D /* ExprArrayLength.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5907A6423D72AE400DA181D /* ExprArrayLength.hpp */; };
 		C59BB6FD23C4E3920044EA97 /* Bool2Expr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C59BB6FB23C4E3920044EA97 /* Bool2Expr.cpp */; };
 		C59BB6FE23C4E3920044EA97 /* Bool2Expr.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C59BB6FC23C4E3920044EA97 /* Bool2Expr.hpp */; };
 		C59BB70123C4E68E0044EA97 /* BoolOrExpr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C59BB6FF23C4E68E0044EA97 /* BoolOrExpr.cpp */; };
@@ -1241,6 +1260,26 @@
 		C58FF08723D5B975007D056C /* ExprNewObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExprNewObject.hpp; sourceTree = "<group>"; };
 		C58FF08A23D604D8007D056C /* Platform.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Platform.hpp; sourceTree = "<group>"; };
 		C58FF08C23D611C0007D056C /* Platform.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Platform.cpp; sourceTree = "<group>"; };
+		C58FF08E23D63C78007D056C /* EnvWithFunctions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EnvWithFunctions.cpp; sourceTree = "<group>"; };
+		C58FF08F23D63C78007D056C /* EnvWithFunctions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EnvWithFunctions.hpp; sourceTree = "<group>"; };
+		C5907A4423D6FF2400DA181D /* ObjectTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectTests.cpp; sourceTree = "<group>"; };
+		C5907A4523D6FF2400DA181D /* ObjectTests.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ObjectTests.hpp; sourceTree = "<group>"; };
+		C5907A4723D705C800DA181D /* TypeRedeclaration.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TypeRedeclaration.cpp; sourceTree = "<group>"; };
+		C5907A4823D705C800DA181D /* TypeRedeclaration.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TypeRedeclaration.hpp; sourceTree = "<group>"; };
+		C5907A4B23D7191700DA181D /* CantBeExtended.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CantBeExtended.cpp; sourceTree = "<group>"; };
+		C5907A4C23D7191700DA181D /* CantBeExtended.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CantBeExtended.hpp; sourceTree = "<group>"; };
+		C5907A4F23D71CB900DA181D /* TypeNotAnObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TypeNotAnObject.cpp; sourceTree = "<group>"; };
+		C5907A5023D71CB900DA181D /* TypeNotAnObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TypeNotAnObject.hpp; sourceTree = "<group>"; };
+		C5907A5323D720E500DA181D /* InvalidMember.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InvalidMember.cpp; sourceTree = "<group>"; };
+		C5907A5423D720E500DA181D /* InvalidMember.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InvalidMember.hpp; sourceTree = "<group>"; };
+		C5907A5723D7244900DA181D /* ExprNewArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExprNewArray.cpp; sourceTree = "<group>"; };
+		C5907A5823D7244900DA181D /* ExprNewArray.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExprNewArray.hpp; sourceTree = "<group>"; };
+		C5907A5B23D72A0500DA181D /* ExprSubscript.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExprSubscript.cpp; sourceTree = "<group>"; };
+		C5907A5C23D72A0500DA181D /* ExprSubscript.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExprSubscript.hpp; sourceTree = "<group>"; };
+		C5907A5F23D72A2E00DA181D /* CantBeSubscripted.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CantBeSubscripted.cpp; sourceTree = "<group>"; };
+		C5907A6023D72A2E00DA181D /* CantBeSubscripted.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CantBeSubscripted.hpp; sourceTree = "<group>"; };
+		C5907A6323D72AE400DA181D /* ExprArrayLength.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExprArrayLength.cpp; sourceTree = "<group>"; };
+		C5907A6423D72AE400DA181D /* ExprArrayLength.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExprArrayLength.hpp; sourceTree = "<group>"; };
 		C59BB6FB23C4E3920044EA97 /* Bool2Expr.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bool2Expr.cpp; sourceTree = "<group>"; };
 		C59BB6FC23C4E3920044EA97 /* Bool2Expr.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Bool2Expr.hpp; sourceTree = "<group>"; };
 		C59BB6FF23C4E68E0044EA97 /* BoolOrExpr.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BoolOrExpr.cpp; sourceTree = "<group>"; };
@@ -1414,6 +1453,8 @@
 				C553A3B723B0DEB300D45EBB /* FunctionEnvironment.hpp */,
 				C58FF07E23D5605A007D056C /* TypeEnvironment.cpp */,
 				C58FF07F23D5605A007D056C /* TypeEnvironment.hpp */,
+				C58FF08E23D63C78007D056C /* EnvWithFunctions.cpp */,
+				C58FF08F23D63C78007D056C /* EnvWithFunctions.hpp */,
 				C58FF08A23D604D8007D056C /* Platform.hpp */,
 				C58FF08C23D611C0007D056C /* Platform.cpp */,
 			);
@@ -1508,6 +1549,8 @@
 				C547FF1C23AE6DC900B21EAE /* VariableRedeclarationError.hpp */,
 				C52F416123B51CF7009B49CD /* FunctionRedeclarationError.cpp */,
 				C52F416223B51CF7009B49CD /* FunctionRedeclarationError.hpp */,
+				C5907A4723D705C800DA181D /* TypeRedeclaration.cpp */,
+				C5907A4823D705C800DA181D /* TypeRedeclaration.hpp */,
 			);
 			path = redeclaration;
 			sourceTree = "<group>";
@@ -1635,6 +1678,14 @@
 				C5B6A02A23CFDC4000E1982A /* InvalidNumberOfParameters.hpp */,
 				C58FF07A23D54599007D056C /* CyclicDependency.cpp */,
 				C58FF07B23D54599007D056C /* CyclicDependency.hpp */,
+				C5907A4B23D7191700DA181D /* CantBeExtended.cpp */,
+				C5907A4C23D7191700DA181D /* CantBeExtended.hpp */,
+				C5907A4F23D71CB900DA181D /* TypeNotAnObject.cpp */,
+				C5907A5023D71CB900DA181D /* TypeNotAnObject.hpp */,
+				C5907A5323D720E500DA181D /* InvalidMember.cpp */,
+				C5907A5423D720E500DA181D /* InvalidMember.hpp */,
+				C5907A5F23D72A2E00DA181D /* CantBeSubscripted.cpp */,
+				C5907A6023D72A2E00DA181D /* CantBeSubscripted.hpp */,
 			);
 			path = types;
 			sourceTree = "<group>";
@@ -2152,6 +2203,8 @@
 				C56A708423D0D3E900AE6CB8 /* SimpleProgramsTests.hpp */,
 				C577F12823D33A810038D647 /* MimUWTests.cpp */,
 				C577F12923D33A810038D647 /* MimUWTests.hpp */,
+				C5907A4423D6FF2400DA181D /* ObjectTests.cpp */,
+				C5907A4523D6FF2400DA181D /* ObjectTests.hpp */,
 				C56A708623D0D6A300AE6CB8 /* AllComplicatedProgramsTests.cpp */,
 				C56A708723D0D6A300AE6CB8 /* AllComplicatedProgramsTests.hpp */,
 			);
@@ -2231,6 +2284,12 @@
 				C58FF08323D5B4E6007D056C /* ExprDot.hpp */,
 				C58FF08623D5B975007D056C /* ExprNewObject.cpp */,
 				C58FF08723D5B975007D056C /* ExprNewObject.hpp */,
+				C5907A5723D7244900DA181D /* ExprNewArray.cpp */,
+				C5907A5823D7244900DA181D /* ExprNewArray.hpp */,
+				C5907A5B23D72A0500DA181D /* ExprSubscript.cpp */,
+				C5907A5C23D72A0500DA181D /* ExprSubscript.hpp */,
+				C5907A6323D72AE400DA181D /* ExprArrayLength.cpp */,
+				C5907A6423D72AE400DA181D /* ExprArrayLength.hpp */,
 			);
 			path = expressions;
 			sourceTree = "<group>";
@@ -2480,8 +2539,10 @@
 				C56A708C23D0E2A900AE6CB8 /* LattePrintString.hpp in Headers */,
 				C554CE7B23CA07100018E414 /* CompareGreaterEqual.hpp in Headers */,
 				C553A3B323B0DB5300D45EBB /* InvalidReturnType.hpp in Headers */,
+				C5907A4E23D7191700DA181D /* CantBeExtended.hpp in Headers */,
 				C5DD2CFC23D2558A003A9E1F /* AsmLea.hpp in Headers */,
 				C56B508723AF7FA700C56FF2 /* NoSuchVariableError.hpp in Headers */,
+				C5907A6223D72A2E00DA181D /* CantBeSubscripted.hpp in Headers */,
 				C553A3CF23B0EB1500D45EBB /* AsmPush.hpp in Headers */,
 				C553A3E823B0F16D00D45EBB /* AsmRegister.hpp in Headers */,
 				C554CE8323CA080A0018E414 /* CompareNotEqual.hpp in Headers */,
@@ -2494,6 +2555,7 @@
 				C56D82F523C0DDDA00DDA963 /* MainFunction.hpp in Headers */,
 				C56D82F923C0E97F00DDA963 /* AsmFunctionHeader.hpp in Headers */,
 				C56B50AA23AF9AF900C56FF2 /* AstNode.hpp in Headers */,
+				C58FF09123D63C78007D056C /* EnvWithFunctions.hpp in Headers */,
 				C554D9D923CB9C410018E414 /* TopDefFactory.hpp in Headers */,
 				C56D830123C0F57600DDA963 /* AsmRegistersHandler.hpp in Headers */,
 				C56D833823C214B700DDA963 /* IntMul.hpp in Headers */,
@@ -2507,23 +2569,28 @@
 				C56A709423D0E45C00AE6CB8 /* ReadInt.hpp in Headers */,
 				C553A3CB23B0EAB800D45EBB /* AsmMov.hpp in Headers */,
 				C56A709823D0E56E00AE6CB8 /* ReadString.hpp in Headers */,
+				C5907A5A23D7244900DA181D /* ExprNewArray.hpp in Headers */,
 				C5E44F3F23CCD589006DE6B5 /* LExpression.hpp in Headers */,
 				C56D834423C21F9700DDA963 /* AsmIDiv.hpp in Headers */,
 				C58FF08923D5B975007D056C /* ExprNewObject.hpp in Headers */,
+				C5907A6623D72AE400DA181D /* ExprArrayLength.hpp in Headers */,
 				C547FF4D23AEBC5E00B21EAE /* NoSuchTypeError.hpp in Headers */,
 				C553A3AA23B043C900D45EBB /* ReturnStatement.hpp in Headers */,
 				C5218A5723B3A4D600E520FB /* Function.hpp in Headers */,
 				C553A3FC23B15D9200D45EBB /* Asm2Instruction.hpp in Headers */,
 				C554CE5B23C9FE4B0018E414 /* CompareExpr.hpp in Headers */,
 				C56D831A23C120AB00DDA963 /* Int2ArgExpression.hpp in Headers */,
+				C5907A4A23D705C800DA181D /* TypeRedeclaration.hpp in Headers */,
 				C547FF4823AEB8D100B21EAE /* LatteString.hpp in Headers */,
 				C56D835423C245F900DDA963 /* AssignementStatement.hpp in Headers */,
 				C5AB009E23D36CAB00C82F5D /* VarValues.hpp in Headers */,
 				C56D834023C21DF100DDA963 /* AsmCqto.hpp in Headers */,
 				C5E44F3523CC9AFE006DE6B5 /* ExprFactory.hpp in Headers */,
 				C553A3D323B0EB4600D45EBB /* AsmSub.hpp in Headers */,
+				C5907A5E23D72A0500DA181D /* ExprSubscript.hpp in Headers */,
 				C56D830523C1015600DDA963 /* BlockEnvironment.hpp in Headers */,
 				C553A39023B003BD00D45EBB /* AsmMemory.hpp in Headers */,
+				C5907A5623D720E500DA181D /* InvalidMember.hpp in Headers */,
 				C554CE7F23CA07A40018E414 /* CompareEqual.hpp in Headers */,
 				C58FF08523D5B4E6007D056C /* ExprDot.hpp in Headers */,
 				C547FF2023AE6DC900B21EAE /* VariableRedeclarationError.hpp in Headers */,
@@ -2570,6 +2637,7 @@
 				C52F416023B51AAE009B49CD /* FunctionInitializer.hpp in Headers */,
 				C553A3C723B0EA8F00D45EBB /* AsmInstruction.hpp in Headers */,
 				C553A3DB23B0EBF500D45EBB /* AsmPop.hpp in Headers */,
+				C5907A5223D71CB900DA181D /* TypeNotAnObject.hpp in Headers */,
 				C5B6A02423CFC28800E1982A /* ExprStatement.hpp in Headers */,
 				C554CE6723CA03370018E414 /* AsmJle.hpp in Headers */,
 				C554D9C923CB94C50018E414 /* LatteLexer.h in Headers */,
@@ -2910,6 +2978,7 @@
 				C56B50C423AFA35000C56FF2 /* AllAstTests.cpp in Sources */,
 				C56B50D223AFA7CD00C56FF2 /* StringConstantTests.cpp in Sources */,
 				C577F12A23D33A810038D647 /* MimUWTests.cpp in Sources */,
+				C5907A4623D6FF2400DA181D /* ObjectTests.cpp in Sources */,
 				C56B50CB23AFA68D00C56FF2 /* BoolConstantTests.cpp in Sources */,
 				C56A708823D0D6A300AE6CB8 /* AllComplicatedProgramsTests.cpp in Sources */,
 				C5E44F3823CCC8B2006DE6B5 /* MainReturnParserTestCaseUnit.cpp in Sources */,
@@ -2964,6 +3033,7 @@
 				C59BB70123C4E68E0044EA97 /* BoolOrExpr.cpp in Sources */,
 				C56D830423C1015600DDA963 /* BlockEnvironment.cpp in Sources */,
 				C554CE7A23CA07100018E414 /* CompareGreaterEqual.cpp in Sources */,
+				C5907A5D23D72A0500DA181D /* ExprSubscript.cpp in Sources */,
 				C547FF1F23AE6DC900B21EAE /* VariableRedeclarationError.cpp in Sources */,
 				C59BB70D23C4F73C0044EA97 /* AsmJne.cpp in Sources */,
 				C553A3B823B0DEB300D45EBB /* FunctionEnvironment.cpp in Sources */,
@@ -2979,6 +3049,7 @@
 				C5B3FE5A23D4753600A80BAC /* GarbageCollector.cpp in Sources */,
 				C56D831923C120AB00DDA963 /* Int2ArgExpression.cpp in Sources */,
 				C554CE7223CA04ED0018E414 /* CompareLessEqual.cpp in Sources */,
+				C5907A5523D720E500DA181D /* InvalidMember.cpp in Sources */,
 				C554CE8223CA080A0018E414 /* CompareNotEqual.cpp in Sources */,
 				C56D831D23C1240600DDA963 /* Expr2Arg.cpp in Sources */,
 				C554CE6E23CA03DD0018E414 /* AsmJge.cpp in Sources */,
@@ -3023,16 +3094,19 @@
 				C56D830C23C1170600DDA963 /* AsmJmp.cpp in Sources */,
 				C547FF4C23AEBC5E00B21EAE /* NoSuchTypeError.cpp in Sources */,
 				C5E44F3423CC9AFE006DE6B5 /* ExprFactory.cpp in Sources */,
+				C5907A6123D72A2E00DA181D /* CantBeSubscripted.cpp in Sources */,
 				C59BB70523C4F4CC0044EA97 /* AsmCmp.cpp in Sources */,
 				C547FF4723AEB8D100B21EAE /* LatteString.cpp in Sources */,
 				C56B50C723AFA41100C56FF2 /* BoolConstant.cpp in Sources */,
 				C547FF2E23AE887500B21EAE /* Variable.cpp in Sources */,
+				C5907A4923D705C800DA181D /* TypeRedeclaration.cpp in Sources */,
 				C553A3DA23B0EBF500D45EBB /* AsmPop.cpp in Sources */,
 				C56B50AF23AF9CD400C56FF2 /* Expression.cpp in Sources */,
 				C553A3CE23B0EB1500D45EBB /* AsmPush.cpp in Sources */,
 				C553A3E723B0F16D00D45EBB /* AsmRegister.cpp in Sources */,
 				C5AB009D23D36CAB00C82F5D /* VarValues.cpp in Sources */,
 				C52F415F23B51AAE009B49CD /* FunctionInitializer.cpp in Sources */,
+				C58FF09023D63C78007D056C /* EnvWithFunctions.cpp in Sources */,
 				C547FF3F23AEB81D00B21EAE /* LatteBool.cpp in Sources */,
 				C56A709B23D0EC7500AE6CB8 /* ConcatString.cpp in Sources */,
 				C5B6A02723CFD63600E1982A /* ExpectedFunctionType.cpp in Sources */,
@@ -3045,6 +3119,7 @@
 				C553A3AE23B0DA5900D45EBB /* InvalidType.cpp in Sources */,
 				C554CE6223CA02C10018E414 /* AsmJl.cpp in Sources */,
 				C56D834723C2201100DDA963 /* IntDiv.cpp in Sources */,
+				C5907A4D23D7191700DA181D /* CantBeExtended.cpp in Sources */,
 				C56D82E723C0CE5700DDA963 /* ExpectedReturn.cpp in Sources */,
 				C56D82EC23C0DAE600DDA963 /* MissingMain.cpp in Sources */,
 				C554D9C823CB94C50018E414 /* LatteBaseListener.cpp in Sources */,
@@ -3052,9 +3127,12 @@
 				C547FF4323AEB89C00B21EAE /* LatteVoid.cpp in Sources */,
 				C554D9CB23CB94C50018E414 /* LatteListener.cpp in Sources */,
 				C58FF08023D5605A007D056C /* TypeEnvironment.cpp in Sources */,
+				C5907A5923D7244900DA181D /* ExprNewArray.cpp in Sources */,
 				C554CE8E23CA35980018E414 /* WhileStatement.cpp in Sources */,
 				C52F416723B520EF009B49CD /* NoSuchFunctionError.cpp in Sources */,
 				C56D82F023C0DC0200DDA963 /* MainInvalidType.cpp in Sources */,
+				C5907A6523D72AE400DA181D /* ExprArrayLength.cpp in Sources */,
+				C5907A5123D71CB900DA181D /* TypeNotAnObject.cpp in Sources */,
 				C553A3FF23B1617D00D45EBB /* Asm1Instruction.cpp in Sources */,
 				C575EAC723AFC926006BCFEF /* AssemblerValue.cpp in Sources */,
 				C5B6A02323CFC28800E1982A /* ExprStatement.cpp in Sources */,

@@ -9,6 +9,7 @@
 #include "GlobalEnvironment.hpp"
 
 #include "../staticCheck/redeclaration/FunctionRedeclarationError.hpp"
+#include "../staticCheck/redeclaration/TypeRedeclaration.hpp"
 #include "../staticCheck/main/MissingMain.hpp"
 
 #include "function/Function.hpp"
@@ -28,7 +29,7 @@ using namespace std;
 static string mainName = "main";
 
 // MARK: - constructor
-GlobalEnvironment::GlobalEnvironment() noexcept: hasMain(false), Environment() {
+GlobalEnvironment::GlobalEnvironment() noexcept: hasMain(false), EnvWithFunctions() {
     string key;
     key = keyForTypeNamed(boolName());
     types[key] = make_unique<LatteBool>();
@@ -155,6 +156,26 @@ Type const * GlobalEnvironment::getTypeNamed(
     }
     
     return Environment::getTypeNamed(name, line, column);
+}
+
+
+CustomType * GlobalEnvironment::declareType(
+    std::string name, size_t line, size_t column
+) noexcept(false) {
+    string key = keyForTypeNamed(name);
+    
+    auto search = types.find(key);
+    if (search != types.end()) {
+        throw TypeRedeclaration(
+            line, column, name
+        );
+    }
+    
+    unique_ptr<CustomType> type = make_unique<CustomType>(name, this);
+    
+    CustomType * result = type.get();
+    types[key] = move(type);
+    return result;
 }
 
 // MARK: - string

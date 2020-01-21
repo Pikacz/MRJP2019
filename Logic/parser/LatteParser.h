@@ -23,14 +23,14 @@ public:
   };
 
   enum {
-    RuleMain = 0, RuleTopDef = 1, RuleType = 2, RuleTypeMember = 3, RuleFunction = 4, 
-    RuleFuncArgs = 5, RuleArg = 6, RuleStmt = 7, RuleBlock = 8, RuleDecVar = 9, 
-    RuleDecType = 10, RuleTypeName = 11, RuleExpr = 12, RuleExpr7 = 13, 
-    RuleExpr6 = 14, RuleExpr5 = 15, RuleExpr4 = 16, RuleExpr3 = 17, RuleExpr2 = 18, 
-    RuleExpr1 = 19, RuleExpr1IntConstant = 20, RuleExpr1StringConstant = 21, 
-    RuleExpr1BoolConstant = 22, RuleExpr1Variable = 23, RuleExpr1Minus = 24, 
-    RuleExpr1Not = 25, RuleExpr1Par = 26, RuleExpr1NewArray = 27, RuleExpr1NewObject = 28, 
-    RuleCallList = 29
+    RuleMain = 0, RuleTopDef = 1, RuleType = 2, RuleExtendBlock = 3, RuleTypeMember = 4, 
+    RuleTypeVar = 5, RuleFunction = 6, RuleFuncArgs = 7, RuleArg = 8, RuleStmt = 9, 
+    RuleBlock = 10, RuleDecVar = 11, RuleDecType = 12, RuleTypeName = 13, 
+    RuleExpr = 14, RuleExpr7 = 15, RuleExpr6 = 16, RuleExpr5 = 17, RuleExpr4 = 18, 
+    RuleExpr3 = 19, RuleExpr2 = 20, RuleExpr1 = 21, RuleExpr1IntConstant = 22, 
+    RuleExpr1StringConstant = 23, RuleExpr1BoolConstant = 24, RuleExpr1Variable = 25, 
+    RuleExpr1Minus = 26, RuleExpr1Not = 27, RuleExpr1Par = 28, RuleExpr1NewArray = 29, 
+    RuleExpr1NewObject = 30, RuleCallList = 31
   };
 
   LatteParser(antlr4::TokenStream *input);
@@ -46,7 +46,9 @@ public:
   class MainContext;
   class TopDefContext;
   class TypeContext;
+  class ExtendBlockContext;
   class TypeMemberContext;
+  class TypeVarContext;
   class FunctionContext;
   class FuncArgsContext;
   class ArgContext;
@@ -108,9 +110,8 @@ public:
     TypeContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *Kclass();
-    std::vector<antlr4::tree::TerminalNode *> Identifier();
-    antlr4::tree::TerminalNode* Identifier(size_t i);
-    antlr4::tree::TerminalNode *Kextends();
+    antlr4::tree::TerminalNode *Identifier();
+    ExtendBlockContext *extendBlock();
     std::vector<TypeMemberContext *> typeMember();
     TypeMemberContext* typeMember(size_t i);
 
@@ -121,12 +122,25 @@ public:
 
   TypeContext* type();
 
+  class  ExtendBlockContext : public antlr4::ParserRuleContext {
+  public:
+    ExtendBlockContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *Kextends();
+    antlr4::tree::TerminalNode *Identifier();
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  ExtendBlockContext* extendBlock();
+
   class  TypeMemberContext : public antlr4::ParserRuleContext {
   public:
     TypeMemberContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    DecTypeContext *decType();
-    antlr4::tree::TerminalNode *Identifier();
+    TypeVarContext *typeVar();
     FunctionContext *function();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -135,6 +149,20 @@ public:
   };
 
   TypeMemberContext* typeMember();
+
+  class  TypeVarContext : public antlr4::ParserRuleContext {
+  public:
+    TypeVarContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    DecTypeContext *decType();
+    antlr4::tree::TerminalNode *Identifier();
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  TypeVarContext* typeVar();
 
   class  FunctionContext : public antlr4::ParserRuleContext {
   public:

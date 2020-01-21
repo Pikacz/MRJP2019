@@ -1,25 +1,27 @@
 //
-//  ExprNewObject.hpp
+//  ExprNewArray.hpp
 //  Logic
 //
-//  Created by Paweł Czerwiński on 20/01/2020.
+//  Created by Paweł Czerwiński on 21/01/2020.
 //  Copyright © 2020 Paweł Czerwiński. All rights reserved.
 //
 
-#ifndef ExprNewObject_hpp
-#define ExprNewObject_hpp
-
+#ifndef ExprNewArray_hpp
+#define ExprNewArray_hpp
 
 #include "Expression.hpp"
-#include "../../environment/types/custom/CustomType.hpp"
 
 
 #include <memory>
 
-class ExprNewObject final: public Expression {
+class ExprNewArray final: public Expression {
 public:
     
-    ExprNewObject(Type const * type, size_t line, size_t column) noexcept(false);
+    ExprNewArray(
+        Type const * type,
+        Environment * env,
+        std::unique_ptr<const Expression> expr,
+        size_t line, size_t column) noexcept(false);
     
     virtual bool isEqualTo(AstNode const * node) const noexcept override;
     
@@ -33,8 +35,9 @@ public:
     ) const noexcept override;
     
 private:
-    const CustomType * const objType;
+    std::unique_ptr<const Expression> expr;
+    const Type * const elemType;
 };
 
 
-#endif /* ExprNewObject_hpp */
+#endif /* ExprNewArray_hpp */

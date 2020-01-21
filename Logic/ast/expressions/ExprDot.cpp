@@ -10,12 +10,14 @@
 
 using namespace std;
 
+
+
 ExprDot::ExprDot(
     size_t line,
     size_t column,
     std::unique_ptr<const Expression> lhs,
     std::unique_ptr<const Expression> rhs
-) noexcept: Expression(rhs->getType(), line, column) {
+) noexcept(false): rhs(move(rhs)), lhs(move(lhs)), Expression(rhs->getType(), line, column) {
     throw "TODO";
 }
 

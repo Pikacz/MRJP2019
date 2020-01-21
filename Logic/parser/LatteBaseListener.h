@@ -25,8 +25,14 @@ public:
   virtual void enterType(LatteParser::TypeContext * /*ctx*/) override { }
   virtual void exitType(LatteParser::TypeContext * /*ctx*/) override { }
 
+  virtual void enterExtendBlock(LatteParser::ExtendBlockContext * /*ctx*/) override { }
+  virtual void exitExtendBlock(LatteParser::ExtendBlockContext * /*ctx*/) override { }
+
   virtual void enterTypeMember(LatteParser::TypeMemberContext * /*ctx*/) override { }
   virtual void exitTypeMember(LatteParser::TypeMemberContext * /*ctx*/) override { }
+
+  virtual void enterTypeVar(LatteParser::TypeVarContext * /*ctx*/) override { }
+  virtual void exitTypeVar(LatteParser::TypeVarContext * /*ctx*/) override { }
 
   virtual void enterFunction(LatteParser::FunctionContext * /*ctx*/) override { }
   virtual void exitFunction(LatteParser::FunctionContext * /*ctx*/) override { }

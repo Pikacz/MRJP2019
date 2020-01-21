@@ -17,12 +17,12 @@ public:
     ExpectedFunctionType(
         size_t line,
         size_t column,
-        Type const * recievedType
+        std::string recievedType
     ) noexcept;
     
     virtual void description(std::stringstream & ss) const noexcept override;
 protected:
-    const Type * const recievedType;
+    const std::string recievedType;
 };
 
 

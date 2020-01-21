@@ -23,8 +23,14 @@ public:
   virtual void enterType(LatteParser::TypeContext *ctx) = 0;
   virtual void exitType(LatteParser::TypeContext *ctx) = 0;
 
+  virtual void enterExtendBlock(LatteParser::ExtendBlockContext *ctx) = 0;
+  virtual void exitExtendBlock(LatteParser::ExtendBlockContext *ctx) = 0;
+
   virtual void enterTypeMember(LatteParser::TypeMemberContext *ctx) = 0;
   virtual void exitTypeMember(LatteParser::TypeMemberContext *ctx) = 0;
+
+  virtual void enterTypeVar(LatteParser::TypeVarContext *ctx) = 0;
+  virtual void exitTypeVar(LatteParser::TypeVarContext *ctx) = 0;
 
   virtual void enterFunction(LatteParser::FunctionContext *ctx) = 0;
   virtual void exitFunction(LatteParser::FunctionContext *ctx) = 0;

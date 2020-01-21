@@ -15,7 +15,7 @@
 
 class NotLValue final: public StaticCheckError {
 public:
-    NotLValue(Expression const * expr) noexcept;
+    using StaticCheckError::StaticCheckError;
 protected:
     virtual void description(std::stringstream & ss) const noexcept override;
 };

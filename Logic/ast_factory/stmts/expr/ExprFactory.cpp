@@ -18,8 +18,12 @@
 #include "../../../ast/expressions/bool/compareExpr/CompareNotEqual.hpp"
 #include "../../../ast/expressions/bool/NotExpr.hpp"
 #include "../../../ast/expressions/VarExpression.hpp"
+#include "../../../ast/expressions/ExprArrayLength.hpp"
 #include "../../../ast/expressions/ExprDot.hpp"
+#include "../../../ast/expressions/ExprSubscript.hpp"
+#include "../../../ast/expressions/ExprNewObject.hpp"
 #include "../../../ast/expressions/ExprCall.hpp"
+#include "../../../ast/expressions/ExprNewArray.hpp"
 #include "../../../ast/expressions/arithmetic/IntAdd.hpp"
 #include "../../../ast/expressions/arithmetic/IntSub.hpp"
 #include "../../../ast/expressions/arithmetic/IntMul.hpp"
@@ -28,6 +32,7 @@
 #include "../../../ast/expressions/constants/IntConstant.hpp"
 #include "../../../ast/expressions/constants/BoolConstant.hpp"
 #include "../../../ast/expressions/constants/StringConstant.hpp"
+#include "../DecFactory.hpp"
 
 #include "../../../environment/variables/FuncVariable.hpp"
 
@@ -263,9 +268,28 @@ static unique_ptr<const Expression> getExpr2(
 ) noexcept(false) {
     
     if (auto nm = ctx->Identifier()) {
-        throw "TODO";
+        auto lhs = getExpr2(env, ctx->expr2(), expectingFunction);
+        string name = nm->getText();
+        auto nmToken = nm->getSymbol();
+        
+        if (lhs->getType()->isArray() && name == "length") {
+            
+            return make_unique<ExprArrayLength>(
+                nmToken->getLine(), nmToken->getCharPositionInLine(), env, move(lhs)
+            );
+        }
+        
+        auto var = lhs->getType()->getMemberNamed(name, nmToken->getLine(), nmToken->getCharPositionInLine());
+        auto varExpr = make_unique<VarExpression>(
+            -1, -1, var
+        );
+        
+        return make_unique<ExprDot>(-1, -1, move(lhs), move(varExpr));
     } else if (ctx->OArrBL()) {
-        throw "TODO";
+        auto lhs = getExpr2(env, ctx->expr2(), false);
+        auto expr = ExprFactory::getExpr(env, ctx->expr());
+        auto token = ctx->OArrBL()->getSymbol();
+        return make_unique<ExprSubscript>(token->getLine(), token->getCharPositionInLine(), env, move(lhs), move(expr));
     } else if (ctx->ParBL() != nullptr) {
         auto func = getExpr2(env, ctx->expr2(), true);
         vector<unique_ptr<const Expression>> params;
@@ -373,43 +397,22 @@ static unique_ptr<const Expression> getExpr1(
     } else if (auto exprPar = ctx->expr1Par()) {
         return ExprFactory::getExpr(env, exprPar->expr());
     } else if (auto exprNewArray = ctx->expr1NewArray()) {
-        throw "TODO";
+        Type const * type = DecFactory::getType(env, exprNewArray->decType());
+        auto expr = ExprFactory::getExpr(env, exprNewArray->expr());
+        auto newToken = exprNewArray->Knew()->getSymbol();
+        return make_unique<ExprNewArray>(type, env, move(expr), newToken->getLine(), newToken->getCharPositionInLine());
     }
     auto newObj = ctx->expr1NewObject();
-//    aoto
-    throw "TODO";
+    auto tName = newObj->Identifier()->getText();
+    auto tToken = newObj->Identifier()->getSymbol();
+    auto type = env->getTypeNamed(tName, tToken->getLine(), tToken->getCharPositionInLine());
+    
+    auto nToken = newObj->Knew()->getSymbol();
+    return make_unique<ExprNewObject>(type, nToken->getLine(), nToken->getCharPositionInLine());
 }
-
-
-static void replaceAll(
-    string& source,
-    const string& from,
-    const string& to
-) {
-    string newString;
-    newString.reserve(source.length());  // avoids a few memory allocations
-
-    string::size_type lastPos = 0;
-    string::size_type findPos;
-
-    while(string::npos != (findPos = source.find(from, lastPos))) {
-        newString.append(source, lastPos, findPos - lastPos);
-        newString += to;
-        lastPos = findPos + from.length();
-    }
-
-    // Care for the rest after last occurrence
-    newString += source.substr(lastPos);
-
-    source.swap(newString);
-}
-
 
 static string getStringVal(tree::TerminalNode * ctx) noexcept {
     string result = ctx->getText();
-    replaceAll(result, "\\n", "\n");
-    replaceAll(result, "\\\\", "\\");
-    replaceAll(result, "\\\"", "\"");
 
     result.erase(0, 1);
     result.erase(result.size() - 1);

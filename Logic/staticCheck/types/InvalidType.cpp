@@ -13,8 +13,8 @@ using namespace std;
 InvalidType::InvalidType(
     size_t line,
     size_t column,
-    Type const * expectedType,
-    Type const * recievedType
+    string expectedType,
+    string recievedType
 ) noexcept
 : expectedType(expectedType),
   recievedType(recievedType),
@@ -22,6 +22,6 @@ InvalidType::InvalidType(
 
 
 void InvalidType::description(stringstream & ss) const noexcept {
-    ss << "Expected type \"" << expectedType->getName();
-    ss << "\" but got \"" << recievedType->getName() << "\" instead.";
+    ss << "Expected type \"" << expectedType;
+    ss << "\" but got \"" << recievedType << "\" instead.";
 }

@@ -32,7 +32,7 @@ static Type const * getReturnType(
     if (auto fType = dynamic_cast<FunctionType const *>(lhsT)) {
         return fType->getReturnType();
     }
-    throw ExpectedFunctionType(func->getLine(), func->getColumn(), lhsT);
+    throw ExpectedFunctionType(func->getLine(), func->getColumn(), lhsT->getName());
 }
 
 
@@ -49,7 +49,7 @@ ExprCall::ExprCall(
     
     if (paramsT.size() != params.size()) {
         throw InvalidNumberOfParameters(
-            line, column, fType, params.size()
+            line, column, fType->getName(), fType->getParameters().size(), params.size()
         );
     }
     
@@ -58,8 +58,8 @@ ExprCall::ExprCall(
             throw InvalidType(
                 params[i].get()->getLine(),
                 params[i].get()->getColumn(),
-                paramsT[i],
-                params[i].get()->getType()
+                paramsT[i]->getName(),
+                params[i].get()->getType()->getName()
             );
         }
     }

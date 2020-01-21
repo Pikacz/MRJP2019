@@ -13,15 +13,16 @@ using namespace std;
 InvalidNumberOfParameters::InvalidNumberOfParameters(
     size_t line,
     size_t column,
-    FunctionType const * recievedType,
+    std::string recievedType,
+    size_t expectedParams,
     size_t recievedParameters
 ) noexcept
-: recievedType(recievedType), recievedParameters(recievedParameters),
+: recievedType(recievedType), expectedParams(expectedParams), recievedParameters(recievedParameters),
   StaticCheckError(line, column) {}
 
 
 void InvalidNumberOfParameters::description(stringstream & ss) const noexcept {
-    ss << "Call on type " << recievedType->getName() << "requires ";
-    ss << recievedType->getParameters().size() << " parameters, but got ";
+    ss << "Call on type " << recievedType << "requires ";
+    ss << expectedParams << " parameters, but got ";
     ss << recievedParameters << " instead.";
 }

@@ -12,6 +12,6 @@ using namespace std;
 
 
 void InvalidReturnType::description(stringstream & ss) const noexcept {
-    ss << "Expected return type \"" << expectedType->getName();
-    ss << "\" but got \"" << recievedType->getName() << "\" instead.";
+    ss << "Expected return type \"" << expectedType;
+    ss << "\" but got \"" << recievedType << "\" instead.";
 }

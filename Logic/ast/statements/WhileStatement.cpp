@@ -25,7 +25,7 @@ WhileStatement::WhileStatement(
 ) noexcept(false):
 expr(move(_expr)), body(move(_body)), Statement(line, column) {
     if (! this->expr.get()->isKindOf(env->getLatteBool())) {
-        throw InvalidType(line, column, env->getLatteBool(), this->expr.get()->getType());
+        throw InvalidType(line, column, env->getLatteBool()->getName(), this->expr.get()->getType()->getName());
     }
 }
 

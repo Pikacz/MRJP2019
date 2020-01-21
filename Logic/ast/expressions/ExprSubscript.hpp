@@ -1,28 +1,28 @@
 //
-//  ExprDot.hpp
+//  ExprSubscript.hpp
 //  Logic
 //
-//  Created by Paweł Czerwiński on 20/01/2020.
+//  Created by Paweł Czerwiński on 21/01/2020.
 //  Copyright © 2020 Paweł Czerwiński. All rights reserved.
 //
 
-#ifndef ExprDot_hpp
-#define ExprDot_hpp
+#ifndef ExprSubscript_hpp
+#define ExprSubscript_hpp
+
+#include <stdio.h>
 
 #include "Expression.hpp"
-#include <memory>
 
-
-class ExprDot final: public Expression {
+class ExprSubscript final: public Expression {
 public:
-    ExprDot(
+    ExprSubscript(
         size_t line,
         size_t column,
+        Environment * env,
         std::unique_ptr<const Expression> lhs,
-        std::unique_ptr<const Expression> rhs
+        std::unique_ptr<const Expression> expr
     ) noexcept(false);
     
-    virtual bool isTerminating() const noexcept override;
     
     bool isEqualTo(AstNode const * node) const noexcept override;
     
@@ -35,11 +35,10 @@ public:
         AsmRegister::Type destination
     ) const noexcept override;
     
-    size_t fakeVariablesCount() const noexcept override;
     
 protected:
     const std::unique_ptr<const Expression> lhs;
-    const std::unique_ptr<const Expression> rhs;
+    const std::unique_ptr<const Expression> expr;
 };
 
-#endif /* ExprDot_hpp */
+#endif /* ExprSubscript_hpp */

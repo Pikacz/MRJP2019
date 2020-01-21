@@ -13,12 +13,12 @@ using namespace std;
 ExpectedFunctionType::ExpectedFunctionType(
     size_t line,
     size_t column,
-    Type const * recievedType
+    string recievedType
 ) noexcept
 : recievedType(recievedType),
   StaticCheckError(line, column) {}
 
 
 void ExpectedFunctionType::description(stringstream & ss) const noexcept {
-    ss << "Call is not defined for type " << recievedType->getName() << ".";
+    ss << "Call is not defined for type " << recievedType << ".";
 }

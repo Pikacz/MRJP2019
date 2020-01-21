@@ -35,3 +35,13 @@ size_t ArrayType::pointerSize() const noexcept {
 bool ArrayType::isPointer() const noexcept {
     return true;
 }
+
+
+const Type * const ArrayType::getElemType() const noexcept {
+    return type;
+}
+
+
+bool ArrayType::isArray() const noexcept {
+    return true;
+}

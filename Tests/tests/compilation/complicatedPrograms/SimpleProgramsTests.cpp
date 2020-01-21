@@ -602,6 +602,58 @@ public:
     void fillOutput(std::ostream & ss) const noexcept override {
     }
 };
+      
+        
+class SimpleProgram28 final: public WholeProgramTestCaseUnit {
+public:
+    SimpleProgram28(): WholeProgramTestCaseUnit("Simple program 28") {}
+    
+    void fillCode(std::ostream & ss) const noexcept override {
+        ss << "int main() {" << endl;
+        ss << "    int a = 0;" << endl;
+        ss << "    int b = 0;" << endl;
+        ss << "    int c = 0;" << endl;
+        ss << "    int d = 1;" << endl;
+        ss << "    if (a < d) {" << endl;
+        ss << "        while (b < 5) {" << endl;
+        ss << "            b++;" << endl;
+        ss << "            while (c < 5) {" << endl;
+        ss << "                c++;" << endl;
+        ss << "                a = a + 2;" << endl;
+        ss << "            }" << endl;
+        ss << "        }" << endl;
+        ss << "    }" << endl;
+        ss << "    printInt(a);" << endl;
+        ss << "    return 0;" << endl;
+        ss << "}" << endl;
+    }
+    
+    void fillOutput(std::ostream & ss) const noexcept override {
+        ss << 10 << endl;
+    }
+};
+
+        
+
+class SimpleProgram29 final: public WholeProgramTestCaseUnit {
+public:
+    SimpleProgram29(): WholeProgramTestCaseUnit("Simple program 29") {}
+    
+    void fillCode(std::ostream & ss) const noexcept override {
+        ss << "int main() {" << endl;
+        ss << "    printString(\"elo\\n\\tmordo\\\"\\\\\");" << endl;
+        ss << "    return 0;" << endl;
+        ss << "}" << endl;
+        ss << endl;
+    }
+    
+    void fillOutput(std::ostream & ss) const noexcept override {
+        ss << "elo" << endl;
+        ss << "\tmordo\"\\" << endl;
+    }
+};
+        
+        
         
 vector<shared_ptr<TestUnit> > SimpleProgramsTests::getTests() const noexcept {
     return {
@@ -631,6 +683,8 @@ vector<shared_ptr<TestUnit> > SimpleProgramsTests::getTests() const noexcept {
         make_shared<SimpleProgram24>(),
         make_shared<SimpleProgram25>(),
         make_shared<SimpleProgram26>(),
-        make_shared<SimpleProgram27>()
+        make_shared<SimpleProgram27>(),
+        make_shared<SimpleProgram28>(),
+        make_shared<SimpleProgram29>()
     };
 }

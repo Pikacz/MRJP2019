@@ -18,14 +18,14 @@ public:
     InvalidType(
         size_t line,
         size_t column,
-        Type const * expectedType,
-        Type const * recievedType
+        std::string expectedType,
+        std::string recievedType
     ) noexcept;
     
     virtual void description(std::stringstream & ss) const noexcept override;
 protected:
-    const Type * const expectedType;
-    const Type * const recievedType;
+    const std::string expectedType;
+    const std::string recievedType;
 };
 
 #endif /* InvalidType_hpp */

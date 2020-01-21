@@ -1,30 +1,28 @@
 //
-//  CyclicDependency.hpp
+//  CantBeExtended.hpp
 //  Logic
 //
-//  Created by Paweł Czerwiński on 20/01/2020.
+//  Created by Paweł Czerwiński on 21/01/2020.
 //  Copyright © 2020 Paweł Czerwiński. All rights reserved.
 //
 
-#ifndef CyclicDependency_hpp
-#define CyclicDependency_hpp
+#ifndef CantBeExtended_hpp
+#define CantBeExtended_hpp
 
 #include "../StaticCheckError.hpp"
 #include "../../environment/types/Type.hpp"
 
-class CyclicDependency: public StaticCheckError {
+class CantBeExtended: public StaticCheckError {
 public:
-    CyclicDependency(
+    CantBeExtended(
         size_t line,
         size_t column,
-        std::string type,
-        std::string parentType
+        std::string type
     ) noexcept;
     
     virtual void description(std::stringstream & ss) const noexcept override;
 protected:
     const std::string type;
-    const std::string parentType;
 };
 
-#endif /* CyclicDependency_hpp */
+#endif /* CantBeExtended_hpp */
