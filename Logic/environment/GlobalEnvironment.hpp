@@ -43,6 +43,8 @@ public:
     ) noexcept(false) override;
     
     FuncVariable const * getConcatStrings() const noexcept override;
+    virtual FuncVariable const * getEqualStrings() const noexcept override;
+    virtual FuncVariable const * getNotEqualStrings() const noexcept override;
     
     
     // MARK: types
@@ -73,6 +75,8 @@ private:
     bool hasMain;
     
     FuncVariable const * _concatString;
+    FuncVariable const * _notEqualString;
+    FuncVariable const * _equalString;
     
     mutable std::vector<std::unique_ptr<const AsmLabel>> stringLabels;
     mutable std::map<std::string, std::string> strings;

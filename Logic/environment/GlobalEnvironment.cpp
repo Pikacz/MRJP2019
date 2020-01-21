@@ -20,6 +20,8 @@
 #include "function/builtin/LatteError.hpp"
 #include "function/builtin/ReadInt.hpp"
 #include "function/builtin/ReadString.hpp"
+#include "function/builtin/StringsEqual.hpp"
+#include "function/builtin/StringsNotEqual.hpp"
 #include "variables/FuncVariable.hpp"
 #include "../assembler/instructions/AsmAsciz.hpp"
 
@@ -85,6 +87,23 @@ GlobalEnvironment::GlobalEnvironment() noexcept: hasMain(false), EnvWithFunction
     variables[key] = move(funcVar);
     key = keyForFunctionNamed(concatString.get()->getName());
     functions[key] = move(concatString);
+    
+    
+    auto equalString = make_unique<StringsEqual>(this);
+    funcVar = make_unique<FuncVariable>(equalString.get(), this);
+    _equalString = funcVar.get();
+    key = keyForVariableNamed(equalString.get()->getName());
+    variables[key] = move(funcVar);
+    key = keyForFunctionNamed(equalString.get()->getName());
+    functions[key] = move(equalString);
+    
+    auto notEqualString = make_unique<StringsNotEqual>(this);
+    funcVar = make_unique<FuncVariable>(notEqualString.get(), this);
+    _notEqualString = funcVar.get();
+    key = keyForVariableNamed(notEqualString.get()->getName());
+    variables[key] = move(funcVar);
+    key = keyForFunctionNamed(notEqualString.get()->getName());
+    functions[key] = move(notEqualString);
 }
 
 
@@ -143,6 +162,14 @@ Function * GlobalEnvironment::declareFunction(
 
 FuncVariable const * GlobalEnvironment::getConcatStrings() const noexcept {
     return _concatString;
+}
+
+FuncVariable const * GlobalEnvironment::getEqualStrings() const noexcept {
+    return _equalString;
+}
+
+FuncVariable const * GlobalEnvironment::getNotEqualStrings() const noexcept {
+    return _notEqualString;
 }
 
 // MARK: - types

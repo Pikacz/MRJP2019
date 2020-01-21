@@ -50,6 +50,8 @@ void TestUnit::createLatteLib() noexcept {
     headerFile << "long long int readInt();" << endl;
     headerFile << "void * readString();" << endl;
     headerFile << "void * concatStrings(void * s1, void * s2);" << endl;
+    headerFile << "long long int stringsEqual(void * ss1, void * ss2);" << endl;
+    headerFile << "long long int stringsNotEqual(void * ss1, void * ss2);" << endl;
     headerFile << "void deleteString(char * s);" << endl;
     headerFile << "void checkDelete();" << endl;
     headerFile << "void * getMemory(long long int size);" << endl;

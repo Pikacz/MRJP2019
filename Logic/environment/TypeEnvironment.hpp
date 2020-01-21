@@ -32,6 +32,10 @@ public:
         std::string name, size_t line, size_t column
     ) const noexcept(false) override;
     
+    virtual FuncVariable const * getConcatStrings() const noexcept override;
+    virtual FuncVariable const * getEqualStrings() const noexcept override;
+    virtual FuncVariable const * getNotEqualStrings() const noexcept override;
+    
     virtual Function * declareFunction(
         FunctionInitializer initializer, size_t line, size_t column
     ) noexcept(false) override;

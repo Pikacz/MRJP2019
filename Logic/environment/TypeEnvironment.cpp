@@ -65,3 +65,16 @@ void TypeEnvironment::setParent(TypeEnvironment const * parent) noexcept {
     assert(this->parent == nullptr);
     this->parent = parent;
 }
+
+
+FuncVariable const * TypeEnvironment::getConcatStrings() const noexcept {
+    return global->getConcatStrings();
+}
+
+FuncVariable const * TypeEnvironment::getEqualStrings() const noexcept {
+    return global->getEqualStrings();
+}
+
+FuncVariable const * TypeEnvironment::getNotEqualStrings() const noexcept {
+    return global->getNotEqualStrings();
+}

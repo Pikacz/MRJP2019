@@ -54,7 +54,9 @@ public:
     
     virtual void markFuncCall(size_t parameters_count) noexcept override;
     
-    FuncVariable const * getConcatStrings() const noexcept override;
+    virtual FuncVariable const * getConcatStrings() const noexcept override;
+    virtual FuncVariable const * getEqualStrings() const noexcept override;
+    virtual FuncVariable const * getNotEqualStrings() const noexcept override;
     
     // MARK: types
     virtual Type const * getTypeNamed(

@@ -107,6 +107,15 @@ FuncVariable const * BlockEnvironment::getConcatStrings() const noexcept {
     return parent->getConcatStrings();
 }
 
+FuncVariable const * BlockEnvironment::getEqualStrings() const noexcept {
+    return parent->getEqualStrings();
+}
+
+FuncVariable const * BlockEnvironment::getNotEqualStrings() const noexcept {
+    return parent->getNotEqualStrings();
+}
+
+
 // MARK: - types
 Type const * BlockEnvironment::getTypeNamed(
     string name, size_t line, size_t column

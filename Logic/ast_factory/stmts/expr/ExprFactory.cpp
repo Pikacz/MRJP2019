@@ -142,21 +142,70 @@ static unique_ptr<const Expression> getExpr5(
             getExpr4(env, ctx->expr4())
         );
     } else if (auto eqToken = ctx->OEq()) {
-        return make_unique<CompareEqual>(
-            env,
-            eqToken->getSymbol()->getLine(),
-            eqToken->getSymbol()->getCharPositionInLine(),
-            getExpr5(env, ctx->expr5()),
-            getExpr4(env, ctx->expr4())
-        );
+        auto lhs = getExpr5(env, ctx->expr5());
+        auto rhs = getExpr4(env, ctx->expr4());
+        if (lhs->isKindOf(env->getLatteInt()) || lhs->isKindOf(env->getLatteBool())) {
+            return make_unique<CompareEqual>(
+                env,
+                eqToken->getSymbol()->getLine(),
+                eqToken->getSymbol()->getCharPositionInLine(),
+                move(lhs),
+                move(rhs)
+            );
+        } else {
+            unique_ptr<const Expression> func;
+            auto f = env->getEqualStrings();
+            auto symbol = eqToken->getSymbol();
+            func = make_unique<VarExpression>(
+                symbol->getLine(), symbol->getCharPositionInLine(), f
+            );
+            
+            vector<unique_ptr<const Expression>> params;
+            params.push_back(move(lhs));
+            params.push_back(move(rhs));
+            
+            
+            return make_unique<ExprCall>(
+                ctx->getStart()->getLine(),
+                ctx->getStart()->getCharPositionInLine(),
+                move(func),
+                move(params)
+            );
+        }
+        
     } else if (auto neqToken = ctx->ONEq()) {
-        return make_unique<CompareNotEqual>(
-            env,
-            neqToken->getSymbol()->getLine(),
-            neqToken->getSymbol()->getCharPositionInLine(),
-            getExpr5(env, ctx->expr5()),
-            getExpr4(env, ctx->expr4())
-        );
+        auto lhs = getExpr5(env, ctx->expr5());
+        auto rhs = getExpr4(env, ctx->expr4());
+        
+        if (lhs->isKindOf(env->getLatteInt()) || lhs->isKindOf(env->getLatteBool())) {
+            return make_unique<CompareNotEqual>(
+                env,
+                neqToken->getSymbol()->getLine(),
+                neqToken->getSymbol()->getCharPositionInLine(),
+                move(lhs),
+                move(rhs)
+            );
+        } else {
+            unique_ptr<const Expression> func;
+            auto f = env->getNotEqualStrings();
+            auto symbol = neqToken->getSymbol();
+            func = make_unique<VarExpression>(
+                symbol->getLine(), symbol->getCharPositionInLine(), f
+            );
+            
+            vector<unique_ptr<const Expression>> params;
+            params.push_back(move(lhs));
+            params.push_back(move(rhs));
+            
+            
+            return make_unique<ExprCall>(
+                ctx->getStart()->getLine(),
+                ctx->getStart()->getCharPositionInLine(),
+                move(func),
+                move(params)
+            );
+        }
+        
     }
     
     

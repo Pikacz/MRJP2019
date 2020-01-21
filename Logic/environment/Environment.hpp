@@ -58,7 +58,9 @@ public:
     
     virtual void markFuncCall(size_t parameters_count) noexcept;
     
-    virtual FuncVariable const * getConcatStrings() const noexcept;
+    virtual FuncVariable const * getConcatStrings() const noexcept = 0;
+    virtual FuncVariable const * getEqualStrings() const noexcept = 0;
+    virtual FuncVariable const * getNotEqualStrings() const noexcept = 0;
     
     // MARK: types
     virtual Type const * getTypeNamed(

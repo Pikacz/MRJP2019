@@ -96,10 +96,6 @@ void Environment::markFuncCall(size_t parameters_count) noexcept {
 }
 
 
-FuncVariable const * Environment::getConcatStrings() const noexcept {
-    assert(false);
-}
-
 
 // MARK:- keys
 string Environment::keyForVariableNamed(string name) noexcept {

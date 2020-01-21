@@ -568,6 +568,10 @@
 		C5907A6223D72A2E00DA181D /* CantBeSubscripted.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5907A6023D72A2E00DA181D /* CantBeSubscripted.hpp */; };
 		C5907A6523D72AE400DA181D /* ExprArrayLength.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5907A6323D72AE400DA181D /* ExprArrayLength.cpp */; };
 		C5907A6623D72AE400DA181D /* ExprArrayLength.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5907A6423D72AE400DA181D /* ExprArrayLength.hpp */; };
+		C5907A6923D744A900DA181D /* StringsEqual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5907A6723D744A900DA181D /* StringsEqual.cpp */; };
+		C5907A6A23D744A900DA181D /* StringsEqual.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5907A6823D744A900DA181D /* StringsEqual.hpp */; };
+		C5907A6D23D744FD00DA181D /* StringsNotEqual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5907A6B23D744FD00DA181D /* StringsNotEqual.cpp */; };
+		C5907A6E23D744FD00DA181D /* StringsNotEqual.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C5907A6C23D744FD00DA181D /* StringsNotEqual.hpp */; };
 		C59BB6FD23C4E3920044EA97 /* Bool2Expr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C59BB6FB23C4E3920044EA97 /* Bool2Expr.cpp */; };
 		C59BB6FE23C4E3920044EA97 /* Bool2Expr.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C59BB6FC23C4E3920044EA97 /* Bool2Expr.hpp */; };
 		C59BB70123C4E68E0044EA97 /* BoolOrExpr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C59BB6FF23C4E68E0044EA97 /* BoolOrExpr.cpp */; };
@@ -1280,6 +1284,10 @@
 		C5907A6023D72A2E00DA181D /* CantBeSubscripted.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CantBeSubscripted.hpp; sourceTree = "<group>"; };
 		C5907A6323D72AE400DA181D /* ExprArrayLength.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExprArrayLength.cpp; sourceTree = "<group>"; };
 		C5907A6423D72AE400DA181D /* ExprArrayLength.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExprArrayLength.hpp; sourceTree = "<group>"; };
+		C5907A6723D744A900DA181D /* StringsEqual.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StringsEqual.cpp; sourceTree = "<group>"; };
+		C5907A6823D744A900DA181D /* StringsEqual.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StringsEqual.hpp; sourceTree = "<group>"; };
+		C5907A6B23D744FD00DA181D /* StringsNotEqual.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StringsNotEqual.cpp; sourceTree = "<group>"; };
+		C5907A6C23D744FD00DA181D /* StringsNotEqual.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StringsNotEqual.hpp; sourceTree = "<group>"; };
 		C59BB6FB23C4E3920044EA97 /* Bool2Expr.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bool2Expr.cpp; sourceTree = "<group>"; };
 		C59BB6FC23C4E3920044EA97 /* Bool2Expr.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Bool2Expr.hpp; sourceTree = "<group>"; };
 		C59BB6FF23C4E68E0044EA97 /* BoolOrExpr.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BoolOrExpr.cpp; sourceTree = "<group>"; };
@@ -2505,6 +2513,10 @@
 				C56A709623D0E56E00AE6CB8 /* ReadString.hpp */,
 				C56A709923D0EC7500AE6CB8 /* ConcatString.cpp */,
 				C56A709A23D0EC7500AE6CB8 /* ConcatString.hpp */,
+				C5907A6723D744A900DA181D /* StringsEqual.cpp */,
+				C5907A6823D744A900DA181D /* StringsEqual.hpp */,
+				C5907A6B23D744FD00DA181D /* StringsNotEqual.cpp */,
+				C5907A6C23D744FD00DA181D /* StringsNotEqual.hpp */,
 			);
 			path = builtin;
 			sourceTree = "<group>";
@@ -2564,6 +2576,7 @@
 				C59BB6FE23C4E3920044EA97 /* Bool2Expr.hpp in Headers */,
 				C59BB71623C518A30044EA97 /* IfStatement.hpp in Headers */,
 				C56D82E823C0CE5700DDA963 /* ExpectedReturn.hpp in Headers */,
+				C5907A6E23D744FD00DA181D /* StringsNotEqual.hpp in Headers */,
 				C5DD2CF423D24FEB003A9E1F /* AsmAsciz.hpp in Headers */,
 				C5B6A01C23CFBA9300E1982A /* ExprCall.hpp in Headers */,
 				C56A709423D0E45C00AE6CB8 /* ReadInt.hpp in Headers */,
@@ -2626,6 +2639,7 @@
 				C547FEFB23AE58C600B21EAE /* Environment.hpp in Headers */,
 				C5E44F2C23CC97DB006DE6B5 /* StatementFactory.hpp in Headers */,
 				C56D831523C11E5600DDA963 /* AsmRet.hpp in Headers */,
+				C5907A6A23D744A900DA181D /* StringsEqual.hpp in Headers */,
 				C554CE8F23CA35980018E414 /* WhileStatement.hpp in Headers */,
 				C56D831E23C1240600DDA963 /* Expr2Arg.hpp in Headers */,
 				C56D833C23C2159E00DDA963 /* AsmIMul.hpp in Headers */,
@@ -3030,6 +3044,7 @@
 				C56B508623AF7FA700C56FF2 /* NoSuchVariableError.cpp in Sources */,
 				C547FEFA23AE58C600B21EAE /* Environment.cpp in Sources */,
 				C554D9CC23CB94C50018E414 /* LatteLexer.cpp in Sources */,
+				C5907A6D23D744FD00DA181D /* StringsNotEqual.cpp in Sources */,
 				C59BB70123C4E68E0044EA97 /* BoolOrExpr.cpp in Sources */,
 				C56D830423C1015600DDA963 /* BlockEnvironment.cpp in Sources */,
 				C554CE7A23CA07100018E414 /* CompareGreaterEqual.cpp in Sources */,
@@ -3075,6 +3090,7 @@
 				C56D834F23C2430800DDA963 /* DeclareStatement.cpp in Sources */,
 				C56A709323D0E45C00AE6CB8 /* ReadInt.cpp in Sources */,
 				C554CE8A23CA2C0C0018E414 /* Expr1Arg.cpp in Sources */,
+				C5907A6923D744A900DA181D /* StringsEqual.cpp in Sources */,
 				C56B50CE23AFA76500C56FF2 /* StringConstant.cpp in Sources */,
 				C56D834B23C22DA000DDA963 /* IntMod.cpp in Sources */,
 				C554CE5E23CA01F70018E414 /* CompareLess.cpp in Sources */,
