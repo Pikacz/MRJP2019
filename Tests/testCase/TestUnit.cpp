@@ -59,6 +59,7 @@ void TestUnit::createLatteLib() noexcept {
     headerFile << "void * getValue(void * ptr);" << endl;
     headerFile << "void incCounter(void * ptr);" << endl;
     headerFile << "void decCounter(void * ptr);" << endl;
+    headerFile << "" << endl;
     headerFile.close();
     
     ofstream codeFile("latte_lib.cpp");
@@ -70,6 +71,8 @@ void TestUnit::createLatteLib() noexcept {
     codeFile << "#include <cassert>" << endl;
     codeFile << "#include <cstdlib>" << endl;
     codeFile << "#include <sstream>" << endl;
+    codeFile << "#include <cstdio>" << endl;
+    codeFile << "#include <cstring>" << endl;
     codeFile << "" << endl;
     codeFile << "using namespace std;" << endl;
     codeFile << "" << endl;
@@ -128,6 +131,26 @@ void TestUnit::createLatteLib() noexcept {
     codeFile << "    strcpy(cstr, str.c_str());" << endl;
     codeFile << "    string_count++;" << endl;
     codeFile << "    return wrapDestructable(cstr, true);" << endl;
+    codeFile << "}" << endl;
+    codeFile << "" << endl;
+    codeFile << "long long int stringsEqual(void * ss1, void * ss2) {" << endl;
+    codeFile << "    char* s1 = (char *) getValue(ss1);" << endl;
+    codeFile << "    char* s2 = (char *) getValue(ss2);" << endl;
+    codeFile << "    if (strcmp( s1, s2 ) == 0) {" << endl;
+    codeFile << "        return 1;" << endl;
+    codeFile << "    } else {" << endl;
+    codeFile << "        return 0;" << endl;
+    codeFile << "    }" << endl;
+    codeFile << "}" << endl;
+    codeFile << "" << endl;
+    codeFile << "long long int stringsNotEqual(void * ss1, void * ss2) {" << endl;
+    codeFile << "    char* s1 = (char *) getValue(ss1);" << endl;
+    codeFile << "    char* s2 = (char *) getValue(ss2);" << endl;
+    codeFile << "    if (strcmp( s1, s2 ) == 0) {" << endl;
+    codeFile << "        return 0;" << endl;
+    codeFile << "    } else {" << endl;
+    codeFile << "        return 1;" << endl;
+    codeFile << "    }" << endl;
     codeFile << "}" << endl;
     codeFile << "" << endl;
     codeFile << "void deleteString(char * s) {" << endl;
@@ -204,6 +227,7 @@ void TestUnit::createLatteLib() noexcept {
     codeFile << "        delete obj;" << endl;
     codeFile << "    }" << endl;
     codeFile << "}" << endl;
+    codeFile << "" << endl;
     codeFile << "" << endl;
     codeFile << "" << endl;
     

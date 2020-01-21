@@ -49,7 +49,7 @@ public:
 
 vector<shared_ptr<TestUnit> > ObjectTests::getTests() const noexcept {
     return {
-        make_shared<ObjectTest1>(),
-        make_shared<ObjectTest2>()
+//        make_shared<ObjectTest1>(),
+//        make_shared<ObjectTest2>()
     };
 }
