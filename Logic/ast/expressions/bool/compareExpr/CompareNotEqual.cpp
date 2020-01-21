@@ -11,6 +11,16 @@
 
 using namespace std;
 
+
+CompareNotEqual::CompareNotEqual(
+    Environment const * env,
+    size_t line,
+    size_t column,
+    unique_ptr<const Expression> lhs,
+    unique_ptr<const Expression> rhs
+): CompareExpr(env, line, column, move(lhs), move(rhs), true) {}
+
+
 bool CompareNotEqual::isEqualTo(AstNode const * node) const noexcept {
     if (auto nd = dynamic_cast<CompareNotEqual const *>(node)) {
         return lhs.get()->isEqualTo(nd->lhs.get()) &&

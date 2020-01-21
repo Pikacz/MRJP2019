@@ -18,8 +18,8 @@ public:
     OOr = 21, OArrBL = 22, OArrBR = 23, ParBL = 24, ParBR = 25, Dot = 26, 
     Kreturn = 27, Kwhile = 28, Kif = 29, Kelse = 30, Kclass = 31, Kextends = 32, 
     Knew = 33, Kint = 34, Kstring = 35, Kvoid = 36, Kbool = 37, KTrue = 38, 
-    KFalse = 39, Identifier = 40, IntLiteral = 41, StringLiteral = 42, Whitespace = 43, 
-    BlockComment = 44, LineComment = 45
+    KFalse = 39, KNull = 40, Identifier = 41, IntLiteral = 42, StringLiteral = 43, 
+    Whitespace = 44, BlockComment = 45, LineComment = 46
   };
 
   LatteLexer(antlr4::CharStream *input);

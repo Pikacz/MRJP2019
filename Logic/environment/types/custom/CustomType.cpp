@@ -105,3 +105,8 @@ bool CustomType::isCompleted() const noexcept {
 std::optional<CustomType const *> CustomType::getParent() const noexcept {
     return parentType;
 }	
+
+
+bool CustomType::isObject() const noexcept {
+    return true;
+}

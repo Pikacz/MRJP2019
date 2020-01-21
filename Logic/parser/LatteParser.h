@@ -18,8 +18,8 @@ public:
     OOr = 21, OArrBL = 22, OArrBR = 23, ParBL = 24, ParBR = 25, Dot = 26, 
     Kreturn = 27, Kwhile = 28, Kif = 29, Kelse = 30, Kclass = 31, Kextends = 32, 
     Knew = 33, Kint = 34, Kstring = 35, Kvoid = 36, Kbool = 37, KTrue = 38, 
-    KFalse = 39, Identifier = 40, IntLiteral = 41, StringLiteral = 42, Whitespace = 43, 
-    BlockComment = 44, LineComment = 45
+    KFalse = 39, KNull = 40, Identifier = 41, IntLiteral = 42, StringLiteral = 43, 
+    Whitespace = 44, BlockComment = 45, LineComment = 46
   };
 
   enum {
@@ -30,7 +30,7 @@ public:
     RuleExpr3 = 19, RuleExpr2 = 20, RuleExpr1 = 21, RuleExpr1IntConstant = 22, 
     RuleExpr1StringConstant = 23, RuleExpr1BoolConstant = 24, RuleExpr1Variable = 25, 
     RuleExpr1Minus = 26, RuleExpr1Not = 27, RuleExpr1Par = 28, RuleExpr1NewArray = 29, 
-    RuleExpr1NewObject = 30, RuleCallList = 31
+    RuleExpr1NewObject = 30, RuleExpr1Null = 31, RuleCallList = 32
   };
 
   LatteParser(antlr4::TokenStream *input);
@@ -74,6 +74,7 @@ public:
   class Expr1ParContext;
   class Expr1NewArrayContext;
   class Expr1NewObjectContext;
+  class Expr1NullContext;
   class CallListContext; 
 
   class  MainContext : public antlr4::ParserRuleContext {
@@ -432,6 +433,7 @@ public:
     Expr1ParContext *expr1Par();
     Expr1NewArrayContext *expr1NewArray();
     Expr1NewObjectContext *expr1NewObject();
+    Expr1NullContext *expr1Null();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -566,6 +568,22 @@ public:
   };
 
   Expr1NewObjectContext* expr1NewObject();
+
+  class  Expr1NullContext : public antlr4::ParserRuleContext {
+  public:
+    Expr1NullContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *ParBL();
+    antlr4::tree::TerminalNode *Identifier();
+    antlr4::tree::TerminalNode *ParBR();
+    antlr4::tree::TerminalNode *KNull();
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  Expr1NullContext* expr1Null();
 
   class  CallListContext : public antlr4::ParserRuleContext {
   public:

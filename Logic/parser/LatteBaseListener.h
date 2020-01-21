@@ -109,6 +109,9 @@ public:
   virtual void enterExpr1NewObject(LatteParser::Expr1NewObjectContext * /*ctx*/) override { }
   virtual void exitExpr1NewObject(LatteParser::Expr1NewObjectContext * /*ctx*/) override { }
 
+  virtual void enterExpr1Null(LatteParser::Expr1NullContext * /*ctx*/) override { }
+  virtual void exitExpr1Null(LatteParser::Expr1NullContext * /*ctx*/) override { }
+
   virtual void enterCallList(LatteParser::CallListContext * /*ctx*/) override { }
   virtual void exitCallList(LatteParser::CallListContext * /*ctx*/) override { }
 

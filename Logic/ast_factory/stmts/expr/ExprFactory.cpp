@@ -20,6 +20,8 @@
 #include "../../../ast/expressions/VarExpression.hpp"
 #include "../../../ast/expressions/ExprArrayLength.hpp"
 #include "../../../ast/expressions/ExprDot.hpp"
+#include "../../../ast/expressions/ExprCompareObjects.hpp"
+#include "../../../ast/expressions/ExprNull.hpp"
 #include "../../../ast/expressions/ExprSubscript.hpp"
 #include "../../../ast/expressions/ExprNewObject.hpp"
 #include "../../../ast/expressions/ExprCall.hpp"
@@ -37,6 +39,7 @@
 #include "../../../environment/variables/FuncVariable.hpp"
 
 
+#include <cassert>
 
 using namespace std;
 using namespace antlr4;
@@ -152,6 +155,15 @@ static unique_ptr<const Expression> getExpr5(
                 move(lhs),
                 move(rhs)
             );
+        } else if (lhs->getType()->isObject()) {
+            return make_unique<ExprCompareObjects>(
+                env,
+                eqToken->getSymbol()->getLine(),
+                eqToken->getSymbol()->getCharPositionInLine(),
+                move(lhs),
+                move(rhs),
+                true
+            );
         } else {
             unique_ptr<const Expression> func;
             auto f = env->getEqualStrings();
@@ -185,7 +197,16 @@ static unique_ptr<const Expression> getExpr5(
                 move(lhs),
                 move(rhs)
             );
-        } else {
+        } else if (lhs->getType()->isObject()) {
+           return make_unique<ExprCompareObjects>(
+               env,
+               eqToken->getSymbol()->getLine(),
+               eqToken->getSymbol()->getCharPositionInLine(),
+               move(lhs),
+               move(rhs),
+               false
+           );
+       } else {
             unique_ptr<const Expression> func;
             auto f = env->getNotEqualStrings();
             auto symbol = neqToken->getSymbol();
@@ -451,13 +472,24 @@ static unique_ptr<const Expression> getExpr1(
         auto newToken = exprNewArray->Knew()->getSymbol();
         return make_unique<ExprNewArray>(type, env, move(expr), newToken->getLine(), newToken->getCharPositionInLine());
     }
-    auto newObj = ctx->expr1NewObject();
-    auto tName = newObj->Identifier()->getText();
-    auto tToken = newObj->Identifier()->getSymbol();
-    auto type = env->getTypeNamed(tName, tToken->getLine(), tToken->getCharPositionInLine());
+    if (auto newObj = ctx->expr1NewObject()) {
+        auto tName = newObj->Identifier()->getText();
+        auto tToken = newObj->Identifier()->getSymbol();
+        auto type = env->getTypeNamed(tName, tToken->getLine(), tToken->getCharPositionInLine());
+        
+        auto nToken = newObj->Knew()->getSymbol();
+        return make_unique<ExprNewObject>(type, nToken->getLine(), nToken->getCharPositionInLine());
+    }
     
-    auto nToken = newObj->Knew()->getSymbol();
-    return make_unique<ExprNewObject>(type, nToken->getLine(), nToken->getCharPositionInLine());
+    if (auto nullECtx = ctx->expr1Null()) {
+        auto tName = nullECtx->Identifier()->getText();
+        auto tToken = nullECtx->Identifier()->getSymbol();
+        auto type = env->getTypeNamed(tName, tToken->getLine(), tToken->getCharPositionInLine());
+        auto nToken = nullECtx->KNull()->getSymbol();
+        return make_unique<ExprNull>(nToken->getLine(), nToken->getCharPositionInLine(), type);
+    }
+    
+    assert(false);
 }
 
 static string getStringVal(tree::TerminalNode * ctx) noexcept {

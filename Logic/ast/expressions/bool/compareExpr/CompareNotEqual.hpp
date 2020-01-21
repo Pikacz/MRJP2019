@@ -13,7 +13,13 @@
 
 class CompareNotEqual final: public CompareExpr {
 public:
-    using CompareExpr::CompareExpr;
+    CompareNotEqual(
+        Environment const * env,
+        size_t line,
+        size_t column,
+        std::unique_ptr<const Expression> lhs,
+        std::unique_ptr<const Expression> rhs
+    );
     
     bool isEqualTo(AstNode const * node) const noexcept override;
     

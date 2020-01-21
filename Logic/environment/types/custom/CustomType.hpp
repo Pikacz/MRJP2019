@@ -48,6 +48,8 @@ public:
     
     bool isCompleted() const noexcept;
     
+    virtual bool isObject() const noexcept override;
+    
     std::optional<CustomType const *> getParent() const noexcept;
     
 protected:

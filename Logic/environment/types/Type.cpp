@@ -43,3 +43,8 @@ bool Type::isPointer() const noexcept {
 bool Type::isArray() const noexcept {
     return false;
 }
+
+
+bool Type::isObject() const noexcept {
+    return false;
+}

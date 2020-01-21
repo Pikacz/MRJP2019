@@ -38,6 +38,9 @@ public:
     virtual bool isPointer() const noexcept;
     
     virtual bool isArray() const noexcept;
+    
+    virtual bool isObject() const noexcept;
 };
+
 
 #endif /* Type_hpp */
